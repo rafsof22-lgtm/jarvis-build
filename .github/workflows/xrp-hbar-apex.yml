@@ -1,0 +1,36 @@
+name: XRP/HBAR Apex Service CI
+
+on:
+  push:
+    paths:
+      - "services/xrp-hbar-apex/**"
+      - ".github/workflows/xrp-hbar-apex.yml"
+  pull_request:
+    paths:
+      - "services/xrp-hbar-apex/**"
+      - ".github/workflows/xrp-hbar-apex.yml"
+
+jobs:
+  test-xrp-hbar-apex:
+    name: Test isolated XRP/HBAR Apex service
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: services/xrp-hbar-apex
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install dependencies
+        run: npm install --ignore-scripts
+
+      - name: Run tests
+        run: npm test
+
+      - name: Validate Railway setup contract
+        run: npm run railway:check
