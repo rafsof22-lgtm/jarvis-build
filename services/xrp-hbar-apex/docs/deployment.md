@@ -6,9 +6,18 @@
 - Runtime class: `RAILWAY_SERVICE`
 - Repo: `rafsof22-lgtm/jarvis-build`
 - Root directory: `services/xrp-hbar-apex`
+- Deploy branch: `main`
 - Start command: `npm start`
 - Health path: `/health`
 - Readiness path: `/ready`
+
+## Shared-monorepo guardrail
+
+This repo is a shared Jarvis monorepo. Deploy this module as its own Railway service with the root directory set exactly to `services/xrp-hbar-apex`.
+
+Do not deploy XRP/HBAR Apex from the monorepo root. The root-level `package.json` is not the service runtime contract, and no top-level Railway config should be treated as authoritative for this module unless it has been separately compatibility-checked for every Jarvis service.
+
+Do not reuse another module's Railway service, env vars, runtime entrypoint, start command, port, routes, or health/readiness endpoints for XRP/HBAR Apex.
 
 ## Current proof boundary
 
@@ -20,7 +29,7 @@ Required for current shell:
 
 - none beyond Railway-provided `PORT`
 
-Recommended:
+Recommended non-secret variables:
 
 - `APP_ENV=production`
 - `LOG_LEVEL=info`
@@ -44,13 +53,15 @@ After Railway deploys the service, verify:
 GET /health
 GET /ready
 GET /deployment/status
+POST /mcp
 ```
 
 Expected first-run result:
 
-- health and readiness return `200`
-- deployment status returns `200`
-- `/mcp` returns `501` until real MCP handling is implemented
+- `/health` returns `200`
+- `/ready` returns `200` with `missingRequiredEnv: []`
+- `/deployment/status` returns `200` and lists implemented vs not implemented capabilities
+- `/mcp` returns `501 not_implemented` until real MCP handling is implemented
 
 ## Next implementation steps
 
