@@ -1,0 +1,16 @@
+{
+  "name": "@jarvis/xrp-hbar-apex",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Isolated Railway-ready HTTP service shell for XRP/HBAR Apex Intelligence OS.",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --test"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
