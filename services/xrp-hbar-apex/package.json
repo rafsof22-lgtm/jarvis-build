@@ -9,7 +9,8 @@
   },
   "scripts": {
     "start": "node src/server.js",
-    "test": "node --test"
+    "test": "node --test",
+    "railway:check": "node scripts/railway-setup-check.mjs"
   },
   "dependencies": {},
   "devDependencies": {}
