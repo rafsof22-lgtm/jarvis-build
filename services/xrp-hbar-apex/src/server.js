@@ -31,6 +31,7 @@ function readBody(req) {
 export function createServer(runtimeConfig = config) {
   return http.createServer(async (req, res) => {
     const url = new URL(req.url ?? "/", "http://localhost");
+    const capabilities = getCapabilityStatus(runtimeConfig);
 
     if (req.method === "GET" && url.pathname === "/health") {
       return sendJson(res, 200, {
@@ -41,15 +42,19 @@ export function createServer(runtimeConfig = config) {
     }
 
     if (req.method === "GET" && url.pathname === "/ready") {
-      return sendJson(res, 200, {
-        ok: true,
+      const ready = runtimeConfig.requiredConfig.ready;
+      return sendJson(res, ready ? 200 : 503, {
+        ok: ready,
         service: runtimeConfig.serviceName,
-        status: "ready",
+        status: ready ? "ready" : "not_ready",
         checks: {
           configLoaded: true,
           portConfigured: true,
-          noRequiredSecretsForShell: true
-        }
+          requiredEnv: runtimeConfig.requiredConfig.required,
+          missingRequiredEnv: runtimeConfig.requiredConfig.missing,
+          noRequiredSecretsForShell: runtimeConfig.requiredConfig.required.length === 0
+        },
+        note: runtimeConfig.requiredConfig.note
       });
     }
 
@@ -59,7 +64,18 @@ export function createServer(runtimeConfig = config) {
         service: runtimeConfig.serviceName,
         version: runtimeConfig.version,
         appEnv: runtimeConfig.appEnv,
-        capabilities: getCapabilityStatus(runtimeConfig),
+        railwayRootDirectory: "services/xrp-hbar-apex",
+        deployBranch: "main",
+        capabilities,
+        implementedNow: ["GET /health", "GET /ready", "GET /deployment/status", "GET /", "GET /mcp/tools"],
+        notImplementedYet: [
+          "POST /mcp handler",
+          "full XRP/HBAR tracker execution",
+          "scheduled workers",
+          "ChatGPT Memory access from this service",
+          "external integrations",
+          "archive ingestion"
+        ],
         truthBoundary:
           "This service shell is running if this endpoint is reachable. Full XRP/HBAR intelligence execution, schedules, Memory, and external integrations are not proven by this endpoint."
       });
