@@ -10,7 +10,8 @@
   "scripts": {
     "start": "node src/server.js",
     "test": "node --test",
-    "railway:check": "node scripts/railway-setup-check.mjs"
+    "railway:check": "node scripts/railway-setup-check.mjs",
+    "live:verify": "node scripts/verify-live.mjs"
   },
   "dependencies": {},
   "devDependencies": {}
