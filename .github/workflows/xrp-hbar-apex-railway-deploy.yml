@@ -1,0 +1,71 @@
+name: XRP/HBAR Apex Railway Deploy
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "services/xrp-hbar-apex/**"
+      - ".github/workflows/xrp-hbar-apex-railway-deploy.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy-xrp-hbar-apex:
+    name: Deploy isolated XRP/HBAR Apex service
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: services/xrp-hbar-apex
+    env:
+      APP_ENV: production
+      LOG_LEVEL: info
+      RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+      RAILWAY_SERVICE_ID: ${{ secrets.XRP_HBAR_APEX_RAILWAY_SERVICE_ID }}
+      RAILWAY_PROJECT_ID: ${{ secrets.XRP_HBAR_APEX_RAILWAY_PROJECT_ID }}
+      XRP_HBAR_APEX_URL: ${{ vars.XRP_HBAR_APEX_URL }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install dependencies
+        run: npm install --ignore-scripts
+
+      - name: Test isolated service
+        run: npm test
+
+      - name: Validate Railway service contract
+        run: npm run railway:check
+
+      - name: Stop if Railway token is unavailable
+        if: ${{ env.RAILWAY_TOKEN == '' }}
+        run: |
+          echo "Railway deploy blocked: GitHub secret RAILWAY_TOKEN is not configured." >> "$GITHUB_STEP_SUMMARY"
+          echo "Required setup: add RAILWAY_TOKEN, XRP_HBAR_APEX_RAILWAY_PROJECT_ID, XRP_HBAR_APEX_RAILWAY_SERVICE_ID, and optional XRP_HBAR_APEX_URL after Railway creates the public domain." >> "$GITHUB_STEP_SUMMARY"
+          exit 1
+
+      - name: Install Railway CLI
+        run: npm install --global @railway/cli
+
+      - name: Link Railway project and service
+        if: ${{ env.RAILWAY_PROJECT_ID != '' && env.RAILWAY_SERVICE_ID != '' }}
+        run: railway link --project "$RAILWAY_PROJECT_ID" --service "$RAILWAY_SERVICE_ID"
+
+      - name: Deploy to Railway
+        run: railway up --detach
+
+      - name: Verify live endpoints when URL is known
+        if: ${{ env.XRP_HBAR_APEX_URL != '' }}
+        run: npm run live:verify
+
+      - name: Record URL verification blocker
+        if: ${{ env.XRP_HBAR_APEX_URL == '' }}
+        run: |
+          echo "Deploy command ran, but live endpoint verification is blocked until GitHub variable XRP_HBAR_APEX_URL is set to the Railway public URL." >> "$GITHUB_STEP_SUMMARY"
