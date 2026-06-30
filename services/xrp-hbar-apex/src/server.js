@@ -2,6 +2,7 @@ import http from "node:http";
 import { getCapabilityStatus, getConfig } from "./config.js";
 
 const config = getConfig();
+const ROUTE_NAMESPACE = "/xrp-hbar-apex";
 
 function sendJson(res, statusCode, payload) {
   const body = JSON.stringify(payload, null, 2);
@@ -28,25 +29,40 @@ function readBody(req) {
   });
 }
 
+function normalizePath(pathname) {
+  if (pathname === ROUTE_NAMESPACE) {
+    return "/";
+  }
+
+  if (pathname.startsWith(`${ROUTE_NAMESPACE}/`)) {
+    return pathname.slice(ROUTE_NAMESPACE.length) || "/";
+  }
+
+  return pathname;
+}
+
 export function createServer(runtimeConfig = config) {
   return http.createServer(async (req, res) => {
     const url = new URL(req.url ?? "/", "http://localhost");
+    const path = normalizePath(url.pathname);
     const capabilities = getCapabilityStatus(runtimeConfig);
 
-    if (req.method === "GET" && url.pathname === "/health") {
+    if (req.method === "GET" && path === "/health") {
       return sendJson(res, 200, {
         ok: true,
         service: runtimeConfig.serviceName,
-        status: "healthy"
+        status: "healthy",
+        routeNamespace: ROUTE_NAMESPACE
       });
     }
 
-    if (req.method === "GET" && url.pathname === "/ready") {
+    if (req.method === "GET" && path === "/ready") {
       const ready = runtimeConfig.requiredConfig.ready;
       return sendJson(res, ready ? 200 : 503, {
         ok: ready,
         service: runtimeConfig.serviceName,
         status: ready ? "ready" : "not_ready",
+        routeNamespace: ROUTE_NAMESPACE,
         checks: {
           configLoaded: true,
           portConfigured: true,
@@ -58,7 +74,7 @@ export function createServer(runtimeConfig = config) {
       });
     }
 
-    if (req.method === "GET" && url.pathname === "/deployment/status") {
+    if (req.method === "GET" && path === "/deployment/status") {
       return sendJson(res, 200, {
         ok: true,
         service: runtimeConfig.serviceName,
@@ -66,8 +82,22 @@ export function createServer(runtimeConfig = config) {
         appEnv: runtimeConfig.appEnv,
         railwayRootDirectory: "services/xrp-hbar-apex",
         deployBranch: "main",
+        routeNamespace: ROUTE_NAMESPACE,
+        envNamespacePrefix: "XRP_HBAR_APEX_",
+        queueJobPrefix: "xrp_hbar_apex_",
+        databasePrefix: "xrp_hbar_apex_",
+        webhookPrefix: "xrp-hbar-apex-",
         capabilities,
-        implementedNow: ["GET /health", "GET /ready", "GET /deployment/status", "GET /", "GET /mcp/tools"],
+        implementedNow: [
+          "GET /health",
+          "GET /ready",
+          "GET /deployment/status",
+          "GET /xrp-hbar-apex/health",
+          "GET /xrp-hbar-apex/ready",
+          "GET /xrp-hbar-apex/deployment/status",
+          "GET /",
+          "GET /mcp/tools"
+        ],
         notImplementedYet: [
           "POST /mcp handler",
           "full XRP/HBAR tracker execution",
@@ -81,7 +111,7 @@ export function createServer(runtimeConfig = config) {
       });
     }
 
-    if (req.method === "GET" && url.pathname === "/mcp/tools") {
+    if (req.method === "GET" && path === "/mcp/tools") {
       return sendJson(res, 200, {
         ok: true,
         tools: [],
@@ -90,7 +120,7 @@ export function createServer(runtimeConfig = config) {
       });
     }
 
-    if (req.method === "POST" && url.pathname === "/mcp") {
+    if (req.method === "POST" && path === "/mcp") {
       await readBody(req).catch(() => "");
       return sendJson(res, 501, {
         ok: false,
@@ -99,12 +129,21 @@ export function createServer(runtimeConfig = config) {
       });
     }
 
-    if (req.method === "GET" && url.pathname === "/") {
+    if (req.method === "GET" && path === "/") {
       return sendJson(res, 200, {
         service: runtimeConfig.serviceName,
         status: "starter_shell",
-        endpoints: ["/health", "/ready", "/deployment/status", "/mcp/tools"],
-        railwayRootDirectory: "services/xrp-hbar-apex"
+        endpoints: [
+          "/health",
+          "/ready",
+          "/deployment/status",
+          "/xrp-hbar-apex/health",
+          "/xrp-hbar-apex/ready",
+          "/xrp-hbar-apex/deployment/status",
+          "/mcp/tools"
+        ],
+        railwayRootDirectory: "services/xrp-hbar-apex",
+        routeNamespace: ROUTE_NAMESPACE
       });
     }
 
