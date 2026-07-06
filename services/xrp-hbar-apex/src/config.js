@@ -1,4 +1,4 @@
-const REQUIRED_ENV = ["APP_ENV", "BASE_URL"];
+const REQUIRED_ENV = [];
 const AUTH_MODES = new Set(["bearer", "api_key", "none"]);
 
 function hasValue(value) {
@@ -6,8 +6,21 @@ function hasValue(value) {
 }
 
 function normalizeAuthMode(value) {
-  const normalized = String(value || "bearer").trim().toLowerCase();
-  return AUTH_MODES.has(normalized) ? normalized : "bearer";
+  const normalized = String(value || "none").trim().toLowerCase();
+  return AUTH_MODES.has(normalized) ? normalized : "none";
+}
+
+function resolveBaseUrl(env) {
+  if (hasValue(env.BASE_URL)) {
+    return env.BASE_URL;
+  }
+
+  const railwayDomain = env.RAILWAY_PUBLIC_DOMAIN || env.RAILWAY_STATIC_URL || "";
+  if (!hasValue(railwayDomain)) {
+    return "";
+  }
+
+  return railwayDomain.startsWith("http") ? railwayDomain : `https://${railwayDomain}`;
 }
 
 export function getRequiredConfigStatus(env = process.env) {
@@ -28,7 +41,7 @@ export function getRequiredConfigStatus(env = process.env) {
     missing,
     ready: missing.length === 0,
     note:
-      "Ready means the minimum MCP HTTP boundary can accept authenticated tool calls. Provider-backed transcription/OCR may still return structured limitation responses until provider credentials are added."
+      "Ready means the starter HTTP boundary can boot and report its explicit capability limits. Provider-backed MCP tools, tracker execution, and external integrations remain unavailable until implemented and configured."
   };
 }
 
@@ -40,8 +53,8 @@ export function getConfig(env = process.env) {
   return {
     serviceName: "xrp-hbar-apex",
     version: "0.2.0",
-    appEnv: env.APP_ENV || "development",
-    baseUrl: env.BASE_URL || "",
+    appEnv: env.APP_ENV || env.NODE_ENV || "development",
+    baseUrl: resolveBaseUrl(env),
     logLevel: env.LOG_LEVEL || "info",
     port: Number.isFinite(port) && port > 0 ? port : 3000,
     auth: {
@@ -68,8 +81,8 @@ export function getCapabilityStatus(config) {
     health: "implemented",
     readiness: config.requiredConfig.ready ? "implemented_ready" : "implemented_not_ready",
     deploymentStatus: "implemented",
-    mcpTools: "implemented",
-    mcp: "implemented",
+    mcpTools: "implemented_empty",
+    mcp: "not_implemented",
     auth: config.auth.enabled ? `enabled_${config.auth.mode}` : "disabled",
     trackerExecution: "external_chatgpt_agent_only",
     scheduledWorkers: "not_implemented",
