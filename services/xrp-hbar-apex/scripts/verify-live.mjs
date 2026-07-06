@@ -27,6 +27,7 @@ const checks = [
   await readJson("/health"),
   await readJson("/ready"),
   await readJson("/deployment/status"),
+  await readJson("/mcp/tools"),
   await readJson("/mcp", { method: "POST", body: "{}" })
 ];
 
@@ -34,6 +35,7 @@ const expected = {
   "/health": 200,
   "/ready": 200,
   "/deployment/status": 200,
+  "/mcp/tools": 200,
   "/mcp": 501
 };
 
