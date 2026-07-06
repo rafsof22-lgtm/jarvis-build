@@ -1,14 +1,16 @@
 {
   "name": "@jarvis/xrp-hbar-apex",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
-  "description": "Isolated Railway-ready HTTP service shell for XRP/HBAR Apex Intelligence OS.",
+  "description": "Railway-ready MCP HTTP service boundary for XRP/HBAR Apex Intelligence OS.",
   "engines": {
     "node": ">=20"
   },
   "scripts": {
     "start": "node src/server.js",
+    "dev": "APP_ENV=development MCP_AUTH_MODE=none node src/server.js",
+    "smoke": "bash scripts/smoke-test.sh",
     "test": "node --test",
     "railway:check": "node scripts/railway-setup-check.mjs",
     "live:verify": "node scripts/verify-live.mjs"
