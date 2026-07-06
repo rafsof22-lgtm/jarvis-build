@@ -80,6 +80,7 @@ export function createServer(runtimeConfig = config) {
         service: runtimeConfig.serviceName,
         version: runtimeConfig.version,
         appEnv: runtimeConfig.appEnv,
+        baseUrlConfigured: Boolean(runtimeConfig.baseUrl),
         railwayRootDirectory: "services/xrp-hbar-apex",
         deployBranch: "main",
         routeNamespace: ROUTE_NAMESPACE,
