@@ -46,7 +46,7 @@ const summary = {
   expectedRailway: expected,
   safeMinimumVars: {
     APP_ENV: expected.appEnv,
-    BASE_URL: "https://jarvis-build-production.up.railway.app",
+    BASE_URL: "https://your-xrp-hbar-apex-service.up.railway.app",
     LOG_LEVEL: expected.logLevel
   },
   requiredSecretsForCurrentShell: [],
