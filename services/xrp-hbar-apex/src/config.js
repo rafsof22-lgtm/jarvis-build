@@ -25,10 +25,13 @@ function resolveBaseUrl(env) {
 }
 
 export function getRequiredConfigStatus(env = process.env) {
-  const required = ["APP_ENV", "BASE_URL"];
-  const missing = required.filter((name) => !hasValue(env[name]));
+  const baseUrl = resolveBaseUrl(env);
+  const required = ["APP_ENV", "BASE_URL or Railway public domain"];
+  const missing = [];
   const authMode = normalizeAuthMode(env.MCP_AUTH_MODE);
 
+  if (!hasValue(env.APP_ENV)) missing.push("APP_ENV");
+  if (!hasValue(baseUrl)) missing.push("BASE_URL or RAILWAY_PUBLIC_DOMAIN/RAILWAY_STATIC_URL");
   if (authMode === "bearer" && !hasValue(env.MCP_BEARER_TOKEN)) missing.push("MCP_BEARER_TOKEN");
   if (authMode === "api_key" && !hasValue(env.MCP_API_KEY)) missing.push("MCP_API_KEY");
 
@@ -37,6 +40,7 @@ export function getRequiredConfigStatus(env = process.env) {
     authMode,
     missing,
     ready: missing.length === 0,
+    resolvedBaseUrl: baseUrl,
     note:
       "Ready means the HTTP runtime can serve health, readiness, deployment status, MCP discovery, and authenticated MCP dispatch. Provider-backed transcription, OCR, storage, market data, news, social, and full tracker execution remain limited unless separately configured."
   };
@@ -55,9 +59,9 @@ export function getConfig(env = process.env) {
 
   return {
     serviceName: "xrp-hbar-apex",
-    version: "0.3.0",
+    version: "0.3.1",
     appEnv: env.APP_ENV || env.NODE_ENV || "development",
-    baseUrl: resolveBaseUrl(env),
+    baseUrl: requiredConfig.resolvedBaseUrl,
     logLevel: env.LOG_LEVEL || "info",
     port: Number.isFinite(port) && port > 0 ? port : 3000,
     auth: {
