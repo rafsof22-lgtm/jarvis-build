@@ -49,16 +49,37 @@ Bill CFO OCR MCP is an isolated Jarvis service, not a repo-wide runtime.
 - Service-local instructions: `services/bill-cfo-ocr-mcp/AGENTS.md`
 - Locator: `services/bill-cfo-ocr-mcp/docs/agent-locator.md`
 - Deployment ledger: `services/bill-cfo-ocr-mcp/docs/deployment-ledger.md`
-- Railway target: a dedicated Railway service mapped to `services/bill-cfo-ocr-mcp/`
+- Bill-CFO prompt: `services/bill-cfo-ocr-mcp/docs/bill-cfo-agent-instruction-prompt.md`
+- Railway target: the existing dedicated Railway service mapped to `services/bill-cfo-ocr-mcp/`
 - Deploy branch: `main`
 
 When a Bill CFO agent starts work, it must read the service-local `AGENTS.md`, the locator, the deployment ledger, `railway.json`, `.env.example`, `package.json`, and `src/server.js` before editing.
 
 Bill CFO agents may edit `services/bill-cfo-ocr-mcp/**` by default. They must not edit `services/xrp-hbar-apex/**`, other `services/*` roots, or repo-wide deployment behavior unless the user explicitly requests a shared change and the impact is classified first.
 
-Do not claim Railway deployment success from repo files alone. Verify the Railway project/service, root directory, env vars, public URL, `/health`, `/ready`, `/deployment/status`, and the smallest real OCR/workbook smoke route before marking Bill CFO live.
+User-supplied Railway logs on 2026-07-07 prove the active connected Railway shell is Bill-CFO: the deployment built from `services/bill-cfo-ocr-mcp`, started `@jarvis/bill-cfo-ocr-mcp`, and passed `/health`. This does not prove OCR provider auth, workbook writes, queue workers, or finance workflows.
 
-Use these labels where applicable: `REPO_LOCATOR_SET`, `SERVICE_ROOT_CONFIRMED`, `MODULE_OWNERSHIP_MAPPED`, `RAILWAY_SERVICE_UNVERIFIED`, `NEEDS_RAILWAY_ACCESS`, `SECRET_OWNER_ACTION_REQUIRED`, `NO_FAKE_SUCCESS_CLAIM`.
+Do not claim broader Bill CFO Railway deployment success from repo files alone. Verify the Railway project/service, root directory, env vars, public URL, `/health`, `/ready`, `/deployment/status`, and the smallest real OCR/workbook smoke route before marking Bill CFO fully live.
+
+Use these labels where applicable: `REPO_LOCATOR_SET`, `SERVICE_ROOT_CONFIRMED`, `MODULE_OWNERSHIP_MAPPED`, `BILL_CFO_CONNECTED_SHELL_ONLY`, `RAILWAY_SERVICE_UNVERIFIED`, `NEEDS_RAILWAY_ACCESS`, `SECRET_OWNER_ACTION_REQUIRED`, `NO_FAKE_SUCCESS_CLAIM`.
+
+## XRP/HBAR Apex locator
+XRP/HBAR Apex is a separate isolated Jarvis service and must not reuse the Bill CFO Railway service.
+
+- Repo: `rafsof22-lgtm/jarvis-build`
+- Service root: `services/xrp-hbar-apex/`
+- Railway handoff: `services/xrp-hbar-apex/docs/railway-new-service.md`
+- Deployment ledger: `services/xrp-hbar-apex/docs/deployment-ledger.md`
+- Rollback: `services/xrp-hbar-apex/docs/rollback.md`
+- Runtime package: `@jarvis/xrp-hbar-apex`
+- Deploy branch: `main`
+- Railway target: create a new dedicated Railway service mapped to `services/xrp-hbar-apex/`
+
+XRP/HBAR agents may edit `services/xrp-hbar-apex/**` by default. They must not edit `services/bill-cfo-ocr-mcp/**`, reuse the Bill CFO Railway service, or change Bill-CFO variables, start command, deploy branch, domain, health path, or root directory.
+
+Current XRP/HBAR repo status: `POST /mcp`, `/mcp`, `/mcp/tools`, `extract_metadata`, `reprocess_transcript`, `transcribe_url`, `transcribe_file`, and `extract_ocr` are implemented repo-side. Live Railway verification is not proven until a separate service exists, variables are set, and authenticated `POST /mcp` smoke passes.
+
+Use these labels where applicable: `MISSING_RAILWAY_SERVICE_FOR_XRP_HBAR`, `DEPLOYMENT_DRIFT`, `RAILWAY_ROOT_DIRECTORY_MISCONFIGURATION`, `MISSING_ENV_VAR`, `MCP_ROUTE_VERIFIED_LIVE`, `NO_FAKE_SUCCESS_CLAIM`.
 
 ## Shared service isolation
 This repo may hold multiple Jarvis services. Shared repo does not mean shared runtime.
