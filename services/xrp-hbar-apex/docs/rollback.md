@@ -1,13 +1,19 @@
 # XRP/HBAR Apex Rollback
 
-Last updated: 2026-06-30
+Last updated: 2026-07-07
 
-## Files changed by scaffold completion
+## Files changed by metadata-first MCP patch
 
+- `services/xrp-hbar-apex/package.json`
+- `services/xrp-hbar-apex/.env.example`
+- `services/xrp-hbar-apex/README.md`
 - `services/xrp-hbar-apex/scripts/smoke-test.sh`
 - `services/xrp-hbar-apex/docs/deployment-ledger.md`
 - `services/xrp-hbar-apex/docs/rollback.md`
-- `services/xrp-hbar-apex/src/server.js` if route namespace aliases are patched
+- `services/xrp-hbar-apex/src/server.js`
+- `services/xrp-hbar-apex/src/auth.js`
+- `services/xrp-hbar-apex/src/config.js`
+- `services/xrp-hbar-apex/src/mcp/**`
 
 ## Repo rollback
 
@@ -15,13 +21,17 @@ Revert only the commit or commits that changed files under `services/xrp-hbar-ap
 
 ## Disabling route aliases
 
-If `/xrp-hbar-apex/health`, `/xrp-hbar-apex/ready`, or `/xrp-hbar-apex/deployment/status` causes runtime issues, revert the `src/server.js` alias patch only. Preserve the existing root-level routes:
+If `/xrp-hbar-apex/health`, `/xrp-hbar-apex/ready`, or `/xrp-hbar-apex/deployment/status` causes runtime issues, revert the `src/server.js` alias logic only. Preserve the existing root-level routes:
 
 - `/health`
 - `/ready`
 - `/deployment/status`
 
 Root-level routes are the backward-compatible Railway health/readiness contract.
+
+## Disabling MCP dispatch
+
+If the metadata-first MCP patch causes runtime issues, revert the MCP-specific files and restore `POST /mcp` to the prior explicit `501 not_implemented` response. Preserve the route aliases and health/readiness routes unless those are the proven source of failure.
 
 ## Railway rollback placeholder
 
