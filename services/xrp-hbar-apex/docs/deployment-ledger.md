@@ -6,7 +6,8 @@ Last updated: 2026-07-07
 
 - Service root: `services/xrp-hbar-apex/`
 - Deploy branch: `main`
-- Railway service target: pending dedicated Railway service mapped to `services/xrp-hbar-apex/`
+- Railway service target: `xrp-hbar-intelligence` as a new dedicated Railway service mapped to `services/xrp-hbar-apex/`
+- GitHub tracking issue: `https://github.com/rafsof22-lgtm/jarvis-build/issues/1`
 - Env namespace: `XRP_HBAR_APEX_`
 - Queue/job namespace: `xrp_hbar_apex_`
 - Database object prefix: `xrp_hbar_apex_`
@@ -37,32 +38,45 @@ Last updated: 2026-07-07
 - `SMOKE_EXPECTATION`: `/health`, `/ready`, `/deployment/status`, namespaced aliases, `/mcp`, `/mcp/tools`, and authenticated `POST /mcp` with `extract_metadata`.
 - `NO_FAKE_SUCCESS_CLAIM`: Railway service truth, env var truth, live URL, runtime health, readiness, deployment status, and live smoke test are not proven until Railway verification passes.
 
+## 2026-07-07 exact Railway action
+
+- Exact service name locked: `xrp-hbar-intelligence`.
+- Exact root directory: `services/xrp-hbar-apex`.
+- Exact watch path: `/services/xrp-hbar-apex/**`.
+- Exact start command: `npm start`.
+- Exact health path: `/health`.
+- GitHub issue created for Railway account step: `https://github.com/rafsof22-lgtm/jarvis-build/issues/1`.
+- Action checklist file: `services/xrp-hbar-apex/docs/railway-action-now.md`.
+
 ## Current blockers
 
 - `NEEDS_RAILWAY_ACCESS`: Railway service creation and approval still happen in Railway.
-- `BLOCKED_BY_MISSING_ACCESS`: live deployment and route verification cannot be completed from this repo-only patch.
+- `MISSING_RAILWAY_SERVICE_FOR_XRP_HBAR`: no direct proof of a separate `xrp-hbar-intelligence` service exists yet.
 - `MISSING_ENV_VAR`: live smoke requires `BASE_URL` and production MCP auth variables after Railway creates a public URL.
-- `SECRET_OWNER_ACTION_REQUIRED`: real provider secrets must be set outside chat.
+- `SECRET_OWNER_ACTION_REQUIRED`: `MCP_BEARER_TOKEN` must be created as a Railway secret outside chat.
 - `PROVIDER_NOT_CONNECTED`: transcription, OCR, storage, database, and scheduled-worker providers are not wired.
 
 ## Minimum Railway approval action
 
 Create or approve a dedicated Railway service with:
 
+- Service: `xrp-hbar-intelligence`
 - Repository: `rafsof22-lgtm/jarvis-build`
 - Branch: `main`
 - Root directory: `services/xrp-hbar-apex`
 - Start command: `npm start`
 - Health path: `/health`
+- Watch path: `/services/xrp-hbar-apex/**`
 
 Then set:
 
 - `APP_ENV=production`
 - `BASE_URL=<public Railway URL>`
+- `LOG_LEVEL=info`
 - `MCP_AUTH_MODE=bearer`
 - `MCP_BEARER_TOKEN=<Railway secret>`
 
-Then verify `/health`, `/ready`, `/deployment/status`, `/xrp-hbar-apex/health`, `/mcp/tools`, and authenticated `POST /mcp`.
+Then verify `/health`, `/ready`, `/deployment/status`, `/xrp-hbar-apex/health`, `/mcp`, `/mcp/tools`, and authenticated `POST /mcp`.
 
 ## Rollback path
 
