@@ -1,6 +1,6 @@
 {
   "name": "@jarvis/xrp-hbar-apex",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "private": true,
   "type": "module",
   "description": "Railway-ready MCP HTTP service boundary for XRP/HBAR Apex Intelligence OS.",
@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "node src/server.js",
-    "dev": "APP_ENV=development MCP_AUTH_MODE=none node src/server.js",
+    "dev": "APP_ENV=development BASE_URL=http://127.0.0.1:3000 MCP_AUTH_MODE=none node src/server.js",
     "smoke": "bash scripts/smoke-test.sh",
     "test": "node --test",
     "railway:check": "node scripts/railway-setup-check.mjs",
