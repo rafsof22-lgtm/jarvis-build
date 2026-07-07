@@ -10,6 +10,7 @@ This repository is the durable source-control layer for the Jarvis / RAF213G / S
 ## Current service roots
 
 - `services/bill-cfo-ocr-mcp/` - isolated Bill CFO OCR MCP service shell. Start with `services/bill-cfo-ocr-mcp/AGENTS.md` and `services/bill-cfo-ocr-mcp/docs/agent-locator.md` before editing.
+- `services/xrp-hbar-apex/` - isolated XRP/HBAR Apex Intelligence OS service shell for a dedicated Railway service. Start with `services/xrp-hbar-apex/README.md`, `services/xrp-hbar-apex/docs/railway-new-service.md`, and `services/xrp-hbar-apex/docs/deployment-ledger.md` before editing or deploying.
 
 ## Current preferred stack
 
@@ -27,6 +28,8 @@ Shared repo does not mean shared runtime. Each service must keep its own service
 
 Bill CFO OCR MCP belongs under `services/bill-cfo-ocr-mcp/` and should be mapped to a dedicated Railway service using that exact root directory. Do not point Bill CFO Railway deployment at the repo root or at another service root.
 
+XRP/HBAR Apex belongs under `services/xrp-hbar-apex/` and should be mapped to a dedicated Railway service using that exact root directory. Do not point XRP/HBAR Apex Railway deployment at the repo root, Bill CFO OCR MCP, or any future shared module root.
+
 ## Status
 
-This repo contains governance files plus the Bill CFO OCR MCP service shell. Do not claim full Jarvis implementation, Railway deployment, OCR provider readiness, workbook-write readiness, production readiness, or zero-gaps completion from this repository alone.
+This repo contains governance files plus isolated service shells for Bill CFO OCR MCP and XRP/HBAR Apex. Do not claim full Jarvis implementation, Railway deployment, OCR provider readiness, XRP/HBAR external intelligence-engine readiness, workbook-write readiness, production readiness, or zero-gaps completion from this repository alone.
