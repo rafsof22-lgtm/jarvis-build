@@ -6,6 +6,7 @@ const expected = {
   healthPath: "/health",
   readyPath: "/ready",
   deploymentStatusPath: "/deployment/status",
+  mcpToolsPath: "/mcp/tools",
   mcpPath: "/mcp"
 };
 
@@ -15,6 +16,7 @@ function hasValue(value) {
 
 const observed = {
   APP_ENV: process.env.APP_ENV || "",
+  BASE_URL: process.env.BASE_URL || process.env.RAILWAY_PUBLIC_DOMAIN || process.env.RAILWAY_STATIC_URL || "",
   LOG_LEVEL: process.env.LOG_LEVEL || "",
   PORT: process.env.PORT || ""
 };
@@ -44,8 +46,10 @@ const summary = {
   expectedRailway: expected,
   safeMinimumVars: {
     APP_ENV: expected.appEnv,
+    BASE_URL: "https://jarvis-build-production.up.railway.app",
     LOG_LEVEL: expected.logLevel
   },
+  requiredSecretsForCurrentShell: [],
   observedVars: Object.fromEntries(Object.entries(observed).map(([key, value]) => [key, hasValue(value) ? "set" : "not_set"])),
   mismatches
 };
