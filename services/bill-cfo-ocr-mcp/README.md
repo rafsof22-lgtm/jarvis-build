@@ -8,6 +8,20 @@ Purpose: isolated Railway-ready service shell for the Bill CFO OCR MCP module. T
 services/bill-cfo-ocr-mcp/
 ```
 
+## Current Railway boundary
+
+User-supplied Railway logs from 2026-07-07 show the active connected Railway deployment is Bill CFO:
+
+```text
+@jarvis/bill-cfo-ocr-mcp@0.1.0 start
+node src/server.js
+bill-cfo-ocr-mcp listening on port 8080
+snapshot-target-unpack/services/bill-cfo-ocr-mcp
+/health healthcheck succeeded
+```
+
+Keep this service connected as the Bill-CFO runtime. Do not repurpose it for XRP/HBAR. XRP/HBAR must use a separate Railway service rooted at `services/xrp-hbar-apex/`.
+
 ## Isolation and namespace rules
 
 - Route namespace: `/bill-cfo-ocr-mcp/*`
@@ -40,13 +54,15 @@ Route/provider-specific placeholders are listed in `.env.example` and stay optio
 
 ## Railway mapping
 
-Create a dedicated Railway service mapped to:
+Use the existing dedicated Railway service mapped to:
 
 ```text
 services/bill-cfo-ocr-mcp/
 ```
 
 Deploy branch: `main`.
+
+Do not change the Bill-CFO Railway root, variables, start command, deploy branch, or domain while creating or fixing XRP/HBAR.
 
 ## Smoke test
 
@@ -56,10 +72,16 @@ After Railway provides a live URL and required env vars are set, run:
 BILL_CFO_OCR_MCP_URL=https://<service-url> bash scripts/smoke-test.sh
 ```
 
+For JSON route detail, run:
+
+```bash
+BILL_CFO_OCR_MCP_URL=https://<service-url> npm run live:verify
+```
+
 ## Rollback
 
 Use `docs/rollback.md` for repo and Railway rollback notes. Roll back only this service root unless a separate shared-service change is proven.
 
 ## Proof boundary
 
-`AGENT_REGISTRY_UPDATED` / `MODULE_OWNERSHIP_MAPPED` means the scaffold exists in GitHub. It does not prove Railway deployment, valid secrets, OCR provider auth, workbook writes, runtime health, readiness, or route smoke success.
+`AGENT_REGISTRY_UPDATED` / `MODULE_OWNERSHIP_MAPPED` means the scaffold exists in GitHub. User-supplied Railway logs prove shell startup and `/health` only. They do not prove OCR provider auth, workbook writes, queue workers, or finance workflow completion.
