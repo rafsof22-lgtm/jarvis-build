@@ -1,6 +1,6 @@
 {
   "name": "@jarvis/xrp-hbar-apex",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "type": "module",
   "description": "Railway-ready MCP HTTP service boundary for XRP/HBAR Apex Intelligence OS.",
