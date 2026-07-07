@@ -52,7 +52,7 @@ export function getConfig(env = process.env) {
 
   return {
     serviceName: "xrp-hbar-apex",
-    version: "0.2.0",
+    version: "0.2.1",
     appEnv: env.APP_ENV || env.NODE_ENV || "development",
     baseUrl: resolveBaseUrl(env),
     logLevel: env.LOG_LEVEL || "info",
