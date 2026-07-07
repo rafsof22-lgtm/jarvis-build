@@ -1,5 +1,8 @@
 import http from "node:http";
+import { authenticateRequest } from "./auth.js";
 import { getCapabilityStatus, getConfig } from "./config.js";
+import { dispatchMcpRequest } from "./mcp/dispatcher.js";
+import { publicTools } from "./mcp/tools.js";
 
 const config = getConfig();
 const ROUTE_NAMESPACE = "/xrp-hbar-apex";
@@ -30,15 +33,14 @@ function readBody(req) {
 }
 
 function normalizePath(pathname) {
-  if (pathname === ROUTE_NAMESPACE) {
-    return "/";
-  }
-
-  if (pathname.startsWith(`${ROUTE_NAMESPACE}/`)) {
-    return pathname.slice(ROUTE_NAMESPACE.length) || "/";
-  }
-
+  if (pathname === ROUTE_NAMESPACE) return "/";
+  if (pathname.startsWith(`${ROUTE_NAMESPACE}/`)) return pathname.slice(ROUTE_NAMESPACE.length) || "/";
   return pathname;
+}
+
+function parseJsonBody(rawBody) {
+  if (!rawBody.trim()) return {};
+  return JSON.parse(rawBody);
 }
 
 export function createServer(runtimeConfig = config) {
@@ -68,7 +70,9 @@ export function createServer(runtimeConfig = config) {
           portConfigured: true,
           requiredEnv: runtimeConfig.requiredConfig.required,
           missingRequiredEnv: runtimeConfig.requiredConfig.missing,
-          noRequiredSecretsForShell: runtimeConfig.requiredConfig.required.length === 0
+          mcpPostImplemented: true,
+          toolsExposed: publicTools().length > 0,
+          authMode: runtimeConfig.auth.mode
         },
         note: runtimeConfig.requiredConfig.note
       });
@@ -97,43 +101,84 @@ export function createServer(runtimeConfig = config) {
           "GET /xrp-hbar-apex/ready",
           "GET /xrp-hbar-apex/deployment/status",
           "GET /",
-          "GET /mcp/tools"
+          "GET /mcp",
+          "GET /mcp/tools",
+          "POST /mcp"
         ],
+        mcp: {
+          implemented: true,
+          endpoint: "/mcp",
+          authMode: runtimeConfig.auth.mode,
+          tools: publicTools().map((tool) => tool.name)
+        },
         notImplementedYet: [
-          "POST /mcp handler",
-          "full XRP/HBAR tracker execution",
+          "provider-backed URL transcription",
+          "provider-backed file transcription",
+          "provider-backed OCR extraction",
+          "full XRP/HBAR tracker execution inside this service",
           "scheduled workers",
           "ChatGPT Memory access from this service",
           "external integrations",
           "archive ingestion"
         ],
         truthBoundary:
-          "This service shell is running if this endpoint is reachable. Full XRP/HBAR intelligence execution, schedules, Memory, and external integrations are not proven by this endpoint."
+          "This service can now authenticate and dispatch MCP tool calls. Metadata-only and supplied-transcript tools are live; provider-backed transcription, OCR, full tracker execution, schedules, Memory, and external integrations are not proven by this endpoint."
       });
     }
 
     if (req.method === "GET" && path === "/mcp/tools") {
       return sendJson(res, 200, {
         ok: true,
-        tools: [],
-        status: "not_implemented",
-        note: "No MCP tools are exposed until they are implemented and verified."
+        status: "implemented",
+        tools: publicTools()
+      });
+    }
+
+    if (req.method === "GET" && path === "/mcp") {
+      return sendJson(res, 200, {
+        ok: true,
+        service: runtimeConfig.serviceName,
+        endpoint: "/mcp",
+        method: "POST",
+        tools: publicTools().map((tool) => tool.name),
+        request_shape: {
+          tool: "extract_metadata",
+          input: { url: "https://example.com/video" }
+        }
       });
     }
 
     if (req.method === "POST" && path === "/mcp") {
-      await readBody(req).catch(() => "");
-      return sendJson(res, 501, {
-        ok: false,
-        error: "not_implemented",
-        note: "MCP handling is intentionally disabled in the starter shell."
-      });
+      const auth = authenticateRequest(req, runtimeConfig);
+      if (!auth.ok) {
+        return sendJson(res, auth.statusCode, { ok: false, error: auth.error });
+      }
+
+      let body;
+      try {
+        body = parseJsonBody(await readBody(req));
+      } catch {
+        return sendJson(res, 400, {
+          ok: false,
+          error: { code: "MALFORMED_JSON", message: "Request body must be valid JSON." }
+        });
+      }
+
+      try {
+        const result = await dispatchMcpRequest(body);
+        return sendJson(res, result.statusCode, result.payload);
+      } catch {
+        return sendJson(res, 500, {
+          ok: false,
+          error: { code: "INTERNAL_ERROR", message: "MCP request failed during dispatch." }
+        });
+      }
     }
 
     if (req.method === "GET" && path === "/") {
       return sendJson(res, 200, {
         service: runtimeConfig.serviceName,
-        status: "starter_shell",
+        status: "mcp_metadata_first",
         endpoints: [
           "/health",
           "/ready",
@@ -141,6 +186,7 @@ export function createServer(runtimeConfig = config) {
           "/xrp-hbar-apex/health",
           "/xrp-hbar-apex/ready",
           "/xrp-hbar-apex/deployment/status",
+          "/mcp",
           "/mcp/tools"
         ],
         railwayRootDirectory: "services/xrp-hbar-apex",
@@ -148,10 +194,7 @@ export function createServer(runtimeConfig = config) {
       });
     }
 
-    return sendJson(res, 404, {
-      ok: false,
-      error: "not_found"
-    });
+    return sendJson(res, 404, { ok: false, error: "not_found" });
   });
 }
 
