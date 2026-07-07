@@ -29,6 +29,18 @@ services/xrp-hbar-apex
 - `transcribe_file`: records file intake and returns honest provider limitations when file transcription is not configured.
 - `extract_ocr`: records OCR intake and returns honest provider limitations when OCR is not configured.
 
+## Source/API configuration
+
+The deployment now has placeholders and status reporting for:
+
+- CoinGecko and free public market data.
+- NewsAPI, GDELT, crypto-news, and search APIs.
+- YouTube and social-media APIs.
+- Finance-news and equities data APIs including Alpha Vantage, Finnhub, FMP, Polygon, Marketaux, EODHD, Benzinga, IEX Cloud, Twelve Data, and Tiingo.
+- Optional OpenAI, Postgres, Redis, Google Sheets, n8n, and webhook secrets.
+
+Use `docs/railway-variable-manifest.md` for the Railway Variables tab checklist. Use `.env.example` as the full non-secret template.
+
 ## Not implemented yet
 
 - Provider-backed URL transcription.
@@ -46,8 +58,9 @@ services/xrp-hbar-apex
 1. Create or use a dedicated Railway service from `rafsof22-lgtm/jarvis-build`.
 2. Set the service root directory to `services/xrp-hbar-apex`.
 3. Set required variables in Railway.
-4. Deploy or redeploy from `main`.
-5. Verify:
+4. Add optional source/API variables only when the keys are available and approved.
+5. Deploy or redeploy from `main`.
+6. Verify:
    - `/health`
    - `/ready`
    - `/deployment/status`
@@ -69,4 +82,4 @@ Future secret variables must be stored in Railway variables, GitHub secrets, or 
 
 ## Runtime truth
 
-This service proves that an isolated XRP/HBAR Apex HTTP runtime can boot and dispatch metadata-first MCP calls under the Jarvis monorepo. It does not prove that Railway is connected, that a public Railway domain exists, that provider-backed transcription/OCR is available, or that the full XRP/HBAR intelligence framework is running externally.
+This service proves that an isolated XRP/HBAR Apex HTTP runtime can boot and dispatch metadata-first MCP calls under the Jarvis monorepo. It does not prove that Railway is connected, that a public Railway domain exists, that provider-backed transcription/OCR/news/social/market-data handlers are available, or that the full XRP/HBAR intelligence framework is running externally.
