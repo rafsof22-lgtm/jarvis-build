@@ -41,5 +41,33 @@ Apollo/Hunter/A-Leads/Apify/Flyfish = Sof Property Scout source/enrichment/intel
 6. Never ship node_modules.
 7. Do not deploy or merge production-impacting changes unless explicitly approved.
 
+## Bill CFO OCR MCP locator
+Bill CFO OCR MCP is an isolated Jarvis service, not a repo-wide runtime.
+
+- Repo: `rafsof22-lgtm/jarvis-build`
+- Service root: `services/bill-cfo-ocr-mcp/`
+- Service-local instructions: `services/bill-cfo-ocr-mcp/AGENTS.md`
+- Locator: `services/bill-cfo-ocr-mcp/docs/agent-locator.md`
+- Deployment ledger: `services/bill-cfo-ocr-mcp/docs/deployment-ledger.md`
+- Railway target: a dedicated Railway service mapped to `services/bill-cfo-ocr-mcp/`
+- Deploy branch: `main`
+
+When a Bill CFO agent starts work, it must read the service-local `AGENTS.md`, the locator, the deployment ledger, `railway.json`, `.env.example`, `package.json`, and `src/server.js` before editing.
+
+Bill CFO agents may edit `services/bill-cfo-ocr-mcp/**` by default. They must not edit `services/xrp-hbar-apex/**`, other `services/*` roots, or repo-wide deployment behavior unless the user explicitly requests a shared change and the impact is classified first.
+
+Do not claim Railway deployment success from repo files alone. Verify the Railway project/service, root directory, env vars, public URL, `/health`, `/ready`, `/deployment/status`, and the smallest real OCR/workbook smoke route before marking Bill CFO live.
+
+Use these labels where applicable: `REPO_LOCATOR_SET`, `SERVICE_ROOT_CONFIRMED`, `MODULE_OWNERSHIP_MAPPED`, `RAILWAY_SERVICE_UNVERIFIED`, `NEEDS_RAILWAY_ACCESS`, `SECRET_OWNER_ACTION_REQUIRED`, `NO_FAKE_SUCCESS_CLAIM`.
+
+## Shared service isolation
+This repo may hold multiple Jarvis services. Shared repo does not mean shared runtime.
+
+- Keep each service in its own root directory.
+- Prefer separate Railway services and separate root directories per module.
+- Keep env vars, secrets, routes, health checks, smoke tests, queues, database objects, webhooks, and rollback paths service-specific unless a shared component is explicitly designed and verified.
+- Do not rename, move, delete, or repurpose another module's files to make the current module work.
+- If a change can affect more than one module, classify the impact as safe, risky, blocked, or requires user confirmation before editing.
+
 ## Sof Property Scout boundary
 Default mode is capture-only: discover, source-proof, dedupe, score, enrich selectively, verify selectively, write to raw/master sheets or console, log costs/source quality. Do not send outreach or activate campaigns unless separately approved.
