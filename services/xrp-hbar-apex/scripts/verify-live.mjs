@@ -32,8 +32,8 @@ function mcpAuthHeaders() {
   return {};
 }
 
-async function readJson(path, options = {}) {
-  const response = await fetch(`${normalizedBaseUrl}${path}`, options);
+async function readJson(check) {
+  const response = await fetch(`${normalizedBaseUrl}${check.path}`, check.options || {});
   const text = await response.text();
   let body;
   try {
@@ -41,7 +41,7 @@ async function readJson(path, options = {}) {
   } catch {
     body = { raw: text };
   }
-  return { path, status: response.status, body };
+  return { ...check, status: response.status, body };
 }
 
 let authHeaders;
@@ -56,46 +56,61 @@ try {
   process.exit(1);
 }
 
-const checks = [
-  await readJson("/health"),
-  await readJson("/ready"),
-  await readJson("/deployment/status"),
-  await readJson("/xrp-hbar-apex/health"),
-  await readJson("/mcp"),
-  await readJson("/mcp/tools"),
-  await readJson("/mcp", {
-    method: "POST",
-    headers: {
-      "content-type": "application/json",
-      ...authHeaders
-    },
-    body: JSON.stringify({
-      tool: "extract_metadata",
-      input: {
-        url: "https://ripple.com/insights/the-xrpl-lending-protocol-bringing-credit-infrastructure-onchain/",
-        platform_hint: "web"
-      }
-    })
-  })
+const checkPlan = [
+  { id: "GET /health", path: "/health", expectedStatus: 200 },
+  { id: "GET /ready", path: "/ready", expectedStatus: 200 },
+  { id: "GET /deployment/status", path: "/deployment/status", expectedStatus: 200 },
+  { id: "GET /xrp-hbar-apex/health", path: "/xrp-hbar-apex/health", expectedStatus: 200 },
+  { id: "GET /xrp-hbar-apex/ready", path: "/xrp-hbar-apex/ready", expectedStatus: 200 },
+  { id: "GET /xrp-hbar-apex/deployment/status", path: "/xrp-hbar-apex/deployment/status", expectedStatus: 200 },
+  { id: "GET /mcp", path: "/mcp", expectedStatus: 200 },
+  { id: "GET /mcp/tools", path: "/mcp/tools", expectedStatus: 200 },
+  {
+    id: "POST /mcp extract_metadata",
+    path: "/mcp",
+    expectedStatus: 200,
+    options: {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        ...authHeaders
+      },
+      body: JSON.stringify({
+        tool: "extract_metadata",
+        input: {
+          url: "https://ripple.com/insights/the-xrpl-lending-protocol-bringing-credit-infrastructure-onchain/",
+          platform_hint: "web"
+        }
+      })
+    }
+  }
 ];
 
-const expected = {
-  "/health": 200,
-  "/ready": 200,
-  "/deployment/status": 200,
-  "/xrp-hbar-apex/health": 200,
-  "/mcp": 200,
-  "/mcp/tools": 200
-};
+const checks = [];
+for (const check of checkPlan) {
+  checks.push(await readJson(check));
+}
 
-const failures = checks.filter((check) => check.status !== expected[check.path]);
-const postMcp = checks[checks.length - 1];
-if (!postMcp.body?.ok || postMcp.body?.tool !== "extract_metadata") {
+const failures = checks.filter((check) => check.status !== check.expectedStatus);
+const postMcp = checks.find((check) => check.id === "POST /mcp extract_metadata");
+if (!postMcp?.body?.ok || postMcp.body?.tool !== "extract_metadata") {
   failures.push({
-    path: "POST /mcp extract_metadata",
-    status: postMcp.status,
-    body: postMcp.body,
+    id: "POST /mcp extract_metadata",
+    path: "/mcp",
+    status: postMcp?.status,
+    body: postMcp?.body,
     expected: "HTTP 200 with ok:true and tool:extract_metadata"
+  });
+}
+
+const deploymentStatus = checks.find((check) => check.id === "GET /deployment/status")?.body || {};
+if (deploymentStatus.railwayRootDirectory && deploymentStatus.railwayRootDirectory !== "services/xrp-hbar-apex") {
+  failures.push({
+    id: "GET /deployment/status",
+    path: "/deployment/status",
+    status: 200,
+    body: deploymentStatus,
+    expected: "railwayRootDirectory services/xrp-hbar-apex"
   });
 }
 
