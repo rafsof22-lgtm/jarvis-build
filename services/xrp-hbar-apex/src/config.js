@@ -4,6 +4,10 @@ function hasValue(value) {
   return typeof value === "string" && value.trim().length > 0;
 }
 
+function anyValue(env, names) {
+  return names.some((name) => hasValue(env[name]));
+}
+
 function normalizeAuthMode(value) {
   const normalized = String(value || "none").trim().toLowerCase();
   return AUTH_MODES.has(normalized) ? normalized : "none";
@@ -30,7 +34,7 @@ export function getRequiredConfigStatus(env = process.env) {
     missing,
     ready: missing.length === 0,
     note:
-      "Ready means the HTTP runtime can serve health, readiness, deployment status, MCP discovery, and authenticated MCP dispatch. Provider-backed transcription, OCR, storage, and full tracker execution remain limited unless separately configured."
+      "Ready means the HTTP runtime can serve health, readiness, deployment status, MCP discovery, and authenticated MCP dispatch. Provider-backed transcription, OCR, storage, market data, news, social, and full tracker execution remain limited unless separately configured."
   };
 }
 
@@ -60,7 +64,39 @@ export function getConfig(env = process.env) {
       postgres: hasValue(env.POSTGRES_URL),
       googleSheets: hasValue(env.GOOGLE_SERVICE_ACCOUNT_JSON) && hasValue(env.GOOGLE_SHEET_ID),
       github: hasValue(env.GITHUB_TOKEN),
-      n8n: hasValue(env.N8N_WEBHOOK_BASE_URL) && hasValue(env.N8N_WEBHOOK_SECRET)
+      n8n: hasValue(env.N8N_WEBHOOK_BASE_URL) && hasValue(env.N8N_WEBHOOK_SECRET),
+      coingecko: hasValue(env.COINGECKO_API_BASE_URL),
+      coingeckoApiKey: hasValue(env.COINGECKO_API_KEY),
+      newsApi: hasValue(env.NEWSAPI_KEY),
+      cryptoNews: anyValue(env, ["CRYPTOPANIC_API_KEY", "COINDESK_API_KEY", "THE_TIE_API_KEY"]),
+      financeNews: anyValue(env, [
+        "ALPHA_VANTAGE_API_KEY",
+        "FINNHUB_API_KEY",
+        "FMP_API_KEY",
+        "POLYGON_API_KEY",
+        "MARKETAUX_API_KEY",
+        "EODHD_API_KEY",
+        "BENZINGA_API_KEY",
+        "IEX_CLOUD_API_KEY",
+        "TWELVE_DATA_API_KEY",
+        "TIINGO_API_KEY"
+      ]),
+      youtube: hasValue(env.YOUTUBE_API_KEY),
+      socialMedia: anyValue(env, [
+        "X_BEARER_TOKEN",
+        "REDDIT_CLIENT_ID",
+        "TELEGRAM_API_ID",
+        "DISCORD_BOT_TOKEN",
+        "MASTODON_ACCESS_TOKEN",
+        "BLUESKY_IDENTIFIER"
+      ]),
+      freePublicSources: anyValue(env, [
+        "XRPL_RPC_URL",
+        "HEDERA_MIRROR_NODE_URL",
+        "DEFILLAMA_API_BASE_URL",
+        "GDELT_API_BASE_URL",
+        "YAHOO_FINANCE_BASE_URL"
+      ])
     }
   };
 }
