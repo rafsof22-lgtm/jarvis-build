@@ -21,14 +21,14 @@ Create a new Railway service, separate from Bill CFO OCR MCP and any other futur
 
 Required Railway settings:
 
-- Service name: `xrp-hbar-intelligence` or `xrp-hbar-apex`
+- Service name: `xrp-hbar-intelligence`
 - Source repo: `rafsof22-lgtm/jarvis-build`
 - Branch: `main`
 - Root directory: `services/xrp-hbar-apex`
 - Builder: Nixpacks
 - Start command: `npm start`
 - Health check path: `/health`
-- Optional watch path: `/services/xrp-hbar-apex/**`
+- Watch path: `/services/xrp-hbar-apex/**`
 
 Do not deploy from the repo root. Do not reuse the Bill CFO OCR MCP Railway service. Do not change Bill-CFO variables, start command, deploy branch, domain, or root directory.
 
@@ -65,15 +65,16 @@ Never paste real secret values into chat or commit them to GitHub.
 
 After Railway creates the service and deploys this branch, verify:
 
-1. Railway service root is `services/xrp-hbar-apex`.
-2. Latest deployment commit is from `main` after the 2026-07-07 MCP service commits.
-3. `GET /health` returns HTTP 200 JSON.
-4. `GET /ready` returns HTTP 200 JSON.
-5. `GET /deployment/status` returns HTTP 200 JSON and shows `railwayRootDirectory: services/xrp-hbar-apex`.
-6. `GET /xrp-hbar-apex/health` returns HTTP 200 JSON.
-7. `GET /mcp` returns HTTP 200 JSON and shows the request shape.
-8. `GET /mcp/tools` returns HTTP 200 JSON listing the implemented tools.
-9. Authenticated `POST /mcp` with `extract_metadata` returns HTTP 200 JSON with `ok:true`.
+1. Railway service name is `xrp-hbar-intelligence`.
+2. Railway service root is `services/xrp-hbar-apex`.
+3. Latest deployment commit is from `main` after the 2026-07-07 MCP service commits.
+4. `GET /health` returns HTTP 200 JSON.
+5. `GET /ready` returns HTTP 200 JSON.
+6. `GET /deployment/status` returns HTTP 200 JSON and shows `railwayRootDirectory: services/xrp-hbar-apex`.
+7. `GET /xrp-hbar-apex/health` returns HTTP 200 JSON.
+8. `GET /mcp` returns HTTP 200 JSON and shows the request shape.
+9. `GET /mcp/tools` returns HTTP 200 JSON listing the implemented tools.
+10. Authenticated `POST /mcp` with `extract_metadata` returns HTTP 200 JSON with `ok:true`.
 
 Repo-side smoke command after Railway URL and auth exist:
 
