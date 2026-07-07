@@ -13,6 +13,9 @@ services/xrp-hbar-apex
 - `GET /health` for Railway health checks.
 - `GET /ready` for runtime readiness checks.
 - `GET /deployment/status` for no-fake-automation runtime truth.
+- `GET /xrp-hbar-apex/health` as the namespaced health alias.
+- `GET /xrp-hbar-apex/ready` as the namespaced readiness alias.
+- `GET /xrp-hbar-apex/deployment/status` as the namespaced deployment-status alias.
 - `GET /` for a plain service summary.
 - `GET /mcp` for MCP request-shape discovery.
 - `GET /mcp/tools` for implemented tool discovery.
@@ -40,13 +43,17 @@ services/xrp-hbar-apex
 
 ## Railway setup
 
-1. Create a dedicated Railway service from `rafsof22-lgtm/jarvis-build`.
+1. Create or use a dedicated Railway service from `rafsof22-lgtm/jarvis-build`.
 2. Set the service root directory to `services/xrp-hbar-apex`.
-3. Set `APP_ENV=production`, `BASE_URL=<public service URL>`, and production MCP auth.
-4. Deploy and verify:
+3. Set required variables in Railway.
+4. Deploy or redeploy from `main`.
+5. Verify:
    - `/health`
    - `/ready`
    - `/deployment/status`
+   - `/xrp-hbar-apex/health`
+   - `/xrp-hbar-apex/ready`
+   - `/xrp-hbar-apex/deployment/status`
    - `/mcp/tools`
    - authenticated `POST /mcp`
 
@@ -54,6 +61,7 @@ services/xrp-hbar-apex
 
 - `APP_ENV=production`
 - `BASE_URL=https://your-xrp-hbar-apex-service.up.railway.app`
+- `LOG_LEVEL=info`
 - `MCP_AUTH_MODE=bearer`
 - `MCP_BEARER_TOKEN=<set in Railway only>`
 
