@@ -4,11 +4,14 @@ Last updated: 2026-07-07
 
 ## Decision
 
-Create a separate Railway service for XRP/HBAR. Do not reuse or edit the Bill-CFO Railway service.
+Create a new Railway project for XRP/HBAR and deploy the XRP/HBAR service from the existing GitHub repo. Do not reuse or edit the Bill-CFO Railway service.
 
-## Exact Railway service settings
+This is a new Railway project/service boundary, not a new GitHub repo split.
+
+## Exact Railway project/service settings
 
 ```text
+Railway project: xrp-hbar-intelligence
 Service: xrp-hbar-intelligence
 Repo: rafsof22-lgtm/jarvis-build
 Branch: main
@@ -20,7 +23,7 @@ Watch path: /services/xrp-hbar-apex/**
 
 ## Exact variables
 
-Set these on the `xrp-hbar-intelligence` service only:
+Set these on the new `xrp-hbar-intelligence` Railway service only:
 
 ```text
 APP_ENV=production
@@ -31,6 +34,8 @@ MCP_BEARER_TOKEN=<Railway secret>
 ```
 
 Railway should inject `PORT`. Do not set real secrets in GitHub or chat.
+
+`BASE_URL` can be set after Railway generates the public domain. If `/ready` reports missing `BASE_URL`, copy the generated public Railway URL into `BASE_URL` and redeploy/apply the variable change.
 
 ## What must not be touched
 
@@ -81,6 +86,16 @@ This repo is ready. The remaining step requires Railway account control:
 
 ```text
 NEEDS_RAILWAY_ACCESS
+NEW_RAILWAY_PROJECT_REQUIRED
 MISSING_RAILWAY_SERVICE_FOR_XRP_HBAR
 SECRET_OWNER_ACTION_REQUIRED
+LIVE_RUNTIME_NOT_VERIFIED
+```
+
+## New-project handoff
+
+For the full Railway UI approval sequence, use:
+
+```text
+services/xrp-hbar-apex/docs/railway-new-project-approval.md
 ```
