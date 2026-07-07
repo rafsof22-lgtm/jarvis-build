@@ -4,14 +4,14 @@ Last updated: 2026-07-07
 
 ## Decision
 
-Create a new Railway project for XRP/HBAR and deploy the XRP/HBAR service from the existing GitHub repo. Do not reuse or edit the Bill-CFO Railway service.
+Create a new isolated Railway service for XRP/HBAR inside the existing Railway project `reliable-growth`. Do not create a second Railway project unless the owner explicitly chooses that later. Do not reuse or edit the Bill-CFO Railway service.
 
-This is a new Railway project/service boundary, not a new GitHub repo split.
+This is a separate Railway service boundary inside the existing project, not a new GitHub repo split and not a repo-root deploy.
 
 ## Exact Railway project/service settings
 
 ```text
-Railway project: xrp-hbar-intelligence
+Railway project: reliable-growth
 Service: xrp-hbar-intelligence
 Repo: rafsof22-lgtm/jarvis-build
 Branch: main
@@ -46,6 +46,8 @@ services/bill-cfo-ocr-mcp
 ```
 
 Do not change Bill-CFO variables, start command, root directory, deploy branch, domain, or health path.
+
+Do not deploy repo root. If Railway shows a failed `jarvis build` deploy, first identify its root directory. If it points at repo root, classify it as `DEPLOYMENT_DRIFT + RAILWAY_ROOT_DIRECTORY_MISCONFIGURATION` and do not spend more deploys until the service root is corrected.
 
 ## Verification after deployment
 
@@ -86,13 +88,14 @@ This repo is ready. The remaining step requires Railway account control:
 
 ```text
 NEEDS_RAILWAY_ACCESS
-NEW_RAILWAY_PROJECT_REQUIRED
 MISSING_RAILWAY_SERVICE_FOR_XRP_HBAR
 SECRET_OWNER_ACTION_REQUIRED
 LIVE_RUNTIME_NOT_VERIFIED
 ```
 
-## New-project handoff
+If Railway already shows two services online, inspect them before creating another service. The target end state is one protected Bill-CFO service and one isolated XRP/HBAR service inside `reliable-growth`.
+
+## New-service handoff
 
 For the full Railway UI approval sequence, use:
 
