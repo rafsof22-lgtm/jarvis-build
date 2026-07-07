@@ -4,6 +4,10 @@ function hasValue(value) {
   return typeof value === "string" && value.trim().length > 0;
 }
 
+function isEnabled(value) {
+  return String(value || "").trim().toLowerCase() === "true";
+}
+
 function anyValue(env, names) {
   return names.some((name) => hasValue(env[name]));
 }
@@ -42,6 +46,12 @@ export function getConfig(env = process.env) {
   const port = Number.parseInt(env.PORT ?? "3000", 10);
   const authMode = normalizeAuthMode(env.MCP_AUTH_MODE);
   const requiredConfig = getRequiredConfigStatus(env);
+  const transcriptionProviders = {
+    openai: hasValue(env.OPENAI_API_KEY),
+    deepgram: hasValue(env.DEEPGRAM_API_KEY),
+    assemblyai: hasValue(env.ASSEMBLYAI_API_KEY),
+    revai: hasValue(env.REVAI_API_KEY)
+  };
 
   return {
     serviceName: "xrp-hbar-apex",
@@ -59,8 +69,18 @@ export function getConfig(env = process.env) {
     requiredConfig,
     optionalIntegrations: {
       openai: hasValue(env.OPENAI_API_KEY),
-      transcriptProvider: hasValue(env.TRANSCRIPT_PROVIDER_API_KEY),
+      transcriptProvider: hasValue(env.TRANSCRIPT_PROVIDER_API_KEY) || Object.values(transcriptionProviders).some(Boolean),
       ocrProvider: hasValue(env.OCR_PROVIDER_API_KEY),
+      videoTranscription: {
+        mode: env.VIDEO_TRANSCRIPTION_MODE || "metadata_first",
+        captionFirst: isEnabled(env.ENABLE_CAPTION_EXTRACTION),
+        localFfmpeg: isEnabled(env.ENABLE_LOCAL_FFMPEG_TRANSCRIPTION),
+        ytDlp: isEnabled(env.ENABLE_YTDLP_EXTRACTION),
+        frameOcr: isEnabled(env.ENABLE_VIDEO_FRAME_OCR),
+        diarization: isEnabled(env.ENABLE_SPEAKER_DIARIZATION),
+        providerFallback: isEnabled(env.ENABLE_PROVIDER_TRANSCRIPTION),
+        providers: transcriptionProviders
+      },
       postgres: hasValue(env.POSTGRES_URL),
       googleSheets: hasValue(env.GOOGLE_SERVICE_ACCOUNT_JSON) && hasValue(env.GOOGLE_SHEET_ID),
       github: hasValue(env.GITHUB_TOKEN),
@@ -112,6 +132,7 @@ export function getCapabilityStatus(config) {
     trackerExecution: "external_chatgpt_agent_only",
     scheduledWorkers: "not_implemented",
     memoryAccess: "external_chatgpt_only",
+    videoTranscription: config.optionalIntegrations.videoTranscription,
     integrations: config.optionalIntegrations
   };
 }
