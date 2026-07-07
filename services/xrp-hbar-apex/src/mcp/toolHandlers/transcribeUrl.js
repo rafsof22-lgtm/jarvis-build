@@ -27,7 +27,7 @@ function videoCapability(env = process.env) {
     provider_configured: providerConfigured,
     providers,
     storage_mode: env.TRANSCRIPT_STORAGE_MODE || "memory_only",
-    evidence_pack_enabled: isEnabled(env.ENABLE_TRANSCRIPT_EVIDENCE_PACK"),
+    evidence_pack_enabled: isEnabled(env.ENABLE_TRANSCRIPT_EVIDENCE_PACK),
     proof_label: providerConfigured || isEnabled(env.ENABLE_CAPTION_EXTRACTION) || isEnabled(env.ENABLE_LOCAL_FFMPEG_TRANSCRIPTION)
       ? "TRANSCRIPTION_PATH_CONFIGURED_NEEDS_LIVE_SMOKE"
       : "METADATA_ONLY_TRANSCRIPTION_NOT_CONFIGURED"
