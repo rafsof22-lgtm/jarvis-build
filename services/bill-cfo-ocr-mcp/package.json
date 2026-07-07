@@ -1,6 +1,6 @@
 {
   "name": "@jarvis/bill-cfo-ocr-mcp",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "type": "module",
   "description": "Isolated Railway-ready HTTP service shell for Bill CFO OCR MCP.",
@@ -9,7 +9,8 @@
   },
   "scripts": {
     "start": "node src/server.js",
-    "smoke": "bash scripts/smoke-test.sh"
+    "smoke": "bash scripts/smoke-test.sh",
+    "live:verify": "node scripts/verify-live.mjs"
   },
   "dependencies": {},
   "devDependencies": {}
