@@ -1,0 +1,13 @@
+[project]
+name = "jarvis-build-runtime"
+version = "0.1.0"
+description = "Free-first Jarvis model-router and deployment readiness scaffold."
+requires-python = ">=3.11"
+dependencies = []
+
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["jarvis_model_router*"]
