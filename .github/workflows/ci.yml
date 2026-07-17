@@ -1,0 +1,34 @@
+name: Free-first CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    name: Python smoke checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Compile runtime scaffold
+        run: python -m compileall jarvis_model_router scripts
+
+      - name: Run model-router smoke test
+        run: python scripts/smoke_model_router.py
+
+      - name: Run deployment readiness dry run
+        run: python scripts/deploy_dry_run.py --check-only --target oracle
