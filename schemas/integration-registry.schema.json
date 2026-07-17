@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jarvis.raf/schemas/integration-registry.schema.json",
+  "title": "Jarvis Integration Registry",
+  "type": "object",
+  "required": ["schema_version", "generated_at", "integrations"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "integrations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["integration_id", "source_repository_id", "target", "kind", "direction", "status", "auth_mode", "capabilities", "blockers"],
+        "properties": {
+          "integration_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+          "source_repository_id": {"type": "string"},
+          "target": {"type": "string"},
+          "kind": {"enum": ["http", "mcp", "webhook", "queue", "database", "storage", "oauth", "ci", "deployment", "manual"]},
+          "direction": {"enum": ["inbound", "outbound", "bidirectional", "read-only"]},
+          "status": {"enum": ["proven", "operational", "partial", "configured", "blocked", "unknown", "retired"]},
+          "base_url_env": {"type": ["string", "null"]},
+          "health_path": {"type": ["string", "null"]},
+          "capability_path": {"type": ["string", "null"]},
+          "auth_mode": {"enum": ["none", "api-key", "bearer", "oauth2", "signed-webhook", "service-account", "session", "unknown"]},
+          "secret_names": {"type": "array", "items": {"type": "string"}},
+          "capabilities": {"type": "array", "items": {"type": "string"}},
+          "data_classification": {"enum": ["public", "internal", "confidential", "restricted", "health", "financial"]},
+          "timeout_seconds": {"type": "integer", "minimum": 1, "maximum": 300},
+          "retry_policy": {"type": "string"},
+          "evidence": {"type": "array", "items": {"type": "string"}},
+          "blockers": {"type": "array", "items": {"type": "string"}}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
