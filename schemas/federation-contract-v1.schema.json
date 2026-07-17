@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jarvis.raf/schemas/federation-contract-v1.schema.json",
+  "title": "Jarvis Cross-Repository Health and Capability Contract v1",
+  "type": "object",
+  "required": ["contract_version", "repository_id", "service_id", "observed_at", "health", "capabilities", "modules", "deployments", "cost_accounts", "blockers"],
+  "properties": {
+    "contract_version": {"const": "1.0.0"},
+    "repository_id": {"type": "string"},
+    "service_id": {"type": "string"},
+    "observed_at": {"type": "string", "format": "date-time"},
+    "version": {
+      "type": "object",
+      "required": ["release", "commit"],
+      "properties": {
+        "release": {"type": "string"},
+        "commit": {"type": ["string", "null"]},
+        "build": {"type": ["string", "null"]}
+      },
+      "additionalProperties": false
+    },
+    "health": {
+      "type": "object",
+      "required": ["status", "readiness", "latency_ms"],
+      "properties": {
+        "status": {"enum": ["healthy", "degraded", "unhealthy", "unknown", "not-deployed"]},
+        "readiness": {"enum": ["ready", "not-ready", "unknown", "not-applicable"]},
+        "latency_ms": {"type": ["integer", "null"], "minimum": 0},
+        "checks": {"type": "array", "items": {"type": "object", "required": ["name", "status"], "properties": {"name": {"type": "string"}, "status": {"enum": ["pass", "warn", "fail", "unknown"]}, "detail": {"type": ["string", "null"]}}, "additionalProperties": false}}
+      },
+      "additionalProperties": false
+    },
+    "capabilities": {"type": "array", "items": {"type": "object", "required": ["id", "version", "status", "operations"], "properties": {"id": {"type": "string"}, "version": {"type": "string"}, "status": {"enum": ["available", "partial", "blocked", "disabled", "unknown"]}, "operations": {"type": "array", "items": {"type": "string"}}}, "additionalProperties": false}},
+    "modules": {"type": "array", "items": {"type": "object", "required": ["id", "status"], "properties": {"id": {"type": "string"}, "status": {"enum": ["proven", "operational", "partial", "scaffold", "blocked", "unknown", "retired"]}, "detail": {"type": ["string", "null"]}}, "additionalProperties": false}},
+    "deployments": {"type": "array", "items": {"type": "object", "required": ["id", "provider", "environment", "status"], "properties": {"id": {"type": "string"}, "provider": {"type": "string"}, "environment": {"type": "string"}, "url": {"type": ["string", "null"]}, "status": {"enum": ["live", "partial", "configured", "blocked", "unknown", "not-deployed"]}}, "additionalProperties": false}},
+    "cost_accounts": {"type": "array", "items": {"type": "string"}},
+    "blockers": {"type": "array", "items": {"type": "object", "required": ["id", "severity", "summary"], "properties": {"id": {"type": "string"}, "severity": {"enum": ["critical", "high", "medium", "low", "info"]}, "summary": {"type": "string"}, "owner_action": {"type": ["string", "null"]}}, "additionalProperties": false}},
+    "evidence": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false
+}
