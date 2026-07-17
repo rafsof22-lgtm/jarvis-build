@@ -14,7 +14,8 @@ Use it to prevent duplicate modules, preserve source authority, and keep Jarvis 
 - Update this file after substantial Jarvis build, deployment, app, skill, or framework changes.
 - Treat missing evidence as a gap, not as proof that a module does not exist.
 - Use one primary owner per module and add supporting owners only when their scope is narrow and required.
-- Preserve module and service isolation unless a shared component is explicitly designed, tested, and approved.
+- Preserve module, repository, deployment and service isolation unless a shared component is explicitly designed, tested and approved.
+- Repositories may operate simultaneously. Jarvis coordinates them through versioned contracts, registries, events and APIs rather than destructive consolidation.
 
 ## Status Legend
 
@@ -29,56 +30,73 @@ Use it to prevent duplicate modules, preserve source authority, and keep Jarvis 
 
 ## Core Modules
 
-| Module | Purpose | Current Owner | Key Files | Apps Needed | Runtime Path | Status | Gaps | Next Action |
-|---|---|---|---|---|---|---|---|---|
-| Master Framework and Specification | Preserve the user-controlled framework, stack dated deltas, and keep implementation truth versioned | jarvis-sovereign-builder | Google Doc `JARVIS_BUILD_FRAMEWORK_CURRENT`; `JARVIS_MASTER_SPEC.md` | Google Drive, GitHub | repository control plane | drafted | Full user-supplied baseline still requires controlled verbatim transfer into the persistent document; repo spec requires review/merge | Complete baseline transfer in chunks; review and merge the master-spec PR |
-| Source Intake | Ingest files, archives, chat exports, repos, Drive/Notion/Gmail/Slack evidence | jarvis-build-orchestrator | `JARVIS_MASTER_SPEC.md`; `runtime/packages/source_ingestion/service.py` | GitHub, Drive, Gmail, Notion, Slack where relevant | `runtime/packages/source_ingestion` | drafted | Needs stronger source inventory and dedupe schema | Create source inventory schema and tests |
-| Requirement Reconciliation | Merge requirements, detect contradictions, preserve source hierarchy | jarvis-verification-discrepancy | `JARVIS_FORENSIC_TASK_MAP.md` | GitHub, Drive, Notion | `runtime/packages/patching` | drafted | Needs canonical contradiction register | Add contradiction table to forensic map |
-| Skill Dedupe | Classify skills as keep, merge, archive, route-only | skill-orchestrator-router | `JARVIS_SKILL_DEDUPE_MAP.md` | None required | n/a | implemented | Imported skill behavior still requires post-install routing tests | Keep one-primary-owner routing and run positive/negative tests after imports |
-| App Risk and Approval | Govern read/write/deploy/send actions and approval policy | project-stack-access-mapper | `JARVIS_APP_RISK_APPROVAL_MATRIX.md` | All connected apps | n/a | drafted | Standing agent-editor authorization must be reconciled with action-class and environment limits | Add explicit pre-authorized safe actions and retained approval gates |
-| GitHub Execution | Prepare repo patches, branches, commits, PRs, CI checks | jarvis-build-orchestrator | `runtime/docs/specs/GITHUB_WRITE_EXECUTION_SEQUENCE.md`; `runtime/docs/specs/REPO_EXECUTION_PACKAGE.md`; `AGENTS.md` | GitHub | `runtime/packages/connectors/github_repo.py` | implemented | Merged PRs #2-#5 prove write/PR workflow; automatic CI and merge policies still need explicit verification | Verify the new master-spec PR checks; define bounded auto-merge policy |
-| Deployment Automation | Bootstrap, deploy, rollback, smoke test runtime | jarvis-sovereign-builder | `ORACLE_FREE_TIER_DEPLOYMENT_BLUEPRINT.md`; `JARVIS_DEPLOYMENT_TARGET_MATRIX.md`; `runtime/infra/scripts/*`; `.github/workflows/deploy.yml` | GitHub and selected host provider | `runtime/infra` | drafted | Current deploy workflow is readiness-only; target host and production playbook are not yet selected and verified | Reconcile Oracle, Railway, DigitalOcean and local routes; implement staging adapter first |
-| Hybrid Model Router | Route tasks across GPT, DeepSeek, Kimi, Qwen, local models | jarvis-research-sourcing | `JARVIS_HYBRID_MODEL_ROUTER_PLAN.md`; `jarvis_model_router/`; `scripts/smoke_model_router.py` | OpenRouter/provider APIs only when enabled | `jarvis_model_router` | tested | Repo-side no-network scaffold and smoke test exist; real provider adapters, usage metering and fallback health remain | Add provider-neutral adapter contracts and local-first usage/cost telemetry |
-| Secret Discovery and Placement | Discover required secret names and aliases, classify safe presence/format, and generate exact placement steps | agent-capability-upgrader | `.env.example`; `.github/workflows/secret-preflight.yml`; `scripts/google_secret_preflight.py`; `docs/github-secret-preflight-checklist.md` | GitHub Actions, provider secret stores | CI/runtime preflight | tested | PRs #4 and #5 are merged; provider authentication and destination-specific mappings are incomplete | Expand names-only preflight across all current modules and providers without exposing values |
-| API Channel Control | Define safe external trigger payloads and forbidden actions | project-stack-access-mapper | `JARVIS_API_CHANNEL_RUNBOOK.md` | API channel | n/a | drafted | Needs external caller allowlist and payload schemas | Define trigger payload examples and signed request policy |
-| Integration Fabric | Maintain apps, APIs, MCPs, OAuth, webhooks, queues and provider lifecycle | agent-skill-integration-builder | `JARVIS_MASTER_SPEC.md`; future `INTEGRATION_REGISTRY` | Connected apps/providers | shared adapter layer plus module-local connectors | planned | No complete integration registry, health matrix, scope map or revoke/exit map | Create canonical integration registry and module connection priorities |
-| Workflow and Event Runtime | Execute durable workflows, schedules, webhooks, retries, queues, reconciliation and dead-letter handling | universal-agent-autopilot-orchestrator | future workflow/event specifications | n8n or code-first runtime; database/queue as justified | shared workflow runtime | planned | No proven shared durable runtime | Define minimum event envelope, workflow state machine, queue and idempotency contracts |
-| Observability | Health, cost, drift, source freshness, smoke tests | jarvis-verification-discrepancy | `JARVIS_OBSERVABILITY_AND_SMOKE_TEST_MATRIX.md`; CI workflows | GitHub, host provider, optional monitoring app | runtime tests/CI | implemented | CI/dry-run evidence exists; external runtime metrics, traces, alerts and cost telemetry are incomplete | Add shared health schema, run IDs, evidence pointers and module cost metrics |
-| Schedules | Daily/weekly/monthly Jarvis audits and status checks | jarvis-session-orchestrator | `JARVIS_SCHEDULE_RUNBOOK.md` | ChatGPT schedules; runtime scheduler; Slack if configured | n/a | planned | No schedules configured | Add schedules only after approval, cost and notification policies are reconciled |
-| Other-Agent Unification | Import similar agents as evidence and merge superior modules | source-first-project-continuity | `JARVIS_OTHER_AGENT_UNIFICATION_WORKFLOW.md`; `JARVIS_MASTER_SPEC.md` | Files, GitHub, Drive as needed | module migration pipeline | drafted | Known agents/repos are identified but not fully reconciled | Inventory `hub`, `Jarvis-Health`, `videotranscribe`, and `property-agent-mcp` before shared-core migration |
-| Bill CFO OCR MCP | Isolated OCR, evidence intake and finance document service shell | bill-cfo-ocr-source-intake | `services/bill-cfo-ocr-mcp/**` | Dedicated Railway service and finance sources | `services/bill-cfo-ocr-mcp` | connected | Historical Railway health proves shell only; OCR auth, workbook write and queue flows remain unproven | Verify current Railway health and smallest real OCR/evidence flow |
-| XRP/HBAR Apex | Isolated XRP/HBAR intelligence MCP/runtime service | xrp-hbar-apex-tracker | `services/xrp-hbar-apex/**` | Dedicated Railway or other isolated service | `services/xrp-hbar-apex` | implemented | Repo routes exist; separate live service and authenticated MCP smoke are not yet proven | Create/verify dedicated service and run authenticated MCP smoke |
-| Jarvis Health | Health intelligence, records, evidence grading and care coordination | Jarvis Health domain module | `rafsof22-lgtm/Jarvis-Health` and future module map | Health data connectors under consent | isolated health domain | drafted | Repository requires content and security reconciliation | Inventory repo, map sensitive data boundaries and generate module integration plan |
-| Video Intelligence | Transcription, OCR, social/video intake, extraction and evidence workflows | vti-video-intelligence-builder | `rafsof22-lgtm/videotranscribe` | Platform/API sources as approved | isolated video domain | implemented | Must reconcile with XRP/HBAR transcript tools and shared ingestion without duplication | Audit repo and define shared transcript contract plus domain-specific consumers |
-| Property Buyer Intelligence | Capture, source-proof, dedupe, score and enrich property buyers | property-buyer-capture | `rafsof22-lgtm/property-agent-mcp` | Search/enrichment sources and sheets/DB | isolated property domain | implemented | Capture-only boundary and deployment/integration state require verification | Audit MCP routes, data stores and buyer database workflow; preserve no-outreach default |
+| Module | Purpose | Current Owner | Key Files | Runtime Path | Status | Verified Finding / Gap | Next Action |
+|---|---|---|---|---|---|---|---|
+| Master Framework and Specification | Preserve the user-controlled framework and version implementation truth | jarvis-sovereign-builder | Google Doc `JARVIS_BUILD_FRAMEWORK_CURRENT`; `JARVIS_MASTER_SPEC.md` | repository control plane | implemented | PR #6 passed Free-first CI and was merged to `main` at `b4f30ba849b52931125a15f45a7eebabb089e0f7` | Continue additions-only framework deltas and baseline transfer |
+| Source Intake | Ingest files, archives, chat exports, repos and connected evidence | jarvis-build-orchestrator | `JARVIS_MASTER_SPEC.md`; future source registry | `runtime/packages/source_ingestion` | drafted | Current chat and five connected repos are known; complete source denominator is still expanding | Create source, request and response schemas with immutable pointers |
+| Requirement Reconciliation | Consolidate all applicable user requests and material AI responses | jarvis-verification-discrepancy | future requirement, conflict and traceability registries | `runtime/packages/patching` | drafted | Five-pass policy exists; canonical automated extraction pipeline remains incomplete | Implement RequestLog -> Requirement -> Module -> Artifact -> Test -> Evidence mapping |
+| Repository Federation | Keep all repositories independently usable while sharing contracts and control-plane services | jarvis-sovereign-builder | this registry; `JARVIS_MASTER_SPEC.md`; future repository registry | multi-repository federation | drafted | All five repos can remain simultaneous; blind merge would compromise service and deployment boundaries | Add versioned API/event contracts, compatibility matrix and cross-repo release ledger |
+| Skill Dedupe and Factory | Govern existing skills and generate validated skills when capability gaps appear | skill-orchestrator-router | `JARVIS_SKILL_DEDUPE_MAP.md`; future skill registry/factory | shared skill fabric | implemented | One-owner routing exists; automated candidate discovery, generation, evaluation and canary promotion remain incomplete | Build governed skill lifecycle and reusable skill store |
+| Agent Factory and Elastic Mesh | Create, pool, pause and retire bounded agents for parallel work | jarvis-sovereign-builder | future agent templates, registry and policy files | supervisor and worker pools | planned | Large parallel expansion is required, but unrestricted recursive spawning is prohibited | Implement signed templates, quotas, isolated workspaces, budgets, tests and automatic retirement |
+| Continuous Source and Capability Scout | Continuously discover better models, tools, frameworks, modules and lawful implementation patterns | universal-intelligence-gatherer | future source/opportunity registry | scheduled scout workers | planned | Current source scouting is manual/on-demand | Add official-first delta scans, scoring, dedupe, security review and build-task creation |
+| Cost, Credit and Resource Governor | Minimise ChatGPT credits, model tokens, build credits and infrastructure cost without losing capability | universal-sourcing-stack-scout | `JARVIS_HYBRID_MODEL_ROUTER_PLAN.md`; deployment matrix; future cost ledger | shared routing and policy layer | drafted | Free-first routing exists; full credit-aware telemetry, budgets and automatic route switching remain incomplete | Add per-task cost estimates, hard caps, free allowance tracking, cache metrics and cheapest-qualified fallback |
+| App Risk and Approval | Govern read/write/deploy/send actions and approval policy | project-stack-access-mapper | `JARVIS_APP_RISK_APPROVAL_MATRIX.md` | policy layer | drafted | Standing agent-editor authorization exists; consequential action gates remain | Encode repository/environment/action/budget policies |
+| GitHub Execution | Branch, commit, PR, CI and controlled merge workflow | jarvis-build-orchestrator | `AGENTS.md`; CI workflows | GitHub Actions | tested | PR #6 CI passed compilation, model-router smoke and deployment dry run; public-repo Actions route is free | Retain public non-sensitive control repo where safe; keep secrets/private data out |
+| Deployment Automation | Preview, staging, canary, production, rollback and smoke verification | jarvis-sovereign-builder | deployment matrix; Oracle blueprint; repo workflows | provider-specific isolated services | drafted | `hub` has DigitalOcean auto-deploy; `videotranscribe` has Vercel workflow; other repos use separate paths | Standardise deployment contracts without replacing working module deployments |
+| Hybrid Model Router | Route tasks across deterministic, local, free and paid models | jarvis-research-sourcing | `jarvis_model_router/`; router plan | `jarvis_model_router` | tested | No-network scaffold passes smoke test; provider telemetry and adapters remain | Implement capability scoring, credit awareness, cache and local/free-first fallback |
+| Secret Discovery and Placement | Discover names and aliases without exposing values | agent-capability-upgrader | `.env.example`; secret-preflight workflow and scripts | CI/runtime preflight | tested | Google alias classifier exists; `videotranscribe` contained an embedded Vercel credential fallback | Rotate exposed Vercel token; merge security PR; expand secret scans across all repos |
+| Integration Fabric | Manage apps, APIs, MCPs, OAuth, webhooks, queues and provider lifecycle | agent-skill-integration-builder | future integration registry | shared adapter layer plus module-local connectors | planned | Each repo currently has different providers and credentials | Build shared contracts while preserving module-local secrets and scopes |
+| Workflow and Event Runtime | Durable workflows, schedules, webhooks, retries, queues and reconciliation | universal-agent-autopilot-orchestrator | future event and workflow specifications | n8n/code-first runtime | planned | `property-agent-mcp` has a signed queue and optional n8n dispatch; no proven shared runtime | Define canonical event envelope, idempotency, retry and dead-letter contracts |
+| Observability | Health, cost, drift, freshness, evidence and incident tracking | jarvis-verification-discrepancy | observability matrix; CI | runtime tests/CI | implemented | CI evidence exists; common cross-repo telemetry does not | Add run IDs, health schema, dependency status, cost and incident registry |
+| Bill CFO OCR MCP | Isolated finance document/OCR service | bill-cfo-ocr-source-intake | `services/bill-cfo-ocr-mcp/**` | dedicated Railway service | connected | Connected shell evidence only; real OCR and workbook paths need proof | Keep isolated and test smallest real OCR/evidence flow |
+| XRP/HBAR Apex | Isolated market/video/email intelligence service | xrp-hbar-apex-tracker | `services/xrp-hbar-apex/**`; `hub` runtime | Railway service plus DigitalOcean hub runtime | implemented | `hub` has Flask/API, Postgres, Redis, Caddy and deploy workflow; Gmail proof remains incomplete | Reconcile duplicate XRP/HBAR service surfaces through contracts, not destructive merge |
+| Jarvis Health | Health intelligence and Drive-backed MCP work | Jarvis Health domain module | `rafsof22-lgtm/Jarvis-Health` | isolated Node service | drafted | Current server is a placeholder; README names Drive tools not yet implemented; release workflow calls missing `npm test` and attempts npm publish | Preserve repo, disable unsafe publishing until package/test policy exists, implement tools privately |
+| Video Intelligence | Transcription, fact checking and evidence workflows | vti-video-intelligence-builder | `rafsof22-lgtm/videotranscribe` | Next.js/Supabase/Vercel | implemented | Rich app exists; a Vercel credential was embedded in workflow and is being removed in PR #1 | Rotate token, merge security PR, retain independent app and expose versioned Jarvis API contracts |
+| Property Buyer Intelligence | Capture, dedupe, score and enrich buyer leads | property-buyer-capture | `rafsof22-lgtm/property-agent-mcp` | Railway, Postgres, n8n, Google Sheets | implemented | MCP, Apollo/Hunter, stage-only Sheets writes and signed jobs exist; promotion/merge workers remain incomplete | Preserve capture-only boundary and finish staged ingest, dedupe and audit endpoints |
 
-## Connected Repository Map
+## Connected Repository Federation
 
-| Repository | Role | Current handling |
-|---|---|---|
-| `rafsof22-lgtm/jarvis-build` | Primary implementation spine and shared control repository | Continue through branches, PRs, CI and service isolation |
-| `rafsof22-lgtm/hub` | Existing hub/XRP-HBAR deployment evidence | Reconcile before reuse; do not treat as automatic canonical replacement |
-| `rafsof22-lgtm/Jarvis-Health` | Health-domain repository | Keep privacy-isolated and map into Jarvis Health module |
-| `rafsof22-lgtm/videotranscribe` | Video/transcript intelligence repository | Extract reusable ingestion contracts without erasing domain logic |
-| `rafsof22-lgtm/property-agent-mcp` | Property/buyer MCP repository | Preserve capture-only policy unless outreach is separately approved |
+| Repository | Independent role | Simultaneous-use policy | Current risk / gap |
+|---|---|---|---|
+| `rafsof22-lgtm/jarvis-build` | Canonical control plane, registries and shared service shells | Always usable as implementation spine; changes through branch/PR/CI | Avoid storing private source content in the public repo |
+| `rafsof22-lgtm/hub` | XRP/HBAR DigitalOcean runtime and deployment evidence | Keep operational while contracts are reconciled | Gmail credential validity and proof gates remain |
+| `rafsof22-lgtm/Jarvis-Health` | Private health/Drive MCP module | Keep private and separately deployable | Placeholder implementation and unsafe/unnecessary npm publish workflow |
+| `rafsof22-lgtm/videotranscribe` | Private VTI application | Keep separately buildable and previewable | Exposed Vercel token requires rotation and history-aware remediation |
+| `rafsof22-lgtm/property-agent-mcp` | Private property MCP and Railway service | Keep separately deployable with capture-only policy | Several ingestion/merge/audit workers remain unimplemented |
+
+## Free and Cheapest Route Policy
+
+Use this live decision order and re-evaluate it continuously:
+
+`existing artifact/cache -> deterministic local tool -> GitHub/connected native tool -> local runtime/model -> free public-repo CI -> free preview/static/serverless tier -> existing paid infrastructure -> lowest-cost qualified paid route -> premium route only with measured justification`
+
+Current validated defaults:
+
+- GitHub public-repository Actions for non-sensitive CI where safe.
+- Local editor, Git, Docker, scripts, Ollama/llama.cpp and browser preview for zero-usage work.
+- Cloudflare Pages/Workers free tier for lightweight preview, gateway and event workloads where technically compatible.
+- Existing Vercel/Railway/DigitalOcean deployments remain usable; migrate only when measured savings and compatibility justify it.
+- Oracle Cloud Always Free remains the planned always-on controller route after account/host setup.
+- Paid model and infrastructure routes are disabled by default unless free/native routes fail acceptance criteria or an approved budget applies.
+
+Continuously compare current official pricing, limits, reliability, lock-in, exportability, credits, quotas, latency and maintenance cost. Never assume a promotional free tier remains permanent.
 
 ## Immediate P0 Backlog
 
-1. Merge the repository-tracked `JARVIS_MASTER_SPEC.md` after checks and review.
-2. Complete controlled verbatim transfer of the full user-supplied baseline into `JARVIS_BUILD_FRAMEWORK_CURRENT`.
-3. Create the canonical source, requirement, decision, integration, secret, workflow, deployment, test, evidence, cost and incident registry schemas.
-4. Inventory and reconcile all five connected repositories into the module map without blind merging.
-5. Expand secret requirement discovery across each repository and service using names and aliases only.
-6. Implement provider-neutral model adapter and usage/cost telemetry around the tested no-network router scaffold.
-7. Define the shared workflow/event envelope, queue, retry, idempotency, dead-letter and reconciliation contracts.
-8. Select and verify a staging deployment path before adding production deployment steps.
-9. Add runtime health, readiness, dependency, cost, freshness and rollback evidence contracts.
-10. Reconcile standing agent-editor authorization with explicit environment, repository, action-class and budget policies.
+1. Complete and merge the `videotranscribe` security remediation after checks; revoke and rotate the exposed Vercel credential.
+2. Disable or repair the `Jarvis-Health` release publishing workflow before any release is created.
+3. Create canonical repository, request/response, source, requirement, agent, skill, integration, model, cost, test, evidence and incident registries.
+4. Implement the governed agent and skill factory with signed templates, quotas, evaluation, canary and rollback.
+5. Add credit-aware model/build routing and cost telemetry.
+6. Define shared cross-repository API/event/version contracts while leaving every repository independently usable.
+7. Reconcile XRP/HBAR surfaces between `jarvis-build` and `hub` without replacing the proven DigitalOcean path.
+8. Establish free preview and staging adapters before production changes.
+9. Add secret scanning and history-aware incident handling across all repositories.
+10. Continue the full baseline transfer and additions-only Google framework updates.
 
 ## Update Log
 
-- Initial registry created to consolidate the Jarvis setup gap audit into a durable control file.
-- 2026-07-17: Verified GitHub repo `rafsof22-lgtm/jarvis-build`, base branch `main`, and safe work branch for control-registry/model-router PR work.
-- 2026-07-17: Reconciled merged PRs #2-#5 and removed the stale pending-PR statement.
-- 2026-07-17: Added master framework/spec, secret discovery, integration fabric, workflow/event runtime, connected repository, and known domain module rows.
-- 2026-07-17: Added P0 work for full baseline transfer, cross-repository reconciliation, model telemetry, shared workflow contracts, staging deployment and evidence schemas.
+- 2026-07-17: PR #6 passed Free-first CI and was merged, establishing `JARVIS_MASTER_SPEC.md` on `main`.
+- 2026-07-17: Completed initial five-repository forensic inventory and confirmed simultaneous-operation federation policy.
+- 2026-07-17: Identified a P0 embedded Vercel credential in `videotranscribe`; opened a removal PR and required rotation.
+- 2026-07-17: Added continuous free/cheapest route optimization, cost/credit governance, elastic agent mesh, skill factory and source/capability scout modules.
