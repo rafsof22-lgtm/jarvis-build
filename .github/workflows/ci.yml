@@ -25,10 +25,16 @@ jobs:
           python-version: "3.12"
 
       - name: Compile runtime scaffold
-        run: python -m compileall jarvis_model_router scripts
+        run: python -m compileall jarvis_model_router jarvis_command_centre scripts
 
       - name: Run model-router smoke test
         run: python scripts/smoke_model_router.py
+
+      - name: Run command-centre schema and federation smoke test
+        run: python scripts/smoke_command_centre.py
+
+      - name: Generate offline command-centre snapshot
+        run: python -m jarvis_command_centre.command_centre --output command-centre.snapshot.json
 
       - name: Run deployment readiness dry run
         run: python scripts/deploy_dry_run.py --check-only --target oracle
