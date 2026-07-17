@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jarvis.raf/schemas/cost-credit-ledger.schema.json",
+  "title": "Jarvis Cost and Credit Ledger",
+  "type": "object",
+  "required": ["schema_version", "generated_at", "accounts"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "accounts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["account_id", "provider", "resource_type", "balance_status", "currency", "allowances", "usage", "blockers"],
+        "properties": {
+          "account_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+          "provider": {"type": "string"},
+          "plan": {"type": ["string", "null"]},
+          "resource_type": {"enum": ["model-tokens", "api-credits", "ci-minutes", "workflow-runs", "build-minutes", "deployments", "compute", "database", "storage", "bandwidth", "seat", "subscription", "other"]},
+          "repository_ids": {"type": "array", "items": {"type": "string"}},
+          "balance_status": {"enum": ["verified", "estimated", "unavailable", "not-applicable", "expired"]},
+          "currency": {"type": "string"},
+          "credit_balance": {"type": ["number", "null"], "minimum": 0},
+          "credit_expiry": {"type": ["string", "null"], "format": "date-time"},
+          "allowances": {"type": "array", "items": {"$ref": "#/$defs/meter"}},
+          "usage": {"type": "array", "items": {"$ref": "#/$defs/meter"}},
+          "renewal_at": {"type": ["string", "null"], "format": "date-time"},
+          "monthly_budget": {"type": ["number", "null"], "minimum": 0},
+          "alert_threshold_percent": {"type": "number", "minimum": 0, "maximum": 100},
+          "source": {"type": ["string", "null"]},
+          "last_verified_at": {"type": ["string", "null"], "format": "date-time"},
+          "blockers": {"type": "array", "items": {"type": "string"}}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "$defs": {
+    "meter": {
+      "type": "object",
+      "required": ["name", "unit", "value", "status"],
+      "properties": {
+        "name": {"type": "string"},
+        "unit": {"type": "string"},
+        "value": {"type": ["number", "null"], "minimum": 0},
+        "limit": {"type": ["number", "null"], "minimum": 0},
+        "period": {"type": ["string", "null"]},
+        "status": {"enum": ["verified", "estimated", "unavailable", "not-applicable"]}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
