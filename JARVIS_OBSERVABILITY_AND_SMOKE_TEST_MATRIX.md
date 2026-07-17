@@ -7,7 +7,7 @@ This file defines how Jarvis proves that modules, app routes, deployment targets
 ## Observability Layers
 
 | Layer | What To Monitor | First Free Route | Paid/Advanced Route |
-|---|---|---|
+|---|---|---|---|
 | Agent config | instructions, files, skills, app setup, schedules, channels | manual/preview audits | scheduled audits |
 | Runtime API | health endpoint, errors, latency | GitHub Actions curl checks | uptime monitor / Datadog / Coralogix |
 | Worker queue | queued, running, failed jobs | logs and DB query | managed queue dashboards |
