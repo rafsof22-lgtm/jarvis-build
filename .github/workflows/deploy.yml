@@ -1,0 +1,61 @@
+name: Deployment readiness gate
+
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: "Deployment target to validate"
+        required: true
+        type: choice
+        default: oracle
+        options:
+          - oracle
+          - vps
+          - local
+      require_host:
+        description: "Fail if required host secrets are missing"
+        required: true
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: jarvis-deploy-readiness-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  readiness:
+    name: Validate deployment inputs only
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      JARVIS_DEPLOY_TARGET: ${{ inputs.target }}
+      ORACLE_HOST: ${{ secrets.ORACLE_HOST }}
+      ORACLE_SSH_USER: ${{ secrets.ORACLE_SSH_USER }}
+      ORACLE_SSH_PRIVATE_KEY: ${{ secrets.ORACLE_SSH_PRIVATE_KEY }}
+      ORACLE_DEPLOY_PATH: ${{ secrets.ORACLE_DEPLOY_PATH }}
+      VPS_HOST: ${{ secrets.VPS_HOST }}
+      VPS_SSH_USER: ${{ secrets.VPS_SSH_USER }}
+      VPS_SSH_PRIVATE_KEY: ${{ secrets.VPS_SSH_PRIVATE_KEY }}
+      VPS_DEPLOY_PATH: ${{ secrets.VPS_DEPLOY_PATH }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate deployment readiness without deploying
+        run: |
+          if [ "${{ inputs.require_host }}" = "true" ]; then
+            python scripts/deploy_dry_run.py --target "${{ inputs.target }}" --require-host
+          else
+            python scripts/deploy_dry_run.py --target "${{ inputs.target }}" --check-only
+          fi
+
+      - name: Confirm no live deployment ran
+        run: echo "Readiness check complete. No SSH, provider API, or live deployment step ran."
