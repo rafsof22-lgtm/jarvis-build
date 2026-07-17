@@ -12,9 +12,26 @@ This repository is the durable source-control layer for the Jarvis / RAF213G / S
 - `JARVIS_HYBRID_MODEL_ROUTER_PLAN.md` - model-router planning baseline.
 - `JARVIS_OBSERVABILITY_AND_SMOKE_TEST_MATRIX.md` - smoke-test and observability gates.
 
+## Canonical command centre v1
+
+- `schemas/` - versioned Repository Registry, Integration Registry, Cost/Credit Ledger and federation-contract schemas.
+- `registry/` - canonical records for all five connected repositories, integrations, deployments, allowances, balances, module states and blockers.
+- `jarvis_command_centre/` - standard-library aggregator, JSON API and browser command centre.
+- `scripts/smoke_command_centre.py` - offline contract, registry and five-repository smoke test.
+- `docs/command-centre-v1.md` - operation, security, evidence rules and remaining rollout phases.
+
+Run locally:
+
+```bash
+python -m jarvis_command_centre.command_centre
+python -m jarvis_command_centre.command_centre --serve --port 8787
+```
+
+The command centre never converts missing provider balances to zero. Live polling is read-only and opt-in through named environment variables.
+
 ## Current runtime scaffold
 
-- `.github/workflows/ci.yml` - free-first CI for syntax, model-router smoke checks, and deployment dry run.
+- `.github/workflows/ci.yml` - free-first CI for syntax, model-router smoke checks, command-centre contract checks, snapshot generation, and deployment dry run.
 - `.github/workflows/deploy.yml` - manual deployment readiness gate only; it does not deploy.
 - `.env.example` - variable names only, with blank values.
 - `jarvis_model_router/` - safe model-route selection scaffold with cloud routes disabled by default.
@@ -49,8 +66,10 @@ XRP/HBAR Apex belongs under `services/xrp-hbar-apex/` and should be mapped to a 
 ## Safe local checks
 
 ```bash
-python -m compileall jarvis_model_router scripts
+python -m compileall jarvis_model_router jarvis_command_centre scripts
 python scripts/smoke_model_router.py
+python scripts/smoke_command_centre.py
+python -m jarvis_command_centre.command_centre --output command-centre.snapshot.json
 python scripts/deploy_dry_run.py --check-only --target oracle
 ```
 
@@ -60,4 +79,4 @@ Live deployment is blocked until the selected host exists and required secrets a
 
 ## Status
 
-This repo contains governance files, CI/deployment-readiness scaffolds, a safe model-router scaffold, and isolated service shells for Bill CFO OCR MCP and XRP/HBAR Apex. Do not claim full Jarvis implementation, live deployment, OCR provider readiness, XRP/HBAR external intelligence-engine readiness, workbook-write readiness, production readiness, or zero-gaps completion from this repository alone.
+This repo contains governance files, CI/deployment-readiness scaffolds, a safe model-router scaffold, canonical federation registries, and a first command-centre aggregator. Do not claim full Jarvis implementation, live command-centre deployment, live cross-repository contract coverage, authoritative provider-balance visibility, OCR provider readiness, XRP/HBAR external intelligence-engine readiness, workbook-write readiness, production readiness, or zero-gaps completion from this repository alone.
