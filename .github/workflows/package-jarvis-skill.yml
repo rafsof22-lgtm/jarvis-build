@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: read
+  pull-requests: write
 
 jobs:
   validate-package:
@@ -29,8 +30,7 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           path = Path('docs/chatgpt-project-instructions-jarvis-v3.md')
-          text = path.read_text(encoding='utf-8')
-          count = len(text)
+          count = len(path.read_text(encoding='utf-8'))
           print(f'project_instruction_characters={count}')
           if count > 8000:
               raise SystemExit(f'project instructions exceed 8000 characters: {count}')
@@ -56,6 +56,40 @@ jobs:
               raise SystemExit('skill.zip exceeds 25 MiB')
           PY
 
+      - name: Create package evidence summary
+        run: |
+          python - <<'PY'
+          import csv, json
+          from pathlib import Path
+          instructions = Path('docs/chatgpt-project-instructions-jarvis-v3.md')
+          inventory = Path('evidence/jarvis-skill-inventory.csv')
+          with inventory.open(newline='', encoding='utf-8') as handle:
+              files = sum(1 for _ in csv.DictReader(handle))
+          summary = {
+              'skill_bundle_valid': True,
+              'project_instruction_characters': len(instructions.read_text(encoding='utf-8')),
+              'project_instruction_limit': 8000,
+              'skill_zip_bytes': Path('dist/skill.zip').stat().st_size,
+              'skill_source_files': files,
+              'values_exposed': False,
+          }
+          Path('evidence/jarvis-skill-package-summary.json').write_text(json.dumps(summary, indent=2) + '\n')
+          print(json.dumps(summary, indent=2))
+          PY
+
+      - name: Post package evidence to pull request
+        if: github.event_name == 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          {
+            echo '### Jarvis skill package evidence'
+            echo '```json'
+            cat evidence/jarvis-skill-package-summary.json
+            echo '```'
+          } > evidence/package-comment.md
+          gh pr comment "${{ github.event.pull_request.number }}" --body-file evidence/package-comment.md
+
       - name: Upload validated skill package
         uses: actions/upload-artifact@v4
         with:
@@ -63,5 +97,6 @@ jobs:
           path: |
             dist/skill.zip
             evidence/jarvis-skill-inventory.csv
+            evidence/jarvis-skill-package-summary.json
             docs/chatgpt-project-instructions-jarvis-v3.md
           retention-days: 90
