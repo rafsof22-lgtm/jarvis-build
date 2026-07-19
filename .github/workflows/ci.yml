@@ -39,6 +39,9 @@ jobs:
       - name: Validate Sovereign Command Centre and workflow controls
         run: python scripts/smoke_sovereign_controls.py
 
+      - name: Validate dual-layer autonomy and applicability policy
+        run: python scripts/smoke_dual_layer_policy.py
+
       - name: Run redacted configuration-readiness smoke test
         run: python scripts/smoke_config_readiness.py
 
