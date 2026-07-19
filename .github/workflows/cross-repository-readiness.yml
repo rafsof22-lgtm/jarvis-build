@@ -1,0 +1,92 @@
+name: Cross-Repository Readiness
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "41 2 * * 2"
+
+permissions:
+  contents: read
+
+jobs:
+  readiness:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      GH_TOKEN: ${{ secrets.JARVIS_REPO_READ_TOKEN }}
+    steps:
+      - name: Check out control plane
+        uses: actions/checkout@v4
+        with:
+          ref: codex/jarvis-cost-routing-pilot-20260719
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Scan control plane
+        run: |
+          mkdir -p evidence/config-reports workspaces
+          python scripts/config_readiness.py --root . --output evidence/config-reports/jarvis-build.json
+
+      - name: Clone and scan visible repositories
+        shell: bash
+        run: |
+          set -euo pipefail
+          scan_repo() {
+            repo="$1"
+            id="$2"
+            visibility="$3"
+            target="workspaces/$id"
+            if [ "$visibility" = "public" ]; then
+              git clone --depth 1 "https://github.com/$repo.git" "$target" >/dev/null 2>&1
+            elif [ -n "${GH_TOKEN:-}" ]; then
+              gh repo clone "$repo" "$target" -- --depth 1 >/dev/null 2>&1
+            else
+              cat > "evidence/config-reports/$id.json" <<JSON
+          {
+            "schema_version":"1.0.0",
+            "repository_id":"$id",
+            "scope":"$repo",
+            "safety":{"values_emitted":false,"external_connections_attempted":false,"mutations_performed":false,"deletions_performed":false},
+            "summary":{"configuration_names":0,"missing_template_entries":0,"tracked_environment_files_for_review":0,"unreadable_files":0,"blocked":1},
+            "configuration":[],
+            "tracked_environment_files_for_review":[],
+            "unreadable_files":[],
+            "blocker":"Add a read-only fine-grained GitHub token as JARVIS_REPO_READ_TOKEN with Contents: Read access to this repository."
+          }
+          JSON
+              return
+            fi
+            python scripts/config_readiness.py --root "$target" --output "evidence/config-reports/$id.json"
+          }
+          scan_repo rafsof22-lgtm/hub hub public
+          scan_repo rafsof22-lgtm/Jarvis-Health jarvis-health private
+          scan_repo rafsof22-lgtm/videotranscribe videotranscribe private
+          scan_repo rafsof22-lgtm/property-agent-mcp property-agent-mcp private
+
+      - name: Add repository identifiers and merge reports
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          folder = Path('evidence/config-reports')
+          for path in folder.glob('*.json'):
+              data = json.loads(path.read_text())
+              data.setdefault('repository_id', path.stem)
+              path.write_text(json.dumps(data, indent=2) + '\n')
+          PY
+          python scripts/federate_config_reports.py --input evidence/config-reports --output evidence/federated-config-readiness.json
+
+      - name: Build Command Centre snapshot
+        run: python -m jarvis_command_centre.command_centre --output evidence/command-centre.snapshot.json
+
+      - name: Upload redacted readiness evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: jarvis-cross-repository-readiness
+          path: |
+            evidence/config-reports/*.json
+            evidence/federated-config-readiness.json
+            evidence/command-centre.snapshot.json
