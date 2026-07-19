@@ -1,11 +1,121 @@
 {
-  "schema_version": "1.0.0",
-  "generated_at": "2026-07-17T14:00:00Z",
+  "schema_version": "1.1.0",
+  "generated_at": "2026-07-19T08:50:00Z",
   "repositories": [
-    {"repository_id":"jarvis-build","full_name":"rafsof22-lgtm/jarvis-build","visibility":"public","default_branch":"main","role":"Sovereign control plane, registries, routing, CI and federation aggregator","owner_module":"jarvis-core","service_roots":["services/bill-cfo-ocr-mcp","services/xrp-hbar-apex"],"deployment_ids":["jarvis-command-centre-local"],"contract_endpoint":null,"module_status":"operational","last_verified_commit":"8b46ec25058f1fcf5d5770e8104546647e1bc0f4","evidence":["PR #7 merged","Free-first CI passed"],"blockers":["No proven production host for command centre"],"tags":["control-plane","public"]},
-    {"repository_id":"hub","full_name":"rafsof22-lgtm/hub","visibility":"public","default_branch":"main","role":"XRP/HBAR runtime hub and DigitalOcean deployment stack","owner_module":"xrp-hbar-hub","service_roots":["."],"deployment_ids":["hub-digitalocean"],"contract_endpoint":null,"module_status":"partial","last_verified_commit":null,"evidence":["Docker Compose runtime scaffold","deployment workflow present"],"blockers":["Live health/capability contract endpoint not yet proven"],"tags":["crypto","runtime","public"]},
-    {"repository_id":"jarvis-health","full_name":"rafsof22-lgtm/Jarvis-Health","visibility":"private","default_branch":"main","role":"Privacy-isolated health and Google Drive MCP service","owner_module":"health","service_roots":["."],"deployment_ids":[],"contract_endpoint":null,"module_status":"scaffold","last_verified_commit":null,"evidence":["Placeholder HTTP health route"],"blockers":["Real MCP tools, tests, authentication and deployment missing","npm workflow expects missing test script"],"tags":["health","restricted","private"]},
-    {"repository_id":"videotranscribe","full_name":"rafsof22-lgtm/videotranscribe","visibility":"private","default_branch":"main","role":"Video transcription and source-intelligence application","owner_module":"video-intelligence","service_roots":["."],"deployment_ids":["videotranscribe-vercel"],"contract_endpoint":null,"module_status":"partial","last_verified_commit":"30f12deca8fdeb82d2cdc07c3a855cb6e793abf1","evidence":["Security PR #1 merged","Next.js application present"],"blockers":["Provider-side Vercel token rotation still required","Live contract endpoint not proven"],"tags":["video","intelligence","private"]},
-    {"repository_id":"property-agent-mcp","full_name":"rafsof22-lgtm/property-agent-mcp","visibility":"private","default_branch":"main","role":"Property buyer capture MCP and signed job queue","owner_module":"property-scout","service_roots":["."],"deployment_ids":["property-agent-railway"],"contract_endpoint":null,"module_status":"partial","last_verified_commit":null,"evidence":["MCP backend and job queue implemented","tests and migrations present"],"blockers":["Upload routes, MasterLeads merge/dedupe, workers and forensic audit endpoint missing","Live contract endpoint not proven"],"tags":["property","capture-only","private"]}
+    {
+      "repository_id": "jarvis-build",
+      "full_name": "rafsof22-lgtm/jarvis-build",
+      "visibility": "public",
+      "default_branch": "main",
+      "role": "Sovereign control plane, canonical registries, routing, CI and federation aggregator",
+      "owner_module": "jarvis-core",
+      "service_roots": ["services/bill-cfo-ocr-mcp", "services/xrp-hbar-apex"],
+      "deployment_ids": ["jarvis-command-centre-local"],
+      "contract_endpoint": null,
+      "contract_schema": "schemas/xrp-hbar-federation-contract-v1.json",
+      "module_status": "IMPLEMENTED_NOT_INTEGRATED",
+      "last_verified_commit": "47d5b1d9093f425bad56b0e8a9fc3bdfa625d542",
+      "evidence": [
+        "README.md",
+        "JARVIS_MODULE_REGISTRY.md",
+        "docs/modules/xrp-hbar-framework-options-integration.md",
+        "schemas/xrp-hbar-federation-contract-v1.json"
+      ],
+      "blockers": [
+        "Cross-repository contract tests not yet run",
+        "No proven production host for Command Centre",
+        "Owner approval required before production promotion"
+      ],
+      "tags": ["control-plane", "public", "xrp-hbar-federation"]
+    },
+    {
+      "repository_id": "hub",
+      "full_name": "rafsof22-lgtm/hub",
+      "visibility": "public",
+      "default_branch": "main",
+      "role": "XRP/HBAR DigitalOcean runtime and deployment evidence",
+      "owner_module": "xrp-hbar-hub-runtime",
+      "service_roots": ["."],
+      "deployment_ids": ["hub-digitalocean"],
+      "contract_endpoint": null,
+      "contract_schema": "schemas/xrp-hbar-federation-contract-v1.json",
+      "module_status": "IMPLEMENTED_NOT_INTEGRATED",
+      "last_verified_commit": "75b8ccdd4e34a46b63a8cbbe3d5a86fe81892e8d",
+      "evidence": [
+        "README.md",
+        "Docker Compose runtime scaffold",
+        "DigitalOcean deployment workflow",
+        "runtime proof ledger commits"
+      ],
+      "blockers": [
+        "Canonical Jarvis federation endpoint not yet implemented",
+        "Gmail OAuth runtime proof remains unresolved",
+        "Full XRP/HBAR framework execution is not proven"
+      ],
+      "tags": ["crypto", "runtime", "public", "xrp-hbar-federation"]
+    },
+    {
+      "repository_id": "jarvis-health",
+      "full_name": "rafsof22-lgtm/Jarvis-Health",
+      "visibility": "private",
+      "default_branch": "main",
+      "role": "Privacy-isolated health and Google Drive MCP service",
+      "owner_module": "health",
+      "service_roots": ["."],
+      "deployment_ids": [],
+      "contract_endpoint": null,
+      "module_status": "SCAFFOLDED",
+      "last_verified_commit": null,
+      "evidence": ["Placeholder HTTP health route"],
+      "blockers": [
+        "Real MCP tools, tests, authentication and deployment missing",
+        "npm workflow expects missing test script"
+      ],
+      "tags": ["health", "restricted", "private"]
+    },
+    {
+      "repository_id": "videotranscribe",
+      "full_name": "rafsof22-lgtm/videotranscribe",
+      "visibility": "private",
+      "default_branch": "main",
+      "role": "Video transcription, claim extraction and evidence service",
+      "owner_module": "vti-evidence-service",
+      "service_roots": ["."],
+      "deployment_ids": ["videotranscribe-vercel"],
+      "contract_endpoint": "/.well-known/jarvis/health",
+      "contract_schema": "schemas/xrp-hbar-federation-contract-v1.json",
+      "module_status": "IMPLEMENTED_NOT_INTEGRATED",
+      "last_verified_commit": "464d3ba38557907f555a1e85ca13d087afff9d8f",
+      "evidence": [
+        "Jarvis federation contract v1",
+        "Jarvis health and capabilities endpoints",
+        "TypeScript contract CI",
+        "Security remediation commit 30f12deca8fdeb82d2cdc07c3a855cb6e793abf1"
+      ],
+      "blockers": [
+        "Provider-side Vercel token rotation confirmation remains required",
+        "Provider credentials, quotas and end-to-end transcription require live verification"
+      ],
+      "tags": ["video", "intelligence", "private", "xrp-hbar-federation"]
+    },
+    {
+      "repository_id": "property-agent-mcp",
+      "full_name": "rafsof22-lgtm/property-agent-mcp",
+      "visibility": "private",
+      "default_branch": "main",
+      "role": "Property buyer capture MCP and signed job queue",
+      "owner_module": "property-scout",
+      "service_roots": ["."],
+      "deployment_ids": ["property-agent-railway"],
+      "contract_endpoint": null,
+      "module_status": "IMPLEMENTED_NOT_INTEGRATED",
+      "last_verified_commit": null,
+      "evidence": ["MCP backend and job queue implemented", "tests and migrations present"],
+      "blockers": [
+        "Upload routes, MasterLeads merge/dedupe, workers and forensic audit endpoint missing",
+        "Live contract endpoint not proven"
+      ],
+      "tags": ["property", "capture-only", "private"]
+    }
   ]
 }
