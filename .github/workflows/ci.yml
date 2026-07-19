@@ -54,6 +54,9 @@ jobs:
       - name: Validate source denominator and module handoffs
         run: python scripts/verify_module_federation.py
 
+      - name: Validate current GitHub environment completion scope
+        run: python scripts/verify_environment_completion.py
+
       - name: Generate redacted configuration-readiness report
         run: python scripts/config_readiness.py --root . --output evidence/config-readiness.json
 
@@ -75,3 +78,4 @@ jobs:
             evidence/config-readiness.json
             evidence/command-centre.snapshot.json
             evidence/module-federation-verification.json
+            evidence/environment-completion-verification.json
