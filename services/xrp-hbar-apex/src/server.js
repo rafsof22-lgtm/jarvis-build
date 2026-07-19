@@ -1,6 +1,11 @@
 import http from "node:http";
 import { authenticateRequest } from "./auth.js";
 import { getCapabilityStatus, getConfig } from "./config.js";
+import {
+  JsonFileFederationStateStore,
+  createFederationPoller,
+  federationTargetsFromConfig
+} from "./federation/poller.js";
 import { dispatchMcpRequest } from "./mcp/dispatcher.js";
 import { publicTools } from "./mcp/tools.js";
 
@@ -43,7 +48,29 @@ function parseJsonBody(rawBody) {
   return JSON.parse(rawBody);
 }
 
-export function createServer(runtimeConfig = config) {
+function federationConfiguration(runtimeConfig) {
+  return {
+    hub: Boolean(runtimeConfig.federation?.hubBaseUrl),
+    vti: Boolean(runtimeConfig.federation?.vtiBaseUrl),
+    timeout_ms: runtimeConfig.federation?.timeoutMs,
+    max_attempts: runtimeConfig.federation?.maxAttempts,
+    backoff_ms: runtimeConfig.federation?.backoffMs
+  };
+}
+
+export function createServer(runtimeConfig = config, dependencies = {}) {
+  const federationStore =
+    dependencies.federationStore ?? new JsonFileFederationStateStore(runtimeConfig.federation.stateFile);
+  const federationPoller =
+    dependencies.federationPoller ??
+    createFederationPoller({
+      fetchImpl: dependencies.fetchImpl ?? globalThis.fetch,
+      store: federationStore,
+      timeoutMs: runtimeConfig.federation.timeoutMs,
+      maxAttempts: runtimeConfig.federation.maxAttempts,
+      backoffMs: runtimeConfig.federation.backoffMs
+    });
+
   return http.createServer(async (req, res) => {
     const url = new URL(req.url ?? "/", "http://localhost");
     const path = normalizePath(url.pathname);
@@ -72,7 +99,9 @@ export function createServer(runtimeConfig = config) {
           missingRequiredEnv: runtimeConfig.requiredConfig.missing,
           mcpPostImplemented: true,
           toolsExposed: publicTools().length > 0,
-          authMode: runtimeConfig.auth.mode
+          authMode: runtimeConfig.auth.mode,
+          federationPollingImplemented: true,
+          federationTargetsConfigured: federationConfiguration(runtimeConfig)
         },
         note: runtimeConfig.requiredConfig.note
       });
@@ -93,6 +122,7 @@ export function createServer(runtimeConfig = config) {
         databasePrefix: "xrp_hbar_apex_",
         webhookPrefix: "xrp-hbar-apex-",
         capabilities,
+        federation: federationConfiguration(runtimeConfig),
         implementedNow: [
           "GET /health",
           "GET /ready",
@@ -100,6 +130,8 @@ export function createServer(runtimeConfig = config) {
           "GET /xrp-hbar-apex/health",
           "GET /xrp-hbar-apex/ready",
           "GET /xrp-hbar-apex/deployment/status",
+          "GET /federation/status",
+          "POST /federation/poll",
           "GET /",
           "GET /mcp",
           "GET /mcp/tools",
@@ -118,12 +150,52 @@ export function createServer(runtimeConfig = config) {
           "full XRP/HBAR tracker execution inside this service",
           "scheduled workers",
           "ChatGPT Memory access from this service",
-          "external integrations",
-          "archive ingestion"
+          "provider-backed external integrations",
+          "archive ingestion",
+          "live Hub/VTI federation proof until endpoints are configured and reachable"
         ],
         truthBoundary:
-          "This service can now authenticate and dispatch MCP tool calls. Metadata-only and supplied-transcript tools are live; provider-backed transcription, OCR, full tracker execution, schedules, Memory, and external integrations are not proven by this endpoint."
+          "This service can authenticate and dispatch MCP calls and can perform authenticated read-only polling of configured Jarvis health and capability contracts with bounded retries, idempotency records, and dead-letter classification. It does not prove that external endpoints are configured, reachable, fresh, or production-verified."
       });
+    }
+
+    if (req.method === "GET" && path === "/federation/status") {
+      try {
+        const state = await federationStore.load();
+        return sendJson(res, 200, {
+          ok: true,
+          status: "implemented",
+          configuration: federationConfiguration(runtimeConfig),
+          services: state.services ?? {},
+          dead_letter_count: Array.isArray(state.dead_letters) ? state.dead_letters.length : 0,
+          truth_boundary:
+            "Stored results are read-only observations. DONE_VERIFIED applies only to the two contract responses captured in that observation, not to the complete external service or deployment."
+        });
+      } catch {
+        return sendJson(res, 500, {
+          ok: false,
+          error: { code: "FEDERATION_STATE_READ_FAILED", message: "Federation state could not be read." }
+        });
+      }
+    }
+
+    if (req.method === "POST" && path === "/federation/poll") {
+      const auth = authenticateRequest(req, runtimeConfig);
+      if (!auth.ok) {
+        return sendJson(res, auth.statusCode, { ok: false, error: auth.error });
+      }
+      try {
+        const result = await federationPoller.pollAll(federationTargetsFromConfig(runtimeConfig));
+        return sendJson(res, result.integration_status === "INTEGRATED_STAGING" ? 200 : 503, {
+          ok: result.integration_status === "INTEGRATED_STAGING",
+          ...result
+        });
+      } catch {
+        return sendJson(res, 500, {
+          ok: false,
+          error: { code: "FEDERATION_POLL_FAILED", message: "Federation polling failed safely." }
+        });
+      }
     }
 
     if (req.method === "GET" && path === "/mcp/tools") {
@@ -178,7 +250,7 @@ export function createServer(runtimeConfig = config) {
     if (req.method === "GET" && path === "/") {
       return sendJson(res, 200, {
         service: runtimeConfig.serviceName,
-        status: "mcp_metadata_first",
+        status: "mcp_metadata_first_with_federation_polling",
         endpoints: [
           "/health",
           "/ready",
@@ -186,6 +258,8 @@ export function createServer(runtimeConfig = config) {
           "/xrp-hbar-apex/health",
           "/xrp-hbar-apex/ready",
           "/xrp-hbar-apex/deployment/status",
+          "/federation/status",
+          "/federation/poll",
           "/mcp",
           "/mcp/tools"
         ],
