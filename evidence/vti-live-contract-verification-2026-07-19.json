@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0.0",
+  "observed_at": "2026-07-19T13:37:11Z",
+  "repository_id": "videotranscribe",
+  "service_id": "vti-social-video-intelligence-console",
+  "environment": "production",
+  "production_alias": "https://videotranscribe-mu.vercel.app",
+  "deployment_id": "dpl_D3ubobjptYc3Qu1P9eDgmaaCY7VF",
+  "commit": "d35e42ecda7c6368b591fc79b4108f8010ca2773",
+  "release": "3.0.1",
+  "checks": [
+    {
+      "path": "/.well-known/jarvis/health",
+      "http_status": 200,
+      "contract_version": "1.0.0",
+      "health_status": "healthy",
+      "readiness": "ready",
+      "status": "DONE_VERIFIED"
+    },
+    {
+      "path": "/.well-known/jarvis/capabilities",
+      "http_status": 200,
+      "contract_version": "1.0.0",
+      "status": "DONE_VERIFIED"
+    }
+  ],
+  "scope_boundary": "This proves the two public production federation contract routes for the recorded commit and deployment. It does not prove provider credentials, quotas, end-to-end transcription, Supabase state, browser/mobile capture, historical token rotation, or every VTI capability.",
+  "remaining_blockers": [
+    "provider-by-provider live proof",
+    "historical Vercel token revocation and rotation confirmation"
+  ],
+  "secret_values_exposed": false
+}
