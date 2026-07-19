@@ -1,12 +1,13 @@
 {
-  "schema_version": "1.2.1",
-  "generated_at": "2026-07-19T13:58:00Z",
-  "scope": "currently accessible GitHub environment and independently probed public federation contracts",
+  "schema_version": "1.3.0",
+  "generated_at": "2026-07-20T00:20:00+10:00",
+  "scope": "currently accessible GitHub environment, provider deployment signals and independently probed public federation contracts",
   "truth_rules": {
     "repository_source_completion_requires_index_and_latest_commit": true,
     "contract_completion_requires_tested_read_only_contract": true,
     "live_contract_completion_requires_http_evidence_for_exact_commit_and_deployment": true,
     "deployment_completion_requires_live_health_plus_dependency_and_rollback_evidence": true,
+    "provider_deployment_success_is_not_public_route_proof": true,
     "inaccessible_chats_and_credentials_are_outside_environment_scope": true,
     "unknown_is_not_complete": true
   },
@@ -14,7 +15,7 @@
     {
       "repository_id": "jarvis-build",
       "full_name": "rafsof22-lgtm/jarvis-build",
-      "latest_observed_commit": "5f6459ebd6f7a4a7f6025c6221f3643e18a76c1f",
+      "latest_observed_commit": "5f56cf2227bb71e4f062c2d12c05e11cc025f532",
       "source_inventory_status": "COMPLETE_CURRENT_SCOPE",
       "federation_contract_status": "DONE_VERIFIED",
       "live_contract_status": "NOT_APPLICABLE_CONTROL_PLANE",
@@ -25,26 +26,34 @@
     {
       "repository_id": "hub",
       "full_name": "rafsof22-lgtm/hub",
-      "latest_observed_commit": "6320e90c6b46c7508702994f8fb2dc1e413a2f40",
+      "latest_observed_commit": "2513381b797bf21f38ab8d5f3c93438cad8ecab0",
       "source_inventory_status": "COMPLETE_CURRENT_SCOPE",
       "federation_contract_status": "DONE_VERIFIED",
       "live_contract_status": "BLOCKED",
       "handoff_status": "READY_FOR_REVIEW",
       "deployment_status": "DEPLOYED_UNVERIFIED",
-      "evidence": ["https://github.com/rafsof22-lgtm/hub/issues/7"],
-      "next_action": "complete non-destructive DigitalOcean console diagnosis in Hub issue #7 and prove public routes, backup restore and rollback"
+      "evidence": ["https://github.com/rafsof22-lgtm/hub/issues/10"],
+      "next_action": "use the DigitalOcean recovery console to restore network listeners non-destructively, then prove public routes, backup restore and rollback"
     },
     {
       "repository_id": "jarvis-health",
       "full_name": "rafsof22-lgtm/Jarvis-Health",
-      "latest_observed_commit": "94d214ee957ec0c092413e2896779a17d447e01c",
+      "latest_observed_commit": "731038186df1b523adbbaf99aafd2d57dd0d7098",
       "source_inventory_status": "COMPLETE_CURRENT_SCOPE",
       "federation_contract_status": "DONE_VERIFIED",
       "live_contract_status": "UNVERIFIED",
-      "handoff_status": "READY_FOR_REVIEW",
+      "handoff_status": "DONE_VERIFIED",
       "deployment_status": "DEPLOYED_UNVERIFIED",
       "evidence": ["https://github.com/rafsof22-lgtm/Jarvis-Health/issues/3"],
-      "next_action": "recover the authoritative public Railway domain, verify public contracts, then implement authenticated health MCP tools without patient data"
+      "implemented": [
+        "authenticated read-only JSON-RPC MCP",
+        "constant-time bearer authentication",
+        "health status, capabilities and safety-policy tools",
+        "request-size, malformed-input and unsupported-method controls",
+        "health-data and clinical-action prohibition tests",
+        "successful CI and Railway deployment propagation"
+      ],
+      "next_action": "confirm the authoritative Railway public domain, configure the bearer credential in the provider secret store, prove public and authenticated routes, then prove backup and rollback"
     },
     {
       "repository_id": "videotranscribe",
@@ -56,7 +65,7 @@
       "live_contract_evidence": "evidence/vti-live-contract-verification-2026-07-19.json",
       "handoff_status": "READY_FOR_REVIEW",
       "deployment_status": "DEPLOYED_UNVERIFIED",
-      "next_action": "verify provider-backed transcription paths and confirm historical Vercel token revocation and rotation without exposing values"
+      "next_action": "verify provider-backed transcription paths and confirm historical credential revocation and rotation through provider evidence"
     },
     {
       "repository_id": "property-agent-mcp",
@@ -86,5 +95,5 @@
     "environment_live_verification_percent": 0,
     "environment_full_deployment_verification_percent": 0
   },
-  "completion_boundary": "Source inventory and source-level federation contracts are complete for all five accessible GitHub repositories. VTI and Property Agent public production federation routes are independently verified for their recorded commits. Property Agent remains implemented but not integrated because persistence, workflow and canonical promotion dependencies are incomplete. Full deployment completion remains blocked by Hub reachability, Jarvis Health public-domain proof, unverified external dependencies, provider credentials, backup restore and rollback proof."
+  "completion_boundary": "All safe repository implementation, reconciliation and CI work currently accessible is complete. VTI and Property Agent public contracts are independently verified. Jarvis Health has an authenticated privacy-safe MCP and successful Railway deployment propagation but lacks an authoritative public domain, provider-secret readiness, public route proof and rollback evidence. Hub remains unreachable at ports 22, 80 and 443 and requires interactive provider-console diagnosis. Full deployment completion therefore remains blocked rather than falsely reported."
 }
