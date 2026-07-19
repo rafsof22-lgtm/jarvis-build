@@ -39,6 +39,12 @@ jobs:
       - name: Validate Sovereign Command Centre and workflow controls
         run: python scripts/smoke_sovereign_controls.py
 
+      - name: Run redacted configuration-readiness smoke test
+        run: python scripts/smoke_config_readiness.py
+
+      - name: Generate redacted configuration-readiness report
+        run: python scripts/config_readiness.py --root . --output evidence/config-readiness.json
+
       - name: Run command-centre schema and federation smoke test
         run: python scripts/smoke_command_centre.py
 
@@ -52,4 +58,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: jarvis-cost-routing-pilot
-          path: evidence/tool-registry-pilot.json
+          path: |
+            evidence/tool-registry-pilot.json
+            evidence/config-readiness.json
