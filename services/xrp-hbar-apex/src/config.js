@@ -12,6 +12,11 @@ function anyValue(env, names) {
   return names.some((name) => hasValue(env[name]));
 }
 
+function parsePositiveInteger(value, fallback) {
+  const parsed = Number.parseInt(String(value ?? ""), 10);
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : fallback;
+}
+
 function normalizeAuthMode(value) {
   const normalized = String(value || "none").trim().toLowerCase();
   return AUTH_MODES.has(normalized) ? normalized : "none";
@@ -42,7 +47,7 @@ export function getRequiredConfigStatus(env = process.env) {
     ready: missing.length === 0,
     resolvedBaseUrl: baseUrl,
     note:
-      "Ready means the HTTP runtime can serve health, readiness, deployment status, MCP discovery, and authenticated MCP dispatch. Provider-backed transcription, OCR, storage, market data, news, social, and full tracker execution remain limited unless separately configured."
+      "Ready means the HTTP runtime can serve health, readiness, deployment status, MCP discovery, authenticated MCP dispatch, and authenticated read-only federation polling. Provider-backed transcription, OCR, storage, market data, news, social, and full tracker execution remain limited unless separately configured."
   };
 }
 
@@ -59,7 +64,7 @@ export function getConfig(env = process.env) {
 
   return {
     serviceName: "xrp-hbar-apex",
-    version: "0.3.1",
+    version: "0.4.0",
     appEnv: env.APP_ENV || env.NODE_ENV || "development",
     baseUrl: requiredConfig.resolvedBaseUrl,
     logLevel: env.LOG_LEVEL || "info",
@@ -69,6 +74,14 @@ export function getConfig(env = process.env) {
       enabled: authMode !== "none",
       bearerToken: env.MCP_BEARER_TOKEN || "",
       apiKey: env.MCP_API_KEY || ""
+    },
+    federation: {
+      hubBaseUrl: env.HUB_FEDERATION_BASE_URL || "",
+      vtiBaseUrl: env.VTI_FEDERATION_BASE_URL || "",
+      stateFile: env.FEDERATION_STATE_FILE || ".runtime/federation-state.json",
+      timeoutMs: parsePositiveInteger(env.FEDERATION_TIMEOUT_MS, 5_000),
+      maxAttempts: parsePositiveInteger(env.FEDERATION_MAX_ATTEMPTS, 3),
+      backoffMs: parsePositiveInteger(env.FEDERATION_BACKOFF_MS, 100)
     },
     requiredConfig,
     optionalIntegrations: {
@@ -126,6 +139,7 @@ export function getConfig(env = process.env) {
 }
 
 export function getCapabilityStatus(config) {
+  const federationConfigured = Boolean(config.federation?.hubBaseUrl && config.federation?.vtiBaseUrl);
   return {
     health: "implemented",
     readiness: config.requiredConfig.ready ? "implemented_ready" : "implemented_not_ready",
@@ -133,6 +147,7 @@ export function getCapabilityStatus(config) {
     mcpTools: "implemented",
     mcp: "implemented_metadata_first",
     auth: config.auth.enabled ? `enabled_${config.auth.mode}` : "disabled",
+    federationPolling: federationConfigured ? "implemented_configured" : "implemented_not_configured",
     trackerExecution: "external_chatgpt_agent_only",
     scheduledWorkers: "not_implemented",
     memoryAccess: "external_chatgpt_only",

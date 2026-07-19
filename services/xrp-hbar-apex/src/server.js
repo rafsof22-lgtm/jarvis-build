@@ -1,11 +1,24 @@
 import http from "node:http";
 import { authenticateRequest } from "./auth.js";
 import { getCapabilityStatus, getConfig } from "./config.js";
+import {
+  JsonFileFederationStateStore,
+  createFederationPoller,
+  federationTargetsFromConfig
+} from "./federation/poller.js";
 import { dispatchMcpRequest } from "./mcp/dispatcher.js";
 import { publicTools } from "./mcp/tools.js";
 
 const config = getConfig();
 const ROUTE_NAMESPACE = "/xrp-hbar-apex";
+const DEFAULT_FEDERATION_CONFIG = Object.freeze({
+  hubBaseUrl: "",
+  vtiBaseUrl: "",
+  stateFile: ".runtime/federation-state.json",
+  timeoutMs: 5_000,
+  maxAttempts: 3,
+  backoffMs: 100
+});
 
 function sendJson(res, statusCode, payload) {
   const body = JSON.stringify(payload, null, 2);
@@ -43,48 +56,79 @@ function parseJsonBody(rawBody) {
   return JSON.parse(rawBody);
 }
 
-export function createServer(runtimeConfig = config) {
+function resolvedFederationConfig(runtimeConfig) {
+  return { ...DEFAULT_FEDERATION_CONFIG, ...(runtimeConfig?.federation ?? {}) };
+}
+
+function federationConfiguration(runtimeConfig) {
+  const federation = resolvedFederationConfig(runtimeConfig);
+  return {
+    hub: Boolean(federation.hubBaseUrl),
+    vti: Boolean(federation.vtiBaseUrl),
+    timeout_ms: federation.timeoutMs,
+    max_attempts: federation.maxAttempts,
+    backoff_ms: federation.backoffMs
+  };
+}
+
+export function createServer(runtimeConfig = config, dependencies = {}) {
+  const federation = resolvedFederationConfig(runtimeConfig);
+  const effectiveRuntimeConfig = { ...runtimeConfig, federation };
+  const federationStore =
+    dependencies.federationStore ?? new JsonFileFederationStateStore(federation.stateFile);
+  const federationPoller =
+    dependencies.federationPoller ??
+    createFederationPoller({
+      fetchImpl: dependencies.fetchImpl ?? globalThis.fetch,
+      store: federationStore,
+      timeoutMs: federation.timeoutMs,
+      maxAttempts: federation.maxAttempts,
+      backoffMs: federation.backoffMs
+    });
+
   return http.createServer(async (req, res) => {
     const url = new URL(req.url ?? "/", "http://localhost");
     const path = normalizePath(url.pathname);
-    const capabilities = getCapabilityStatus(runtimeConfig);
+    const capabilities = getCapabilityStatus(effectiveRuntimeConfig);
 
     if (req.method === "GET" && path === "/health") {
       return sendJson(res, 200, {
         ok: true,
-        service: runtimeConfig.serviceName,
+        service: effectiveRuntimeConfig.serviceName,
         status: "healthy",
         routeNamespace: ROUTE_NAMESPACE
       });
     }
 
     if (req.method === "GET" && path === "/ready") {
-      const ready = runtimeConfig.requiredConfig.ready;
+      const ready = effectiveRuntimeConfig.requiredConfig.ready;
       return sendJson(res, ready ? 200 : 503, {
         ok: ready,
-        service: runtimeConfig.serviceName,
+        service: effectiveRuntimeConfig.serviceName,
         status: ready ? "ready" : "not_ready",
         routeNamespace: ROUTE_NAMESPACE,
         checks: {
           configLoaded: true,
           portConfigured: true,
-          requiredEnv: runtimeConfig.requiredConfig.required,
-          missingRequiredEnv: runtimeConfig.requiredConfig.missing,
+          requiredEnv: effectiveRuntimeConfig.requiredConfig.required,
+          missingRequiredEnv: effectiveRuntimeConfig.requiredConfig.missing,
           mcpPostImplemented: true,
           toolsExposed: publicTools().length > 0,
-          authMode: runtimeConfig.auth.mode
+          authMode: effectiveRuntimeConfig.auth.mode,
+          federationPollingImplemented: true,
+          federationTargetsConfigured: federationConfiguration(effectiveRuntimeConfig)
         },
-        note: runtimeConfig.requiredConfig.note
+        note: effectiveRuntimeConfig.requiredConfig.note
       });
     }
 
     if (req.method === "GET" && path === "/deployment/status") {
       return sendJson(res, 200, {
         ok: true,
-        service: runtimeConfig.serviceName,
-        version: runtimeConfig.version,
-        appEnv: runtimeConfig.appEnv,
-        baseUrlConfigured: Boolean(runtimeConfig.baseUrl),
+        service: effectiveRuntimeConfig.serviceName,
+        version: effectiveRuntimeConfig.version,
+        appEnv: effectiveRuntimeConfig.appEnv,
+        baseUrlConfigured: Boolean(effectiveRuntimeConfig.baseUrl),
         railwayRootDirectory: "services/xrp-hbar-apex",
         deployBranch: "main",
         routeNamespace: ROUTE_NAMESPACE,
@@ -93,6 +137,7 @@ export function createServer(runtimeConfig = config) {
         databasePrefix: "xrp_hbar_apex_",
         webhookPrefix: "xrp-hbar-apex-",
         capabilities,
+        federation: federationConfiguration(effectiveRuntimeConfig),
         implementedNow: [
           "GET /health",
           "GET /ready",
@@ -100,6 +145,8 @@ export function createServer(runtimeConfig = config) {
           "GET /xrp-hbar-apex/health",
           "GET /xrp-hbar-apex/ready",
           "GET /xrp-hbar-apex/deployment/status",
+          "GET /federation/status",
+          "POST /federation/poll",
           "GET /",
           "GET /mcp",
           "GET /mcp/tools",
@@ -108,7 +155,7 @@ export function createServer(runtimeConfig = config) {
         mcp: {
           implemented: true,
           endpoint: "/mcp",
-          authMode: runtimeConfig.auth.mode,
+          authMode: effectiveRuntimeConfig.auth.mode,
           tools: publicTools().map((tool) => tool.name)
         },
         notImplementedYet: [
@@ -118,12 +165,52 @@ export function createServer(runtimeConfig = config) {
           "full XRP/HBAR tracker execution inside this service",
           "scheduled workers",
           "ChatGPT Memory access from this service",
-          "external integrations",
-          "archive ingestion"
+          "provider-backed external integrations",
+          "archive ingestion",
+          "live Hub/VTI federation proof until endpoints are configured and reachable"
         ],
         truthBoundary:
-          "This service can now authenticate and dispatch MCP tool calls. Metadata-only and supplied-transcript tools are live; provider-backed transcription, OCR, full tracker execution, schedules, Memory, and external integrations are not proven by this endpoint."
+          "This service can authenticate and dispatch MCP calls and can perform authenticated read-only polling of configured Jarvis health and capability contracts with bounded retries, idempotency records, and dead-letter classification. It does not prove that external endpoints are configured, reachable, fresh, or production-verified."
       });
+    }
+
+    if (req.method === "GET" && path === "/federation/status") {
+      try {
+        const state = await federationStore.load();
+        return sendJson(res, 200, {
+          ok: true,
+          status: "implemented",
+          configuration: federationConfiguration(effectiveRuntimeConfig),
+          services: state.services ?? {},
+          dead_letter_count: Array.isArray(state.dead_letters) ? state.dead_letters.length : 0,
+          truth_boundary:
+            "Stored results are read-only observations. DONE_VERIFIED applies only to the two contract responses captured in that observation, not to the complete external service or deployment."
+        });
+      } catch {
+        return sendJson(res, 500, {
+          ok: false,
+          error: { code: "FEDERATION_STATE_READ_FAILED", message: "Federation state could not be read." }
+        });
+      }
+    }
+
+    if (req.method === "POST" && path === "/federation/poll") {
+      const auth = authenticateRequest(req, effectiveRuntimeConfig);
+      if (!auth.ok) {
+        return sendJson(res, auth.statusCode, { ok: false, error: auth.error });
+      }
+      try {
+        const result = await federationPoller.pollAll(federationTargetsFromConfig(effectiveRuntimeConfig));
+        return sendJson(res, result.integration_status === "INTEGRATED_STAGING" ? 200 : 503, {
+          ok: result.integration_status === "INTEGRATED_STAGING",
+          ...result
+        });
+      } catch {
+        return sendJson(res, 500, {
+          ok: false,
+          error: { code: "FEDERATION_POLL_FAILED", message: "Federation polling failed safely." }
+        });
+      }
     }
 
     if (req.method === "GET" && path === "/mcp/tools") {
@@ -137,7 +224,7 @@ export function createServer(runtimeConfig = config) {
     if (req.method === "GET" && path === "/mcp") {
       return sendJson(res, 200, {
         ok: true,
-        service: runtimeConfig.serviceName,
+        service: effectiveRuntimeConfig.serviceName,
         endpoint: "/mcp",
         method: "POST",
         tools: publicTools().map((tool) => tool.name),
@@ -149,7 +236,7 @@ export function createServer(runtimeConfig = config) {
     }
 
     if (req.method === "POST" && path === "/mcp") {
-      const auth = authenticateRequest(req, runtimeConfig);
+      const auth = authenticateRequest(req, effectiveRuntimeConfig);
       if (!auth.ok) {
         return sendJson(res, auth.statusCode, { ok: false, error: auth.error });
       }
@@ -177,8 +264,8 @@ export function createServer(runtimeConfig = config) {
 
     if (req.method === "GET" && path === "/") {
       return sendJson(res, 200, {
-        service: runtimeConfig.serviceName,
-        status: "mcp_metadata_first",
+        service: effectiveRuntimeConfig.serviceName,
+        status: "mcp_metadata_first_with_federation_polling",
         endpoints: [
           "/health",
           "/ready",
@@ -186,6 +273,8 @@ export function createServer(runtimeConfig = config) {
           "/xrp-hbar-apex/health",
           "/xrp-hbar-apex/ready",
           "/xrp-hbar-apex/deployment/status",
+          "/federation/status",
+          "/federation/poll",
           "/mcp",
           "/mcp/tools"
         ],
