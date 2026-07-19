@@ -10,6 +10,9 @@ on:
       - "services/xrp-hbar-apex/**"
       - ".github/workflows/xrp-hbar-apex.yml"
 
+permissions:
+  contents: read
+
 jobs:
   test-xrp-hbar-apex:
     name: Test isolated XRP/HBAR Apex service
@@ -29,8 +32,20 @@ jobs:
       - name: Install dependencies
         run: npm install --ignore-scripts
 
-      - name: Run tests
-        run: npm test
+      - name: Run tests with retained output
+        shell: bash
+        run: |
+          set -o pipefail
+          npm test 2>&1 | tee test-output.log
+
+      - name: Upload test output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: xrp-hbar-apex-test-output
+          path: services/xrp-hbar-apex/test-output.log
+          if-no-files-found: error
+          retention-days: 7
 
       - name: Validate Railway setup contract
         run: npm run railway:check
