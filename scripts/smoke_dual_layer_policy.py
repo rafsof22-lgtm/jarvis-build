@@ -51,8 +51,10 @@ def main() -> int:
         assert item.get("chat_controls")
         assert item.get("tests")
 
-    assert "zero errors or zero gaps" not in project.lower()
-    assert "never claim done, live, 100%, zero errors or zero gaps" in project.lower()
+    truth_boundary = "never claim done, live, 100%, zero errors or zero gaps"
+    assert truth_boundary in project.lower()
+    assert "no_known_errors_after_defined_checks" in project.lower()
+    assert "no_known_gaps_within_verified_scope" in project.lower()
     print("dual-layer policy smoke checks passed")
     return 0
 
