@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0.0",
+  "fixtures": [
+    {
+      "event_id": "evt-research-001",
+      "event_type": "research.completed",
+      "schema_version": "1.0.0",
+      "producer": "xrp-hbar-hub-runtime",
+      "consumer": "jarvis-control-plane",
+      "occurred_at": "2026-07-19T09:20:00Z",
+      "correlation_id": "corr-research-001",
+      "idempotency_key": "research:001:completed",
+      "source_refs": ["hub:run:001"],
+      "approval_state": "not_required",
+      "payload": {"status": "partial", "summary": "Fixture only; no live market claim."},
+      "evidence_refs": ["hub:evidence:001"],
+      "retry_count": 0,
+      "status": "IMPLEMENTED_NOT_INTEGRATED"
+    },
+    {
+      "event_id": "evt-transcript-001",
+      "event_type": "transcript.completed",
+      "schema_version": "1.0.0",
+      "producer": "vti-evidence-service",
+      "consumer": "xrp-hbar-hub-runtime",
+      "occurred_at": "2026-07-19T09:21:00Z",
+      "correlation_id": "corr-transcript-001",
+      "idempotency_key": "transcript:001:completed",
+      "source_refs": ["vti:source:001"],
+      "approval_state": "not_required",
+      "payload": {"transcript_id": "fixture-transcript-001", "claim_count": 0},
+      "evidence_refs": ["vti:evidence:001"],
+      "retry_count": 0,
+      "status": "IMPLEMENTED_NOT_INTEGRATED"
+    },
+    {
+      "event_id": "evt-blocked-001",
+      "event_type": "deployment.status",
+      "schema_version": "1.0.0",
+      "producer": "jarvis-control-plane",
+      "consumer": "xrp-hbar-hub-runtime",
+      "occurred_at": "2026-07-19T09:22:00Z",
+      "correlation_id": "corr-deploy-001",
+      "idempotency_key": "deployment:001:blocked",
+      "source_refs": [],
+      "approval_state": "pending",
+      "payload": {"reason": "Owner approval and staging proof required."},
+      "evidence_refs": [],
+      "retry_count": 0,
+      "status": "BLOCKED"
+    }
+  ]
+}
