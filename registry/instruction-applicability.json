@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-07-19T00:00:00+10:00",
+  "rules": [
+    {
+      "instruction_id": "dual-layer-propagation",
+      "summary": "Classify and apply each requirement to runtime, project instructions, both, a module, or conflict review.",
+      "applicability_class": "BOTH",
+      "affected_artifacts": [
+        "docs/chatgpt-project-instructions.txt",
+        "docs/dual-layer-autonomy-and-applicability-policy.md",
+        "registry/instruction-applicability.json"
+      ],
+      "runtime_controls": ["applicability register", "CI policy test", "change traceability"],
+      "chat_controls": ["automatic cross-application", "no repeated user instruction"],
+      "status": "IMPLEMENTED_NOT_INTEGRATED",
+      "tests": ["scripts/smoke_dual_layer_policy.py"]
+    },
+    {
+      "instruction_id": "maximum-safe-automation",
+      "summary": "Execute all safe reversible lawful no-new-cost actions before requesting user involvement.",
+      "applicability_class": "BOTH",
+      "affected_artifacts": [
+        "docs/chatgpt-project-instructions.txt",
+        "docs/dual-layer-autonomy-and-applicability-policy.md"
+      ],
+      "runtime_controls": ["bounded retries", "checkpoint resume", "auto-fix protocol", "approval boundaries"],
+      "chat_controls": ["ask only for exact blockers", "complete safe work now"],
+      "status": "IMPLEMENTED_NOT_INTEGRATED",
+      "tests": ["scripts/smoke_dual_layer_policy.py"]
+    },
+    {
+      "instruction_id": "proportional-preflight-postflight",
+      "summary": "Run proportional pre-task and post-task gates, with full forensic audit at release or explicit request.",
+      "applicability_class": "BOTH",
+      "affected_artifacts": [
+        "docs/chatgpt-project-instructions.txt",
+        "docs/dual-layer-autonomy-and-applicability-policy.md"
+      ],
+      "runtime_controls": ["release gate", "test and evidence requirements"],
+      "chat_controls": ["scope-aware verification", "no false zero-error claims"],
+      "status": "IMPLEMENTED_NOT_INTEGRATED",
+      "tests": ["scripts/smoke_dual_layer_policy.py"]
+    },
+    {
+      "instruction_id": "secret-value-boundary",
+      "summary": "Automate credential readiness and setup but never reveal, recover, commit, or reuse secret values outside approved scope.",
+      "applicability_class": "BOTH",
+      "affected_artifacts": [
+        "docs/chatgpt-project-instructions.txt",
+        "scripts/config_readiness.py",
+        ".github/workflows/security-history-scan.yml"
+      ],
+      "runtime_controls": ["redacted readiness", "history scan", "least privilege"],
+      "chat_controls": ["never request secret values in chat", "exact setup handoff"],
+      "status": "INTEGRATED_STAGING",
+      "tests": ["scripts/smoke_config_readiness.py"]
+    }
+  ]
+}
