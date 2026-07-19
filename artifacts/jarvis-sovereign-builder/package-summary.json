@@ -1,0 +1,9 @@
+{
+  "skill_bundle_valid": true,
+  "project_instruction_characters": 7941,
+  "project_instruction_limit": 8000,
+  "skill_zip_bytes": 35145,
+  "skill_source_files": 23,
+  "skill_source_sha256": "6db0ef712cc1c13859126bc026720e93d10e635c151cb00e8f952c97abef48b1",
+  "values_exposed": false
+}
