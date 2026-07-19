@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-07-19T00:00:00Z",
+  "rules": {
+    "preserve_independent_repositories": true,
+    "no_direct_cross_chat_claims": true,
+    "handoff_required_before_merge": true,
+    "conflicts_require_decision_record": true,
+    "secrets_by_name_only": true,
+    "integration_requires_tests_evidence_and_rollback": true
+  },
+  "modules": [
+    {
+      "module_id": "xrp-hbar-apex",
+      "repository": "rafsof22-lgtm/hub",
+      "owner": "xrp-hbar-apex",
+      "handoff_status": "PARTIAL",
+      "independent_operation": true,
+      "canonical_interface": "federation-contract-v1",
+      "source_pack": null,
+      "requirements_manifest": null,
+      "tests": [],
+      "evidence": [],
+      "conflicts": [],
+      "next_action": "Generate verified Jarvis Module Handoff Pack from the module chat and repository."
+    },
+    {
+      "module_id": "jarvis-health",
+      "repository": "rafsof22-lgtm/Jarvis-Health",
+      "owner": "jarvis-health",
+      "handoff_status": "PARTIAL",
+      "independent_operation": true,
+      "canonical_interface": "federation-contract-v1",
+      "source_pack": null,
+      "requirements_manifest": null,
+      "tests": [],
+      "evidence": [],
+      "conflicts": [],
+      "next_action": "Generate verified Jarvis Module Handoff Pack without patient or secret values."
+    },
+    {
+      "module_id": "video-intelligence",
+      "repository": "rafsof22-lgtm/videotranscribe",
+      "owner": "video-intelligence",
+      "handoff_status": "PARTIAL",
+      "independent_operation": true,
+      "canonical_interface": "federation-contract-v1",
+      "source_pack": null,
+      "requirements_manifest": null,
+      "tests": [],
+      "evidence": [],
+      "conflicts": [],
+      "next_action": "Generate verified Jarvis Module Handoff Pack and reconcile deployment evidence."
+    },
+    {
+      "module_id": "property-buyer-intelligence",
+      "repository": "rafsof22-lgtm/property-agent-mcp",
+      "owner": "property-buyer-intelligence",
+      "handoff_status": "PARTIAL",
+      "independent_operation": true,
+      "canonical_interface": "federation-contract-v1",
+      "source_pack": null,
+      "requirements_manifest": null,
+      "tests": [],
+      "evidence": [],
+      "conflicts": [],
+      "next_action": "Generate verified Jarvis Module Handoff Pack and complete documented worker and merge gates."
+    }
+  ]
+}
