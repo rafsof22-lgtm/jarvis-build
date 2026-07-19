@@ -80,6 +80,7 @@
     "environment_source_completion_percent": 100,
     "environment_contract_completion_percent": 100,
     "environment_public_live_contract_percent": 25,
+    "environment_live_verification_percent": 0,
     "environment_full_deployment_verification_percent": 0
   },
   "completion_boundary": "Source inventory and source-level federation contracts are complete for all five accessible GitHub repositories. VTI public production federation routes are independently verified for the recorded commit and deployment. Full deployment completion remains blocked by Hub reachability, unverified external deployments, provider credentials/dependencies, backup restore and rollback proof."
