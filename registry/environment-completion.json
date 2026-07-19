@@ -1,11 +1,12 @@
 {
-  "schema_version": "1.0.0",
-  "generated_at": "2026-07-19T09:45:00Z",
-  "scope": "currently accessible GitHub environment only",
+  "schema_version": "1.1.0",
+  "generated_at": "2026-07-19T13:38:00Z",
+  "scope": "currently accessible GitHub environment and independently probed public federation contracts",
   "truth_rules": {
     "repository_source_completion_requires_index_and_latest_commit": true,
     "contract_completion_requires_tested_read_only_contract": true,
-    "deployment_completion_requires_live_health_evidence": true,
+    "live_contract_completion_requires_http_evidence_for_exact_commit_and_deployment": true,
+    "deployment_completion_requires_live_health_plus_dependency_and_rollback_evidence": true,
     "inaccessible_chats_and_credentials_are_outside_environment_scope": true,
     "unknown_is_not_complete": true
   },
@@ -13,22 +14,25 @@
     {
       "repository_id": "jarvis-build",
       "full_name": "rafsof22-lgtm/jarvis-build",
-      "latest_observed_commit": "cad405ba1aecf6079165038221909fd2b763e299",
+      "latest_observed_commit": "23da59908d9024f930570e9394319ae360596497",
       "source_inventory_status": "COMPLETE_CURRENT_SCOPE",
       "federation_contract_status": "DONE_VERIFIED",
+      "live_contract_status": "NOT_APPLICABLE_CONTROL_PLANE",
       "handoff_status": "DONE_VERIFIED",
       "deployment_status": "DEPLOYED_UNVERIFIED",
-      "next_action": "connect live command-centre hosting and authoritative provider adapters"
+      "next_action": "connect live Command Centre hosting and authoritative provider adapters"
     },
     {
       "repository_id": "hub",
       "full_name": "rafsof22-lgtm/hub",
-      "latest_observed_commit": "bc9e4bc9459d5ef3834acd3f21f2ef3399e51a41",
+      "latest_observed_commit": "6320e90c6b46c7508702994f8fb2dc1e413a2f40",
       "source_inventory_status": "COMPLETE_CURRENT_SCOPE",
       "federation_contract_status": "DONE_VERIFIED",
+      "live_contract_status": "BLOCKED",
       "handoff_status": "READY_FOR_REVIEW",
       "deployment_status": "DEPLOYED_UNVERIFIED",
-      "next_action": "bind the tested contract to live Flask routes and prove Gmail and public route health"
+      "evidence": ["https://github.com/rafsof22-lgtm/hub/issues/7"],
+      "next_action": "complete non-destructive DigitalOcean console diagnosis in Hub issue #7 and prove public routes, backup restore and rollback"
     },
     {
       "repository_id": "jarvis-health",
@@ -36,6 +40,7 @@
       "latest_observed_commit": "94d214ee957ec0c092413e2896779a17d447e01c",
       "source_inventory_status": "COMPLETE_CURRENT_SCOPE",
       "federation_contract_status": "DONE_VERIFIED",
+      "live_contract_status": "UNVERIFIED",
       "handoff_status": "READY_FOR_REVIEW",
       "deployment_status": "DEPLOYED_UNVERIFIED",
       "next_action": "implement authenticated health MCP tools and prove Railway deployment without patient data"
@@ -46,9 +51,11 @@
       "latest_observed_commit": "d35e42ecda7c6368b591fc79b4108f8010ca2773",
       "source_inventory_status": "COMPLETE_CURRENT_SCOPE",
       "federation_contract_status": "DONE_VERIFIED",
+      "live_contract_status": "DONE_VERIFIED",
+      "live_contract_evidence": "evidence/vti-live-contract-verification-2026-07-19.json",
       "handoff_status": "READY_FOR_REVIEW",
       "deployment_status": "DEPLOYED_UNVERIFIED",
-      "next_action": "verify live Vercel contract endpoints and historical token rotation evidence"
+      "next_action": "verify provider-backed transcription paths and confirm historical Vercel token revocation/rotation without exposing values"
     },
     {
       "repository_id": "property-agent-mcp",
@@ -56,6 +63,7 @@
       "latest_observed_commit": "903db21e27bf15393273577d664e7d7b7ea3b8d8",
       "source_inventory_status": "COMPLETE_CURRENT_SCOPE",
       "federation_contract_status": "DONE_VERIFIED",
+      "live_contract_status": "UNVERIFIED",
       "handoff_status": "READY_FOR_REVIEW",
       "deployment_status": "DEPLOYED_UNVERIFIED",
       "next_action": "verify live Railway contract endpoints and complete governed dedupe, scoring and promotion workflow"
@@ -66,10 +74,13 @@
     "source_inventory_complete_current_scope": 5,
     "tested_federation_contracts_on_main": 5,
     "federation_contract_prs_pending": 0,
+    "public_live_contracts_done_verified": 1,
+    "public_live_contracts_applicable": 4,
     "live_deployments_done_verified": 0,
     "environment_source_completion_percent": 100,
     "environment_contract_completion_percent": 100,
-    "environment_live_verification_percent": 0
+    "environment_public_live_contract_percent": 25,
+    "environment_full_deployment_verification_percent": 0
   },
-  "completion_boundary": "Source inventory and source-level federation contracts are complete for all five accessible GitHub repositories. Full environment completion remains blocked by unverified live deployments, external credentials and inaccessible chat/export sources."
+  "completion_boundary": "Source inventory and source-level federation contracts are complete for all five accessible GitHub repositories. VTI public production federation routes are independently verified for the recorded commit and deployment. Full deployment completion remains blocked by Hub reachability, unverified external deployments, provider credentials/dependencies, backup restore and rollback proof."
 }
