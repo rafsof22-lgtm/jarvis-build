@@ -9,6 +9,7 @@ on:
 
 permissions:
   contents: read
+  pull-requests: write
 
 jobs:
   gitleaks:
@@ -29,8 +30,7 @@ jobs:
           mkdir -p evidence
           set +e
           docker run --rm \
-            -v "$PWD:/repo" \
-            -w /repo \
+            -v "$PWD:/repo" -w /repo \
             ghcr.io/gitleaks/gitleaks:v8.30.1 \
             git --redact=100 --report-format json \
             --report-path /repo/evidence/gitleaks-raw.json .
@@ -71,6 +71,19 @@ jobs:
           raw.unlink(missing_ok=True)
           print(path.read_text())
           PY
+
+      - name: Post redacted diagnostic to pull request
+        if: always() && github.event_name == 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          {
+            echo '### Security history scan — redacted metadata only'
+            echo '```json'
+            cat evidence/security-history-scan-redacted.json
+            echo '```'
+          } > evidence/security-comment.md
+          gh pr comment "${{ github.event.pull_request.number }}" --body-file evidence/security-comment.md
 
       - name: Upload redacted diagnostic
         if: always()
