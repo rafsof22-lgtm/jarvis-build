@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-07-19T09:40:00Z",
+  "scope": "currently accessible GitHub environment only",
+  "truth_rules": {
+    "repository_source_completion_requires_index_and_latest_commit": true,
+    "contract_completion_requires_tested_read_only_contract": true,
+    "deployment_completion_requires_live_health_evidence": true,
+    "inaccessible_chats_and_credentials_are_outside_environment_scope": true,
+    "unknown_is_not_complete": true
+  },
+  "repositories": [
+    {
+      "repository_id": "jarvis-build",
+      "full_name": "rafsof22-lgtm/jarvis-build",
+      "latest_observed_commit": "2dcd33117bb423a4cf6a5a53902e5ed34088e9e2",
+      "source_inventory_status": "COMPLETE_CURRENT_SCOPE",
+      "federation_contract_status": "DONE_VERIFIED",
+      "handoff_status": "DONE_VERIFIED",
+      "deployment_status": "DEPLOYED_UNVERIFIED",
+      "next_action": "connect live command-centre hosting and authoritative provider adapters"
+    },
+    {
+      "repository_id": "hub",
+      "full_name": "rafsof22-lgtm/hub",
+      "latest_observed_commit": "bc9e4bc9459d5ef3834acd3f21f2ef3399e51a41",
+      "source_inventory_status": "COMPLETE_CURRENT_SCOPE",
+      "federation_contract_status": "DONE_VERIFIED",
+      "handoff_status": "READY_FOR_REVIEW",
+      "deployment_status": "DEPLOYED_UNVERIFIED",
+      "next_action": "bind the tested contract to live Flask routes and prove Gmail and public route health"
+    },
+    {
+      "repository_id": "jarvis-health",
+      "full_name": "rafsof22-lgtm/Jarvis-Health",
+      "latest_observed_commit": "94d214ee957ec0c092413e2896779a17d447e01c",
+      "source_inventory_status": "COMPLETE_CURRENT_SCOPE",
+      "federation_contract_status": "DONE_VERIFIED",
+      "handoff_status": "READY_FOR_REVIEW",
+      "deployment_status": "DEPLOYED_UNVERIFIED",
+      "next_action": "implement authenticated health MCP tools and prove Railway deployment without patient data"
+    },
+    {
+      "repository_id": "videotranscribe",
+      "full_name": "rafsof22-lgtm/videotranscribe",
+      "latest_observed_commit": "d35e42ecda7c6368b591fc79b4108f8010ca2773",
+      "source_inventory_status": "COMPLETE_CURRENT_SCOPE",
+      "federation_contract_status": "DONE_VERIFIED",
+      "handoff_status": "READY_FOR_REVIEW",
+      "deployment_status": "DEPLOYED_UNVERIFIED",
+      "next_action": "verify live Vercel contract endpoints and historical token rotation evidence"
+    },
+    {
+      "repository_id": "property-agent-mcp",
+      "full_name": "rafsof22-lgtm/property-agent-mcp",
+      "latest_observed_commit": "5aaa18da4db595b32af19d2754ad7c2a7846771f",
+      "source_inventory_status": "COMPLETE_CURRENT_SCOPE",
+      "federation_contract_status": "PR_PENDING_VERIFICATION",
+      "handoff_status": "PR_PENDING_VERIFICATION",
+      "deployment_status": "DEPLOYED_UNVERIFIED",
+      "next_action": "merge property PR 17 only after CI or independent tests pass"
+    }
+  ],
+  "environment_metrics": {
+    "accessible_repositories": 5,
+    "source_inventory_complete_current_scope": 5,
+    "tested_federation_contracts_on_main": 4,
+    "federation_contract_prs_pending": 1,
+    "live_deployments_done_verified": 0,
+    "environment_source_completion_percent": 100,
+    "environment_contract_completion_percent": 80,
+    "environment_live_verification_percent": 0
+  },
+  "completion_boundary": "Source inventory for the five accessible repositories is complete for the current GitHub scope. Full environment completion is blocked by unverified live deployments, external credentials and inaccessible chat/export sources."
+}
