@@ -1,0 +1,12 @@
+interface:
+  display_name: Jarvis Sovereign Builder
+  short_description: Reconstruct, build, verify, deploy and continuously improve governed Jarvis systems.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+    - chatgpt
+    - codex
+    - api
+    - atlas
+  allow_implicit_invocation: true
