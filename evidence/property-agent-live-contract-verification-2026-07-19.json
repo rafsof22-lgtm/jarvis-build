@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0.0",
+  "observed_at": "2026-07-19T13:55:12Z",
+  "repository_id": "property-agent-mcp",
+  "environment": "production",
+  "commit": "903db21e27bf15393273577d664e7d7b7ea3b8d8",
+  "checks": [
+    {"path": "/health", "http_status": 200, "status": "DONE_VERIFIED"},
+    {"path": "/ready", "http_status": 200, "status": "DONE_VERIFIED"},
+    {"path": "/deployment/status", "http_status": 200, "status": "DONE_VERIFIED"},
+    {"path": "/mcp/tools", "http_status": 200, "status": "DONE_VERIFIED"},
+    {"path": "/.well-known/jarvis/health", "http_status": 200, "contract_version": "1.0.0", "status": "DONE_VERIFIED"},
+    {"path": "/.well-known/jarvis/capabilities", "http_status": 200, "contract_version": "1.0.0", "status": "DONE_VERIFIED"}
+  ],
+  "runtime_classification": "IMPLEMENTED_NOT_INTEGRATED",
+  "remaining_blockers": [
+    "database persistence",
+    "signed job queue",
+    "spreadsheet write path",
+    "workflow dispatch",
+    "optional provider integration",
+    "canonical dedupe and promotion",
+    "restore and rollback proof"
+  ],
+  "scope_boundary": "Public route response and contract availability are verified for the recorded commit. Downstream providers, persistence, workflow execution, canonical promotion, restore and rollback are not proven.",
+  "secret_values_exposed": false,
+  "commercial_records_exposed": false
+}
