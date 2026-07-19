@@ -1,6 +1,6 @@
 {
-  "schema_version": "1.1.0",
-  "generated_at": "2026-07-19T13:38:00Z",
+  "schema_version": "1.2.1",
+  "generated_at": "2026-07-19T13:58:00Z",
   "scope": "currently accessible GitHub environment and independently probed public federation contracts",
   "truth_rules": {
     "repository_source_completion_requires_index_and_latest_commit": true,
@@ -14,7 +14,7 @@
     {
       "repository_id": "jarvis-build",
       "full_name": "rafsof22-lgtm/jarvis-build",
-      "latest_observed_commit": "23da59908d9024f930570e9394319ae360596497",
+      "latest_observed_commit": "5f6459ebd6f7a4a7f6025c6221f3643e18a76c1f",
       "source_inventory_status": "COMPLETE_CURRENT_SCOPE",
       "federation_contract_status": "DONE_VERIFIED",
       "live_contract_status": "NOT_APPLICABLE_CONTROL_PLANE",
@@ -43,7 +43,8 @@
       "live_contract_status": "UNVERIFIED",
       "handoff_status": "READY_FOR_REVIEW",
       "deployment_status": "DEPLOYED_UNVERIFIED",
-      "next_action": "implement authenticated health MCP tools and prove Railway deployment without patient data"
+      "evidence": ["https://github.com/rafsof22-lgtm/Jarvis-Health/issues/3"],
+      "next_action": "recover the authoritative public Railway domain, verify public contracts, then implement authenticated health MCP tools without patient data"
     },
     {
       "repository_id": "videotranscribe",
@@ -55,7 +56,7 @@
       "live_contract_evidence": "evidence/vti-live-contract-verification-2026-07-19.json",
       "handoff_status": "READY_FOR_REVIEW",
       "deployment_status": "DEPLOYED_UNVERIFIED",
-      "next_action": "verify provider-backed transcription paths and confirm historical Vercel token revocation/rotation without exposing values"
+      "next_action": "verify provider-backed transcription paths and confirm historical Vercel token revocation and rotation without exposing values"
     },
     {
       "repository_id": "property-agent-mcp",
@@ -63,10 +64,12 @@
       "latest_observed_commit": "903db21e27bf15393273577d664e7d7b7ea3b8d8",
       "source_inventory_status": "COMPLETE_CURRENT_SCOPE",
       "federation_contract_status": "DONE_VERIFIED",
-      "live_contract_status": "UNVERIFIED",
+      "live_contract_status": "DONE_VERIFIED",
+      "live_contract_evidence": "evidence/property-agent-live-contract-verification-2026-07-19.json",
       "handoff_status": "READY_FOR_REVIEW",
-      "deployment_status": "DEPLOYED_UNVERIFIED",
-      "next_action": "verify live Railway contract endpoints and complete governed dedupe, scoring and promotion workflow"
+      "deployment_status": "IMPLEMENTED_NOT_INTEGRATED",
+      "evidence": ["https://github.com/rafsof22-lgtm/property-agent-mcp/issues/18"],
+      "next_action": "complete database, signed queue, spreadsheet write path, workflow dispatch, optional provider and canonical promotion dependencies"
     }
   ],
   "environment_metrics": {
@@ -74,14 +77,14 @@
     "source_inventory_complete_current_scope": 5,
     "tested_federation_contracts_on_main": 5,
     "federation_contract_prs_pending": 0,
-    "public_live_contracts_done_verified": 1,
+    "public_live_contracts_done_verified": 2,
     "public_live_contracts_applicable": 4,
     "live_deployments_done_verified": 0,
     "environment_source_completion_percent": 100,
     "environment_contract_completion_percent": 100,
-    "environment_public_live_contract_percent": 25,
+    "environment_public_live_contract_percent": 50,
     "environment_live_verification_percent": 0,
     "environment_full_deployment_verification_percent": 0
   },
-  "completion_boundary": "Source inventory and source-level federation contracts are complete for all five accessible GitHub repositories. VTI public production federation routes are independently verified for the recorded commit and deployment. Full deployment completion remains blocked by Hub reachability, unverified external deployments, provider credentials/dependencies, backup restore and rollback proof."
+  "completion_boundary": "Source inventory and source-level federation contracts are complete for all five accessible GitHub repositories. VTI and Property Agent public production federation routes are independently verified for their recorded commits. Property Agent remains implemented but not integrated because persistence, workflow and canonical promotion dependencies are incomplete. Full deployment completion remains blocked by Hub reachability, Jarvis Health public-domain proof, unverified external dependencies, provider credentials, backup restore and rollback proof."
 }
