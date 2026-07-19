@@ -42,6 +42,9 @@ jobs:
       - name: Validate dual-layer autonomy and applicability policy
         run: python scripts/smoke_dual_layer_policy.py
 
+      - name: Validate practitioner intelligence and capability universe
+        run: python scripts/smoke_practitioner_intelligence.py
+
       - name: Run redacted configuration-readiness smoke test
         run: python scripts/smoke_config_readiness.py
 

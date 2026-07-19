@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-07-19T00:00:00+10:00",
+  "source_classes": [
+    "official_docs", "official_repositories", "releases_changelogs", "issues_pull_requests_discussions",
+    "standards_advisories", "primary_research", "practitioner_projects", "engineering_forums",
+    "technical_communities", "postmortems_failures", "benchmarks", "conference_video_audio"
+  ],
+  "capability_classes": [
+    "goals_objectives_outcomes", "requirements_constraints_acceptance", "architecture_framework_patterns",
+    "modules_services_agents_roles_skills_prompts", "strategies_policies_rules_instructions_guardrails",
+    "workflows_automations_events_schedules_queues", "tools_apis_mcp_connectors_models_providers",
+    "parameters_settings_flags_quotas_budgets", "inputs_outputs_schemas_state_memory_data",
+    "repositories_packages_dependencies_environments_infrastructure", "ui_controls_accessibility_overrides",
+    "identity_permissions_security_privacy_compliance", "telemetry_logs_traces_metrics_evaluations_redteam",
+    "errors_incidents_recovery_backup_rollback", "costs_tokens_compute_storage_licensing_migration",
+    "documentation_setup_training_ownership_maintenance", "evidence_provenance_hashes_status_release"
+  ],
+  "dispositions": ["ADOPT", "PILOT", "WATCHLIST", "REJECT", "MIGRATE", "DEPRECATE", "BLOCKED"],
+  "pipeline": [
+    "DISCOVERED", "PROVENANCE_CAPTURED", "SOURCE_SCORED", "CLAIM_EXTRACTED", "CROSS_CHECKED",
+    "APPLICABILITY_CLASSIFIED", "GAP_MAPPED", "PROPOSED", "SIMULATED", "TESTED", "PROMOTED_OR_REJECTED"
+  ],
+  "seed_findings": [
+    {"name":"Microsoft Agent Framework","finding":"Prefer current successor evaluation over maintenance-mode AutoGen or Semantic Kernel for new Microsoft-stack work.","status":"WATCHLIST"},
+    {"name":"LangGraph","finding":"Candidate for durable stateful workflows, checkpoints and human interruption.","status":"PILOT"},
+    {"name":"CrewAI","finding":"Candidate pattern: autonomous crews separated from deterministic event-driven flows.","status":"WATCHLIST"}
+  ],
+  "truth_boundary": "Open-ended universe; never claim permanent completeness."
+}
