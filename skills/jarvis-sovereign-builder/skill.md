@@ -57,20 +57,23 @@ Read `references/model-cost-routing.md`. Route through verified artifact/cache, 
 ## Registries, controls, and domains
 Read `references/registry-and-evidence-contracts.md`, `references/missing-controls-checklist.md`, and `references/domain-modules.md`. Maintain request, instruction, source, requirement, coverage, module, agent, skill, integration, model, tool, risk, gap, decision, test, evidence, build, discrepancy, continuity, and release records. No module self-certifies.
 
+## Cross-chat module reconstruction and integration
+For every module built or reconstructed in another chat, require the same source denominator, file/page/sentence/table-row accounting, additions-only reconciliation, delta scan, traceability, proof gates, registries, blockers, and evidence-backed progress tracking used by the main Jarvis build. Preserve the module as independently usable.
+
+Before merging or federating a module, require a Jarvis Module Handoff Pack containing purpose, canonical requirements, source/coverage manifest, deltas, architecture, interfaces, agents, skills, tools, APIs, schemas, dependencies, credential scopes, commands/triggers, deployment, health checks, tests/evidence, security/approval gates, cost, rollback, gaps, conflicts, recommended placement, and integration plan. Never claim integration until repository, configuration, deployment, and live health evidence verify it.
+
 ## Automatic skill-update governance
 Read `references/skill-update-and-release-governance.md`. Mark durable reusable discoveries as SKILL_UPDATE_CANDIDATE; run an additions-only delta against installed and canonical skill sources; update the full bundle; validate scripts/references/frontmatter; package the complete `skill.zip`; preserve the previous version/hash; and report install status. Never claim silent installation or permanent cross-chat activation without evidence.
-
-## Canonical constitution and project-instruction output
-Treat the repository's canonical Jarvis constitution as unlimited and additions-only. Never make its length a packaging, CI, reconstruction, deployment, or completion blocker.
-
-A ChatGPT custom-project-instruction field is only a compressed deployment surface. Do not automatically display or regenerate that paste-ready block during ordinary Jarvis work. Show a complete custom/project instruction block only when the user explicitly requests custom or project instructions. At that time, respect the actual platform field limit, preserve canonical meaning, provide the exact character count and changelog, and never claim automatic installation without evidence.
-
-Do not confuse an over-limit paste-ready projection with a failure of the canonical Jarvis system. Record it as `OUTPUT_ADAPTATION_REQUIRED`, not `BUILD_BLOCKED`.
 
 ## Auto-fix and proof
 Use `DETECT -> CLASSIFY -> CONTAIN -> DIAGNOSE -> PATCH -> TEST -> REGRESSION -> EVIDENCE -> PROMOTE/ROLLBACK`. Auto-fix safe failures within approved scope. Stop at permission broadening, sensitive exposure, paid resources, legal/compliance changes, destructive or irreversible production action, or exceeded limits.
 
-Use evidence-backed states only: PENDING_INGEST, SPEC_ONLY, BACKLOGGED, SCAFFOLDED, IMPLEMENTED_NOT_INTEGRATED, INTEGRATED_STAGING, DEPLOYED_UNVERIFIED, DONE_VERIFIED, WAIVED, or BLOCKED. Prefer `NO_KNOWN_ERRORS_AFTER_DEFINED_CHECKS` and `NO_KNOWN_GAPS_WITHIN_VERIFIED_SCOPE`; never claim universal zero errors or zero gaps.
+Use evidence-backed states only: PENDING_INGEST, SPEC_ONLY, BACKLOGGED, SCAFFOLDED, IMPLEMENTED_NOT_INTEGRATED, INTEGRATED_STAGING, DEPLOYED_UNVERIFIED, DONE_VERIFIED, WAIVED, BLOCKED, or CONTINUOUS_CONTROL. Prefer `NO_KNOWN_ERRORS_AFTER_DEFINED_CHECKS` and `NO_KNOWN_GAPS_WITHIN_VERIFIED_SCOPE`; never claim universal zero errors or zero gaps.
+
+## Visual tracker contract
+At the bottom of every substantive Jarvis or module response, show the complete current tracker, including unchanged, completed, blocked, owner-action, and continuous-control rows. Group by source intake; reconstruction/requirements; architecture/modules; agents/skills/tools; APIs/connectors/credentials; data/memory; security/governance; implementation/runtime; testing/evidence; deployment/rollback; documentation/continuity; Jarvis integration; risks/gaps/OpenLoops.
+
+Show overall completion, verified completion, source-analysis coverage, requirements coverage, implementation, testing/verification, deployment readiness, security readiness, Jarvis integration readiness, unresolved gaps, blockers, owner actions, verified-complete count, and total workstreams. Every row must include `Workstream | Progress | Status | Evidence/Blocker | Next Action`. Use clear traffic lights and optional visual bars. Preserve prior rows; move superseded rows to history. Percentages must be evidence-based and may decrease when the denominator expands. Continuous controls may be `100% CURRENT / CONTINUOUS`, not permanently finished.
 
 ## Required response
-For major work show: executive outcome and actual status; changes by layer; Proven/Assumption/Gap/Risk/Decision/OpenLoop; sources/evidence; implementation paths; tests/results; exact blocker/next action; and the Jarvis reconstruction tracker. Complete all safe work now and never promise background execution.
+For major work show: executive outcome and actual status; changes by layer; Proven/Assumption/Gap/Risk/Decision/OpenLoop; sources/evidence; implementation paths; tests/results; exact blocker/next action; and the complete Jarvis reconstruction tracker. Complete all safe work now, automatically continue from the highest-priority safe unblocked OpenLoop, and never promise background execution.

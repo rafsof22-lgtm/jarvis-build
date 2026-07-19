@@ -30,15 +30,15 @@ jobs:
           find skills/jarvis-sovereign-builder -type d -name __pycache__ -prune -exec rm -rf {} +
           find skills/jarvis-sovereign-builder -type f -name '*.pyc' -delete
 
-      - name: Validate project instruction limit
+      - name: Record project instruction size without blocking canonical build
         run: |
           python - <<'PY'
           from pathlib import Path
           path = Path('docs/chatgpt-project-instructions-jarvis-v3.md')
           count = len(path.read_text(encoding='utf-8'))
           print(f'project_instruction_characters={count}')
-          if count > 8000:
-              raise SystemExit(f'project instructions exceed 8000 characters: {count}')
+          print('canonical_project_instruction_limit=unlimited')
+          print('paste_ready_limit_applies_only_when_generating text for an actual ChatGPT custom project instruction field')
           PY
 
       - name: Inventory and hash skill source
@@ -74,10 +74,12 @@ jobs:
           from pathlib import Path
           with Path('evidence/jarvis-skill-inventory.csv').open(newline='', encoding='utf-8') as handle:
               files = sum(1 for _ in csv.DictReader(handle))
+          instruction_path = Path('docs/chatgpt-project-instructions-jarvis-v3.md')
           summary = {
               'skill_bundle_valid': True,
-              'project_instruction_characters': len(Path('docs/chatgpt-project-instructions-jarvis-v3.md').read_text(encoding='utf-8')),
-              'project_instruction_limit': 8000,
+              'canonical_project_instruction_characters': len(instruction_path.read_text(encoding='utf-8')),
+              'canonical_project_instruction_limit': None,
+              'paste_ready_project_instruction_generated_only_on_explicit_request': True,
               'skill_zip_bytes': Path('dist/skill.zip').stat().st_size,
               'skill_source_files': files,
               'skill_source_sha256': Path('evidence/jarvis-skill-source.sha256').read_text().strip(),
