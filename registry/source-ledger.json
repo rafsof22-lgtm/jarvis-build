@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-07-19T00:00:00Z",
+  "truth_rules": {
+    "unknown_is_not_complete": true,
+    "inaccessible_sources_remain_in_denominator": true,
+    "ready_requires_extraction_map_and_hash_or_reason": true,
+    "coverage_may_decrease_when_scope_expands": true
+  },
+  "sources": [
+    {
+      "source_id": "repo-jarvis-build",
+      "title": "Jarvis canonical control-plane repository",
+      "source_type": "github_repository",
+      "origin": "rafsof22-lgtm/jarvis-build",
+      "owner": "jar
