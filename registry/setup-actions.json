@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-07-19T03:00:00Z",
+  "rules": {
+    "values_never_stored_here": true,
+    "safe_metadata_may_be_prefilled": true,
+    "protected_values_are_added_directly_to_approved_secret_stores": true,
+    "bounded_test_required_before_connected_status": true,
+    "deletion_requires_owner_approval_and_rollback": true
+  },
+  "platforms": [
+    {
+      "platform_id": "github-actions",
+      "display_name": "GitHub Actions",
+      "status_source": "workflow execution result",
+      "setup_url_template": "https://github.com/{owner}/{repo}/settings/secrets/actions",
+      "safe_prefill": ["repository", "variable_name", "workflow_name"],
+      "protected_input": "secret value entered directly in GitHub",
+      "test_action": "Run the smallest workflow_dispatch or pull-request smoke test that references the value.",
+      "cleanup_action": "Recommend only; never delete repository or environment secrets automatically."
+    },
+    {
+      "platform_id": "vercel",
+      "display_name": "Vercel",
+      "status_source": "project and deployment metadata plus bounded runtime check",
+      "setup_url_template": "https://vercel.com/{team}/~/{project}/settings/environment-variables",
+      "safe_prefill": ["team_id", "project_id", "project_name", "environment", "variable_name"],
+      "protected_input": "value entered directly in Vercel",
+      "test_action": "Create a preview or run a read-only health endpoint; do not print the value.",
+      "cleanup_action": "Require rotation evidence before removing any legacy variable."
+    },
+    {
+      "platform_id": "railway",
+      "display_name": "Railway",
+      "status_source": "service readiness endpoint and deployment logs",
+      "setup_url_template": "https://railway.app/project/{project_id}",
+      "safe_prefill": ["project_id", "service_name", "environment", "variable_name", "health_url"],
+      "protected_input": "value entered directly in Railway Variables",
+      "test_action": "Deploy to staging and call the smallest read-only health or provider-status endpoint.",
+      "cleanup_action": "Require no references, passing tests, backup and owner approval."
+    }
+  ],
+  "status_vocabulary": [
+    "not_required",
+    "missing",
+    "present_unverified",
+    "connected",
+    "failed",
+    "expired",
+    "rotation_required",
+    "revoked",
+    "blocked"
+  ]
+}
