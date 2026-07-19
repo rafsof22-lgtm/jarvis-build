@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jarvis.local/schemas/xrp-hbar-federation-contract-v1.json",
+  "title": "XRP/HBAR Jarvis Federation Event v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "event_id",
+    "event_type",
+    "schema_version",
+    "producer",
+    "consumer",
+    "occurred_at",
+    "correlation_id",
+    "idempotency_key",
+    "approval_state",
+    "payload",
+    "status"
+  ],
+  "properties": {
+    "event_id": {"type": "string", "minLength": 1},
+    "event_type": {
+      "type": "string",
+      "enum": [
+        "research.requested",
+        "research.completed",
+        "research.failed",
+        "transcript.requested",
+        "transcript.completed",
+        "evidence.created",
+        "deployment.status",
+        "health.status",
+        "alert.created",
+        "discrepancy.created",
+        "incident.created",
+        "cost.recorded"
+      ]
+    },
+    "schema_version": {"const": "1.0.0"},
+    "producer": {
+      "type": "string",
+      "enum": [
+        "jarvis-control-plane",
+        "xrp-hbar-apex-control",
+        "xrp-hbar-hub-runtime",
+        "vti-evidence-service"
+      ]
+    },
+    "consumer": {
+      "type": "string",
+      "enum": [
+        "jarvis-control-plane",
+        "xrp-hbar-apex-control",
+        "xrp-hbar-hub-runtime",
+        "vti-evidence-service"
+      ]
+    },
+    "occurred_at": {"type": "string", "format": "date-time"},
+    "correlation_id": {"type": "string", "minLength": 1},
+    "idempotency_key": {"type": "string", "minLength": 1},
+    "source_refs": {"type": "array", "items": {"type": "string"}, "default": []},
+    "approval_state": {
+      "type": "string",
+      "enum": ["not_required", "pending", "approved", "rejected", "expired"]
+    },
+    "payload": {"type": "object"},
+    "evidence_refs": {"type": "array", "items": {"type": "string"}, "default": []},
+    "retry_count": {"type": "integer", "minimum": 0, "default": 0},
+    "status": {
+      "type": "string",
+      "enum": [
+        "PENDING_INGEST",
+        "SPEC_ONLY",
+        "BACKLOGGED",
+        "SCAFFOLDED",
+        "IMPLEMENTED_NOT_INTEGRATED",
+        "INTEGRATED_STAGING",
+        "DEPLOYED_UNVERIFIED",
+        "DONE_VERIFIED",
+        "WAIVED",
+        "BLOCKED"
+      ]
+    }
+  }
+}
