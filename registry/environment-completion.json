@@ -1,6 +1,6 @@
 {
-  "schema_version": "1.2.0",
-  "generated_at": "2026-07-19T13:56:00Z",
+  "schema_version": "1.2.1",
+  "generated_at": "2026-07-19T13:58:00Z",
   "scope": "currently accessible GitHub environment and independently probed public federation contracts",
   "truth_rules": {
     "repository_source_completion_requires_index_and_latest_commit": true,
@@ -43,7 +43,8 @@
       "live_contract_status": "UNVERIFIED",
       "handoff_status": "READY_FOR_REVIEW",
       "deployment_status": "DEPLOYED_UNVERIFIED",
-      "next_action": "discover the authoritative public Railway domain, verify public contracts, then implement authenticated health MCP tools without patient data"
+      "evidence": ["https://github.com/rafsof22-lgtm/Jarvis-Health/issues/3"],
+      "next_action": "recover the authoritative public Railway domain, verify public contracts, then implement authenticated health MCP tools without patient data"
     },
     {
       "repository_id": "videotranscribe",
@@ -67,6 +68,7 @@
       "live_contract_evidence": "evidence/property-agent-live-contract-verification-2026-07-19.json",
       "handoff_status": "READY_FOR_REVIEW",
       "deployment_status": "IMPLEMENTED_NOT_INTEGRATED",
+      "evidence": ["https://github.com/rafsof22-lgtm/property-agent-mcp/issues/18"],
       "next_action": "complete database, signed queue, spreadsheet write path, workflow dispatch, optional provider and canonical promotion dependencies"
     }
   ],
