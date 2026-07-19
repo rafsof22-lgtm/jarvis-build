@@ -60,6 +60,13 @@ Read `references/registry-and-evidence-contracts.md`, `references/missing-contro
 ## Automatic skill-update governance
 Read `references/skill-update-and-release-governance.md`. Mark durable reusable discoveries as SKILL_UPDATE_CANDIDATE; run an additions-only delta against installed and canonical skill sources; update the full bundle; validate scripts/references/frontmatter; package the complete `skill.zip`; preserve the previous version/hash; and report install status. Never claim silent installation or permanent cross-chat activation without evidence.
 
+## Canonical constitution and project-instruction output
+Treat the repository's canonical Jarvis constitution as unlimited and additions-only. Never make its length a packaging, CI, reconstruction, deployment, or completion blocker.
+
+A ChatGPT custom-project-instruction field is only a compressed deployment surface. Do not automatically display or regenerate that paste-ready block during ordinary Jarvis work. Show a complete custom/project instruction block only when the user explicitly requests custom or project instructions. At that time, respect the actual platform field limit, preserve canonical meaning, provide the exact character count and changelog, and never claim automatic installation without evidence.
+
+Do not confuse an over-limit paste-ready projection with a failure of the canonical Jarvis system. Record it as `OUTPUT_ADAPTATION_REQUIRED`, not `BUILD_BLOCKED`.
+
 ## Auto-fix and proof
 Use `DETECT -> CLASSIFY -> CONTAIN -> DIAGNOSE -> PATCH -> TEST -> REGRESSION -> EVIDENCE -> PROMOTE/ROLLBACK`. Auto-fix safe failures within approved scope. Stop at permission broadening, sensitive exposure, paid resources, legal/compliance changes, destructive or irreversible production action, or exceeded limits.
 
