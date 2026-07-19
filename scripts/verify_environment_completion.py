@@ -10,9 +10,17 @@ EVIDENCE = ROOT / "evidence" / "environment-completion-verification.json"
 
 ALLOWED = {
     "COMPLETE_CURRENT_SCOPE",
-    "DONE_VERIFIED",
-    "READY_FOR_REVIEW",
+    "PENDING_INGEST",
+    "SPEC_ONLY",
+    "BACKLOGGED",
+    "SCAFFOLDED",
+    "IMPLEMENTED_NOT_INTEGRATED",
+    "INTEGRATED_STAGING",
     "DEPLOYED_UNVERIFIED",
+    "DONE_VERIFIED",
+    "WAIVED",
+    "BLOCKED",
+    "READY_FOR_REVIEW",
     "PR_PENDING_VERIFICATION",
 }
 
@@ -45,7 +53,7 @@ def main() -> int:
             if row[field] not in ALLOWED:
                 raise SystemExit(f"{row['repository_id']} invalid {field}: {row[field]}")
         if row["deployment_status"] == "DONE_VERIFIED":
-            raise SystemExit("no live deployment may be marked DONE_VERIFIED without live health evidence")
+            raise SystemExit("no full deployment may be marked DONE_VERIFIED without dependency, restore and rollback evidence")
 
     metrics = data.get("environment_metrics", {})
     if metrics.get("accessible_repositories") != len(repos):
@@ -53,14 +61,27 @@ def main() -> int:
     if metrics.get("environment_source_completion_percent") != 100:
         raise SystemExit("current GitHub source scope should be 100% inventoried")
     if metrics.get("environment_live_verification_percent") != 0:
-        raise SystemExit("live verification must remain 0 until authoritative runtime evidence exists")
+        raise SystemExit("full live verification must remain 0 until dependency, restore and rollback evidence exists")
+
+    public_done = sum(row.get("live_contract_status") == "DONE_VERIFIED" for row in repos)
+    public_applicable = metrics.get("public_live_contracts_applicable")
+    if not isinstance(public_applicable, int) or public_applicable <= 0:
+        raise SystemExit("public_live_contracts_applicable must be a positive integer")
+    if metrics.get("public_live_contracts_done_verified") != public_done:
+        raise SystemExit("public live contract count does not match registry")
+    expected_percent = round((public_done / public_applicable) * 100)
+    if metrics.get("environment_public_live_contract_percent") != expected_percent:
+        raise SystemExit("public live contract percentage does not match registry")
 
     report = {
-        "schema_version": "1.0.0",
+        "schema_version": "1.1.0",
         "repository_count": len(repos),
         "source_scope_complete": True,
         "contracts_done_verified": sum(r["federation_contract_status"] == "DONE_VERIFIED" for r in repos),
         "contracts_pending": sum(r["federation_contract_status"] == "PR_PENDING_VERIFICATION" for r in repos),
+        "public_live_contracts_done_verified": public_done,
+        "public_live_contracts_applicable": public_applicable,
+        "environment_public_live_contract_percent": expected_percent,
         "live_deployments_done_verified": 0,
         "values_exposed": False,
         "status": "NO_KNOWN_GAPS_WITHIN_VERIFIED_GITHUB_SOURCE_SCOPE",
