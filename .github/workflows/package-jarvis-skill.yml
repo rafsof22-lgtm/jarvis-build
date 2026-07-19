@@ -1,0 +1,67 @@
+name: Package Jarvis Skill
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate skill bundle and scripts
+        run: |
+          python skills/jarvis-sovereign-builder/scripts/validate_bundle.py
+          python -m compileall skills/jarvis-sovereign-builder/scripts
+
+      - name: Validate project instruction limit
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('docs/chatgpt-project-instructions-jarvis-v3.md')
+          text = path.read_text(encoding='utf-8')
+          count = len(text)
+          print(f'project_instruction_characters={count}')
+          if count > 8000:
+              raise SystemExit(f'project instructions exceed 8000 characters: {count}')
+          PY
+
+      - name: Inventory skill source
+        run: |
+          mkdir -p evidence dist
+          python skills/jarvis-sovereign-builder/scripts/inventory_source_tree.py \
+            skills/jarvis-sovereign-builder evidence/jarvis-skill-inventory.csv
+
+      - name: Package complete skill
+        run: |
+          cd skills
+          zip -r ../dist/skill.zip jarvis-sovereign-builder
+          cd ..
+          test -s dist/skill.zip
+          python - <<'PY'
+          from pathlib import Path
+          size = Path('dist/skill.zip').stat().st_size
+          print(f'skill_zip_bytes={size}')
+          if size > 25 * 1024 * 1024:
+              raise SystemExit('skill.zip exceeds 25 MiB')
+          PY
+
+      - name: Upload validated skill package
+        uses: actions/upload-artifact@v4
+        with:
+          name: jarvis-sovereign-builder-skill
+          path: |
+            dist/skill.zip
+            evidence/jarvis-skill-inventory.csv
+            docs/chatgpt-project-instructions-jarvis-v3.md
+          retention-days: 90
