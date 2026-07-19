@@ -36,6 +36,9 @@ jobs:
       - name: Run zero-spend Tool Registry pilot
         run: python scripts/run_tool_registry_pilot.py
 
+      - name: Validate Sovereign Command Centre and workflow controls
+        run: python scripts/smoke_sovereign_controls.py
+
       - name: Run command-centre schema and federation smoke test
         run: python scripts/smoke_command_centre.py
 
