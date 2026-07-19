@@ -1,0 +1,47 @@
+name: Security History Scan
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    - cron: "23 3 * * 1"
+
+permissions:
+  contents: read
+
+jobs:
+  gitleaks:
+    name: Gitleaks full-history scan
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out full history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Scan Git history
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Record scan policy
+        if: always()
+        run: |
+          mkdir -p evidence
+          cat > evidence/security-history-scan-policy.json <<'JSON'
+          {
+            "values_exposed_in_artifact": false,
+            "automatic_rotation": false,
+            "automatic_deletion": false,
+            "on_detection": "revoke or rotate at provider, remove from current code, assess history rewrite separately, and preserve evidence without copying the value"
+          }
+          JSON
+
+      - name: Upload policy evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: security-history-scan-policy
+          path: evidence/security-history-scan-policy.json
