@@ -48,4 +48,10 @@ jobs:
           retention-days: 7
 
       - name: Validate Railway setup contract
+        env:
+          APP_ENV: production
+          BASE_URL: https://xrp-hbar-apex.example.invalid
+          LOG_LEVEL: info
+          MCP_AUTH_MODE: bearer
+          MCP_BEARER_TOKEN: ci-contract-placeholder-not-a-secret
         run: npm run railway:check
