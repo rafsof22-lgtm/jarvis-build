@@ -30,34 +30,50 @@ REQUIRED = [
 ]
 
 
+def require(condition: bool, message: str) -> None:
+    if not condition:
+        raise AssertionError(message)
+
+
 def main() -> int:
     missing = [item for item in REQUIRED if not (ROOT / item).is_file()]
-    assert not missing, f"missing files: {missing}"
+    require(not missing, f"missing files: {missing}")
 
     skill = (ROOT / "SKILL.md").read_text(encoding="utf-8")
-    assert skill.startswith("---\n")
-    assert re.search(r"^name:\s*jarvis-sovereign-builder\s*$", skill, re.MULTILINE)
-    assert re.search(r"^description:\s*.+$", skill, re.MULTILINE)
-    for phrase in [
+    require(skill.startswith("---\n"), "SKILL.md frontmatter start missing")
+    require(bool(re.search(r"^name:\s*jarvis-sovereign-builder\s*$", skill, re.MULTILINE)), "skill name missing or invalid")
+    require(bool(re.search(r"^description:\s*.+$", skill, re.MULTILINE)), "skill description missing")
+
+    required_sections = [
         "Dual-layer applicability",
         "Practitioner intelligence",
         "Capability-universe",
         "Automatic skill-update governance",
         "Credential and workflow readiness",
-        "Completion truth",
-    ]:
-        assert phrase in skill, phrase
+        "Auto-fix and proof",
+    ]
+    missing_sections = [phrase for phrase in required_sections if phrase not in skill]
+    require(not missing_sections, f"missing SKILL.md controls: {missing_sections}")
 
     refs = re.findall(r"`(references/[^`]+\.md)`", skill)
     unresolved = sorted({ref for ref in refs if not (ROOT / ref).is_file()})
-    assert not unresolved, f"unresolved references: {unresolved}"
+    require(not unresolved, f"unresolved references: {unresolved}")
 
-    for script in (ROOT / "scripts").glob("*.py"):
-        ast.parse(script.read_text(encoding="utf-8"), filename=str(script))
+    syntax_errors: list[str] = []
+    for script in sorted((ROOT / "scripts").glob("*.py")):
+        try:
+            ast.parse(script.read_text(encoding="utf-8"), filename=str(script))
+        except SyntaxError as exc:
+            syntax_errors.append(f"{script.relative_to(ROOT)}:{exc.lineno}:{exc.msg}")
+    require(not syntax_errors, f"Python syntax errors: {syntax_errors}")
 
-    assert "zero errors" in skill.lower()
-    assert "NO_KNOWN_ERRORS_AFTER_DEFINED_CHECKS" in (ROOT / "references/dual-layer-applicability-and-autonomy.md").read_text(encoding="utf-8")
-    print(f"skill bundle valid: files={len([p for p in ROOT.rglob('*') if p.is_file()])}")
+    require("zero errors" in skill.lower(), "truth-boundary language for zero errors is missing")
+    dual = (ROOT / "references/dual-layer-applicability-and-autonomy.md").read_text(encoding="utf-8")
+    require("NO_KNOWN_ERRORS_AFTER_DEFINED_CHECKS" in dual, "bounded zero-error status missing")
+    require("NO_KNOWN_GAPS_WITHIN_VERIFIED_SCOPE" in dual, "bounded no-gap status missing")
+
+    files = [path for path in ROOT.rglob("*") if path.is_file()]
+    print(f"skill bundle valid: files={len(files)} references={len(refs)} scripts={len(list((ROOT / 'scripts').glob('*.py')))}")
     return 0
 
 
