@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0.0",
+  "integration_id": "vti-cobalt-media-acquisition",
+  "display_name": "VTI governed cobalt media acquisition",
+  "owner_repository": "rafsof22-lgtm/videotranscribe",
+  "control_plane_repository": "rafsof22-lgtm/jarvis-build",
+  "external_component": {
+    "name": "cobalt",
+    "upstream_repository": "imputnet/cobalt",
+    "license_boundary": "independent AGPL service",
+    "hosted_public_api_allowed": false,
+    "deployment_model": "self-hosted and separately isolated"
+  },
+  "routing": {
+    "jarvis_calls": "VTI authenticated acquisition endpoint",
+    "jarvis_direct_cobalt_access": false,
+    "caption_first": true,
+    "default_media_mode": "audio",
+    "fallbacks": [
+      "platform captions",
+      "official platform API",
+      "user upload",
+      "manual import"
+    ]
+  },
+  "status": {
+    "vti_repository_implementation": "IMPLEMENTED_NOT_INTEGRATED",
+    "jarvis_control_plane_mapping": "IMPLEMENTED_NOT_INTEGRATED",
+    "cobalt_runtime": "PENDING_DEPLOYMENT_PROOF",
+    "production_media_worker": "BACKLOGGED",
+    "live_end_to_end": "BLOCKED"
+  },
+  "required_controls": [
+    "user authentication",
+    "lawful-rights confirmation",
+    "public-access confirmation",
+    "platform allowlist",
+    "local and private URL rejection",
+    "server-to-server API key",
+    "duration and byte limits",
+    "ephemeral resolver URL handling",
+    "source and transformation hashes",
+    "rate limits and quotas",
+    "no cookie or login bypass",
+    "audit and evidence references",
+    "service isolation",
+    "kill switch and rollback"
+  ],
+  "secret_names": [
+    "COBALT_API_URL",
+    "COBALT_API_KEY"
+  ],
+  "non_secret_configuration": [
+    "COBALT_ALLOWED_PLATFORMS",
+    "COBALT_REQUEST_TIMEOUT_MS",
+    "COBALT_MAX_DURATION_SECONDS",
+    "COBALT_MAX_MEDIA_BYTES"
+  ],
+  "jarvis_capabilities": [
+    "resolve_media_source",
+    "get_media_acquisition_status",
+    "route_source_to_transcription",
+    "correlate_transcript_evidence"
+  ],
+  "acceptance_evidence_required": [
+    "VTI CI",
+    "self-hosted instance health and version",
+    "valid and invalid authentication tests",
+    "blocked URL and missing-rights tests",
+    "owned or public-domain media sample",
+    "bounded streaming enforcement",
+    "hash and provenance reconciliation",
+    "local transcription and OCR proof",
+    "evidence-pack export",
+    "secret and history scan",
+    "backup and rollback drill"
+  ],
+  "rollback": {
+    "disable_adapter": true,
+    "rotate_api_key": true,
+    "stop_external_service": true,
+    "preserve_vti_source_and_evidence_records": true
+  }
+}
