@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pull-requests: write
 
 jobs:
@@ -15,6 +15,9 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:
@@ -24,6 +27,8 @@ jobs:
         run: |
           python skills/jarvis-sovereign-builder/scripts/validate_bundle.py
           python -m compileall skills/jarvis-sovereign-builder/scripts
+          find skills/jarvis-sovereign-builder -type d -name __pycache__ -prune -exec rm -rf {} +
+          find skills/jarvis-sovereign-builder -type f -name '*.pyc' -delete
 
       - name: Validate project instruction limit
         run: |
@@ -36,16 +41,22 @@ jobs:
               raise SystemExit(f'project instructions exceed 8000 characters: {count}')
           PY
 
-      - name: Inventory skill source
+      - name: Inventory and hash skill source
         run: |
           mkdir -p evidence dist
           python skills/jarvis-sovereign-builder/scripts/inventory_source_tree.py \
             skills/jarvis-sovereign-builder evidence/jarvis-skill-inventory.csv
+          find skills/jarvis-sovereign-builder -type f -print0 \
+            | sort -z \
+            | xargs -0 sha256sum \
+            | sha256sum \
+            | cut -d' ' -f1 > evidence/jarvis-skill-source.sha256
 
       - name: Package complete skill
         run: |
           cd skills
-          zip -r ../dist/skill.zip jarvis-sovereign-builder
+          zip -q -r ../dist/skill.zip jarvis-sovereign-builder \
+            -x '*/__pycache__/*' '*.pyc'
           cd ..
           test -s dist/skill.zip
           python - <<'PY'
@@ -61,21 +72,41 @@ jobs:
           python - <<'PY'
           import csv, json
           from pathlib import Path
-          instructions = Path('docs/chatgpt-project-instructions-jarvis-v3.md')
-          inventory = Path('evidence/jarvis-skill-inventory.csv')
-          with inventory.open(newline='', encoding='utf-8') as handle:
+          with Path('evidence/jarvis-skill-inventory.csv').open(newline='', encoding='utf-8') as handle:
               files = sum(1 for _ in csv.DictReader(handle))
           summary = {
               'skill_bundle_valid': True,
-              'project_instruction_characters': len(instructions.read_text(encoding='utf-8')),
+              'project_instruction_characters': len(Path('docs/chatgpt-project-instructions-jarvis-v3.md').read_text(encoding='utf-8')),
               'project_instruction_limit': 8000,
               'skill_zip_bytes': Path('dist/skill.zip').stat().st_size,
               'skill_source_files': files,
+              'skill_source_sha256': Path('evidence/jarvis-skill-source.sha256').read_text().strip(),
               'values_exposed': False,
           }
           Path('evidence/jarvis-skill-package-summary.json').write_text(json.dumps(summary, indent=2) + '\n')
           print(json.dumps(summary, indent=2))
           PY
+
+      - name: Publish exact skill.zip to source branch
+        if: github.event_name == 'pull_request'
+        env:
+          HEAD_BRANCH: ${{ github.head_ref }}
+        run: |
+          mkdir -p artifacts/jarvis-sovereign-builder
+          new_hash="$(cat evidence/jarvis-skill-source.sha256)"
+          old_hash="$(cat artifacts/jarvis-sovereign-builder/source.sha256 2>/dev/null || true)"
+          if [ "$new_hash" != "$old_hash" ] || [ ! -s artifacts/jarvis-sovereign-builder/skill.zip ]; then
+            cp dist/skill.zip artifacts/jarvis-sovereign-builder/skill.zip
+            cp evidence/jarvis-skill-source.sha256 artifacts/jarvis-sovereign-builder/source.sha256
+            cp evidence/jarvis-skill-package-summary.json artifacts/jarvis-sovereign-builder/package-summary.json
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git add artifacts/jarvis-sovereign-builder
+            git commit -m 'Build validated Jarvis Sovereign Builder skill.zip'
+            git push origin "HEAD:${HEAD_BRANCH}"
+          else
+            echo 'Published skill.zip already matches canonical source.'
+          fi
 
       - name: Post package evidence to pull request
         if: github.event_name == 'pull_request'
@@ -97,6 +128,7 @@ jobs:
           path: |
             dist/skill.zip
             evidence/jarvis-skill-inventory.csv
+            evidence/jarvis-skill-source.sha256
             evidence/jarvis-skill-package-summary.json
             docs/chatgpt-project-instructions-jarvis-v3.md
           retention-days: 90
