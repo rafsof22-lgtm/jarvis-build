@@ -51,6 +51,9 @@ jobs:
       - name: Run readiness federation smoke test
         run: python scripts/smoke_readiness_federation.py
 
+      - name: Validate source denominator and module handoffs
+        run: python scripts/verify_module_federation.py
+
       - name: Generate redacted configuration-readiness report
         run: python scripts/config_readiness.py --root . --output evidence/config-readiness.json
 
@@ -71,3 +74,4 @@ jobs:
             evidence/tool-registry-pilot.json
             evidence/config-readiness.json
             evidence/command-centre.snapshot.json
+            evidence/module-federation-verification.json
