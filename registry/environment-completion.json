@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-07-19T09:40:00Z",
+  "generated_at": "2026-07-19T09:45:00Z",
   "scope": "currently accessible GitHub environment only",
   "truth_rules": {
     "repository_source_completion_requires_index_and_latest_commit": true,
@@ -13,7 +13,7 @@
     {
       "repository_id": "jarvis-build",
       "full_name": "rafsof22-lgtm/jarvis-build",
-      "latest_observed_commit": "2dcd33117bb423a4cf6a5a53902e5ed34088e9e2",
+      "latest_observed_commit": "cad405ba1aecf6079165038221909fd2b763e299",
       "source_inventory_status": "COMPLETE_CURRENT_SCOPE",
       "federation_contract_status": "DONE_VERIFIED",
       "handoff_status": "DONE_VERIFIED",
@@ -53,23 +53,23 @@
     {
       "repository_id": "property-agent-mcp",
       "full_name": "rafsof22-lgtm/property-agent-mcp",
-      "latest_observed_commit": "5aaa18da4db595b32af19d2754ad7c2a7846771f",
+      "latest_observed_commit": "903db21e27bf15393273577d664e7d7b7ea3b8d8",
       "source_inventory_status": "COMPLETE_CURRENT_SCOPE",
-      "federation_contract_status": "PR_PENDING_VERIFICATION",
-      "handoff_status": "PR_PENDING_VERIFICATION",
+      "federation_contract_status": "DONE_VERIFIED",
+      "handoff_status": "READY_FOR_REVIEW",
       "deployment_status": "DEPLOYED_UNVERIFIED",
-      "next_action": "merge property PR 17 only after CI or independent tests pass"
+      "next_action": "verify live Railway contract endpoints and complete governed dedupe, scoring and promotion workflow"
     }
   ],
   "environment_metrics": {
     "accessible_repositories": 5,
     "source_inventory_complete_current_scope": 5,
-    "tested_federation_contracts_on_main": 4,
-    "federation_contract_prs_pending": 1,
+    "tested_federation_contracts_on_main": 5,
+    "federation_contract_prs_pending": 0,
     "live_deployments_done_verified": 0,
     "environment_source_completion_percent": 100,
-    "environment_contract_completion_percent": 80,
+    "environment_contract_completion_percent": 100,
     "environment_live_verification_percent": 0
   },
-  "completion_boundary": "Source inventory for the five accessible repositories is complete for the current GitHub scope. Full environment completion is blocked by unverified live deployments, external credentials and inaccessible chat/export sources."
+  "completion_boundary": "Source inventory and source-level federation contracts are complete for all five accessible GitHub repositories. Full environment completion remains blocked by unverified live deployments, external credentials and inaccessible chat/export sources."
 }
