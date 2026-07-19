@@ -21,7 +21,7 @@ Run the update-candidate check on `UPDATE`, `VERIFY`, `ZERO`, `SYNC`, `CONTINUE`
 Inventory every existing skill file and hash where possible. Preserve all prior files unless a direct improvement, verified supersession, security repair, or deduplication is documented. Never return a partial patch when the requested deliverable is an updated skill. The final package must include `SKILL.md`, `agents/openai.yaml`, all referenced resources/scripts/assets, a delta report, validation results, and a source-preservation manifest.
 
 ## Validation
-Check frontmatter, trigger description, reference paths, script syntax/execution, package size, forbidden secret material, duplicate/contradictory rules, evidence-chain validators, and representative use cases. Package only after validation passes. If local packaging is blocked, use an approved CI workflow or return the exact blocker; do not fabricate a ZIP.
+Check frontmatter, trigger description, reference paths, script syntax/execution, package size, sensitive-value detection, duplicate or contradictory rules, evidence-chain validators, and representative use cases. Package only after validation passes. If local packaging is blocked, use an approved CI workflow or return the exact blocker; do not fabricate a ZIP.
 
 ## Release states
 Use `DELTA_CAPTURED`, `SOURCE_RECONCILED`, `IMPLEMENTED_NOT_VALIDATED`, `VALIDATED_NOT_PACKAGED`, `PACKAGED_NOT_INSTALLED`, `INSTALLED_UNVERIFIED`, `ACTIVE_VERIFIED`, or `BLOCKED`.
