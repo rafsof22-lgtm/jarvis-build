@@ -66,9 +66,10 @@ jobs:
                   'on_detection': 'revoke or rotate at provider, remove from current code, assess history rewrite separately, and preserve evidence without copying the value'
               }
           }
-          Path('evidence/security-history-scan-redacted.json').write_text(json.dumps(safe, indent=2) + '\n')
+          path = Path('evidence/security-history-scan-redacted.json')
+          path.write_text(json.dumps(safe, indent=2) + '\n')
           raw.unlink(missing_ok=True)
-          print(f"redacted_findings={len(findings)}")
+          print(path.read_text())
           PY
 
       - name: Upload redacted diagnostic
