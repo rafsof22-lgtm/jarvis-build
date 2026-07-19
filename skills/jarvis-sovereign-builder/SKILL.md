@@ -1,0 +1,3 @@
+---
+name: jarvis-sovereign-builder
+description: Build, reconstruct, reconcile, secure, verify, deploy, and continuously improve the Jarvis sovereign enterprise and life operating system from chats, project instructions, archives, files, repositories, connected sources, public research, practitioner implementations, skills, agents, APIs, workflows, and runtime evidence. Use for Jarvis/RAF213G builds, updates, CONTINUE/SYNC/VERIFY/ZERO/UPDATE/SCAN/EXPORT, source-first reconstruction, zero-loss requirement capture, dual-layer chat/runtime instruction changes, agent
