@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-07-19T00:00:00Z",
+  "rules": {
+    "one_primary_owner": true,
+    "preserve_independent_deployments": true,
+    "secrets_by_name_only": true,
+    "require_idempotency_retries_evidence_and_rollback": true,
+    "unknown_runtime_state_is_not_success": true
+  },
+  "workflows": [
+    {
+      "workflow_id": "jarvis-build-free-first-ci",
+      "repository": "rafsof22-lgtm/jarvis-build",
+      "type": "github-actions-ci",
+      "trigger": ["pull_request:main", "push:main", "manual"],
+      "owner": "jarvis-build",
+      "status": "tested",
+      "cost_route": "public-repository-actions",
+      "capabilities": ["compile", "model-router-smoke", "cost-governor-smoke", "tool-registry-pilot", "command-centre-smoke", "deployment-dry-run"],
+      "next_action": "add secret-name preflight and workflow inventory validation without exposing values"
+    },
+    {
+      "workflow_id": "hub-digitalocean-deploy",
+      "repository": "rafsof22-lgtm/hub",
+      "type": "github-actions-deployment",
+      "trigger": ["push:main", "manual"],
+      "owner": "xrp-hbar-apex",
+      "status": "deployed_unverified_full_scope",
+      "cost_route": "existing-digitalocean",
+      "capabilities": ["ssh-deploy", "docker-compose", "health-checks"],
+      "next_action": "reconcile live commit, host health, Gmail readiness and proof gates"
+    },
+    {
+      "workflow_id": "videotranscribe-vercel-deploy",
+      "repository": "rafsof22-lgtm/videotranscribe",
+      "type": "vercel-deployment",
+      "trigger": ["push:main", "pull_request:main"],
+      "owner": "video-intelligence",
+      "status": "implemented",
+      "cost_route": "existing-vercel",
+      "capabilities": ["build", "preview", "production-deploy"],
+      "next_action": "confirm historical token revocation and rotation; verify current deployment and usage"
+    },
+    {
+      "workflow_id": "property-railway-n8n-jobs",
+      "repository": "rafsof22-lgtm/property-agent-mcp",
+      "type": "api-queue-workflow",
+      "trigger": ["signed-api-job", "optional-n8n-dispatch"],
+      "owner": "property-buyer-intelligence",
+      "status": "partial",
+      "cost_route": "existing-railway-plus-selective-provider-credits",
+      "capabilities": ["signed-jobs", "postgres-persistence", "n8n-dispatch", "stage-only-sheet-writes"],
+      "next_action": "implement provider workers, merge gates, forensic audit and live readiness checks"
+    },
+    {
+      "workflow_id": "jarvis-health-railway",
+      "repository": "rafsof22-lgtm/Jarvis-Health",
+      "type": "railway-service",
+      "trigger": ["repository-deploy"],
+      "owner": "jarvis-health",
+      "status": "scaffold",
+      "cost_route": "existing-railway",
+      "capabilities": ["health", "federation-contract"],
+      "next_action": "implement private Drive MCP tools and verify deployment without patient data exposure"
+    },
+    {
+      "workflow_id": "jarvis-source-scout",
+      "repository": "rafsof22-lgtm/jarvis-build",
+      "type": "scheduled-research-and-delta-scan",
+      "trigger": ["UPDATE", "SCAN", "scheduled"],
+      "owner": "source-scout",
+      "status": "backlogged",
+      "cost_route": "official-feeds-and-free-first",
+      "capabilities": ["official-changelog-scan", "pricing-revalidation", "security-advisory-scan", "capability-delta", "build-task-creation"],
+      "next_action": "implement source registry, freshness rules, dedupe and proposal generation"
+    },
+    {
+      "workflow_id": "jarvis-module-chat-intake",
+      "repository": "rafsof22-lgtm/jarvis-build",
+      "type": "project-chat-ingestion",
+      "trigger": ["first-substantive-request-in-MODULE-chat"],
+      "owner": "requirements-continuity",
+      "status": "spec_only",
+      "cost_route": "existing-project-context-then-cheapest-qualified",
+      "capabilities": ["ask-merge-question-once", "source-preservation", "semantic-dedupe", "best-placement", "conflict-preservation", "registry-update"],
+      "next_action": "apply through Project Instructions and canonical request intake service"
+    }
+  ]
+}
