@@ -21,27 +21,63 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Scan Git history
-        uses: gitleaks/gitleaks-action@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Record scan policy
-        if: always()
+      - name: Scan Git history with full redaction
+        id: scan
+        continue-on-error: true
+        shell: bash
         run: |
           mkdir -p evidence
-          cat > evidence/security-history-scan-policy.json <<'JSON'
-          {
-            "values_exposed_in_artifact": false,
-            "automatic_rotation": false,
-            "automatic_deletion": false,
-            "on_detection": "revoke or rotate at provider, remove from current code, assess history rewrite separately, and preserve evidence without copying the value"
-          }
-          JSON
+          set +e
+          docker run --rm \
+            -v "$PWD:/repo" \
+            -w /repo \
+            ghcr.io/gitleaks/gitleaks:v8.30.1 \
+            git --redact=100 --report-format json \
+            --report-path /repo/evidence/gitleaks-raw.json .
+          code=$?
+          echo "exit_code=$code" >> "$GITHUB_OUTPUT"
+          exit 0
 
-      - name: Upload policy evidence
+      - name: Create value-free diagnostic
+        if: always()
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          raw = Path('evidence/gitleaks-raw.json')
+          findings = json.loads(raw.read_text()) if raw.exists() and raw.stat().st_size else []
+          safe = {
+              'finding_count': len(findings),
+              'values_exposed': False,
+              'findings': [
+                  {
+                      'rule_id': item.get('RuleID'),
+                      'description': item.get('Description'),
+                      'file': item.get('File'),
+                      'start_line': item.get('StartLine'),
+                      'commit': item.get('Commit'),
+                      'fingerprint': item.get('Fingerprint'),
+                  }
+                  for item in findings
+              ],
+              'policy': {
+                  'automatic_rotation': False,
+                  'automatic_deletion': False,
+                  'on_detection': 'revoke or rotate at provider, remove from current code, assess history rewrite separately, and preserve evidence without copying the value'
+              }
+          }
+          Path('evidence/security-history-scan-redacted.json').write_text(json.dumps(safe, indent=2) + '\n')
+          raw.unlink(missing_ok=True)
+          print(f"redacted_findings={len(findings)}")
+          PY
+
+      - name: Upload redacted diagnostic
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: security-history-scan-policy
-          path: evidence/security-history-scan-policy.json
+          name: security-history-scan-redacted
+          path: evidence/security-history-scan-redacted.json
+
+      - name: Enforce clean history
+        run: |
+          test "${{ steps.scan.outputs.exit_code }}" = "0"
