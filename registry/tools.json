@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-07-19T00:00:00Z",
+  "tools": [
+    {
+      "tool_id": "github-connector",
+      "name": "GitHub Connector",
+      "category": "source-control",
+      "owner": "jarvis-build",
+      "status": "operational",
+      "cost_route": "included_or_native",
+      "sensitive_data_allowed": true,
+      "capabilities": ["repository-read", "branch", "file-write", "pull-request", "ci-status"],
+      "approval_gates": ["merge", "production-impacting-change"]
+    },
+    {
+      "tool_id": "local-python",
+      "name": "Local Python",
+      "category": "deterministic-runtime",
+      "owner": "jarvis-build",
+      "status": "operational",
+      "cost_route": "local_free_first",
+      "sensitive_data_allowed": true,
+      "capabilities": ["parsing", "validation", "hashing", "batching", "offline-tests"],
+      "approval_gates": []
+    },
+    {
+      "tool_id": "ollama-local",
+      "name": "Ollama Local Models",
+      "category": "local-model-runtime",
+      "owner": "jarvis-build",
+      "status": "scaffold",
+      "cost_route": "local_free_first",
+      "sensitive_data_allowed": true,
+      "capabilities": ["classification", "extraction", "drafting"],
+      "approval_gates": ["model-download", "hardware-allocation"]
+    },
+    {
+      "tool_id": "openai-api",
+      "name": "OpenAI API",
+      "category": "paid-model-api",
+      "owner": "jarvis-build",
+      "status": "approval_gated",
+      "cost_route": "nano_then_mini_then_premium",
+      "sensitive_data_allowed": true,
+      "capabilities": ["classification", "coding", "reasoning", "tool-use"],
+      "approval_gates": ["api-key-connection", "paid-execution", "budget-increase"]
+    },
+    {
+      "tool_id": "gemini-api",
+      "name": "Gemini API",
+      "category": "model-api",
+      "owner": "jarvis-build",
+      "status": "approval_gated",
+      "cost_route": "free_non_sensitive_or_paid",
+      "sensitive_data_allowed": false,
+      "capabilities": ["bulk-extraction", "long-context", "classification"],
+      "approval_gates": ["api-key-connection", "paid-execution"]
+    }
+  ]
+}

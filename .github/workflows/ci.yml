@@ -30,11 +30,38 @@ jobs:
       - name: Run model-router smoke test
         run: python scripts/smoke_model_router.py
 
+      - name: Run cost-governor smoke test
+        run: python scripts/smoke_cost_governor.py
+
+      - name: Run zero-spend Tool Registry pilot
+        run: python scripts/run_tool_registry_pilot.py
+
+      - name: Validate Sovereign Command Centre and workflow controls
+        run: python scripts/smoke_sovereign_controls.py
+
+      - name: Run redacted configuration-readiness smoke test
+        run: python scripts/smoke_config_readiness.py
+
+      - name: Run readiness federation smoke test
+        run: python scripts/smoke_readiness_federation.py
+
+      - name: Generate redacted configuration-readiness report
+        run: python scripts/config_readiness.py --root . --output evidence/config-readiness.json
+
       - name: Run command-centre schema and federation smoke test
         run: python scripts/smoke_command_centre.py
 
       - name: Generate offline command-centre snapshot
-        run: python -m jarvis_command_centre.command_centre --output command-centre.snapshot.json
+        run: python -m jarvis_command_centre.command_centre --output evidence/command-centre.snapshot.json
 
       - name: Run deployment readiness dry run
         run: python scripts/deploy_dry_run.py --check-only --target oracle
+
+      - name: Upload pilot evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: jarvis-cost-routing-pilot
+          path: |
+            evidence/tool-registry-pilot.json
+            evidence/config-readiness.json
+            evidence/command-centre.snapshot.json
