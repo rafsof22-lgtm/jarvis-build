@@ -18,7 +18,7 @@ def main() -> None:
         json.loads(path.read_text(encoding="utf-8"))
 
     snapshot = build_snapshot(live=False)
-    assert snapshot["command_centre_version"] == "1.0.0"
+    assert snapshot["command_centre_version"] == "1.1.0"
     assert snapshot["contract_version"] == "1.0.0"
     assert snapshot["summary"]["repositories"] == 5
     assert {item["repository_id"] for item in snapshot["repositories"]} == {
@@ -27,6 +27,10 @@ def main() -> None:
     assert snapshot["summary"]["known_credit_balances"] == 0
     assert snapshot["summary"]["unknown_credit_balances"] >= 1
     assert all("blockers" in item for item in snapshot["repositories"])
+    assert "configuration_readiness" in snapshot
+    assert "setup_actions" in snapshot
+    assert snapshot["safety"]["secret_values_returned"] is False
+    assert snapshot["safety"]["automatic_secret_deletion"] is False
     print("command-centre smoke checks passed")
 
 
