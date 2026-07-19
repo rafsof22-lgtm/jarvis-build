@@ -1,0 +1,38 @@
+name: XRP HBAR Cross-Repository Contract
+
+on:
+  pull_request:
+    paths:
+      - 'schemas/xrp-hbar-federation-contract-v1.json'
+      - 'tests/fixtures/xrp-hbar-federation-events.json'
+      - 'scripts/validate_xrp_hbar_federation_fixtures.py'
+      - '.github/workflows/xrp-hbar-cross-repo-contract.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'schemas/xrp-hbar-federation-contract-v1.json'
+      - 'tests/fixtures/xrp-hbar-federation-events.json'
+      - 'scripts/validate_xrp_hbar_federation_fixtures.py'
+      - '.github/workflows/xrp-hbar-cross-repo-contract.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile validator
+        run: python -m py_compile scripts/validate_xrp_hbar_federation_fixtures.py
+      - name: Validate cross-repository fixtures
+        run: python scripts/validate_xrp_hbar_federation_fixtures.py
+      - name: Enforce no committed secret files
+        run: |
+          test ! -f .env
+          test ! -f .env.production
+          test ! -f secrets.json
