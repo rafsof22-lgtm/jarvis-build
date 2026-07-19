@@ -30,6 +30,12 @@ jobs:
       - name: Run model-router smoke test
         run: python scripts/smoke_model_router.py
 
+      - name: Run cost-governor smoke test
+        run: python scripts/smoke_cost_governor.py
+
+      - name: Run zero-spend Tool Registry pilot
+        run: python scripts/run_tool_registry_pilot.py
+
       - name: Run command-centre schema and federation smoke test
         run: python scripts/smoke_command_centre.py
 
@@ -38,3 +44,9 @@ jobs:
 
       - name: Run deployment readiness dry run
         run: python scripts/deploy_dry_run.py --check-only --target oracle
+
+      - name: Upload pilot evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: jarvis-cost-routing-pilot
+          path: evidence/tool-registry-pilot.json
