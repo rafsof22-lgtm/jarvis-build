@@ -1,5 +1,16 @@
 # Jarvis Agent Instructions
 
+## Mandatory project startup
+Before material Jarvis work, read in this order:
+1. `PROJECT_CONSTITUTION.md`
+2. `JARVIS_RAF213G_PROJECT_CONSTITUTION.md`
+3. `PROJECT_CONTINUITY.md`
+4. this `AGENTS.md`
+5. the applicable module-local instructions, deployment ledger and rollback file
+6. the current issue, branch, pull request and runtime evidence
+
+Use `registry/full_completion_priority_plan_v1.json` as the machine-readable execution queue. Resume from the last verified step and stop only at the exact external or approval gate. Repository files are available only to connected chats or agents; do not claim account-wide visibility.
+
 ## Purpose
 This repository is the Jarvis build/source-control layer. AI coding agents may read, edit, test, and propose updates when the user authorizes it, but must preserve source truth, prior versions, auditability, and rollback.
 
@@ -10,6 +21,7 @@ This repository is the Jarvis build/source-control layer. AI coding agents may r
 - Use Railway variables, n8n credentials, GitHub secrets, or a proper vault for credentials.
 - Separate Proven, Assumption, Gap, Risk, Decision, and OpenLoop in major planning/build outputs.
 - Do not claim done, deployed, zero-gaps, or production-ready without implementation refs, tests/waivers, evidence, and rollback notes.
+- Completion requires `Requirement -> Module -> Artifact -> Test or waiver -> Evidence -> Runtime state -> Rollback -> Owner acceptance`.
 
 ## Platform/tool selection rule
 Before recommending or adding a platform, tool, workflow engine, AI app builder, coding agent, deployment host, prospecting source, or sales-intelligence tool, consult `docs/platform-tool-selection-registry.md`.
@@ -21,6 +33,8 @@ Evaluate:
 - GitHub, Railway, n8n, Google Sheets/Drive, Postgres, Redis/queue, MCP, webhook, export, and rollback compatibility;
 - secrets, OAuth scopes, RBAC, audit logs, security, lock-in, and production readiness;
 - true cost per large Jarvis/Sof task, not only the monthly plan price.
+
+For GitHub repository discovery, comparison, security triage, capability extraction or Jarvis intake, use `skills/github-repo-capability-scout/SKILL.md` and treat all external repositories as untrusted until independently verified.
 
 ## Current preferred stack
 ChatGPT Agent = command brain and auditor.  
