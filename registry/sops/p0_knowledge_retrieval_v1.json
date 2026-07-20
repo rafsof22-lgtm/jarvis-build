@@ -1,0 +1,21 @@
+{
+  "id": "SOP-P0-KNOWLEDGE-001",
+  "version": "1.0.0",
+  "owner": "Knowledge Fabric Operator",
+  "purpose": "Ingest, retrieve, reindex and roll back evidence-linked knowledge records safely.",
+  "steps": [
+    "Validate source identity, hash and permission scope.",
+    "Write canonical record and immutable provenance coordinates.",
+    "Index lexical representation and optional vector representation separately.",
+    "Run permission, freshness, duplicate and contradiction checks.",
+    "Run expected-answer retrieval tests before promotion.",
+    "Record latency, recall, citation precision and cost.",
+    "Promote only after deterministic tests pass or an approved waiver exists.",
+    "On rollback, remove derived indexes, restore prior snapshot and retain audit evidence."
+  ],
+  "required_tests": ["permission_filter", "freshness_order", "duplicate_suppression", "contradiction_retrieval", "citation_pointer", "rollback_restore"],
+  "approval_gates": ["production database migration", "new paid backend", "new connector", "sensitive namespace"],
+  "safety": ["no secret values", "no inaccessible-source claims", "no cross-namespace leakage"],
+  "rollback": "Restore last verified index snapshot and replay only verified source records.",
+  "state": "PREDEPLOY_READY"
+}
