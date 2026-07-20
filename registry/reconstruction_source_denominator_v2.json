@@ -1,0 +1,202 @@
+{
+  "schema_version": "2.0.0",
+  "generated_at": "2026-07-20T12:15:00+10:00",
+  "status": "INCOMPLETE_SOURCE_UNIVERSE",
+  "scope": "Jarvis, autonomous digital agency factory, passive-income factory, financial research and trading-bot factory, LLM/model intelligence, agents, skills, integrations and federated specialist modules",
+  "truth_rules": {
+    "source_present_does_not_mean_extracted": true,
+    "extracted_does_not_mean_reviewed": true,
+    "reviewed_does_not_mean_mapped": true,
+    "mapped_does_not_mean_implemented": true,
+    "implemented_does_not_mean_deployed": true,
+    "deployed_does_not_mean_runtime_proven": true,
+    "historical_completion_claims_require_revalidation": true,
+    "closed_or_private_chat_text_is_inaccessible_without_export": true
+  },
+  "proven_metrics": {
+    "github_repositories_accessible_current_scope": 5,
+    "github_source_level_federation_contracts_tested_on_main": 5,
+    "historical_archive_entries_inventoried": 4070,
+    "historical_selected_source_files_extracted_and_inspected": 20,
+    "recovered_partial_requirements_register_rows": 12,
+    "target_architecture_domains": 16,
+    "target_module_families": 128,
+    "historical_requirement_claim_pending_revalidation": 5407
+  },
+  "source_groups": [
+    {
+      "id": "SRC-GITHUB-CURRENT",
+      "description": "Currently accessible GitHub implementation and control-plane repositories",
+      "state": "REVIEWED_CURRENT_SCOPE",
+      "items": [
+        "rafsof22-lgtm/jarvis-build",
+        "rafsof22-lgtm/hub",
+        "rafsof22-lgtm/Jarvis-Health",
+        "rafsof22-lgtm/videotranscribe",
+        "rafsof22-lgtm/property-agent-mcp"
+      ],
+      "limits": "Does not contain every historical ChatGPT chat, archive or original Jarvis workspace."
+    },
+    {
+      "id": "SRC-FILELIB-RECONSTRUCTION",
+      "description": "File Library reconstruction and continuity artifacts",
+      "state": "DISCOVERED_PARTIAL_REVIEW",
+      "items": [
+        "jarvis-reconstruction-rules.md",
+        "RESUME_PROMPT.md",
+        "NO_GAPS_VERIFIER_STATUS.md",
+        "REQUIREMENTS_REGISTER.md",
+        "Pasted markdown.md",
+        "Pasted text.txt instruction and archive rules"
+      ],
+      "limits": "File references are searchable, but not all source contents or original archive bytes are mounted for deterministic local extraction."
+    },
+    {
+      "id": "SRC-FILELIB-MASTER-SPECS",
+      "description": "Historical Jarvis specifications and generated completion reports",
+      "state": "DISCOVERED_NEEDS_CLAIM_AUDIT",
+      "items": [
+        "MASTER_SPEC_20260419_192720.txt",
+        "Omni Quantum Trading Framework (3).docx",
+        "APEX_OMNI_QUANTUM_100_PERCENT_COMPLETION_REPORT.md",
+        "folder0_partial.raw"
+      ],
+      "limits": "Contains extensive plans, code fragments and completion claims that conflict with current proof. Preserve as historical evidence, not runtime truth."
+    },
+    {
+      "id": "SRC-AGENCY",
+      "description": "Autonomous digital agency and passive-income source evidence",
+      "state": "SOURCE_EVIDENCE_PRESENT_UNVERIFIED",
+      "items": [
+        "digital_agency.py",
+        "folder0_partial.raw agency engine sections",
+        "MASTER_SPEC agency, SaaS, affiliate and partnership sections"
+      ],
+      "limits": "Claims 100+ strategies and 15 verticals; complete execution, tests, deployment, client acquisition and profitability are not proven."
+    },
+    {
+      "id": "SRC-TRADING",
+      "description": "Financial research and trading-bot source evidence",
+      "state": "SOURCE_EVIDENCE_PRESENT_UNVERIFIED",
+      "items": [
+        "Omni Quantum Trading Framework (3).docx",
+        "folder0_partial.raw trading agents and strategy sections",
+        "AGENTS_v31.md",
+        "XRP/HBAR historical documents referenced in archive inventory"
+      ],
+      "limits": "Research and paper-first rules exist. Live trading remains locked and no reliable profit claim is accepted."
+    },
+    {
+      "id": "SRC-LLM-KB",
+      "description": "LLM, model router, memory, RAG and platform data-migration evidence",
+      "state": "SOURCE_EVIDENCE_PRESENT_UNVERIFIED",
+      "items": [
+        "AI platform migration module claims for ChatGPT, Claude, DeepSeek, ChatHub and Kimi",
+        "Cloudmem integration claims",
+        "8-panel and multi-provider LLM integration claims",
+        "vector database, multimodal, evaluation and agent-builder source claims"
+      ],
+      "limits": "Implementation paths are referenced in historical source files but the complete workspace and runtime are not currently verified."
+    },
+    {
+      "id": "SRC-CURRENT-CONVERSATION",
+      "description": "Current visible conversation and explicit owner instructions",
+      "state": "REVIEWED",
+      "items": [
+        "closed-chat recovery request",
+        "full historical extraction and reconstruction expansion request",
+        "agency, passive-income, trading, intelligence and LLM integration requirements"
+      ],
+      "limits": "Does not expose hidden reasoning, deleted chats or inaccessible closed-chat messages."
+    }
+  ],
+  "referenced_not_located_or_not_mounted": [
+    {
+      "source": "chatgpt-export-2026-05-12T11-43-26.7z",
+      "state": "REFERENCED_NOT_LOCATED",
+      "needed_for": "historical conversation and requirement reconstruction"
+    },
+    {
+      "source": "chatgpt-export-2026-06-12T06-47-34.7z",
+      "state": "REFERENCED_NOT_LOCATED",
+      "needed_for": "newer ChatGPT export delta ingestion"
+    },
+    {
+      "source": "JARVIS_START_HERE_PROMPT_PACK_2026-02-15_v9.zip",
+      "state": "REFERENCED_NOT_LOCATED",
+      "needed_for": "canonical prompt, instructions, ledgers and source pack reconstruction"
+    },
+    {
+      "source": "historical requirements workbook with 5407 unique requirements",
+      "state": "REFERENCED_NOT_LOCATED",
+      "needed_for": "canonical requirement denominator revalidation"
+    },
+    {
+      "source": "full original Jarvis workspace behind folder0_partial.raw",
+      "state": "PARTIAL_SOURCE_ONLY",
+      "needed_for": "module, code, test and deployment reality reconciliation"
+    },
+    {
+      "source": "private or closed ChatGPT chats absent from available exports",
+      "state": "INACCESSIBLE_WITHOUT_USER_EXPORT_OR_FILE",
+      "needed_for": "complete message-level historical reconstruction"
+    }
+  ],
+  "ingestion_queue": [
+    {
+      "priority": 1,
+      "action": "Locate or re-upload the two ChatGPT 7z exports and v9 prompt pack, preserving original bytes and SHA-256.",
+      "owner": "user_and_reconstruction_controller",
+      "state": "BLOCKED_ON_SOURCE_ACCESS"
+    },
+    {
+      "priority": 2,
+      "action": "Safely extract all 4070 inventoried archive entries; finish compression folders 0 and 1 and log failures.",
+      "owner": "reconstruction_controller",
+      "state": "BLOCKED_ON_ARCHIVE_BYTES"
+    },
+    {
+      "priority": 3,
+      "action": "Generate full user and assistant message ledgers with conversation IDs, message IDs, timestamps, roles and hashes.",
+      "owner": "knowledgebase_controller",
+      "state": "PENDING_INGEST"
+    },
+    {
+      "priority": 4,
+      "action": "Classify full-content chats into projects, cross-links, ambiguous and unassigned review queues.",
+      "owner": "knowledgebase_controller",
+      "state": "PENDING_INGEST"
+    },
+    {
+      "priority": 5,
+      "action": "Rebuild and deduplicate the canonical requirements register and validate or supersede the 5407 claim.",
+      "owner": "spec_lock_controller",
+      "state": "PENDING_INGEST"
+    },
+    {
+      "priority": 6,
+      "action": "Map every applicable requirement to the 16-domain, 128-family target catalog and preserve unmapped requirements.",
+      "owner": "spec_lock_controller",
+      "state": "PENDING_INGEST"
+    },
+    {
+      "priority": 7,
+      "action": "Reconcile each module family against repositories, code, tests, deployment and runtime evidence.",
+      "owner": "build_reality_controller",
+      "state": "BACKLOGGED"
+    },
+    {
+      "priority": 8,
+      "action": "Implement missing P0 registries, provenance graph, no-gaps verifier and Command Centre status surfaces.",
+      "owner": "jarvis_builder",
+      "state": "BACKLOGGED"
+    },
+    {
+      "priority": 9,
+      "action": "Build agency and trading factories in sandbox and staging with lawful, cost, safety and independent proof gates.",
+      "owner": "specialist_factories",
+      "state": "BACKLOGGED"
+    }
+  ],
+  "completion_boundary": "Complete for the currently inspected source references only. Full historical extraction, canonical requirement reconciliation and runtime verification remain incomplete."
+}
