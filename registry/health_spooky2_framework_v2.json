@@ -1,0 +1,77 @@
+{
+  "schema_version": "2.0.0",
+  "status": "SPEC_ONLY_EXPANDED_FRAMEWORK_REGISTERED",
+  "owner": "RAF213G",
+  "jurisdiction": "Australia_first",
+  "source_basis": [
+    "user-uploaded RAF213G Jarvis Health, Frequency, Biophysics and Quantum Intelligence Framework v2.0",
+    "existing Jarvis-Health authenticated read-only MCP",
+    "universal_module_execution_standard_v1"
+  ],
+  "purpose": "Provide a source-first, safety-gated and evidence-labelled Health module covering conventional medicine, diagnostics, rehabilitation, neuroscience, frequency systems, Spooky2, bioelectromagnetics, photobiomodulation, sound, engineering and quantum-claim analysis.",
+  "intended_purpose_classes": [
+    "GENERAL_INFORMATION", "WELLNESS_SUPPORT", "RESEARCH_TOOL", "DEVICE_DOCUMENTATION", "CLINICAL_DECISION_SUPPORT", "MEDICAL_DEVICE_SOFTWARE_POSSIBLE", "MEDICAL_DEVICE_CONTROL_POSSIBLE", "PROHIBITED_WITHOUT_REGULATORY_REVIEW"
+  ],
+  "default_boundary": {
+    "diagnosis": "PROHIBITED",
+    "treatment_decision": "PROHIBITED",
+    "medication_instruction": "PROHIBITED",
+    "live_device_control": "DISABLED",
+    "personalised_high_risk_output": "PROFESSIONAL_REVIEW_REQUIRED",
+    "emergency_care_priority": true,
+    "spiritual_material": "SEPARATE_SYMBOLIC_TRACK",
+    "manufacturer_claims": "NOT_CLINICAL_PROOF"
+  },
+  "control_plane": [
+    "REQUEST_CAPTURE", "INTENT_AND_PURPOSE_LOCK", "SAFETY_URGENCY_TRIAGE", "USER_AND_DEVICE_PROFILE", "SOURCE_COVERAGE", "CURRENT_RESEARCH", "SPECIALIST_ROUTING", "EVIDENCE_CLASSIFICATION", "MODE_COMPATIBILITY", "SIMULATION_OR_DRAFT", "CONTRADICTION_REVIEW", "SAFETY_RED_TEAM", "INDEPENDENT_VERIFICATION", "HUMAN_APPROVAL", "OUTPUT", "OUTCOME_OR_ADVERSE_EVENT_LOG", "CHANGELOG"
+  ],
+  "major_domains": [
+    "clinical_evidence", "diagnostics", "preventive_health", "rehabilitation", "neuroscience", "addiction_and_mental_health", "sleep", "oncology_supportive_care", "pharmacology_and_interactions", "genomics", "microbiology", "vibroacoustic_and_sound", "bioelectromagnetics", "electrophysiology", "PEMF", "photobiomodulation", "laser", "Spooky2", "signal_processing", "device_engineering", "quantum_physics", "quantum_biology", "spiritual_symbolic_frequency"
+  ],
+  "spooky2_modes": ["REMOTE_R", "CONTACT_C", "PLASMA_P", "SCALAR_S", "PEMF_M", "LASER_L", "AUDIO_A", "GX_BIOFEEDBACK", "PULSE_BIOFEEDBACK", "SAMPLE_DIGITIZER", "SCALAR_DIGITIZER"],
+  "mode_rules": {
+    "cross_mode_copy": "PROHIBITED_WITHOUT_COMPATIBILITY_VERIFICATION",
+    "shell_first": true,
+    "exact_settings_require": ["hardware_inventory", "software_version", "firmware", "connection", "calibration", "electrical_or_optical_safety_state"],
+    "biofeedback_classification": "DEVICE_RESPONSE_SIGNAL_NOT_DIAGNOSIS",
+    "contact": ["balanced_waveform_review", "electrode_placement_review", "skin_check", "implanted_device_gate"],
+    "plasma": ["dedicated_preset", "cable_and_duty_check", "heat_and_ventilation", "emergency_stop"],
+    "laser": ["wavelength", "power", "irradiance", "spot_size", "exposure_time", "eye_protection"],
+    "PEMF": ["field_strength", "waveform", "frequency", "coil_orientation", "duty_cycle", "distance", "thermal_behavior"]
+  },
+  "evidence_labels": [
+    "REGULATORY_FACT", "ESTABLISHED_STANDARD", "HIGH_CERTAINTY_CLINICAL_EVIDENCE", "MODERATE_CERTAINTY_CLINICAL_EVIDENCE", "LOW_CERTAINTY_CLINICAL_EVIDENCE", "VERY_LOW_CERTAINTY_CLINICAL_EVIDENCE", "MECHANISTIC_EVIDENCE", "ENGINEERING_MEASUREMENT", "MANUFACTURER_CLAIM", "DATABASE_LISTED", "TRADITIONAL_PRACTICE", "SPIRITUAL_SYMBOLIC", "EXPERIMENTAL_HYPOTHESIS", "TESTIMONIAL_ONLY", "CONTRADICTED", "UNSUPPORTED", "UNKNOWN", "EXCLUDED_FOR_SAFETY"
+  ],
+  "required_registries": [
+    "REQUEST_LOG", "USER_PROFILE_REGISTER", "CONSENT_REGISTER", "DEVICE_INVENTORY", "DEVICE_CALIBRATION_REGISTER", "SOFTWARE_FIRMWARE_REGISTER", "SOURCE_REGISTRY", "EVIDENCE_REGISTER", "RETRACTION_CORRECTION_REGISTER", "ADVERSE_EVIDENCE_REGISTER", "FREQUENCY_REGISTRY", "PROGRAM_REGISTRY", "PRESET_SHELL_REGISTRY", "WAVEFORM_REGISTRY", "BIOFEEDBACK_SCAN_REGISTER", "OUTCOME_REGISTER", "QUANTUM_CLAIM_REGISTER", "SPIRITUAL_FREQUENCY_REGISTER", "RISK_REGISTER", "GAP_REGISTER", "TEST_REGISTER", "APPROVAL_REGISTER", "INCIDENT_REGISTER", "ADVERSE_EVENT_REGISTER", "CHANGELOG", "ROLLBACK_REGISTER"
+  ],
+  "mandatory_SOPs": [
+    "health_request_triage", "emergency_escalation", "health_source_review", "personal_health_data_handling", "device_inventory_and_version_lock", "mode_compatibility", "program_draft_and_validation", "biofeedback_review", "adverse_event", "quantum_claim_review", "spiritual_track_separation", "clinical_release_gate", "read_only_runtime_integration", "rollback"
+  ],
+  "mandatory_OJT": [
+    "clinical_boundary", "emergency_triage", "evidence_grading", "device_mode_safety", "electrical_laser_PEMF_basics", "Spooky2_shell_and_preset_rules", "biofeedback_limitations", "privacy_and_consent", "adverse_event_response", "quantum_claim_misuse", "high_risk_escalation"
+  ],
+  "standing_decisions": {
+    "432_Hz": "OPTIONAL_USER_PREFERENCE_NOT_CURE_PROOF",
+    "440_Hz": "EXCLUDED_BY_CURRENT_SPIRITUAL_PROGRAM_PURPOSE_NOT_HARM_PROOF",
+    "7_83_Hz": "OPTIONAL_OPENING_AND_CLOSING_WITH_DELIVERY_METHOD_DECLARED",
+    "smooth_waveform": "CONSERVATIVE_SYMBOLIC_OR_RELAXATION_DEFAULT",
+    "guaranteed_cure_claims": "PROHIBITED"
+  },
+  "release_gates": [
+    "source_inventory", "owner_decisions", "schemas", "agent_permissions", "safety_tests", "emergency_routing", "mode_mismatch_block", "quantum_claim_labels", "program_parser", "privacy_controls", "logging", "rollback", "independent_verifier"
+  ],
+  "implementation_phases": [
+    "PHASE_0_DOCUMENTATION", "PHASE_1_LOCAL_RESEARCH", "PHASE_2_ISOLATED_TEST", "PHASE_3_READ_ONLY_DEVICE_INTEGRATION", "PHASE_4_SUPERVISED_NON_CLINICAL_STAGING", "PHASE_5_CONTROLLED_PRODUCTION_BLOCKED_PENDING_REGULATORY_AND_SAFETY_GATES"
+  ],
+  "current_runtime": {
+    "repository": "rafsof22-lgtm/Jarvis-Health",
+    "implemented": "authenticated privacy-safe read-only MCP metadata tools",
+    "clinical_tools": "NOT_IMPLEMENTED",
+    "patient_records": "PROHIBITED_IN_CURRENT_RUNTIME",
+    "live_proof": "DEPLOYED_UNVERIFIED"
+  },
+  "next_gates": [
+    "establish complete accessible source denominator", "create source and hash manifest", "create page-row-control ingestion plan", "implement schemas and validators", "create SOP and OJT packs", "benchmark knowledge retrieval in isolated sensitive-health namespace", "retain live Spooky2 control disabled"
+  ]
+}
