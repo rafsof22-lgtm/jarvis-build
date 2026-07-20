@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0.0",
+  "status": "BASELINE_CREATED",
+  "purpose": "Require every applicable Jarvis module, agent, workflow and operator task to have current SOPs, OJT and competency evidence before consequential execution.",
+  "sop_contract": [
+    "sop_id", "title", "module_id", "owner", "version", "effective_date", "purpose", "scope", "prerequisites", "inputs", "tools", "step_by_step_procedure", "decision_points", "approval_gates", "safety_checks", "quality_checks", "evidence_to_capture", "failure_and_escalation", "rollback", "records", "review_cycle", "supersedes"
+  ],
+  "ojt_contract": [
+    "ojt_id", "module_id", "role", "learning_objectives", "prerequisites", "training_materials", "sandbox_exercises", "supervised_tasks", "assessment", "pass_threshold", "authorised_actions_after_pass", "prohibited_actions", "expiry_or_refresh", "trainer_or_verifier", "evidence_record"
+  ],
+  "competency_states": ["NOT_STARTED", "IN_TRAINING", "SUPERVISED_ONLY", "COMPETENT", "COMPETENT_WITH_LIMITS", "EXPIRED", "SUSPENDED"],
+  "minimum_sop_families": [
+    "request_and_scope_lock", "source_intake_and_chain_of_custody", "research_and_citation", "requirement_reconciliation", "agent_or_skill_creation", "code_change_and_PR", "integration_and_credentials", "data_privacy", "incident_response", "deployment_and_rollback", "cost_control", "change_management", "continuity_and_resume", "module_specific_operation"
+  ],
+  "minimum_ojt_families": [
+    "Jarvis governance and proof states", "source authority and conflicts", "prompt injection and secret safety", "module-specific tools", "approval boundaries", "testing and evidence", "incident and rollback", "cost and quota control"
+  ],
+  "risk_tiers": {
+    "LOW": "self-study plus automated assessment may be sufficient",
+    "MEDIUM": "sandbox task and verifier review required",
+    "HIGH": "supervised execution and independent approval required",
+    "CRITICAL": "qualified professional or owner authority, simulated proof, staged canary and explicit release gate required"
+  },
+  "execution_gate": "A task requiring an SOP or competency must fail closed when the current approved SOP, prerequisite OJT or operator competency evidence is absent.",
+  "module_coverage": [
+    {"module": "Jarvis governance", "sop": "REQUIRED", "ojt": "REQUIRED", "priority": "P0"},
+    {"module": "Source intake and reconstruction", "sop": "REQUIRED", "ojt": "REQUIRED", "priority": "P0"},
+    {"module": "Knowledge fabric", "sop": "REQUIRED", "ojt": "REQUIRED", "priority": "P0"},
+    {"module": "Agent and skill factory", "sop": "REQUIRED", "ojt": "REQUIRED", "priority": "P0"},
+    {"module": "GitHub and deployment", "sop": "REQUIRED", "ojt": "REQUIRED", "priority": "P0"},
+    {"module": "VTI", "sop": "REQUIRED", "ojt": "REQUIRED", "priority": "P1"},
+    {"module": "XRP-HBAR", "sop": "REQUIRED", "ojt": "REQUIRED", "priority": "P1"},
+    {"module": "AI CFO", "sop": "REQUIRED", "ojt": "REQUIRED", "priority": "P1"},
+    {"module": "Digital Agency Factory", "sop": "REQUIRED", "ojt": "REQUIRED", "priority": "P1"},
+    {"module": "Trading Bot Factory", "sop": "REQUIRED", "ojt": "REQUIRED", "priority": "P1"},
+    {"module": "Health and Spooky2", "sop": "REQUIRED", "ojt": "REQUIRED", "priority": "P0_CRITICAL"},
+    {"module": "Property intelligence", "sop": "REQUIRED", "ojt": "REQUIRED", "priority": "P1"}
+  ],
+  "audit_metrics": ["modules_in_scope", "modules_with_current_SOP", "modules_with_OJT", "operators_competent", "expired_training", "SOP_test_pass_rate", "incidents_linked_to_SOP_gap", "open_exceptions"],
+  "next_gate": "Create prioritized SOP and OJT packs, starting with governance, source intake, deployment, knowledge fabric and Health/Spooky2."
+}

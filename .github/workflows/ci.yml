@@ -57,6 +57,9 @@ jobs:
       - name: Validate current GitHub environment completion scope
         run: python scripts/verify_environment_completion.py
 
+      - name: Validate universal module, knowledge, OJT and Health specifications
+        run: python scripts/verify_universal_module_standard.py
+
       - name: Generate redacted configuration-readiness report
         run: python scripts/config_readiness.py --root . --output evidence/config-readiness.json
 
