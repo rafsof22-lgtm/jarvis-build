@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-07-20T09:35:00+10:00",
+  "scope_id": "VISIBLE_BATCH_001",
+  "counts": {
+    "inventoried": 5,
+    "processed": 5,
+    "pending_inside_scope": 0,
+    "inaccessible_inside_scope": 0
+  },
+  "sources": [
+    {
+      "source_id": "SRC-001",
+      "pointer": "uploaded:Pasted markdown.md",
+      "role": "latest XRP/HBAR chat continuation and joint-build instruction",
+      "status": "PROCESSED"
+    },
+    {
+      "source_id": "SRC-002",
+      "pointer": "file-library:Pasted markdown.md created 2026-07-17",
+      "role": "XRP/HBAR framework, role, source-stack and archive inventory snapshot",
+      "status": "PROCESSED"
+    },
+    {
+      "source_id": "SRC-003",
+      "pointer": "file-library:xrp tracking cont.txt",
+      "role": "historical direct-demand, bank-fuel and settlement-impact logic",
+      "status": "PROCESSED"
+    },
+    {
+      "source_id": "SRC-004",
+      "pointer": "jarvis-build:docs/trackers/JARVIS_MASTER_RECONSTRUCTION_AND_INTELLIGENCE_TRACKER_20260720.md",
+      "role": "historical consolidated progress snapshot",
+      "status": "PROCESSED"
+    },
+    {
+      "source_id": "SRC-005",
+      "pointer": "GitHub current main heads and merged PR evidence",
+      "role": "current repository truth and stale-status correction",
+      "status": "PROCESSED"
+    }
+  ],
+  "outside_scope_open_sources": [
+    "ChatGPT export archive and manifests",
+    "historical XRP/HBAR DOCX set",
+    "QA and coverage addenda",
+    "PDF, spreadsheet, slide, image and screenshot sources",
+    "assistant-response and adoption-decision history",
+    "current provider runtime and staging evidence"
+  ],
+  "control_rule": "No percentage may be promoted to DONE_VERIFIED unless its exact denominator, processed count, pending count, inaccessible count and evidence references are recorded for that scope."
+}

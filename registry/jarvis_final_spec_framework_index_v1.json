@@ -1,0 +1,99 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-07-20T09:36:00+10:00",
+  "status": "SPEC_INDEX_READY_UI_NOT_BUILT",
+  "purpose": "Provide one navigable index for reviewing, correcting, expanding and approving the governed Jarvis economic-intelligence framework.",
+  "sections": [
+    {
+      "order": 1,
+      "id": "governance",
+      "title": "Governance, proof and approval controls",
+      "artifacts": [
+        "registry/jarvis_mammoth_master_tracker_v2.json",
+        "registry/xrp_hbar_vti_source_denominator_v1.json",
+        "registry/xrp-hbar-cross-asset-historical-reconciliation-matrix.schema.json"
+      ]
+    },
+    {
+      "order": 2,
+      "id": "xrp-hbar-intelligence",
+      "title": "XRP, Ripple, HBAR and Hedera intelligence framework",
+      "artifacts": [
+        "registry/xrp-hbar-cross-asset-historical-reconciliation-matrix.batch-001.json",
+        "docs/trackers/JARVIS_MASTER_RECONSTRUCTION_AND_INTELLIGENCE_TRACKER_20260720.md"
+      ],
+      "required_views": [
+        "direct-token-demand pathway",
+        "catalyst and trigger lineage",
+        "probability and scenario history",
+        "discrepancy and invalidation ledger",
+        "influencer and media claim history",
+        "portfolio implication handoff"
+      ]
+    },
+    {
+      "order": 3,
+      "id": "vti-evidence",
+      "title": "VTI media and evidence framework",
+      "repository": "rafsof22-lgtm/videotranscribe",
+      "required_views": [
+        "source intake",
+        "transcript and speaker evidence",
+        "claim extraction",
+        "creator reliability",
+        "verification state",
+        "evidence export and retention"
+      ]
+    },
+    {
+      "order": 4,
+      "id": "hub-runtime",
+      "title": "Hub event, routing and resilience framework",
+      "repository": "rafsof22-lgtm/hub",
+      "required_views": [
+        "event validation",
+        "correlation and idempotency",
+        "module routing",
+        "retry and dead letter",
+        "controlled replay",
+        "runtime health and evidence"
+      ]
+    },
+    {
+      "order": 5,
+      "id": "ai-cfo",
+      "title": "AI CFO approved-finding handoff",
+      "required_views": [
+        "portfolio exposure",
+        "tax entity context",
+        "liquidity",
+        "custody",
+        "risk and concentration",
+        "recommendation approval"
+      ],
+      "execution_state": "RESEARCH_AND_RECOMMENDATION_ONLY"
+    },
+    {
+      "order": 6,
+      "id": "runtime-release",
+      "title": "Staging, rollback and production gates",
+      "artifacts": [
+        "registry/vti_hub_runtime_gate_v1.json",
+        "docs/integration/VTI_HUB_STAGING_CANARY_RUNBOOK_2026-07-20.md"
+      ],
+      "open_ticket": 47
+    }
+  ],
+  "viewer_requirements": [
+    "one-page executive status",
+    "expandable domain tree",
+    "historical versus current state",
+    "requirement-to-artifact-to-test lineage",
+    "conflict and supersession display",
+    "source denominator and gap display",
+    "owner and dependency display",
+    "runtime and rollback evidence",
+    "user correction and approval controls"
+  ],
+  "completion_rule": "A section is complete only when requirement, artifact, test or waiver, evidence, runtime state and rollback are linked."
+}
