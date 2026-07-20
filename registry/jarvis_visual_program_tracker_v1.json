@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-07-20T18:20:00+10:00",
+  "status": "EVIDENCE_BASED_DYNAMIC_TRACKER",
+  "rules": {
+    "full_tracker_required_in_substantive_responses": true,
+    "percentages_may_decrease_when_scope_expands": true,
+    "zero_gap_is_continuous_control": true,
+    "done_requires_source_artifact_test_evidence_and_rollback": true,
+    "unavailable_sources_are_not_counted_as_reviewed": true
+  },
+  "summary": {
+    "visible_current_chat_user_messages_reviewed": {"completed": 4, "denominator": 4, "percent": 100},
+    "visible_substantive_assistant_outcomes_reviewed": {"completed": 3, "denominator": 3, "percent": 100},
+    "current_github_repositories_reconciled": {"completed": 5, "denominator": 5, "percent": 100},
+    "historical_archive_entries_inspected": {"completed": 20, "denominator": 4070, "percent": 0.49},
+    "historical_requirement_rows_recovered": {"completed": 12, "provisional_denominator": 5407, "percent": 0.22},
+    "target_module_families_specified": {"completed": 128, "denominator": 128, "percent": 100, "proof_boundary": "SPEC_ONLY"},
+    "primary_specialist_chats_specified": {"completed": 8, "denominator": 8, "percent": 100},
+    "secondary_specialist_candidates_named": {"completed": 13, "denominator": 13, "percent": 100, "proof_boundary": "NAMED_NOT_FULLY_BOOTSTRAPPED"},
+    "runtime_proven_economic_engines": {"completed": 0, "denominator": 4, "percent": 0}
+  },
+  "priority_workstreams": [
+    {"id":"P0-01","workstream":"Missing archive retrieval","priority":"P0","percent":0,"status":"OWNER_ACTION_REQUIRED","evidence_or_blocker":"Referenced export and source-pack bytes are not mounted","next_action":"Locate or upload the two ChatGPT 7z exports, v9 pack, requirements workbook and original workspace"},
+    {"id":"P0-02","workstream":"Archive integrity and safe extraction","priority":"P0","percent":0.49,"status":"BLOCKED","evidence_or_blocker":"20 selected files inspected from 4,070 inventoried entries","next_action":"Hash, safely extract and reconcile every entry"},
+    {"id":"P0-03","workstream":"User-message WFW ledger","priority":"P0","percent":5,"status":"PARTIAL","evidence_or_blocker":"Current visible chat reviewed; full historical exports unavailable","next_action":"Run deterministic message extraction across all exports"},
+    {"id":"P0-04","workstream":"Assistant-response WFW ledger","priority":"P0","percent":5,"status":"PARTIAL","evidence_or_blocker":"Current substantive outcomes reviewed; historical responses incomplete","next_action":"Extract and hash all assistant messages"},
+    {"id":"P0-05","workstream":"Canonical requirement denominator","priority":"P0","percent":0.22,"status":"PARTIAL","evidence_or_blocker":"12 recovered rows versus unvalidated historical claim of 5,407","next_action":"Deduplicate and classify every extracted requirement"},
+    {"id":"P0-06","workstream":"Historical module-count reconciliation","priority":"P0","percent":20,"status":"IN_PROGRESS","evidence_or_blocker":"Conflicting 172, 292, 313, 320+, 371, 373 and 500+ claims identified","next_action":"Build file and code inventory then classify module types"},
+    {"id":"P0-07","workstream":"Source-to-requirement-to-proof traceability","priority":"P0","percent":10,"status":"PARTIAL","evidence_or_blocker":"Schemas and rules exist but historical mappings are incomplete","next_action":"Generate traceability rows after full extraction"},
+    {"id":"P0-08","workstream":"Knowledge and provenance control plane","priority":"P0","percent":25,"status":"PARTIAL","evidence_or_blocker":"Target family exists; complete runtime and source graph absent","next_action":"Create first-class specialist tracker and implement source graph"},
+
+    {"id":"P1-01","workstream":"Jarvis sovereign control plane","priority":"P1","percent":40,"status":"IN_PROGRESS","evidence_or_blocker":"Canonical repo, registries, contracts and issues exist; complete runtime absent","next_action":"Implement requirement registry, dependency graph and verifier services"},
+    {"id":"P1-02","workstream":"Visual enhancement and progress tracker","priority":"P1","percent":35,"status":"SPECIFIED","evidence_or_blocker":"Machine-readable tracker and response contract exist; live dashboard absent","next_action":"Build Command Centre read model, bars, filters and drill-down evidence"},
+    {"id":"P1-03","workstream":"Command Centre and novice UX","priority":"P1","percent":25,"status":"PARTIAL","evidence_or_blocker":"One-page and button-truth families exist; left navigation and module explanation matrix incomplete","next_action":"Create navigation taxonomy, tooltips, guided actions and UI tests"},
+    {"id":"P1-04","workstream":"Agent loop and verifier-gated closure","priority":"P1","percent":20,"status":"PARTIAL","evidence_or_blocker":"Governance rules exist; executable state machine absent","next_action":"Implement safe auto-advance, retry, escalation and verifier states"},
+    {"id":"P1-05","workstream":"Agent Skill governance","priority":"P1","percent":20,"status":"PARTIAL","evidence_or_blocker":"Governance requirements found; no approved registry and lockfile runtime","next_action":"Create quarantine, review, benchmark, pinning and rollback workflow"},
+    {"id":"P1-06","workstream":"Cross-repository federation and release train","priority":"P1","percent":45,"status":"PARTIAL","evidence_or_blocker":"Five source contracts and handoff rules exist; universal promotion gate absent","next_action":"Implement dependency graph, compatibility checks and release orchestration"},
+    {"id":"P1-07","workstream":"Security privacy and red-team program","priority":"P1","percent":25,"status":"PARTIAL","evidence_or_blocker":"Controls specified; independent adversarial test program absent","next_action":"Create first-class security tracker and CI evidence pipeline"},
+    {"id":"P1-08","workstream":"Data platform and event architecture","priority":"P1","percent":25,"status":"PARTIAL","evidence_or_blocker":"Database, queue and lineage families specified; canonical runtime incomplete","next_action":"Create schema, event, quality and migration specialist tracker"},
+    {"id":"P1-09","workstream":"Automation and workflow factory","priority":"P1","percent":25,"status":"PARTIAL","evidence_or_blocker":"Workflow family specified; complete action catalog absent","next_action":"Create deterministic workflow and approval registry"},
+    {"id":"P1-10","workstream":"Universal intelligence and LLM fabric","priority":"P1","percent":30,"status":"PARTIAL","evidence_or_blocker":"Source and model requirements plus issue #40 exist; runtime schedules unproven","next_action":"Run domain source lock and model/source benchmark program"},
+    {"id":"P1-11","workstream":"Platform infrastructure and recovery","priority":"P1","percent":35,"status":"PARTIAL","evidence_or_blocker":"Issue #42 and source stack exist; full provider, backup and rollback proof absent","next_action":"Reconcile environments and execute restore tests"},
+    {"id":"P1-12","workstream":"Legal and compliance operating layer","priority":"P1","percent":15,"status":"SPECIFIED","evidence_or_blocker":"Target family and candidate exist; no first-class bootstrap record","next_action":"Create dedicated specialist prompt, issue and integration contract"},
+
+    {"id":"P2-01","workstream":"Autonomous digital agency factory","priority":"P2","percent":30,"status":"PARTIAL","evidence_or_blocker":"Historical modules and issue #36 exist; source denominator and revenue proof incomplete","next_action":"Run source lock, extract every channel, validate offers and unit economics"},
+    {"id":"P2-02","workstream":"SaaS app and digital-product factory","priority":"P2","percent":20,"status":"SPECIFIED","evidence_or_blocker":"Issue #41 exists; products and runtime unverified","next_action":"Run product source lock and build demand-validation pipeline"},
+    {"id":"P2-03","workstream":"Revenue operations sales and customer success","priority":"P2","percent":15,"status":"SPECIFIED","evidence_or_blocker":"Domain families exist; no dedicated specialist bootstrap","next_action":"Create revenue operations tracker and CRM handoff contract"},
+    {"id":"P2-04","workstream":"AI CFO and Xero OS","priority":"P2","percent":25,"status":"PARTIAL","evidence_or_blocker":"Issue #39 and historical schema claims exist; live tenant proof absent","next_action":"Run finance source lock and implement read-only fixtures first"},
+    {"id":"P2-05","workstream":"Trading-bot research and paper factory","priority":"P2","percent":25,"status":"PARTIAL","evidence_or_blocker":"Issue #37 and historical strategy code exist; reproducible tests absent","next_action":"Build strategy lineage, bias controls and paper test harness"},
+    {"id":"P2-06","workstream":"Health and experimental-wellness module","priority":"P2","percent":25,"status":"PARTIAL","evidence_or_blocker":"Issue #38, Jarvis-Health repo and historical Spooky2 sources exist","next_action":"Run health source lock and evidence/contraindication classification"},
+    {"id":"P2-07","workstream":"XRP HBAR intelligence","priority":"P2","percent":30,"status":"PARTIAL","evidence_or_blocker":"Hub and extensive historical framework exist; complete source and runtime mapping absent","next_action":"Create first-class specialist bootstrap and evidence contract"},
+    {"id":"P2-08","workstream":"Property intelligence","priority":"P2","percent":35,"status":"PARTIAL","evidence_or_blocker":"Property repository and federation contract exist; full domain handoff incomplete","next_action":"Run domain reconstruction and runtime dependency proof"},
+    {"id":"P2-09","workstream":"VTI video and social intelligence","priority":"P2","percent":40,"status":"PARTIAL","evidence_or_blocker":"Repository, contracts and later PR stack exist; complete integration unverified","next_action":"Complete VTI merge sequence and specialist handoff"},
+    {"id":"P2-10","workstream":"Fast 8 Auto operations","priority":"P2","percent":15,"status":"SPECIFIED","evidence_or_blocker":"Historical business requirements exist; no first-class module tracker","next_action":"Create source lock, operations schema and federation contract"},
+    {"id":"P2-11","workstream":"Family Office and personal finance","priority":"P2","percent":20,"status":"PARTIAL","evidence_or_blocker":"Extensive historical structure exists; separate source and approval model incomplete","next_action":"Create specialist bootstrap and professional-review gates"},
+    {"id":"P2-12","workstream":"Gmail admin and communications","priority":"P2","percent":15,"status":"SPECIFIED","evidence_or_blocker":"Capabilities are referenced; complete read/draft/send governance absent","next_action":"Create communications tracker and approval matrix"},
+    {"id":"P2-13","workstream":"Procurement shopping and supplier intelligence","priority":"P2","percent":15,"status":"SPECIFIED","evidence_or_blocker":"Procurement family exists; complete landed-cost and purchase controls absent","next_action":"Create procurement tracker and supplier-proof workflow"},
+    {"id":"P2-14","workstream":"Voice multimodal and accessibility","priority":"P2","percent":20,"status":"PARTIAL","evidence_or_blocker":"Historical and catalog requirements exist; implementation tests absent","next_action":"Create multimodal interface test and privacy plan"},
+
+    {"id":"P3-01","workstream":"Proposed specialist repository creation","priority":"P3","percent":0,"status":"OWNER_ACTION_REQUIRED","evidence_or_blocker":"Placement is specified but explicit creation approval remains","next_action":"Review final names, privacy and boundaries before repository creation"},
+    {"id":"P3-02","workstream":"Staging integration across specialist modules","priority":"P3","percent":0,"status":"BACKLOGGED","evidence_or_blocker":"Specialist source and implementation gates not complete","next_action":"Begin only after domain handoff packs pass"},
+    {"id":"P3-03","workstream":"Production runtime verification","priority":"P3","percent":0,"status":"BLOCKED","evidence_or_blocker":"Provider, credential, test and rollback gates incomplete","next_action":"Verify staging then promote through independent release gate"},
+    {"id":"P3-04","workstream":"Agency profitability proof","priority":"P3","percent":0,"status":"NOT_VERIFIED","evidence_or_blocker":"No verified customers, delivery evidence or financial results","next_action":"Run lawful controlled market experiments"},
+    {"id":"P3-05","workstream":"Trading profitability proof","priority":"P3","percent":0,"status":"NOT_VERIFIED","evidence_or_blocker":"No independently reproducible paper or live performance evidence","next_action":"Complete out-of-sample and paper evidence before capital"}
+  ],
+  "continuous_controls": [
+    {"workstream":"Source freshness and delta scanning","status":"CONTINUOUS_CONTROL"},
+    {"workstream":"Security privacy and supply-chain review","status":"CONTINUOUS_CONTROL"},
+    {"workstream":"Cost and model-route optimisation","status":"CONTINUOUS_CONTROL"},
+    {"workstream":"Quality hallucination and regression evaluation","status":"CONTINUOUS_CONTROL"},
+    {"workstream":"Documentation continuity and rollback preservation","status":"CONTINUOUS_CONTROL"}
+  ]
+}
