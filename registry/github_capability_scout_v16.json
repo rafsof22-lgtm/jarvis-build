@@ -1,0 +1,44 @@
+{
+  "schema_version": "16.0.0",
+  "status": "SPEC_ONLY",
+  "purpose": "Continuously identify safer, current and cost-effective Jarvis tools, modules, skills, APIs, databases and repositories without blind installation.",
+  "cadence": "scheduled_or_on_demand",
+  "default_policy": "DENY_UNTIL_REVIEWED",
+  "candidate_sources": [
+    "official vendor repositories",
+    "foundation-maintained open-source projects",
+    "standards organisations",
+    "government and university repositories",
+    "well-maintained community projects with transparent governance"
+  ],
+  "minimum_review": [
+    "repository_owner_and_governance",
+    "licence",
+    "release_and_commit_recency",
+    "maintenance_and_issue_health",
+    "dependency_and_secret_risk",
+    "network_filesystem_and_secret_permissions",
+    "known_vulnerabilities",
+    "SBOM_or_dependency_inventory",
+    "test_coverage_and_reproducibility",
+    "measurable_benefit",
+    "cost_and_hostability",
+    "rollback_and_removal"
+  ],
+  "security_stack_candidates": [
+    "GitHub dependency review",
+    "GitHub secret scanning",
+    "GitHub code scanning",
+    "Dependabot",
+    "OpenSSF Scorecard",
+    "OSV-Scanner",
+    "Trivy",
+    "Syft",
+    "Grype",
+    "SLSA provenance"
+  ],
+  "decision_states": ["DISCOVERED", "QUARANTINED", "UNDER_REVIEW", "APPROVED_FOR_PILOT", "REJECTED", "APPROVED", "DEPRECATED"],
+  "installation_rule": "Pin exact versions or commits, test in isolation, record permissions and evidence, and require approval before activation.",
+  "cost_rule": "Compare free and local first, then cheapest viable paid, best-value paid and premium fallback only when justified.",
+  "prohibited": ["blind bulk installation", "unreviewed script execution", "broad secret access", "automatic production activation", "claiming usefulness without evaluation"]
+}
