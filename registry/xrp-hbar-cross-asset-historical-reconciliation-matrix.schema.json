@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jarvis.local/schemas/xrp-hbar-cross-asset-historical-reconciliation-matrix.schema.json",
+  "title": "XRP HBAR Cross-Asset Historical Reconciliation Matrix",
+  "type": "object",
+  "required": ["schema_version", "generated_at", "source_denominator", "records", "gaps"],
+  "properties": {
+    "schema_version": { "const": "1.0.0" },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "source_denominator": {
+      "type": "object",
+      "required": ["inventoried", "processed", "pending", "inaccessible"],
+      "properties": {
+        "inventoried": { "type": "integer", "minimum": 0 },
+        "processed": { "type": "integer", "minimum": 0 },
+        "pending": { "type": "integer", "minimum": 0 },
+        "inaccessible": { "type": "integer", "minimum": 0 }
+      },
+      "additionalProperties": false
+    },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "record_id", "source_pointer", "source_date", "asset_class", "assets",
+          "record_type", "verbatim_request", "normalized_requirement", "authority_tier",
+          "adoption_state", "verification_state", "canonical_placement"
+        ],
+        "properties": {
+          "record_id": { "type": "string", "minLength": 1 },
+          "source_pointer": { "type": "string", "minLength": 1 },
+          "source_date": { "type": ["string", "null"] },
+          "asset_class": {
+            "enum": ["xrp", "hbar", "crypto", "stock", "etf", "commodity", "macro", "property", "cross_asset"]
+          },
+          "assets": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+          "record_type": {
+            "enum": [
+              "request", "assistant_response", "table", "prediction", "probability", "catalyst",
+              "trigger", "ranking", "candidate", "rejection", "discrepancy", "workflow", "instruction"
+            ]
+          },
+          "verbatim_request": { "type": ["string", "null"] },
+          "verbatim_response": { "type": ["string", "null"] },
+          "normalized_requirement": { "type": "string" },
+          "authority_tier": {
+            "enum": ["user_correction", "user_request", "official_source", "verified_external", "assistant_proposal", "unverified_claim"]
+          },
+          "adoption_state": {
+            "enum": ["adopted", "partially_adopted", "proposed", "rejected", "superseded", "unknown"]
+          },
+          "supersedes": { "type": "array", "items": { "type": "string" } },
+          "conflicts_with": { "type": "array", "items": { "type": "string" } },
+          "verification_state": {
+            "enum": ["not_checked", "source_verified", "semantically_reconciled", "implementation_mapped", "independently_verified", "blocked"]
+          },
+          "historical_values": {
+            "type": "object",
+            "properties": {
+              "price_target": { "type": ["number", "string", "null"] },
+              "probability_percent": { "type": ["number", "null"], "minimum": 0, "maximum": 100 },
+              "impact_percent": { "type": ["number", "null"] },
+              "time_horizon": { "type": ["string", "null"] },
+              "currency": { "type": ["string", "null"] }
+            },
+            "additionalProperties": true
+          },
+          "canonical_placement": { "type": "string" },
+          "module_owner": { "type": ["string", "null"] },
+          "workflow_id": { "type": ["string", "null"] },
+          "artifact_path": { "type": ["string", "null"] },
+          "test_or_waiver": { "type": ["string", "null"] },
+          "evidence_ref": { "type": ["string", "null"] },
+          "rollback_ref": { "type": ["string", "null"] },
+          "notes": { "type": ["string", "null"] }
+        },
+        "additionalProperties": false
+      }
+    },
+    "gaps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["gap_id", "description", "status", "next_action"],
+        "properties": {
+          "gap_id": { "type": "string" },
+          "description": { "type": "string" },
+          "status": {
+            "enum": ["PENDING_INGEST", "BACKLOGGED", "IN_PROGRESS", "BLOCKED", "WAIVED", "DONE_VERIFIED"]
+          },
+          "source_refs": { "type": "array", "items": { "type": "string" } },
+          "next_action": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
