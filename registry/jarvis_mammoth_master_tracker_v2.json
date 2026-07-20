@@ -1,6 +1,6 @@
 {
   "schema_version": "2.0.0",
-  "updated_at": "2026-07-20T09:20:00+10:00",
+  "updated_at": "2026-07-20T09:35:00+10:00",
   "status": "ACTIVE_CANONICAL_RECONCILIATION",
   "scope": ["jarvis-governance", "xrp-hbar-intelligence", "vti-evidence", "hub-runtime", "ai-cfo-handoff"],
   "proof_boundary": "Visible repositories and user-provided files only; no hidden-chat, inaccessible-archive, live-staging, production or permanent-zero-gap claim.",
@@ -11,6 +11,9 @@
   },
   "historical_tracker": "docs/trackers/JARVIS_MASTER_RECONSTRUCTION_AND_INTELLIGENCE_TRACKER_20260720.md",
   "historical_matrix_schema": "registry/xrp-hbar-cross-asset-historical-reconciliation-matrix.schema.json",
+  "matrix_batches": ["registry/xrp-hbar-cross-asset-historical-reconciliation-matrix.batch-001.json"],
+  "source_denominator_ledger": "registry/xrp_hbar_vti_source_denominator_v1.json",
+  "final_spec_index": "registry/jarvis_final_spec_framework_index_v1.json",
   "current_runtime_gate": "registry/vti_hub_runtime_gate_v1.json",
   "open_runtime_ticket": 47,
   "stale_claims_corrected": [
@@ -28,13 +31,13 @@
     "ai-cfo": ["approved portfolio", "tax", "liquidity", "custody", "risk analysis"]
   },
   "priority_queue": [
-    {"priority": 1, "task": "Populate historical reconciliation matrix batch 1", "status": "IN_PROGRESS"},
-    {"priority": 2, "task": "Lock exact source denominator and inaccessible ledger", "status": "IN_PROGRESS"},
-    {"priority": 3, "task": "Reconstruct XRP and HBAR request-response lineage", "status": "BACKLOGGED"},
+    {"priority": 1, "task": "Populate historical reconciliation matrix batch 1", "status": "DONE_VERIFIED"},
+    {"priority": 2, "task": "Lock bounded visible-source denominator and inaccessible ledger", "status": "DONE_VERIFIED_BATCH_001"},
+    {"priority": 3, "task": "Reconstruct XRP and HBAR request-response lineage", "status": "IN_PROGRESS"},
     {"priority": 4, "task": "Reconstruct probability, trigger and discrepancy history", "status": "BACKLOGGED"},
     {"priority": 5, "task": "Reconcile undervalued crypto, stock and ETF history", "status": "BACKLOGGED"},
     {"priority": 6, "task": "Deploy and prove VTI-to-Hub staging canary", "status": "BLOCKED_AT_PROVIDER_CONFIGURATION"},
-    {"priority": 7, "task": "Implement final specification viewer and visual operations panel", "status": "BACKLOGGED"}
+    {"priority": 7, "task": "Implement final specification viewer and visual operations panel", "status": "SPEC_INDEX_CREATED_UI_BACKLOGGED"}
   ],
   "safety": {
     "financial_execution": "DISABLED",
