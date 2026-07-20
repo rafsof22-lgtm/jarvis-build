@@ -1,0 +1,279 @@
+{
+  "schema_version": "2.0.0",
+  "generated_at": "2026-07-20T12:05:00+10:00",
+  "status": "TARGET_CATALOG_NOT_IMPLEMENTATION_CLAIM",
+  "counting_rules": {
+    "domain_count": 16,
+    "module_family_count": 128,
+    "families_per_domain": 8,
+    "historical_counts_are_source_claims": [172, 313, "320+", 371, 373],
+    "historical_requirement_claim": 5407,
+    "implemented_count_requires_code_and_test_evidence": true,
+    "deployed_count_requires_provider_and_commit_evidence": true,
+    "runtime_proven_count_requires_live_smoke_and_dependency_evidence": true
+  },
+  "domains": [
+    {
+      "id": "D01",
+      "name": "Source Reconstruction and Knowledge Ingestion",
+      "families": [
+        "raw_source_vault",
+        "archive_integrity_and_safe_extraction",
+        "chat_export_message_extraction",
+        "project_classification_and_crosslinking",
+        "dedupe_version_and_lineage",
+        "instruction_and_decision_mining",
+        "source_coverage_and_gap_control",
+        "continuity_export_and_resume"
+      ]
+    },
+    {
+      "id": "D02",
+      "name": "Sovereign Control Plane and Governance",
+      "families": [
+        "request_intent_and_build_contracts",
+        "task_dependency_and_workflow_os",
+        "approval_policy_and_separation_of_duties",
+        "decision_risk_gap_and_openloop_control",
+        "release_gate_and_independent_verification",
+        "budget_quota_and_cost_authority",
+        "kill_switch_safe_stop_and_recovery",
+        "federation_and_module_lifecycle_governance"
+      ]
+    },
+    {
+      "id": "D03",
+      "name": "LLM and Model Intelligence Router",
+      "families": [
+        "model_provider_registry",
+        "capability_cost_latency_privacy_scoring",
+        "free_local_and_cached_route_selection",
+        "multi_model_panel_and_consensus",
+        "prompt_context_and_token_optimization",
+        "model_evaluation_ab_and_regression",
+        "fine_tuning_adapter_and_open_weight_models",
+        "provider_failover_rate_limit_and_cost_guard"
+      ]
+    },
+    {
+      "id": "D04",
+      "name": "Agent Skill and Integration Factory",
+      "families": [
+        "agent_builder_and_signed_templates",
+        "skill_factory_and_validation",
+        "toolplan_and_tool_registry",
+        "api_mcp_connector_factory",
+        "workflow_and_automation_factory",
+        "bounded_agent_mesh_and_supervision",
+        "agent_memory_identity_and_permissions",
+        "agent_evaluation_health_and_termination"
+      ]
+    },
+    {
+      "id": "D05",
+      "name": "Universal Intelligence and Research Fabric",
+      "families": [
+        "source_scout_and_watchlists",
+        "official_web_news_and_rss_intelligence",
+        "academic_patent_standard_and_regulatory_research",
+        "social_video_email_and_newsletter_intelligence",
+        "evidence_claim_and_citation_graph",
+        "fact_check_conflict_and_freshness_engine",
+        "forecast_scenario_and_signal_intelligence",
+        "research_reports_alerts_and_briefings"
+      ]
+    },
+    {
+      "id": "D06",
+      "name": "Autonomous Digital Agency Factory",
+      "families": [
+        "market_niche_and_offer_intelligence",
+        "lead_generation_enrichment_and_compliance",
+        "sales_crm_proposal_and_contracting",
+        "client_onboarding_scope_and_approvals",
+        "seo_content_social_email_and_reputation",
+        "paid_media_conversion_and_attribution",
+        "creative_brand_web_and_video_delivery",
+        "client_reporting_retention_referrals_and_margin"
+      ]
+    },
+    {
+      "id": "D07",
+      "name": "SaaS App and Digital Product Factory",
+      "families": [
+        "problem_discovery_and_product_validation",
+        "prd_architecture_and_design_system",
+        "code_generation_review_and_testing",
+        "database_api_auth_and_billing",
+        "web_mobile_extension_and_desktop_apps",
+        "deployment_observability_and_support",
+        "templates_courses_data_and_content_products",
+        "licensing_marketplace_and_product_analytics"
+      ]
+    },
+    {
+      "id": "D08",
+      "name": "Passive Income and Opportunity Factory",
+      "families": [
+        "opportunity_discovery_and_ranking",
+        "affiliate_and_partnership_engine",
+        "digital_asset_and_content_licensing",
+        "subscription_membership_and_recurring_revenue",
+        "marketplace_ecommerce_and_print_on_demand",
+        "data_api_and_automation_products",
+        "portfolio_unit_economics_and_capacity",
+        "income_risk_tax_and_performance_monitoring"
+      ]
+    },
+    {
+      "id": "D09",
+      "name": "Financial Research and Trading Bot Factory",
+      "families": [
+        "market_data_lineage_and_quality",
+        "asset_research_signal_and_regime_engine",
+        "strategy_builder_and_code_generation",
+        "backtest_walkforward_and_bias_control",
+        "paper_shadow_and_simulated_execution",
+        "portfolio_risk_position_and_exposure_control",
+        "broker_exchange_order_and_reconciliation",
+        "live_release_kill_switch_and_trade_audit"
+      ]
+    },
+    {
+      "id": "D10",
+      "name": "CFO Accounting Tax and Treasury OS",
+      "families": [
+        "entity_wallet_account_and_asset_registry",
+        "bookkeeping_reconciliation_and_evidence",
+        "cashflow_budget_forecast_and_runway",
+        "tax_cgt_gst_and_compliance_workflows",
+        "treasury_yield_liquidity_and_custody",
+        "invoice_procurement_expense_and_payroll",
+        "financial_controls_audit_and_fraud_detection",
+        "management_reporting_scenarios_and_adviser_handoff"
+      ]
+    },
+    {
+      "id": "D11",
+      "name": "Memory Knowledge Graph and Provenance",
+      "families": [
+        "document_object_and_raw_content_store",
+        "vector_search_rag_and_reranking",
+        "knowledge_graph_entities_and_relationships",
+        "episodic_semantic_procedural_and_user_memory",
+        "provenance_citations_hashes_and_chain_of_custody",
+        "contradiction_version_and_freshness_tracking",
+        "privacy_scoped_context_and_retention",
+        "backup_export_restore_and_portability"
+      ]
+    },
+    {
+      "id": "D12",
+      "name": "Security Privacy Compliance and Safety",
+      "families": [
+        "identity_sso_mfa_rbac_and_abac",
+        "secrets_vault_keys_and_credential_rotation",
+        "network_endpoint_container_and_cloud_security",
+        "data_classification_dlp_encryption_and_redaction",
+        "dependency_sbom_cve_license_and_supply_chain",
+        "prompt_injection_tool_and_agent_security",
+        "privacy_legal_regulatory_and_policy_control",
+        "incident_response_forensics_and_business_continuity"
+      ]
+    },
+    {
+      "id": "D13",
+      "name": "Command Centre UX and Human Collaboration",
+      "families": [
+        "one_page_command_centre",
+        "conversational_voice_and_multimodal_interface",
+        "guided_setup_wizards_and_defaults",
+        "button_truth_tooltips_and_contextual_help",
+        "task_approval_review_and_exception_queues",
+        "dashboards_trackers_alerts_and_notifications",
+        "accessibility_localization_and_device_experience",
+        "team_client_contractor_and_adviser_workspaces"
+      ]
+    },
+    {
+      "id": "D14",
+      "name": "Infrastructure Deployment and Observability",
+      "families": [
+        "repo_branch_ci_and_release_management",
+        "local_cloud_hybrid_and_edge_runtime",
+        "containers_orchestration_workers_and_schedulers",
+        "databases_queues_cache_storage_and_networking",
+        "environment_config_domains_dns_and_tls",
+        "logs_metrics_traces_slo_and_alerting",
+        "backup_restore_migrations_canary_and_rollback",
+        "capacity_performance_reliability_and_cost_optimization"
+      ]
+    },
+    {
+      "id": "D15",
+      "name": "Business Operations Sales and Customer Success",
+      "families": [
+        "company_strategy_okrs_and_portfolio_management",
+        "process_sop_policy_and_quality_management",
+        "vendor_procurement_contract_and_asset_management",
+        "workforce_contractor_training_and_capacity",
+        "sales_pipeline_forecast_and_revenue_operations",
+        "support_ticket_sla_and_customer_success",
+        "legal_insurance_risk_and_compliance_operations",
+        "business_intelligence_kpi_and_executive_reporting"
+      ]
+    },
+    {
+      "id": "D16",
+      "name": "Federated Specialist Domains",
+      "families": [
+        "xrp_hbar_crypto_and_investment_intelligence",
+        "property_buyer_real_estate_and_lead_intelligence",
+        "health_longevity_and_care_coordination",
+        "automotive_parts_logistics_and_workshop_platform",
+        "email_video_and_media_intelligence",
+        "legal_government_and_evidence_workflows",
+        "personal_family_office_and_life_operations",
+        "future_domain_module_onboarding_and_federation"
+      ]
+    }
+  ],
+  "mandatory_family_fields": [
+    "family_id",
+    "purpose",
+    "source_requirements",
+    "owner",
+    "inputs",
+    "outputs",
+    "dependencies",
+    "agents",
+    "skills",
+    "tools",
+    "apis",
+    "credentials_by_name",
+    "data_schema",
+    "workflows",
+    "ui_actions",
+    "approval_gates",
+    "security_controls",
+    "cost_profile",
+    "failure_modes",
+    "rollback",
+    "tests",
+    "evidence",
+    "runtime_status",
+    "next_action"
+  ],
+  "allowed_runtime_states": [
+    "PENDING_INGEST",
+    "SPEC_ONLY",
+    "BACKLOGGED",
+    "SCAFFOLDED",
+    "IMPLEMENTED_NOT_INTEGRATED",
+    "INTEGRATED_STAGING",
+    "DEPLOYED_UNVERIFIED",
+    "DONE_VERIFIED",
+    "WAIVED",
+    "BLOCKED"
+  ]
+}
