@@ -66,6 +66,9 @@ jobs:
       - name: Run zero-spend local Knowledge Fabric pilot
         run: python scripts/run_knowledge_fabric_local_pilot.py
 
+      - name: Validate Knowledge Fabric predeploy controls
+        run: python scripts/verify_knowledge_fabric_predeploy_v2.py
+
       - name: Generate redacted configuration-readiness report
         run: python scripts/config_readiness.py --root . --output evidence/config-readiness.json
 
@@ -90,3 +93,4 @@ jobs:
             evidence/environment-completion-verification.json
             evidence/framework-intelligence-v16-verification.json
             evidence/knowledge-fabric-local-pilot.json
+            evidence/knowledge-fabric-predeploy-v2-verification.json

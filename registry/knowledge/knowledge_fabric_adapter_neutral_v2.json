@@ -1,0 +1,50 @@
+{
+  "id": "KNOWLEDGE-FABRIC-V2",
+  "version": "2.0.0",
+  "state": "PREDEPLOY_COMPLETE_NOT_CONNECTED",
+  "backends": [
+    "sqlite_fts5",
+    "postgres_fts_pgvector",
+    "lancedb_optional",
+    "llamaindex_core_optional"
+  ],
+  "canonical_record": {
+    "required": [
+      "record_id",
+      "namespace",
+      "source_id",
+      "title",
+      "content",
+      "content_hash",
+      "authority_tier",
+      "freshness_at",
+      "permissions",
+      "coordinates",
+      "verification_state"
+    ],
+    "optional": [
+      "embedding",
+      "supersedes",
+      "contradicts",
+      "duplicate_of",
+      "language",
+      "parser_version"
+    ]
+  },
+  "retrieval_controls": {
+    "permission_filter_required": true,
+    "freshness_ranking_required": true,
+    "duplicate_suppression_required": true,
+    "contradiction_retrieval_required": true,
+    "citation_coordinates_required": true
+  },
+  "promotion_gates": [
+    "schema_validation",
+    "expected_answer_test",
+    "permission_isolation_test",
+    "rollback_test",
+    "evidence_record"
+  ],
+  "connection_boundary": "Database and provider connection require explicit approval, secure variables and staging verification.",
+  "rollback": "Restore the prior verified snapshot and replay only evidence-linked records."
+}
