@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0.0",
+  "status": "SPECIFIED_AND_MACHINE_CHECKABLE",
+  "purpose": "Make every applicable Jarvis module inherit the same execution, evidence, safety, OJT, SOP, testing, cost and rollback controls without flattening domain-specific requirements.",
+  "applies_to": [
+    "governance", "source-intake", "requirement-reconciliation", "knowledge-fabric", "model-router", "agent-factory", "skill-factory", "integration-fabric", "workflow-runtime", "observability", "security", "VTI", "XRP-HBAR", "AI-CFO", "digital-agency-factory", "trading-bot-factory", "property-intelligence", "health", "Spooky2-frequency", "future-modules"
+  ],
+  "mandatory_execution_spine": [
+    "REQUEST_LOCK", "INTENT_AND_SCOPE", "RISK_AND_JURISDICTION", "SOURCE_DENOMINATOR", "CURRENT_SOURCE_CHECK", "SPECIALIST_ROUTING", "REQUIREMENT_MAPPING", "DESIGN_OR_ANALYSIS", "INDEPENDENT_REVIEW", "TEST_OR_WAIVER", "EVIDENCE_CAPTURE", "HUMAN_APPROVAL_WHEN_REQUIRED", "RUNTIME_STATE", "ROLLBACK", "CHANGELOG", "OPEN_LOOP_UPDATE"
+  ],
+  "required_module_contract": [
+    "module_id", "owner", "purpose", "in_scope", "out_of_scope", "inputs", "outputs", "dependencies", "data_classification", "allowed_tools", "denied_tools", "approval_gates", "evidence_policy", "cost_policy", "security_policy", "failure_modes", "tests", "SOPs", "OJT", "observability", "runtime_state", "rollback", "retirement_rule"
+  ],
+  "completion_equation": "Requirement -> Module -> Artifact -> Test_or_Waiver -> Evidence -> Runtime_State -> Rollback",
+  "proof_states": ["PROVEN", "NEEDS_PROOF", "ASSUMPTION", "GAP", "RISK", "OPEN_LOOP"],
+  "runtime_states": ["PENDING_INGEST", "SPEC_ONLY", "BACKLOGGED", "SCAFFOLDED", "IMPLEMENTED_NOT_INTEGRATED", "INTEGRATED_TEST_ENVIRONMENT", "INTEGRATED_STAGING", "DEPLOYED_UNVERIFIED", "DONE_VERIFIED", "WAIVED_WITH_REASON", "BLOCKED", "RETIRED"],
+  "universal_quality_gates": {
+    "source_first": true,
+    "current_fact_verification": true,
+    "negative_evidence_search": true,
+    "conflict_preservation": true,
+    "independent_verifier": true,
+    "structured_output": true,
+    "prompt_injection_defence": true,
+    "secret_isolation": true,
+    "least_privilege": true,
+    "cost_cap": true,
+    "idempotency_where_applicable": true,
+    "audit_log": true,
+    "rollback_test": true,
+    "no_false_completion": true
+  },
+  "domain_overlays": {
+    "financial": ["research_only_default", "paper_first", "no_live_money_movement", "professional_review_for_regulated_advice"],
+    "health": ["emergency_triage", "intended_purpose_classification", "no_diagnosis_or_treatment_autonomy", "privacy_highest_class", "professional_review_for_high_risk"],
+    "device_control": ["hardware_inventory", "version_lock", "calibration", "mode_compatibility", "electrical_or_optical_safety", "live_control_disabled_by_default"],
+    "media": ["rights_check", "transcript_is_not_truth", "speaker_and_timestamp_confidence", "primary_source_verification"],
+    "outreach": ["capture_only_default", "no_send_without_approval", "consent_and_compliance"],
+    "deployment": ["preview_staging_production_separation", "provider_secret_store", "health_ready_smallest_real_route", "rollback_evidence"]
+  },
+  "inheritance_rule": "Every module inherits this standard. A module may add stricter domain controls but may not silently weaken universal controls.",
+  "exception_rule": "Any exception requires owner, reason, scope, expiry, compensating control, test and rollback reference."
+}
