@@ -1,0 +1,46 @@
+{
+  "schema_version": "2.0.0",
+  "generated_at": "2026-07-20T18:30:00+10:00",
+  "status": "ALL_IDENTIFIED_SPECIALIST_CHATS_TRACKED",
+  "parent_issue": 34,
+  "parent_pr": 33,
+  "universal_prompt": "docs/bootstrap/JARVIS_SPECIALIST_CHAT_STARTER_PACK_2026-07-20.md",
+  "consolidation_policy": {
+    "independent_history_preserved": true,
+    "private_by_default": true,
+    "consolidate_by_contract_not_flattening": true,
+    "required_gate": "source_lock -> spec_lock -> code_reconciliation -> tests -> handoff_pack -> staging_federation -> independent_verification -> approved_promotion",
+    "canonical_control_plane": "rafsof22-lgtm/jarvis-build"
+  },
+  "modules": [
+    {"module_id":"jarvis-core","chat_title":"JARVIS CORE — SOURCE RECONSTRUCTION & SOVEREIGN CONTROL PLANE","repository":"rafsof22-lgtm/jarvis-build","repo_state":"EXISTS","issue":35,"wave":0,"priority":"P0","data_classification":"mixed-governance-metadata","status":"READY_FOR_CHAT_CREATION"},
+    {"module_id":"knowledge-provenance","chat_title":"JARVIS KNOWLEDGE — SOURCE VAULT, MEMORY, GRAPH & PROVENANCE","repository":"rafsof22-lgtm/jarvis-knowledge-platform","repo_state":"PROPOSED_PRIVATE","wave":1,"priority":"P0","data_classification":"mixed-sensitive","status":"BOOTSTRAP_REQUIRED"},
+    {"module_id":"data-platform","chat_title":"JARVIS DATA PLATFORM — SCHEMAS, EVENTS, QUALITY & LINEAGE","repository":"rafsof22-lgtm/jarvis-data-platform","repo_state":"PROPOSED_PRIVATE","wave":1,"priority":"P1","data_classification":"mixed-sensitive","status":"BOOTSTRAP_REQUIRED"},
+    {"module_id":"intelligence-fabric","chat_title":"JARVIS INTELLIGENCE — LLM ROUTING, SOURCE SCOUT & OPPORTUNITY RESEARCH","repository":"rafsof22-lgtm/jarvis-intelligence-fabric","repo_state":"PROPOSED_PRIVATE","issue":40,"wave":1,"priority":"P1","data_classification":"mixed-research","status":"READY_FOR_CHAT_CREATION"},
+    {"module_id":"model-lab","chat_title":"JARVIS MODEL LAB — BENCHMARKS, ROUTING, EVALUATION & ADAPTERS","repository":"rafsof22-lgtm/jarvis-model-lab","repo_state":"PROPOSED_PRIVATE","wave":1,"priority":"P2","data_classification":"technical-confidential","status":"BOOTSTRAP_REQUIRED"},
+    {"module_id":"automation-factory","chat_title":"JARVIS AUTOMATION FACTORY — WORKFLOWS, TOOLS, SKILLS & AGENTS","repository":"rafsof22-lgtm/jarvis-automation-factory","repo_state":"PROPOSED_PRIVATE","wave":1,"priority":"P1","data_classification":"technical-confidential","status":"BOOTSTRAP_REQUIRED"},
+    {"module_id":"security-red-team","chat_title":"JARVIS SECURITY — ZERO TRUST, RED TEAM & INCIDENT CONTROL","repository":"rafsof22-lgtm/jarvis-security","repo_state":"PROPOSED_PRIVATE","wave":1,"priority":"P1","data_classification":"security-restricted","status":"BOOTSTRAP_REQUIRED"},
+    {"module_id":"platform-ops","chat_title":"JARVIS PLATFORM — INFRASTRUCTURE, SECURITY, OBSERVABILITY & RECOVERY","repository":"rafsof22-lgtm/jarvis-platform-ops","repo_state":"PROPOSED_PRIVATE","issue":42,"wave":1,"priority":"P1","data_classification":"infrastructure-restricted","status":"READY_FOR_CHAT_CREATION"},
+    {"module_id":"command-centre-ux","chat_title":"JARVIS COMMAND CENTRE — NOVICE UX, VISUAL TRACKERS & BUTTON TRUTH","repository":"rafsof22-lgtm/jarvis-command-centre","repo_state":"PROPOSED_PRIVATE","wave":1,"priority":"P1","data_classification":"product-confidential","status":"BOOTSTRAP_REQUIRED"},
+    {"module_id":"legal-compliance","chat_title":"JARVIS LEGAL & COMPLIANCE — POLICIES, EVIDENCE & APPROVAL ROUTING","repository":"rafsof22-lgtm/jarvis-legal-compliance","repo_state":"PROPOSED_PRIVATE","wave":1,"priority":"P1","data_classification":"legal-restricted","status":"BOOTSTRAP_REQUIRED"},
+
+    {"module_id":"agency-factory","chat_title":"DIGITAL AGENCY FACTORY — RECURRING REVENUE SYSTEMS","repository":"rafsof22-lgtm/jarvis-agency-factory","repo_state":"PROPOSED_PRIVATE","issue":36,"wave":2,"priority":"P2","data_classification":"business-confidential","status":"READY_FOR_CHAT_CREATION"},
+    {"module_id":"product-factory","chat_title":"JARVIS PRODUCT FACTORY — SAAS, APPS, DIGITAL ASSETS & LICENSING","repository":"rafsof22-lgtm/jarvis-product-factory","repo_state":"PROPOSED_PRIVATE","issue":41,"wave":2,"priority":"P2","data_classification":"business-confidential","status":"READY_FOR_CHAT_CREATION"},
+    {"module_id":"revenue-operations","chat_title":"JARVIS REVENUE OPERATIONS — SALES, CRM, DELIVERY & CUSTOMER SUCCESS","repository":"rafsof22-lgtm/jarvis-revenue-operations","repo_state":"PROPOSED_PRIVATE","wave":2,"priority":"P2","data_classification":"business-confidential","status":"BOOTSTRAP_REQUIRED"},
+    {"module_id":"cfo-os","chat_title":"AI CFO — XERO, CASH FLOW, TAX EVIDENCE & FINANCIAL CONTROL","repository":"rafsof22-lgtm/jarvis-cfo-os","repo_state":"PROPOSED_PRIVATE","issue":39,"wave":2,"priority":"P2","data_classification":"financial-restricted","status":"READY_FOR_CHAT_CREATION"},
+    {"module_id":"trading-factory","chat_title":"TRADING BOT FACTORY — RESEARCH, BACKTESTING, PAPER & CONTROLLED EXECUTION","repository":"rafsof22-lgtm/jarvis-trading-factory","repo_state":"PROPOSED_PRIVATE","issue":37,"wave":2,"priority":"P2","data_classification":"financial-high-risk","status":"READY_FOR_CHAT_CREATION"},
+
+    {"module_id":"health","chat_title":"JARVIS HEALTH — RECORDS, EVIDENCE & CARE COORDINATION","repository":"rafsof22-lgtm/Jarvis-Health","repo_state":"EXISTS","issue":38,"wave":3,"priority":"P2","data_classification":"health-restricted","status":"READY_FOR_CHAT_CREATION"},
+    {"module_id":"xrp-hbar-intelligence","chat_title":"XRP/HBAR APEX — MARKET, ADOPTION, CATALYSTS & EVIDENCE","repository":"rafsof22-lgtm/hub","repo_state":"EXISTS","wave":3,"priority":"P1","data_classification":"financial-research","status":"BOOTSTRAP_REQUIRED"},
+    {"module_id":"property-intelligence","chat_title":"JARVIS PROPERTY — BUYER, LEAD & REAL-ESTATE INTELLIGENCE","repository":"rafsof22-lgtm/property-agent-mcp","repo_state":"EXISTS","wave":3,"priority":"P2","data_classification":"property-confidential","status":"BOOTSTRAP_REQUIRED"},
+    {"module_id":"vti-video-intelligence","chat_title":"JARVIS VTI — VIDEO, SOCIAL, TRANSCRIPTION & CLAIM INTELLIGENCE","repository":"rafsof22-lgtm/videotranscribe","repo_state":"EXISTS","wave":3,"priority":"P1","data_classification":"mixed-media","status":"BOOTSTRAP_REQUIRED"},
+    {"module_id":"fast8-auto","chat_title":"FAST 8 AUTO — OPERATIONS, SALES, LOGISTICS & WORKSHOP NETWORK","repository":"rafsof22-lgtm/jarvis-fast8-operations","repo_state":"PROPOSED_PRIVATE","wave":3,"priority":"P2","data_classification":"business-confidential","status":"BOOTSTRAP_REQUIRED"},
+    {"module_id":"family-office","chat_title":"JARVIS FAMILY OFFICE — ENTITIES, ASSETS, TAX, ESTATE & GOVERNANCE","repository":"rafsof22-lgtm/jarvis-family-office","repo_state":"PROPOSED_PRIVATE","wave":3,"priority":"P2","data_classification":"financial-legal-restricted","status":"BOOTSTRAP_REQUIRED"}
+  ],
+  "cross_cutting_capabilities": [
+    {"id":"communications-admin","placement":"jarvis-automation-factory plus domain adapters","requirements":["Gmail read/draft/send separation","calendar and contacts","approval routing","audit trail","domain classification"]},
+    {"id":"procurement-shopping","placement":"revenue-operations plus CFO and specialist domains","requirements":["landed cost","supplier evidence","purchase approvals","payment isolation","delivery verification"]},
+    {"id":"voice-multimodal","placement":"command-centre-ux plus intelligence-fabric","requirements":["speech-to-text","text-to-speech","image/video/document intake","privacy","fallback","action confirmation"]}
+  ],
+  "required_handoff_fields": ["module_id","repository","version","source_denominator","requirement_count","module_count","feature_count","function_count","agent_count","skill_count","workflow_count","toolplan_count","implemented_artifacts","tests","evidence_refs","apis","credential_names_only","data_classification","status","blockers","next_actions","rollback_ref","jarvis_federation_routes","integration_readiness_percent"]
+}
