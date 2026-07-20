@@ -1,0 +1,46 @@
+{
+  "schema_version": "2.0.0",
+  "updated_at": "2026-07-20T09:20:00+10:00",
+  "status": "ACTIVE_CANONICAL_RECONCILIATION",
+  "scope": ["jarvis-governance", "xrp-hbar-intelligence", "vti-evidence", "hub-runtime", "ai-cfo-handoff"],
+  "proof_boundary": "Visible repositories and user-provided files only; no hidden-chat, inaccessible-archive, live-staging, production or permanent-zero-gap claim.",
+  "repositories": {
+    "jarvis-build": {"role": "canonical governance and trackers", "main_head": "2cd48a9ba5f02f8195939d876b70b23fd80839d6"},
+    "videotranscribe": {"role": "media and evidence intelligence", "main_head": "f3afcf6de1400bc344f1828e7abe82c7657f35c7"},
+    "hub": {"role": "xrp-hbar runtime and event consumer", "main_head": "39b8c9f254cf7d8abe03a154e9562c3d0789cae2"}
+  },
+  "historical_tracker": "docs/trackers/JARVIS_MASTER_RECONSTRUCTION_AND_INTELLIGENCE_TRACKER_20260720.md",
+  "historical_matrix_schema": "registry/xrp-hbar-cross-asset-historical-reconciliation-matrix.schema.json",
+  "current_runtime_gate": "registry/vti_hub_runtime_gate_v1.json",
+  "open_runtime_ticket": 47,
+  "stale_claims_corrected": [
+    "VTI PRs 16, 17 and 18 are no longer open work items",
+    "Hub PR 11 is merged",
+    "Jarvis PR 31 is merged",
+    "VTI-Hub recursive HMAC compatibility is verified in repository CI",
+    "Staging remains blocked on provider configuration and secret references"
+  ],
+  "canonical_owners": {
+    "vti": ["media intake", "transcription", "speaker attribution", "timestamps", "claim extraction", "source metadata", "evidence packs"],
+    "xrp-hbar": ["asset intelligence", "direct-token-demand", "catalysts", "probabilities", "scenarios", "portfolio implications"],
+    "hub": ["event validation", "idempotency", "routing", "retry", "dead letter", "replay"],
+    "jarvis": ["requirements", "schemas", "progress", "approval gates", "command centre", "rollback evidence"],
+    "ai-cfo": ["approved portfolio", "tax", "liquidity", "custody", "risk analysis"]
+  },
+  "priority_queue": [
+    {"priority": 1, "task": "Populate historical reconciliation matrix batch 1", "status": "IN_PROGRESS"},
+    {"priority": 2, "task": "Lock exact source denominator and inaccessible ledger", "status": "IN_PROGRESS"},
+    {"priority": 3, "task": "Reconstruct XRP and HBAR request-response lineage", "status": "BACKLOGGED"},
+    {"priority": 4, "task": "Reconstruct probability, trigger and discrepancy history", "status": "BACKLOGGED"},
+    {"priority": 5, "task": "Reconcile undervalued crypto, stock and ETF history", "status": "BACKLOGGED"},
+    {"priority": 6, "task": "Deploy and prove VTI-to-Hub staging canary", "status": "BLOCKED_AT_PROVIDER_CONFIGURATION"},
+    {"priority": 7, "task": "Implement final specification viewer and visual operations panel", "status": "BACKLOGGED"}
+  ],
+  "safety": {
+    "financial_execution": "DISABLED",
+    "autonomous_trading": "DISABLED",
+    "personalised_regulated_advice": "DISABLED",
+    "social_media_as_proof": false,
+    "direct_token_demand_must_be_mapped": true
+  }
+}
