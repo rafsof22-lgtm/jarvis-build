@@ -1,0 +1,73 @@
+{
+  "fixtures": [
+    {
+      "payload_schema": "jarvis.xrp-hbar-vti.semantic",
+      "payload_version": "1.0.0",
+      "record_type": "vti_evidence",
+      "verification_state": "discovery_only",
+      "source_refs": ["vti:source:fixture-001"],
+      "evidence_refs": ["vti:evidence:fixture-001"],
+      "exact_quote": "Fixture quotation only.",
+      "speaker": "fixture-speaker",
+      "timestamp_start_ms": 1000,
+      "timestamp_end_ms": 2500,
+      "execution_allowed": false
+    },
+    {
+      "payload_schema": "jarvis.xrp-hbar-vti.semantic",
+      "payload_version": "1.0.0",
+      "record_type": "asset_finding",
+      "verification_state": "partially_verified",
+      "source_refs": ["vti:evidence:fixture-001", "official:fixture-001"],
+      "evidence_refs": ["hub:evidence:fixture-001"],
+      "asset": "XRP",
+      "network": "XRPL",
+      "finding": "Fixture adoption signal requiring explicit demand-path analysis.",
+      "direct_token_demand": "uncertain",
+      "token_use_mandatory": false,
+      "bypass_paths": ["fiat settlement", "stablecoin settlement"],
+      "fee_mechanics": "Network fees are distinct from settlement value.",
+      "settlement_mechanics": "Fixture only.",
+      "liquidity_lock": "not proven",
+      "holding_duration": "not proven",
+      "velocity_effect": "unknown",
+      "contrary_evidence": ["Adoption may not require XRP inventory."],
+      "execution_allowed": false
+    },
+    {
+      "payload_schema": "jarvis.xrp-hbar-vti.semantic",
+      "payload_version": "1.0.0",
+      "record_type": "cfo_handoff",
+      "verification_state": "verified",
+      "approved_finding_ids": ["finding:fixture-001"],
+      "portfolio_implications": ["Research-only concentration review."],
+      "tax_review_flags": ["Professional review required."],
+      "liquidity_flags": [],
+      "custody_flags": [],
+      "execution_allowed": false
+    }
+  ],
+  "invalid_fixtures": [
+    {
+      "name": "automatic-demand-inference",
+      "payload_schema": "jarvis.xrp-hbar-vti.semantic",
+      "payload_version": "1.0.0",
+      "record_type": "asset_finding",
+      "verification_state": "verified",
+      "asset": "HBAR",
+      "network": "HEDERA",
+      "finding": "Invalid fixture missing demand-path controls.",
+      "direct_token_demand": "proven",
+      "execution_allowed": false
+    },
+    {
+      "name": "cfo-execution-enabled",
+      "payload_schema": "jarvis.xrp-hbar-vti.semantic",
+      "payload_version": "1.0.0",
+      "record_type": "cfo_handoff",
+      "verification_state": "verified",
+      "approved_finding_ids": ["finding:fixture-001"],
+      "execution_allowed": true
+    }
+  ]
+}
