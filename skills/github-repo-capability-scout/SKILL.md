@@ -48,7 +48,9 @@ Never request or store passwords, tokens, private keys, seed phrases, OAuth secr
 
 ## Source-claim discipline
 
-The uploaded transcript is preserved at `references/verbatim-pasted-response.txt`. It is historical user-provided material, not proof that an earlier package existed or that stated hashes, file counts, tests or installation claims were accurate. Validate its integrity with `scripts/verify_verbatim_integrity.py`.
+The complete uploaded transcript is preserved byte-for-byte inside the validated installable package at `references/verbatim-pasted-response.txt`. The repository records its integrity manifest and `references/verbatim-source-pointer.md`; the connected GitHub write path rejected the verbatim payload itself. Historical statements inside the transcript remain user-provided claims rather than proof of an earlier package, hash, test, installation or deployment.
+
+Validate the complete downloaded package with `scripts/verify_verbatim_integrity.py`.
 
 ## Scripts
 
