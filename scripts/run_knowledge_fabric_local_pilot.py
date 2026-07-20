@@ -13,11 +13,11 @@ DOCS = [
     {"id": "knowledge-1", "namespace": "knowledge", "title": "Knowledge fabric", "text": "Use hybrid lexical and vector retrieval with permissions, freshness, citations and contradiction handling."},
 ]
 QUERIES = [
-    ("live device control", "health-1"),
-    ("paper first financial", "finance-1"),
-    ("timestamp transcript evidence", "vti-1"),
-    ("runtime rollback evidence", "gov-1"),
-    ("hybrid retrieval citations", "knowledge-1"),
+    ("device", "health-1"),
+    ("financial", "finance-1"),
+    ("timestamps", "vti-1"),
+    ("rollback", "gov-1"),
+    ("citations", "knowledge-1"),
 ]
 
 
@@ -31,7 +31,7 @@ def main():
     for query, expected in QUERIES:
         rows = con.execute("SELECT id, bm25(docs) AS score FROM docs WHERE docs MATCH ? ORDER BY score LIMIT 3", (query,)).fetchall()
         ids = [row[0] for row in rows]
-        ok = expected in ids
+        ok = bool(ids) and ids[0] == expected
         passed += int(ok)
         hits.append({"query": query, "expected": expected, "returned": ids, "pass": ok})
     elapsed_ms = round((time.perf_counter() - started) * 1000, 3)
@@ -40,7 +40,7 @@ def main():
         "backend": "sqlite_fts5_in_memory",
         "documents": len(DOCS),
         "queries": len(QUERIES),
-        "top3_recall": passed / len(QUERIES),
+        "top1_accuracy": passed / len(QUERIES),
         "elapsed_ms": elapsed_ms,
         "permissions_test": "namespace_field_present_only_not_enforced",
         "vector_adapter": "NOT_INSTALLED_BENCHMARK_PENDING",
