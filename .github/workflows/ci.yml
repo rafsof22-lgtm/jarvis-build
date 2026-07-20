@@ -60,6 +60,9 @@ jobs:
       - name: Validate universal module, knowledge, OJT and Health specifications
         run: python scripts/verify_universal_module_standard.py
 
+      - name: Validate framework trigger, intelligence and capability-scout controls
+        run: python scripts/verify_framework_intelligence_v16.py
+
       - name: Generate redacted configuration-readiness report
         run: python scripts/config_readiness.py --root . --output evidence/config-readiness.json
 
@@ -82,3 +85,4 @@ jobs:
             evidence/command-centre.snapshot.json
             evidence/module-federation-verification.json
             evidence/environment-completion-verification.json
+            evidence/framework-intelligence-v16-verification.json
