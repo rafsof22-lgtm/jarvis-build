@@ -1,0 +1,25 @@
+skill_capability,coverage_status,current_location,missing_control,priority,next_action
+Source inventory and archive extraction,PARTIAL,Jarvis reconstruction skill,"Full archives unavailable and deterministic extraction not rerun",P0,Run extraction helpers when bytes are mounted
+Chat message extraction,PARTIAL,Jarvis reconstruction skill,"Full WFW ledgers absent for inaccessible exports",P0,Run extract_chat_messages on each export
+Framework delta audit,APPLIED,Jarvis reconstruction skill,"Automated CI validation of ledgers absent",P1,Add ledger schema checks
+Repository inspection,COVERED,GitHub connector and repo workflows,"Historical workspace not fully present",P0,Locate complete original workspace
+Git branch PR and rollback,COVERED,GitHub workflow,"Current PR checks and merge queue need resolution",P1,Poll CI and preserve expected SHAs
+Independent verification,PARTIAL,Release gate rules,"No dedicated verifier service for all modules",P1,Build verifier contract and test suite
+Skill discovery and quarantine,PARTIAL,Agent Skill and Integration Factory,"No central approved quarantine lockfile in current repo",P1,Implement skill registry and review workflow
+Skill benchmarking,PARTIAL,Model and skill evaluation requirements,"No baseline task corpus or measurable promotion threshold",P2,Create evaluation datasets and metrics
+Security review,PARTIAL,Security domain,"No full adversarial skill and dependency scan",P1,Create red-team and supply-chain pipeline
+Deployment preview and rollback,PARTIAL,Platform ops,"Not all modules have staging and rollback proof",P1,Standardise deployment contract
+Documentation synchronisation,PARTIAL,Current PR artifacts,"No automatic cross-repo documentation drift check",P2,Build documentation sync workflow
+Secrets and configuration audit,PARTIAL,Security and platform domains,"Credential-name registry incomplete across modules",P1,Create environment and scope manifest
+Cost and usage audit,PARTIAL,Cost routing rules,"No live unified cost ledger",P2,Build cost telemetry and budget policy
+Incident diagnosis,PARTIAL,Platform ops,"No cross-module incident command runtime",P2,Build incident workflow and evidence pack
+Agency opportunity research,PARTIAL,Agency and Intelligence trackers,"Current lawful opportunity research not yet executed",P2,Run official-source-first opportunity scan
+Trading research and validation,PARTIAL,Trading tracker,"No verified strategy corpus and reproducible paper tests",P2,Build strategy lineage and test harness
+Health evidence grading,PARTIAL,Health tracker,"Full experimental and clinical evidence mapping incomplete",P2,Run protocol evidence classification
+CFO reconciliation and reporting,PARTIAL,CFO tracker,"No verified Xero tenant or reconciliation tests",P2,Build read-only connector and fixtures
+XRP HBAR evidence tracking,PARTIAL,Hub and historical framework,"No complete current source and runtime mapping",P1,Create specialist source lock and evidence pipeline
+Fast 8 operations,PARTIAL,Federated domain catalog,"No dedicated skill package or integration contract",P2,Build Fast8 operations skill backlog
+Framework conflict and duplicate detection,PARTIAL,Source reconstruction rules,"No deterministic full-source conflict output",P0,Run after complete extraction
+Agent module registry management,PARTIAL,Module catalog,"Target families exist but instances and proof mappings incomplete",P0,Populate canonical module instance registry
+Cross-repository coordination,PARTIAL,Federation contracts,"No universal dependency graph and release train",P1,Build cross-repo change coordinator
+Visual tracker rendering,APPLIED,Visual tracker artifact,"No automated dashboard widget or evidence recomputation",P1,Implement read model and visual UI
