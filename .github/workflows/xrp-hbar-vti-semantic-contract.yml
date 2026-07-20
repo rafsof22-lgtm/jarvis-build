@@ -1,0 +1,34 @@
+name: XRP-HBAR VTI Semantic Contract CI
+
+on:
+  pull_request:
+    paths:
+      - 'schemas/xrp-hbar-vti-semantic-payload-v1.json'
+      - 'tests/fixtures/xrp-hbar-vti-semantic-payload-v1.json'
+      - 'scripts/validate_xrp_hbar_vti_semantic_payload.py'
+      - '.github/workflows/xrp-hbar-vti-semantic-contract.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  semantic-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile validator
+        run: python -m compileall scripts/validate_xrp_hbar_vti_semantic_payload.py
+      - name: Validate positive and negative fixtures
+        run: python scripts/validate_xrp_hbar_vti_semantic_payload.py
+      - name: Verify financial and demand-path boundaries
+        run: |
+          set -eu
+          grep -q 'execution_allowed' schemas/xrp-hbar-vti-semantic-payload-v1.json
+          grep -q 'direct_token_demand' schemas/xrp-hbar-vti-semantic-payload-v1.json
+          grep -q 'bypass_paths' schemas/xrp-hbar-vti-semantic-payload-v1.json
+          grep -q 'contrary_evidence' schemas/xrp-hbar-vti-semantic-payload-v1.json
+          ! grep -RInE 'execution_allowed[[:space:]]*:[[:space:]]*true' schemas scripts
