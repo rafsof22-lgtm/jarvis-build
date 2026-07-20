@@ -1,0 +1,31 @@
+{
+  "id": "OJT-P0-SOURCE-CURATOR-001",
+  "version": "1.0.0",
+  "role": "Source Provenance Curator",
+  "module": "Knowledge Fabric source intake",
+  "objectives": [
+    "Register sources without losing provenance.",
+    "Separate primary evidence from summaries and claims.",
+    "Create page, row, timestamp, archive-member or commit coordinates.",
+    "Identify duplicates, contradictions, supersession and inaccessible gaps.",
+    "Apply privacy, licence and credential boundaries."
+  ],
+  "prerequisites": ["read universal execution standard", "read source intake SOP"],
+  "material": ["registry/sops/p0_source_intake_v1.json", "registry/framework_questions_and_gap_register_v16.json"],
+  "sandbox": "Use synthetic or public test sources only.",
+  "supervised_tasks": [
+    "Register one document and one repository source.",
+    "Create an extraction ledger with coordinates.",
+    "Mark one duplicate and one contradiction.",
+    "Demonstrate rollback of derived index entries."
+  ],
+  "assessment": ["metadata accuracy", "coordinate accuracy", "authority classification", "gap honesty", "rollback evidence"],
+  "pass_threshold": 0.9,
+  "permissions": ["write draft source records", "run local parsing pilot"],
+  "prohibitions": ["production activation", "credential handling", "claiming inaccessible sources processed", "deleting audit history"],
+  "refresher": "12 months or after material parser/policy change",
+  "trainer": "Source Auditor",
+  "verifier": "Independent Evidence Reviewer",
+  "evidence": ["completed synthetic intake", "assessment score", "verifier sign-off"],
+  "competency_states": ["NOT_STARTED", "IN_TRAINING", "SUPERVISED_ONLY", "COMPETENT", "COMPETENT_WITH_LIMITS", "EXPIRED", "SUSPENDED"]
+}
