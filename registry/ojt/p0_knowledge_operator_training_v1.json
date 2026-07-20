@@ -1,0 +1,22 @@
+{
+  "id": "OJT-P0-KNOWLEDGE-OPERATOR-001",
+  "version": "1.0.0",
+  "role": "Knowledge Fabric Operator",
+  "objectives": [
+    "Apply namespace permission filters without leakage.",
+    "Detect stale, duplicate and contradictory records.",
+    "Measure retrieval accuracy and citation precision.",
+    "Execute a reversible reindex and rollback."
+  ],
+  "supervised_tasks": [
+    "Run a synthetic permission-isolation test.",
+    "Rank fresh records above superseded records.",
+    "Suppress an exact duplicate while preserving provenance.",
+    "Return both sides of a contradiction with verification states.",
+    "Restore a prior index snapshot."
+  ],
+  "pass_threshold": 0.9,
+  "prohibitions": ["production deployment", "secret handling", "cross-namespace access", "deleting audit history"],
+  "evidence": ["test report", "retrieval metrics", "rollback proof", "independent sign-off"],
+  "state": "PREDEPLOY_READY"
+}
