@@ -1,0 +1,9 @@
+{
+  "source_file": "Pasted text(8).txt",
+  "bundled_path": "references/verbatim-pasted-response.txt",
+  "sha256": "1fa0bfeaf99df0ceeb083751c7135f3c7cc0d1f0808222d0254ce002deb1380d",
+  "size_bytes": 13376,
+  "preservation": "BYTE_IDENTICAL_UTF8_COPY",
+  "source_scope": "CURRENT_UPLOADED_FILE_ONLY",
+  "warning": "Historical claims inside the transcript are not proof of prior package contents, hashes, installation, repository state, or execution."
+}

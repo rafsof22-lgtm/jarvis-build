@@ -1,0 +1,29 @@
+{
+  "id": "JARVIS-PROJECT-CONSTITUTION-MANIFEST-V1",
+  "version": "1.0.0",
+  "effective_date": "2026-07-21",
+  "canonical_file": "JARVIS_RAF213G_PROJECT_CONSTITUTION.md",
+  "entry_file": "PROJECT_CONSTITUTION.md",
+  "continuity_file": "PROJECT_CONTINUITY.md",
+  "agent_file": "AGENTS.md",
+  "startup_read_order": [
+    "PROJECT_CONSTITUTION.md",
+    "JARVIS_RAF213G_PROJECT_CONSTITUTION.md",
+    "PROJECT_CONTINUITY.md",
+    "AGENTS.md",
+    "module-local instructions"
+  ],
+  "completion_contract": [
+    "requirement",
+    "module",
+    "artifact",
+    "test_or_waiver",
+    "evidence",
+    "runtime_state",
+    "rollback",
+    "owner_acceptance"
+  ],
+  "account_wide_visibility_claimed": false,
+  "repository_connection_required": true,
+  "state": "REPOSITORY_GOVERNANCE_ACTIVE"
+}

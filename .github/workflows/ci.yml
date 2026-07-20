@@ -69,6 +69,9 @@ jobs:
       - name: Validate Knowledge Fabric predeploy controls
         run: python scripts/verify_knowledge_fabric_predeploy_v2.py
 
+      - name: Validate project constitution, continuity and GitHub capability scout
+        run: python scripts/verify_project_constitution_and_continuity_v1.py
+
       - name: Generate redacted configuration-readiness report
         run: python scripts/config_readiness.py --root . --output evidence/config-readiness.json
 
@@ -94,3 +97,4 @@ jobs:
             evidence/framework-intelligence-v16-verification.json
             evidence/knowledge-fabric-local-pilot.json
             evidence/knowledge-fabric-predeploy-v2-verification.json
+            evidence/project-constitution-continuity-v1-verification.json

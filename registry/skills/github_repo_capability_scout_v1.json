@@ -1,0 +1,17 @@
+{
+  "id": "SKILL-GITHUB-REPO-CAPABILITY-SCOUT",
+  "name": "github-repo-capability-scout",
+  "version": "1.0.0",
+  "source_root": "skills/github-repo-capability-scout",
+  "package": {
+    "filename": "skill.zip",
+    "sha256": "104175db06e9c864b5840ed6304518ee4299e3dc1f1e2577b251ab03476c063e",
+    "size_bytes": 26886
+  },
+  "source_transcript": {
+    "sha256": "1fa0bfeaf99df0ceeb083751c7135f3c7cc0d1f0808222d0254ce002deb1380d",
+    "size_bytes": 13376
+  },
+  "state": "SOURCE_INTEGRATED_PENDING_CI",
+  "install_state": "MANUAL_IMPORT_REQUIRED"
+}

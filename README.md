@@ -2,8 +2,25 @@
 
 This repository is the durable source-control layer for the Jarvis / RAF213G / Sof Property Scout build program.
 
+## Mandatory project entry
+
+Connected project chats, coding agents and operators should begin with:
+
+1. `PROJECT_CONSTITUTION.md`
+2. `JARVIS_RAF213G_PROJECT_CONSTITUTION.md`
+3. `PROJECT_CONTINUITY.md`
+4. `AGENTS.md`
+5. the applicable module-local instructions and deployment ledger
+
+The machine-readable execution queue is `registry/full_completion_priority_plan_v1.json`. Repository files can be used by chats or agents that have this GitHub repository or project files connected; they are not account-wide hidden memory.
+
 ## Current installed governance files
 
+- `PROJECT_CONSTITUTION.md` - mandatory project entrypoint.
+- `JARVIS_RAF213G_PROJECT_CONSTITUTION.md` - canonical governance, source-authority, safety and completion contract.
+- `PROJECT_CONTINUITY.md` - current verified baseline, blockers and resume queue.
+- `docs/full-completion-priority-plan.md` - P0-P6 human-readable execution order.
+- `registry/full_completion_priority_plan_v1.json` - machine-readable 28-task completion queue.
 - `AGENTS.md` - agent instructions for coding agents and future automated edits.
 - `docs/platform-tool-selection-registry.md` - platform/tool registry and cost/tier/token/build-token evaluation rule.
 - `JARVIS_MODULE_REGISTRY.md` - Jarvis module/status map.
@@ -11,6 +28,14 @@ This repository is the durable source-control layer for the Jarvis / RAF213G / S
 - `JARVIS_DEPLOYMENT_TARGET_MATRIX.md` - free-first and cheapest practical deployment target map.
 - `JARVIS_HYBRID_MODEL_ROUTER_PLAN.md` - model-router planning baseline.
 - `JARVIS_OBSERVABILITY_AND_SMOKE_TEST_MATRIX.md` - smoke-test and observability gates.
+
+## GitHub capability scout
+
+- `skills/github-repo-capability-scout/` - specialist source-first repository discovery, provenance/licence review, static security quarantine, capability extraction, free-first comparison, approval and staged-integration workflow.
+- `registry/skills/github_repo_capability_scout_v1.json` - package and source-integrity record.
+- `scripts/verify_project_constitution_and_continuity_v1.py` - deterministic constitution, continuity, task-plan and skill-source validator.
+
+The complete user-provided transcript is preserved in the validated installable skill package. The repository stores its exact hash, size, manifest and source pointer because the connector rejected the verbatim payload during repository write.
 
 ## Canonical command centre v1
 
@@ -31,7 +56,7 @@ The command centre never converts missing provider balances to zero. Live pollin
 
 ## Current runtime scaffold
 
-- `.github/workflows/ci.yml` - free-first CI for syntax, model-router smoke checks, command-centre contract checks, snapshot generation, and deployment dry run.
+- `.github/workflows/ci.yml` - free-first CI for syntax, model-router, command-centre, constitution/continuity and deployment-readiness checks.
 - `.github/workflows/deploy.yml` - manual deployment readiness gate only; it does not deploy.
 - `.env.example` - variable names only, with blank values.
 - `jarvis_model_router/` - safe model-route selection scaffold with cloud routes disabled by default.
@@ -69,14 +94,15 @@ XRP/HBAR Apex belongs under `services/xrp-hbar-apex/` and should be mapped to a 
 python -m compileall jarvis_model_router jarvis_command_centre scripts
 python scripts/smoke_model_router.py
 python scripts/smoke_command_centre.py
+python scripts/verify_project_constitution_and_continuity_v1.py
 python -m jarvis_command_centre.command_centre --output command-centre.snapshot.json
 python scripts/deploy_dry_run.py --check-only --target oracle
 ```
 
 ## Deployment status
 
-Live deployment is blocked until the selected host exists and required secrets are configured outside the repository. See `docs/deployment-blockers.md` for the exact missing values. Do not add live SSH/provider deployment steps until those blockers are proven resolved.
+Live deployment is blocked until the selected host exists and required secrets are configured outside the repository. See `docs/deployment-blockers.md` and `PROJECT_CONTINUITY.md` for exact blockers. Do not add live SSH/provider deployment steps until those blockers are proven resolved.
 
 ## Status
 
-This repo contains governance files, CI/deployment-readiness scaffolds, a safe model-router scaffold, canonical federation registries, and a first command-centre aggregator. Do not claim full Jarvis implementation, live command-centre deployment, live cross-repository contract coverage, authoritative provider-balance visibility, OCR provider readiness, XRP/HBAR external intelligence-engine readiness, workbook-write readiness, production readiness, or zero-gaps completion from this repository alone.
+This repo contains governance files, CI/deployment-readiness scaffolds, a safe model-router scaffold, canonical federation registries, a first command-centre aggregator, project continuity controls and a GitHub capability-scout source package. Do not claim full Jarvis implementation, live command-centre deployment, live cross-repository contract coverage, authoritative provider-balance visibility, OCR provider readiness, XRP/HBAR external intelligence-engine readiness, workbook-write readiness, production readiness, or zero-gaps completion from this repository alone.

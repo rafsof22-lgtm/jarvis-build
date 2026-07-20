@@ -1,0 +1,5 @@
+interface:
+  display_name: "GitHub Repository Capability Scout"
+  short_description: "Find, verify and govern GitHub capabilities for Jarvis"
+  icon: "assets/icon.svg"
+  brand_color: "#24292F"
