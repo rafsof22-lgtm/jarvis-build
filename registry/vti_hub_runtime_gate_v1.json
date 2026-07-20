@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-07-20T19:20:00+10:00",
+  "status": "BLOCKED_AT_PROVIDER_CONFIGURATION",
+  "repositories": {
+    "jarvis": "rafsof22-lgtm/jarvis-build",
+    "vti": "rafsof22-lgtm/videotranscribe",
+    "hub": "rafsof22-lgtm/hub"
+  },
+  "source_control_state": {
+    "jarvis_pr_31": "MERGED",
+    "jarvis_pr_32": "MERGED",
+    "jarvis_pr_33": "MERGED",
+    "vti_pr_16": "CLOSED_SUPERSEDED_BY_17",
+    "vti_pr_17": "MERGED",
+    "vti_pr_18": "MERGED",
+    "vti_pr_19": "CLOSED_SUPERSEDED_BY_20",
+    "vti_pr_20": "CI_PENDING",
+    "hub_pr_11": "MERGED"
+  },
+  "required_secret_names": [
+    "VTI_EVENT_SIGNING_SECRET",
+    "VTI_INTERNAL_CRON_SECRET",
+    "SUPABASE_SERVICE_ROLE_KEY"
+  ],
+  "required_nonsecret_variables": [
+    "HUB_VTI_EVENT_ENDPOINT",
+    "NEXT_PUBLIC_SUPABASE_URL",
+    "VTI_EVENT_DATABASE",
+    "HOST",
+    "PORT"
+  ],
+  "canary_tests": [
+    "health",
+    "valid_event",
+    "duplicate_idempotency",
+    "invalid_signature",
+    "correlation_mismatch",
+    "schema_validation",
+    "module_routing",
+    "retry",
+    "dead_letter",
+    "controlled_replay",
+    "evidence_export",
+    "jarvis_status_handoff"
+  ],
+  "approval_boundaries": {
+    "provider_service_creation": "OWNER_OR_PROVIDER_ADMIN_REQUIRED",
+    "secret_value_creation_and_storage": "OWNER_OR_PROVIDER_ADMIN_REQUIRED",
+    "production_promotion": "SEPARATE_EXPLICIT_APPROVAL_REQUIRED",
+    "financial_execution": "PROHIBITED_IN_THIS_GATE"
+  },
+  "rollback": "docs/integration/VTI_HUB_STAGING_CANARY_RUNBOOK_2026-07-20.md",
+  "next_action": "Complete VTI PR 20 CI and merge; then configure staging endpoint and secret references through provider vaults."
+}
