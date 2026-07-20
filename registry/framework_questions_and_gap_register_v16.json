@@ -1,0 +1,47 @@
+{
+  "schema_version": "16.0.0",
+  "status": "OPEN_REGISTER",
+  "purpose": "Carry forward unanswered owner decisions, implementation questions and zero-gap proof requirements for every applicable framework.",
+  "mandatory_questions": [
+    "What exact outcome and decision must this framework support?",
+    "Who owns the framework, each module and final approval?",
+    "Which jurisdictions, users, languages and accessibility needs apply?",
+    "What is the exact accessible-source denominator and what remains inaccessible?",
+    "Which data classes are processed and where may they be stored?",
+    "Which tools, APIs, databases, connectors and model providers are allowed or denied?",
+    "What free, local, open-source and paid budget ceilings apply?",
+    "Which actions require human approval and which are permanently prohibited?",
+    "What evidence threshold, source hierarchy and contradiction policy apply?",
+    "Which SOPs, OJT packs and competency checks are required?",
+    "What tests, red-team cases, acceptance thresholds and independent reviews are required?",
+    "What runtime, observability, incident, backup, rollback and retirement controls are required?",
+    "What update cadence, alert threshold and continuous-learning retention policy apply?",
+    "Which VTI platforms and media rights are approved?",
+    "What must remain separated as scientific, engineering, clinical, experimental, symbolic or speculative content?"
+  ],
+  "coverage_dimensions": [
+    "requirements",
+    "raw_sources",
+    "files_and_archives",
+    "repositories_and_branches",
+    "issues_and_pull_requests",
+    "runtime_and_deployment",
+    "skills_and_agents",
+    "tools_APIs_and_databases",
+    "VTI_media_and_transcripts",
+    "security_privacy_and_permissions",
+    "costs_and_licences",
+    "SOP_OJT_and_competency",
+    "tests_evidence_and_rollback"
+  ],
+  "proof_rule": "ZERO_GAP and 100_PERCENT_COVERAGE are prohibited until every dimension has a denominator, processed count, exception list and verifier sign-off.",
+  "current_open_loops": [
+    "Complete raw-source denominator for Health and Spooky2 files.",
+    "Create page-row-timestamp extraction ledgers.",
+    "Implement individual SOP and OJT packs.",
+    "Benchmark the Knowledge Fabric retrieval options.",
+    "Implement the final visual framework viewer.",
+    "Verify staging only after provider configuration and approval.",
+    "Pilot GitHub capability scouting with measurable security, usefulness and cost gates."
+  ]
+}
