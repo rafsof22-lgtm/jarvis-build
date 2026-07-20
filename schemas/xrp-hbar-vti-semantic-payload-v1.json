@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jarvis.local/schemas/xrp-hbar-vti-semantic-payload-v1.json",
+  "title": "Jarvis XRP-HBAR VTI Semantic Payload Contract v1",
+  "type": "object",
+  "required": ["payload_schema", "payload_version", "record_type", "verification_state"],
+  "properties": {
+    "payload_schema": {"const": "jarvis.xrp-hbar-vti.semantic"},
+    "payload_version": {"const": "1.0.0"},
+    "record_type": {"enum": ["vti_evidence", "asset_finding", "cfo_handoff"]},
+    "verification_state": {"enum": ["discovery_only", "unverified", "partially_verified", "verified", "contradicted", "superseded"]},
+    "source_refs": {"type": "array", "items": {"type": "string"}},
+    "evidence_refs": {"type": "array", "items": {"type": "string"}},
+    "exact_quote": {"type": "string"},
+    "speaker": {"type": "string"},
+    "timestamp_start_ms": {"type": "integer", "minimum": 0},
+    "timestamp_end_ms": {"type": "integer", "minimum": 0},
+    "asset": {"enum": ["XRP", "HBAR", "BOTH", "NONE"]},
+    "network": {"enum": ["XRPL", "RIPPLE", "RLUSD", "HEDERA", "MULTI_NETWORK", "NOT_APPLICABLE"]},
+    "finding": {"type": "string"},
+    "direct_token_demand": {"enum": ["proven", "supported", "uncertain", "none", "contradicted", "not_assessed"]},
+    "token_use_mandatory": {"type": "boolean"},
+    "bypass_paths": {"type": "array", "items": {"type": "string"}},
+    "fee_mechanics": {"type": "string"},
+    "settlement_mechanics": {"type": "string"},
+    "liquidity_lock": {"type": "string"},
+    "holding_duration": {"type": "string"},
+    "velocity_effect": {"type": "string"},
+    "contrary_evidence": {"type": "array", "items": {"type": "string"}},
+    "approved_finding_ids": {"type": "array", "items": {"type": "string"}},
+    "portfolio_implications": {"type": "array", "items": {"type": "string"}},
+    "tax_review_flags": {"type": "array", "items": {"type": "string"}},
+    "liquidity_flags": {"type": "array", "items": {"type": "string"}},
+    "custody_flags": {"type": "array", "items": {"type": "string"}},
+    "execution_allowed": {"const": false}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"record_type": {"const": "asset_finding"}}},
+      "then": {"required": ["asset", "network", "finding", "direct_token_demand", "token_use_mandatory", "bypass_paths", "contrary_evidence"]}
+    },
+    {
+      "if": {"properties": {"record_type": {"const": "cfo_handoff"}}},
+      "then": {"required": ["approved_finding_ids", "execution_allowed"]}
+    }
+  ]
+}
