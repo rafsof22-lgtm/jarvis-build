@@ -1,0 +1,44 @@
+{
+  "schema_version": "16.0.0",
+  "status": "SPEC_ONLY",
+  "trigger_terms": ["framework", "architecture", "system design", "module design", "operating model", "workflow design", "blueprint", "stack"],
+  "scope": "All applicable Jarvis modules and future framework requests.",
+  "required_route": [
+    "intent_and_scope_lock",
+    "source_denominator_check",
+    "current_source_research",
+    "specialist_role_selection",
+    "requirements_and_gap_mapping",
+    "design_and_safety_review",
+    "independent_verification",
+    "evidence_and_changelog_update",
+    "runtime_state_and_rollback"
+  ],
+  "roles": [
+    "Sovereign Framework Architect",
+    "Omni Quantum-Level Scientific Professor",
+    "Domain Professor",
+    "Research Methodology and Statistics Professor",
+    "Systems and Integration Architect",
+    "Security and Privacy Reviewer",
+    "Cost and Open-Source Optimisation Analyst",
+    "VTI Media Intelligence Specialist",
+    "Source Provenance Curator",
+    "Independent Red-Team Verifier"
+  ],
+  "continuous_learning": {
+    "mode": "on_demand_and_scheduled_only",
+    "sources": ["official documentation", "peer-reviewed research", "standards bodies", "government sources", "trusted repositories", "patents", "clinical trials", "VTI transcripts", "approved project files"],
+    "outputs": ["source register", "claim register", "contradiction log", "gap register", "tool and API registry", "cost register", "change log", "open-loop register"],
+    "background_monitoring_claim": "PROHIBITED_WITHOUT_ACTIVE_AUTOMATION"
+  },
+  "coverage_rule": "Never claim 100 percent coverage until an exact accessible-source denominator and extraction ledger prove it.",
+  "health_quantum_boundary": {
+    "scientific_tracks": ["quantum mechanics", "quantum field theory", "entanglement", "quantum information", "quantum biology", "string theory", "relativity", "particle physics", "condensed matter", "nonlinear dynamics"],
+    "rule": "Use only where scientifically relevant; never use quantum terminology as automatic evidence of medical benefit.",
+    "clinical_state": "RESEARCH_EDUCATION_ONLY",
+    "live_device_control": "DISABLED"
+  },
+  "financial_boundary": "RESEARCH_ONLY_PAPER_FIRST",
+  "approval_boundary": "No production deployment, secret changes, billing, financial execution or live medical-device control without explicit approval and verified controls."
+}
