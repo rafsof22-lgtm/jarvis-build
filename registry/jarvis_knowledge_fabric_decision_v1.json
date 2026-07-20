@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0.0",
+  "decision_status": "SELECTED_SPEC",
+  "decision": "Use a vendor-neutral Jarvis Knowledge Fabric. Do not make LlamaIndex a mandatory system-wide dependency.",
+  "selected_stack": {
+    "canonical_production_store": "PostgreSQL with native full-text search and pgvector",
+    "local_offline_store": "SQLite FTS5 plus LanceDB when local vector search is required",
+    "document_parsing": "Docling primary; native parsers first; OCR only when needed; LiteParse optional fast-path after evaluation",
+    "object_storage": "Immutable source objects with hashes and access controls",
+    "retrieval": "Hybrid metadata + lexical + vector + temporal + evidence-tier + jurisdiction filters",
+    "reranking": "Optional cross-encoder or reciprocal-rank fusion after benchmark",
+    "orchestration": "Thin Jarvis-owned interfaces and schemas",
+    "optional_framework_adapters": ["LlamaIndex Core", "Haystack", "LangChain-compatible adapters"]
+  },
+  "llamaindex_assessment": {
+    "recommended": true,
+    "role": "optional adapter and accelerator",
+    "best_uses": ["connector-heavy ingestion", "document agents", "rapid RAG prototyping", "query-engine experiments", "evaluation comparisons"],
+    "not_recommended_as": ["canonical data store", "mandatory dependency for every module", "source-of-truth registry", "security boundary", "workflow runtime"],
+    "reason": "Jarvis already spans Python, Node, multiple repositories and isolated runtimes. A compulsory framework would add lock-in, dependency drift and duplicated abstractions."
+  },
+  "free_first_order": [
+    "existing deterministic index or cache",
+    "PostgreSQL full-text search",
+    "SQLite FTS5 local index",
+    "pgvector or LanceDB semantic search",
+    "optional LlamaIndex or Haystack adapter",
+    "managed vector service only after measured need"
+  ],
+  "module_application": {
+    "source_intake": "Parse, hash, classify and preserve immutable raw pointers before indexing.",
+    "requirements": "Index verbatim request-response lineage separately from normalized requirements.",
+    "VTI": "Index transcript segments, timestamps, speakers, OCR frames, claims and source reliability.",
+    "XRP_HBAR": "Index dated catalysts, direct-demand pathways, probability snapshots, invalidation and source authority.",
+    "AI_CFO": "Retrieve only approved findings with entity, tax-year, liquidity, custody and risk filters.",
+    "health": "Use isolated sensitive-health namespaces, evidence tiers, jurisdiction and intended-purpose filters; never mix symbolic claims with clinical evidence.",
+    "SOP_OJT": "Retrieve the current approved SOP, prerequisite OJT, competency record and rollback before task execution.",
+    "agents": "Provide bounded context packages; agents cannot treat retrieved text as executable instructions."
+  },
+  "mandatory_interfaces": [
+    "ingest(source_record)", "index(document_or_record)", "search(query, filters)", "retrieve_context(task_contract)", "cite(result)", "invalidate(source_or_chunk)", "reindex(version)", "export_manifest(scope)", "delete_or_tombstone_under_policy(record)"
+  ],
+  "evaluation_gates": [
+    "citation_precision", "retrieval_recall", "freshness", "permission_filtering", "duplicate_suppression", "contradiction_retrieval", "prompt_injection_resistance", "latency", "cost", "rollback_and_reindex"
+  ],
+  "cost_controls": ["self_hosted_default", "no_duplicate_vector_databases", "embedding_cache", "batch_ingestion", "incremental_reindex", "per_module_quotas", "managed_service_requires_approval"],
+  "migration_rule": "All framework-specific metadata must map to Jarvis-owned schemas so adapters can be replaced without re-ingesting canonical source evidence.",
+  "runtime_state": "SPEC_ONLY",
+  "next_gate": "Implement a benchmark pilot using a bounded source corpus before adopting any optional framework in production."
+}
