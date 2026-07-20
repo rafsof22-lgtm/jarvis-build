@@ -1,0 +1,85 @@
+{
+  "schema_version": "2.0.0-delta",
+  "generated_at": "2026-07-20T18:55:00+10:00",
+  "parent_tracker": "registry/jarvis_visual_program_tracker_v1.json",
+  "status": "APPEND_ONLY_TRACKER_DELTA",
+  "changes": [
+    {
+      "operation": "reclassify",
+      "workstream": "XRP HBAR intelligence",
+      "from": "specialist operating domain",
+      "to": "economic engine",
+      "new_name": "XRP HBAR Investment Intelligence and AI CFO Federation",
+      "priority": "P2",
+      "percent": 32,
+      "status": "SPEC_LOCK_IN_PROGRESS",
+      "evidence_or_blocker": "Extensive source material, Hub/VTI event design, AI CFO issue and federation specification exist; portfolio/CFO runtime and recommendation verification remain unimplemented",
+      "next_action": "Define canonical evidence, holdings, scenario and recommendation schemas, then implement read-only fixtures"
+    },
+    {
+      "operation": "expand",
+      "workstream": "AI CFO and Xero OS",
+      "percent": 28,
+      "status": "PARTIAL",
+      "added_scope": [
+        "XRP HBAR evidence intake",
+        "portfolio valuation and concentration",
+        "entity and mandate constraints",
+        "tax-lot and record evidence",
+        "treasury and liquidity constraints",
+        "recommendation evidence packs",
+        "professional review boundary"
+      ],
+      "next_action": "Implement CFO federation contract and deterministic portfolio fixtures"
+    },
+    {
+      "operation": "expand",
+      "workstream": "Universal intelligence and LLM fabric",
+      "percent": 33,
+      "status": "PARTIAL",
+      "added_scope": [
+        "editable agent and skill definitions",
+        "source reliability history",
+        "expert-pattern register",
+        "forecast calibration",
+        "controlled continuous learning",
+        "knowledgebase curation and versioning"
+      ],
+      "next_action": "Implement source/claim graph and controlled learning proposal pipeline"
+    },
+    {
+      "operation": "add",
+      "id": "P1-13",
+      "workstream": "Continuous learning and knowledge governance",
+      "priority": "P1",
+      "percent": 22,
+      "status": "PARTIAL",
+      "evidence_or_blocker": "Historical learning code and requirements exist, but much is unverified and some source outputs are simulated",
+      "next_action": "Build governed observe-propose-evaluate-approve-canary-promote loop with replay and rollback"
+    },
+    {
+      "operation": "add",
+      "id": "P1-14",
+      "workstream": "Editable agent skill and intelligence configuration studio",
+      "priority": "P1",
+      "percent": 18,
+      "status": "SPECIFIED",
+      "evidence_or_blocker": "Editable configuration requirement captured; no secure configuration UI or versioned runtime exists",
+      "next_action": "Define schemas, RBAC, approval, diff, test, rollback and audit UI"
+    }
+  ],
+  "economic_engine_denominator": {
+    "engines": [
+      "Autonomous Digital Agency and Recurring Revenue",
+      "SaaS App and Digital Product Factory",
+      "Revenue Operations and Customer Success",
+      "AI CFO Xero Treasury and Financial Control",
+      "XRP HBAR Investment Intelligence",
+      "Trading Research and Paper Execution",
+      "Passive Income and Opportunity Portfolio"
+    ],
+    "count": 7,
+    "runtime_proven": 0
+  },
+  "proof_boundary": "This delta changes specification and tracker placement only. It does not prove personalised advice, live data coverage, profitable recommendations, execution, or runtime integration."
+}

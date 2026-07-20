@@ -1,0 +1,8 @@
+delta_id,source_type,requirement,status,canonical_placement,next_action
+CHAT-021,user_message,"Move XRP HBAR intelligence into the economic-engine layer and federate it with AI CFO",APPLIED,economic_intelligence_and_cfo_federation,"Implement evidence-to-portfolio-to-CFO contract"
+CHAT-022,user_message,"Provide evidence-based investment decision support using portfolio financial tax entity custody liquidity and risk context",PARTIAL,cfo_investment_decision_support,"Build recommendation schema suitability review and professional gate"
+CHAT-023,user_message,"Make agents skills prompts source lists scoring weights watchlists thresholds and model routes fully editable",APPLIED,editable_agent_skill_configuration,"Create versioned configuration schemas policy tests and rollback"
+CHAT-024,user_message,"Add governed continuous intelligence and continuous learning with an organised knowledge base",APPLIED,continuous_learning_knowledge_fabric,"Implement proposal evaluation simulation canary and rollback loop"
+CHAT-025,user_message,"Continuously update specifications frameworks registries and trackers as the build progresses",APPLIED,continuous_specification_management,"Append each material delta with version lineage"
+CHAT-026,user_message,"Track every accessible user request and relevant assistant response across chats to completion",PARTIAL,message_requirement_traceability,"Ingest missing exports and build message-level lineage"
+CHAT-027,user_message,"Search credible official web sources and accessible files for missing Jarvis instructions modules features functions and controls",APPLIED,continuous_source_scout,"Maintain official-source watchlists change detection and periodic verified rescans"

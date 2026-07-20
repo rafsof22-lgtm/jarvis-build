@@ -1,0 +1,31 @@
+framework_area,coverage_status,current_artifact,missing_delta,priority,next_action
+Source reconstruction,PARTIAL,registry/reconstruction_source_denominator_v2.json,"Missing archive bytes full message ledgers and parser reconciliation",P0,Retrieve archives and execute safe extraction
+Continuity and recovery,COVERED,docs/continuity/CLOSED_CHAT_RECOVERY_2026-07-20.md,"Need ongoing chain-head automation",P1,Add continuity chain update workflow
+Requirements and traceability,PARTIAL,registry/sovereign_module_family_catalog_v2.json,"Historical 5407 claim not validated and source-to-family mappings incomplete",P0,Rebuild canonical requirement denominator
+Specialist chat bootstrap,PARTIAL,registry/specialist_chat_bootstrap_registry.json,"Secondary candidates need first-class tracker records and prompts",P0,Expand specialist registry
+Federation and consolidation,COVERED,docs/reconstruction/JARVIS_SOVEREIGN_RECONSTRUCTION_MASTER_SCOPE_2026-07-20.md,"Runtime promotion checklist not implemented",P1,Create federation promotion gate schema
+Visual progress tracking,APPLIED,registry/jarvis_visual_program_tracker_v1.json,"Dashboard UI and automatic evidence calculation absent",P1,Implement tracker read model and UI
+Command Centre UX,PARTIAL,registry/sovereign_module_family_catalog_v2.json,"Left navigation module explanations guided actions and button tests incomplete",P1,Create UX truth matrix
+Agent loop orchestration,PARTIAL,registry/sovereign_module_family_catalog_v2.json,"Auto-advance state machine and verifier closure not implemented",P1,Specify and test workflow state engine
+Skill governance,PARTIAL,registry/sovereign_module_family_catalog_v2.json,"Quarantine benchmark pinning permission and rollback workflow incomplete",P1,Create governed skill registry
+Agency factory,PARTIAL,issues/36,"Exact source extraction unit economics and runtime implementation incomplete",P2,Run domain source lock
+Trading factory,PARTIAL,issues/37,"Strategy provenance backtest evidence and paper runtime incomplete",P2,Run domain source lock and risk test design
+Health module,PARTIAL,issues/38,"Full records and protocol extraction plus evidence grading incomplete",P2,Run health source lock
+CFO and Xero,PARTIAL,issues/39,"Schema OAuth tenant and reconciliation proof incomplete",P2,Run finance source lock
+Intelligence and LLM,PARTIAL,issues/40,"Source manifests model benchmarks schedules and runtime incomplete",P1,Run intelligence source lock
+Product factory,PARTIAL,issues/41,"Demand evidence templates and runtime absent",P2,Run product source lock
+Platform operations,PARTIAL,issues/42,"Provider credentials live deployment backup restore and rollback proof absent",P1,Reconcile infrastructure runtime
+Legal and compliance,SPEC_ONLY,secondary specialist candidate,"No dedicated prompt issue or repo mapping yet",P1,Promote to first-class tracker
+Knowledge and provenance,PARTIAL,D11 target domain,"No dedicated specialist tracker or runtime proof",P0,Promote and integrate with source lock
+Security red team,SPEC_ONLY,D12 target domain,"No independent adversarial test program",P1,Create red-team tracker
+Model lab,PARTIAL,D03 target domain,"No independent benchmark corpus or release process",P2,Create model-lab tracker
+Data platform,PARTIAL,D11 and D14,"No canonical schema event lineage and quality specialist tracker",P1,Create data-platform tracker
+Automation factory,PARTIAL,D04 target domain,"No workflow catalog and deterministic action registry",P1,Create automation tracker
+Family office,PARTIAL,D16 target domain,"No dedicated source lock and permission boundary tracker",P2,Create family-office tracker
+Fast 8 Auto,PARTIAL,D16 target domain,"No dedicated source lock and operational integration plan",P2,Create Fast8 tracker
+Property intelligence,PARTIAL,property-agent-mcp,"Repository exists but full Jarvis domain reconstruction incomplete",P2,Create property specialist handoff tracker
+VTI video intelligence,PARTIAL,videotranscribe,"Repository exists but full source and runtime reconciliation incomplete",P1,Create VTI specialist handoff tracker
+XRP HBAR intelligence,PARTIAL,hub and historical sources,"Domain is broad but source denominator and runtime proof incomplete",P1,Create XRP HBAR specialist handoff tracker
+Gmail admin communications,PARTIAL,D16 email and media family,"Read draft send approvals and domain routing not fully specified",P2,Add communications specialist tracker
+Procurement shopping,PARTIAL,D15 procurement family,"Landed cost supplier validation purchase approval and payment isolation incomplete",P2,Add procurement specialist tracker
+Voice and multimodal,PARTIAL,D13 interface family,"Transcription privacy fallback and action confirmation tests incomplete",P2,Add multimodal UX backlog

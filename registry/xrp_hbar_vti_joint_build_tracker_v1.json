@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-07-20T18:25:00+10:00",
+  "status": "ACTIVE_CROSS_CHAT_COORDINATION",
+  "truth_boundary": "GitHub and accessible-source state only; hidden chat state is not presumed",
+  "governance_repository": "rafsof22-lgtm/jarvis-build",
+  "repositories": [
+    {
+      "repository": "rafsof22-lgtm/jarvis-build",
+      "ownership": ["canonical requirements", "registries", "schemas", "governance", "verification", "Command Centre", "release and rollback records"],
+      "default_branch": "main",
+      "current_coordination_pr": 33,
+      "current_coordination_head": "42fc40a724297f686055851a418524a3476319f4",
+      "related_open_prs": [31, 32, 33]
+    },
+    {
+      "repository": "rafsof22-lgtm/hub",
+      "ownership": ["XRP/HBAR durable research runtime", "workers", "queues", "market/on-chain/regulatory intelligence", "event consumption", "forecasts", "alerts", "reports"],
+      "default_branch": "main",
+      "main_head_observed": "2513381b797bf21f38ab8d5f3c93438cad8ecab0",
+      "open_prs": [
+        {
+          "number": 11,
+          "title": "Add durable VTI federation event consumer",
+          "head": "833f8b558cb0f71eced7e303460c329f30febd20",
+          "base": "main",
+          "status": "IMPLEMENTED_NOT_INTEGRATED"
+        }
+      ]
+    },
+    {
+      "repository": "rafsof22-lgtm/videotranscribe",
+      "ownership": ["authorised media intake", "transcription", "timestamps", "speaker separation", "OCR", "claim extraction", "creator records", "evidence packs", "event production"],
+      "default_branch": "main",
+      "main_head_observed": "222a48a97821d641e48f8de85d746ab5e8e6aa73",
+      "stacked_merge_order": [16, 17, 18, 19],
+      "open_prs": [
+        {"number":16,"head":"308408a6bb19fc25b9a615293e08b2a6b153e56d","base":"main","purpose":"OAuth export and truthful progress controls"},
+        {"number":17,"head":"91b7bae6a2be74f99515d6f7c861740da44404a2","base":"feature/progress-oauth-export-hardening-20260720","purpose":"saved-video library and bounded LLM exports"},
+        {"number":18,"head":"203939d9547ea94d10a4e18d96f108b25f5b1d85","base":"feature/saved-video-library-intelligence-20260720","purpose":"governed VTI agent task and event fabric"},
+        {"number":19,"head":"35e47cb143804cd0862174239da703f1f865c7fc","base":"feature/vti-agent-fabric-20260720","purpose":"recursive event signature compatibility with Hub"}
+      ]
+    }
+  ],
+  "shared_contract": {
+    "event_schema_version": "1.0.0",
+    "producer": "vti-evidence-service",
+    "consumer": "xrp-hbar-hub-runtime",
+    "required_fields": ["event_id","event_type","schema_version","producer","consumer","occurred_at","correlation_id","idempotency_key","source_refs","approval_state","payload","evidence_refs","retry_count","status"],
+    "canonicalization": "recursive lexicographic object-key ordering; preserve array order; compact UTF-8 JSON",
+    "authentication": "HMAC-SHA256 with a shared secret of at least 32 characters stored only in approved secret stores",
+    "status": "IMPLEMENTED_IN_OPEN_PRS_NOT_LIVE_PROVEN"
+  },
+  "newly_detected_delta": {
+    "id": "XV-COMPAT-001",
+    "problem": "VTI sorted only top-level keys while Hub recursively sorted nested JSON before HMAC verification",
+    "impact": "Nested event payloads could fail authentication depending on insertion order",
+    "resolution": "VTI PR #19 recursively canonicalizes JSON and adds a fixed cross-language HMAC vector",
+    "verification_state": "CI_PENDING",
+    "runtime_state": "NOT_LIVE_PROVEN"
+  },
+  "cross_chat_rules": [
+    "Preserve both chat histories and all unique requirements",
+    "Do not merge repositories to imitate integration",
+    "Assign one canonical owner for each shared requirement",
+    "Version breaking schema changes and add compatibility tests",
+    "VTI media evidence does not outrank official primary sources",
+    "Separate direct token demand from general technology adoption",
+    "No module self-certification",
+    "No financial execution or money movement without separate explicit approval",
+    "Update this tracker after every material cross-repository change"
+  ],
+  "priority_queue": [
+    {"priority":1,"action":"Wait for and verify VTI PR #19 CI","status":"IN_PROGRESS"},
+    {"priority":2,"action":"Review and merge VTI PR #16 only after checks pass and explicit approval","status":"APPROVAL_REQUIRED"},
+    {"priority":3,"action":"Retarget and merge VTI PR #17, then #18, then #19 in order","status":"BLOCKED_ON_PREDECESSORS"},
+    {"priority":4,"action":"Review Hub PR #11 CI and compatibility against VTI #19 vector","status":"IN_PROGRESS"},
+    {"priority":5,"action":"Configure staging endpoint and secret references without exposing values","status":"CONNECTOR_PERMISSION_GAP"},
+    {"priority":6,"action":"Run an authorised staging event canary from VTI to Hub","status":"BLOCKED_ON_DEPLOYMENT"},
+    {"priority":7,"action":"Verify idempotency, retry, dead-letter, replay and XRP/HBAR module routing end to end","status":"BACKLOGGED"},
+    {"priority":8,"action":"Surface both service states and evidence IDs in Jarvis Command Centre","status":"BACKLOGGED"},
+    {"priority":9,"action":"Federate approved XRP/HBAR findings to AI CFO recommendation candidates","status":"SPEC_ONLY"}
+  ],
+  "progress": {
+    "shared_requirement_and_architecture_spec": 90,
+    "VTI_repository_implementation": 72,
+    "Hub_event_consumer_implementation": 70,
+    "cross_language_contract_compatibility": 75,
+    "staging_end_to_end_integration": 0,
+    "production_runtime_verification": 0,
+    "AI_CFO_federation": 5
+  }
+}

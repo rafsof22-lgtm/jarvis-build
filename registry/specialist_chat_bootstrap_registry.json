@@ -1,0 +1,136 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-07-20T17:40:00+10:00",
+  "status": "READY_FOR_CHAT_CREATION",
+  "parent_issue": 34,
+  "parent_pr": 33,
+  "universal_prompt": "docs/bootstrap/JARVIS_SPECIALIST_CHAT_STARTER_PACK_2026-07-20.md",
+  "rules": {
+    "source_first": true,
+    "additions_only": true,
+    "hidden_chat_access_claims_forbidden": true,
+    "historical_completion_claims_require_revalidation": true,
+    "independent_module_self_certification_forbidden": true,
+    "credential_values_in_chat_forbidden": true,
+    "handoff_manifest_required": true,
+    "live_financial_health_or_external_actions_approval_gated": true
+  },
+  "primary_chats": [
+    {
+      "module_id": "jarvis-core",
+      "chat_title": "JARVIS CORE — SOURCE RECONSTRUCTION & SOVEREIGN CONTROL PLANE",
+      "repository": "rafsof22-lgtm/jarvis-build",
+      "repo_state": "EXISTS",
+      "issue": 35,
+      "status": "READY_FOR_CHAT_CREATION",
+      "data_classification": "mixed-governance-metadata",
+      "first_command": "START SOURCE LOCK"
+    },
+    {
+      "module_id": "agency-factory",
+      "chat_title": "DIGITAL AGENCY FACTORY — RECURRING REVENUE SYSTEMS",
+      "repository": "rafsof22-lgtm/jarvis-agency-factory",
+      "repo_state": "PROPOSED_PRIVATE",
+      "issue": 36,
+      "status": "READY_FOR_CHAT_CREATION",
+      "data_classification": "business-confidential",
+      "first_command": "START SOURCE LOCK"
+    },
+    {
+      "module_id": "trading-factory",
+      "chat_title": "TRADING BOT FACTORY — RESEARCH, BACKTESTING, PAPER & CONTROLLED EXECUTION",
+      "repository": "rafsof22-lgtm/jarvis-trading-factory",
+      "repo_state": "PROPOSED_PRIVATE",
+      "issue": 37,
+      "status": "READY_FOR_CHAT_CREATION",
+      "data_classification": "financial-high-risk",
+      "first_command": "START SOURCE LOCK"
+    },
+    {
+      "module_id": "health",
+      "chat_title": "JARVIS HEALTH — RECORDS, EVIDENCE & CARE COORDINATION",
+      "repository": "rafsof22-lgtm/Jarvis-Health",
+      "repo_state": "EXISTS",
+      "issue": 38,
+      "status": "READY_FOR_CHAT_CREATION",
+      "data_classification": "health-restricted",
+      "first_command": "START SOURCE LOCK"
+    },
+    {
+      "module_id": "cfo-os",
+      "chat_title": "AI CFO — XERO, CASH FLOW, TAX EVIDENCE & FINANCIAL CONTROL",
+      "repository": "rafsof22-lgtm/jarvis-cfo-os",
+      "repo_state": "PROPOSED_PRIVATE",
+      "issue": 39,
+      "status": "READY_FOR_CHAT_CREATION",
+      "data_classification": "financial-restricted",
+      "first_command": "START SOURCE LOCK"
+    },
+    {
+      "module_id": "intelligence-fabric",
+      "chat_title": "JARVIS INTELLIGENCE — LLM ROUTING, SOURCE SCOUT & OPPORTUNITY RESEARCH",
+      "repository": "rafsof22-lgtm/jarvis-intelligence-fabric",
+      "repo_state": "PROPOSED_PRIVATE",
+      "issue": 40,
+      "status": "READY_FOR_CHAT_CREATION",
+      "data_classification": "mixed-research",
+      "first_command": "START SOURCE LOCK"
+    },
+    {
+      "module_id": "product-factory",
+      "chat_title": "JARVIS PRODUCT FACTORY — SAAS, APPS, DIGITAL ASSETS & LICENSING",
+      "repository": "rafsof22-lgtm/jarvis-product-factory",
+      "repo_state": "PROPOSED_PRIVATE",
+      "issue": 41,
+      "status": "READY_FOR_CHAT_CREATION",
+      "data_classification": "business-confidential",
+      "first_command": "START SOURCE LOCK"
+    },
+    {
+      "module_id": "platform-ops",
+      "chat_title": "JARVIS PLATFORM — INFRASTRUCTURE, SECURITY, OBSERVABILITY & RECOVERY",
+      "repository": "rafsof22-lgtm/jarvis-platform-ops",
+      "repo_state": "PROPOSED_PRIVATE",
+      "issue": 42,
+      "status": "READY_FOR_CHAT_CREATION",
+      "data_classification": "infrastructure-restricted",
+      "first_command": "START SOURCE LOCK"
+    }
+  ],
+  "secondary_chat_candidates": [
+    "legal-compliance",
+    "command-centre-ux",
+    "sales-customer-success",
+    "knowledgebase-provenance",
+    "security-red-team",
+    "model-lab",
+    "data-platform",
+    "automation-factory",
+    "family-office",
+    "fast8-auto",
+    "property-intelligence",
+    "vti-video-intelligence",
+    "xrp-hbar-intelligence"
+  ],
+  "required_handoff_fields": [
+    "module_id",
+    "repository",
+    "version",
+    "source_denominator",
+    "requirement_count",
+    "module_count",
+    "agent_count",
+    "skill_count",
+    "implemented_artifacts",
+    "tests",
+    "evidence_refs",
+    "apis",
+    "credential_names_only",
+    "data_classification",
+    "status",
+    "blockers",
+    "next_actions",
+    "rollback_ref",
+    "jarvis_federation_routes"
+  ]
+}
