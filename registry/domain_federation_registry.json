@@ -1,0 +1,171 @@
+{
+  "schema_version": "1.0.0",
+  "updated_at": "2026-07-20T00:00:00+10:00",
+  "owner": "Tas Raptis / RAF213G",
+  "status": "SPEC_ONLY",
+  "front_end_workspace_count": 7,
+  "workspaces": [
+    {
+      "id": "jarvis-control",
+      "title": "Jarvis Control",
+      "purpose": "Governance, sources, requirements, approvals, costs, deployments, incidents and continuity.",
+      "data_class": "mixed_sanitized_control",
+      "modules": [
+        "master-framework",
+        "source-intake",
+        "requirement-reconciliation",
+        "repository-federation",
+        "skill-factory",
+        "agent-factory",
+        "source-capability-scout",
+        "cost-resource-governor",
+        "approval-engine",
+        "github-execution",
+        "deployment-automation",
+        "model-router",
+        "secret-lifecycle",
+        "integration-fabric",
+        "workflow-event-runtime",
+        "observability"
+      ]
+    },
+    {
+      "id": "wealth-family-office",
+      "title": "Wealth and Family Office",
+      "purpose": "Bill CFO, Active Trust, business, personal, parent, SMSF, tax, accounting, estate and adviser-preparation intelligence.",
+      "data_class": "confidential_financial",
+      "modules": [
+        "bill-cfo-ocr",
+        "cfo-audit-control",
+        "family-office-active-trust",
+        "xero-accounting-evidence",
+        "tax-and-cgt-research",
+        "smsf-governance",
+        "entity-wallet-separation",
+        "estate-and-succession",
+        "insurance-and-asset-protection",
+        "professional-adviser-handoff"
+      ],
+      "regulated_boundary": "Qualified professional approval remains required for regulated advice, lodgements, audits, legal instruments and material transactions."
+    },
+    {
+      "id": "revenue-factory",
+      "title": "Revenue Factory",
+      "purpose": "Autonomous digital agency, SaaS, digital products, content, licensing, lead generation and lawful automated income portfolio.",
+      "data_class": "internal_business",
+      "modules": [
+        "opportunity-intelligence",
+        "demand-validation",
+        "offer-product-factory",
+        "brand-asset-factory",
+        "acquisition-sales",
+        "delivery-customer-success",
+        "unit-economics",
+        "business-automation",
+        "revenue-risk-quality",
+        "portfolio-optimisation-retirement"
+      ],
+      "truth_rule": "Revenue targets are objectives, not guarantees."
+    },
+    {
+      "id": "trading-markets-lab",
+      "title": "Trading and Markets Lab",
+      "purpose": "Market intelligence, strategy research, backtesting, paper trading, portfolio risk and execution engineering.",
+      "data_class": "confidential_trading",
+      "modules": [
+        "market-alternative-data",
+        "strategy-research",
+        "backtest-walk-forward",
+        "paper-shadow-trading",
+        "portfolio-risk-engine",
+        "execution-adapters",
+        "monitoring-reconciliation",
+        "tax-performance-attribution",
+        "strategy-governance-retirement",
+        "research-alert-products"
+      ],
+      "operating_mode": "RESEARCH_ONLY_PAPER_FIRST",
+      "live_boundary": "Live trading and money movement require separate explicit approval and verified controls."
+    },
+    {
+      "id": "xrp-hbar-intelligence",
+      "title": "XRP/HBAR Intelligence",
+      "purpose": "XRP, Ripple, HBAR and Hedera source-first intelligence, catalysts, forecasts, evidence and holdings scenarios.",
+      "data_class": "confidential_investment_research",
+      "modules": [
+        "xrp-hbar-apex",
+        "vti-evidence-routing",
+        "market-onchain-intelligence",
+        "regulatory-institutional-intelligence",
+        "forecast-catalyst-discrepancy"
+      ],
+      "operating_mode": "RESEARCH_ONLY_PAPER_FIRST"
+    },
+    {
+      "id": "health-care",
+      "title": "Health and Care",
+      "purpose": "Personal health source intake, timeline, evidence, clinician preparation and care coordination.",
+      "data_class": "sensitive_health",
+      "modules": [
+        "health-source-intake",
+        "medical-timeline",
+        "symptoms-measurements",
+        "medication-supplement-safety",
+        "diagnostics-laboratory",
+        "treatment-evidence",
+        "clinician-preparation",
+        "care-coordination",
+        "provider-discovery",
+        "red-flag-escalation",
+        "consent-family-access",
+        "mental-health-addiction-support"
+      ],
+      "regulated_boundary": "Jarvis Health does not replace clinicians, diagnose with certainty or alter prescriptions."
+    },
+    {
+      "id": "business-property-assets",
+      "title": "Business, Property and Assets",
+      "purpose": "Fast 8 Auto, property buyer intelligence, automotive catalogue, property projects and infrastructure assets.",
+      "data_class": "internal_business_and_property",
+      "modules": [
+        "fast8-operations",
+        "property-buyer-intelligence",
+        "automotive-catalogue-intelligence",
+        "property-projects",
+        "dream-estate-planning",
+        "workstation-infrastructure"
+      ]
+    }
+  ],
+  "new_canonical_domains": [
+    "autonomous-revenue-factory",
+    "digital-agency-and-saas-factory",
+    "passive-income-portfolio",
+    "trading-and-markets-lab",
+    "family-office-and-active-trust",
+    "bill-cfo-adviser-preparation",
+    "personal-health-intelligence"
+  ],
+  "shared_backend_services": [
+    "source-registry",
+    "requirements-and-traceability",
+    "agent-and-skill-registry",
+    "integration-and-tool-registry",
+    "model-and-cost-router",
+    "workflow-event-runtime",
+    "security-and-approval-engine",
+    "evidence-and-verification",
+    "observability-and-incidents",
+    "deployment-backup-rollback",
+    "continuity-and-resume"
+  ],
+  "completion_chain": [
+    "requirement",
+    "module",
+    "artifact",
+    "test_or_waiver",
+    "evidence",
+    "deployment_or_accepted_non_deployment_outcome",
+    "rollback"
+  ]
+}
