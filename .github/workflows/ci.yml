@@ -63,6 +63,9 @@ jobs:
       - name: Validate framework trigger, intelligence and capability-scout controls
         run: python scripts/verify_framework_intelligence_v16.py
 
+      - name: Run zero-spend local Knowledge Fabric pilot
+        run: python scripts/run_knowledge_fabric_local_pilot.py
+
       - name: Generate redacted configuration-readiness report
         run: python scripts/config_readiness.py --root . --output evidence/config-readiness.json
 
@@ -86,3 +89,4 @@ jobs:
             evidence/module-federation-verification.json
             evidence/environment-completion-verification.json
             evidence/framework-intelligence-v16-verification.json
+            evidence/knowledge-fabric-local-pilot.json

@@ -1,0 +1,30 @@
+{
+  "id": "SOP-P0-SOURCE-001",
+  "version": "1.0.0",
+  "owner": "Source Provenance Curator",
+  "purpose": "Register and process accessible sources with provenance and evidence coordinates.",
+  "scope": ["documents", "archives", "repositories", "web", "VTI media"],
+  "prerequisites": ["approved scope", "access permission", "data classification"],
+  "tools": ["hashing", "metadata extraction", "parser", "source register"],
+  "steps": [
+    "Assign source identifier.",
+    "Record source metadata and authority tier.",
+    "Calculate a hash when raw bytes are accessible.",
+    "Extract page, row, timestamp, archive member or commit coordinates.",
+    "Record parser version, failures, omissions and duplicates.",
+    "Keep raw evidence separate from summaries.",
+    "Record contradictions, supersession and open loops.",
+    "Complete an independent spot check."
+  ],
+  "decisions": ["accept", "quarantine", "duplicate", "partial", "reject"],
+  "approvals": ["sensitive source", "new connector", "paid source"],
+  "safety": ["do not copy credential values", "do not claim inaccessible content", "respect privacy and licence"],
+  "quality": {"coordinate_coverage_target": 1.0, "hash_required_when_possible": true},
+  "evidence": ["source register", "hash or limitation", "extraction ledger", "spot check"],
+  "failure": ["parse failure", "corrupt file", "missing content", "access denied", "unclear provenance"],
+  "escalation": "Source Auditor then Framework Owner",
+  "rollback": "Remove derived index entries and preserve the audit record.",
+  "records": ["source register", "gap register", "contradiction log", "change log"],
+  "review": "annual or policy change",
+  "supersession": "link later versions and retain history"
+}
