@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0.0",
+  "observed_at": "2026-07-20T07:55:00+10:00",
+  "tracker": "docs/trackers/JARVIS_MASTER_RECONSTRUCTION_AND_INTELLIGENCE_TRACKER_20260720.md",
+  "scope": "Repository and CI verification only. External runtime and production evidence remain separate.",
+  "repositories": {
+    "videotranscribe_pr_17": {
+      "head_sha": "91b7bae6a2be74f99515d6f7c861740da44404a2",
+      "state": "open",
+      "mergeable": true,
+      "workflow": "Jarvis Federation Contract CI",
+      "run_id": 29725894151,
+      "conclusion": "success",
+      "repair": "Explicit string typing for deduplicated labels"
+    },
+    "videotranscribe_pr_18": {
+      "head_sha": "203939d9547ea94d10a4e18d96f108b25f5b1d85",
+      "state": "open",
+      "mergeable": true,
+      "workflow": "Jarvis Federation Contract CI",
+      "run_id": 29725929773,
+      "conclusion": "success",
+      "repair": "Inherited explicit string typing applied to stacked branch"
+    },
+    "hub_pr_11": {
+      "head_sha": "833f8b558cb0f71eced7e303460c329f30febd20",
+      "state": "open",
+      "mergeable": true,
+      "workflows": [
+        { "name": "VTI Federation Event Consumer CI", "run_id": 29711639227, "conclusion": "success" },
+        { "name": "Historical Project Source Recovery CI", "run_id": 29711639239, "conclusion": "success" },
+        { "name": "Jarvis Federation Contract CI", "run_id": 29711639221, "conclusion": "success" }
+      ]
+    },
+    "jarvis_pr_31": {
+      "head_sha": "3c3644d6699ca0fbf32440e887faadb39b88e8f9",
+      "state": "open",
+      "mergeable": true,
+      "workflows": [
+        { "name": "Free-first CI", "run_id": 29725993619, "conclusion": "success" },
+        { "name": "Package Jarvis Skill", "run_id": 29725993609, "conclusion": "success" },
+        { "name": "Security History Scan", "run_id": 29725993630, "conclusion": "success" },
+        { "name": "Cross-Repository Readiness", "run_id": 29725993624, "conclusion": "success" }
+      ]
+    }
+  },
+  "corrected_status": {
+    "runtime_testing_estimate_percent": 30,
+    "three_pass_verification_estimate_percent": 30,
+    "pass_3_test_waiver_mapping_estimate_percent": 30,
+    "repository_ci": "NO_KNOWN_ERRORS_AFTER_DEFINED_CHECKS",
+    "staging_integration": "BLOCKED",
+    "production_integration": "OWNER_ACTION_REQUIRED",
+    "permanent_universal_zero_gaps": "IMPOSSIBLE_ABSOLUTE",
+    "bounded_zero_control": "NO_KNOWN_GAPS_WITHIN_VERIFIED_REPOSITORY_AND_CI_SCOPE"
+  },
+  "remaining_blockers": [
+    "Merge stacked VTI pull requests in dependency order after final review",
+    "Merge Hub PR 11 and Jarvis PR 31 after release approval",
+    "Process the XRP HBAR Cross-Asset Historical Reconciliation Matrix",
+    "Complete pending historical document image and adopted-response extraction",
+    "Apply and test database migrations in staging",
+    "Configure protected runtime dependencies through approved platform controls",
+    "Deploy VTI and Hub staging services",
+    "Run authorised live end-to-end canary and rollback test",
+    "Obtain independent release verification before production"
+  ]
+}
