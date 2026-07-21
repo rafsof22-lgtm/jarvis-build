@@ -1,0 +1,58 @@
+{
+  "source_id": "SRC-FOLDER0-PARTIAL-RAW-20260425",
+  "version": "1.0.0",
+  "title": "folder0_partial.raw",
+  "source_state": "EXTRACT_BOUNDED_NOT_DENOMINATOR_COMPLETE",
+  "origin": "USER_FILE_LIBRARY",
+  "created_at": "2026-04-25T03:24:52Z",
+  "reconciled_at": "2026-07-21",
+  "immutable_pointer": "file_000000009ddc71fa9c90545aa205c561",
+  "sha256": null,
+  "sha256_unavailable_reason": "The connector exposes indexed content and a stable file pointer but not raw bytes to the active runtime; no byte hash is asserted.",
+  "format_assessment": {
+    "declared_extension": ".raw",
+    "observed_structure": "Concatenated source/code/report dump containing Python, TypeScript/TSX, Docker, YAML, SQL, Markdown and generated status prose.",
+    "encoding_condition": "MOJIBAKE_PRESENT",
+    "clean_archive_manifest_present": false,
+    "file_boundary_map_present": false
+  },
+  "extraction_coverage": {
+    "method": "File Library semantic and keyword retrieval with multiple independent query families",
+    "retrieved_regions": 40,
+    "whole_file_byte_coverage_proven": false,
+    "denominator_complete": false,
+    "duplicate_fragments_observed": true
+  },
+  "capability_candidates": [
+    {"id":"F0-CAP-001","name":"Governed inline Jarvis Pop assistant","disposition":"PARTIAL_DUPLICATE_CURRENT_RUNTIME","current_evidence":"ParallelJarvisAssistantV2 and 13 selector surfaces already cover governed inline model assistance; tooltip/action UX remains a separate candidate."},
+    {"id":"F0-CAP-002","name":"n8n workflow integration engine","disposition":"CANDIDATE_REQUIREMENT_NOT_RUNTIME_PROVEN","controls_required":["signed webhook contracts","vault-only credentials","sandbox execution","idempotency","replay rejection","approval gates","rollback"]},
+    {"id":"F0-CAP-003","name":"Scoped custom-instruction manager","disposition":"CANDIDATE_REQUIREMENT_PARTIAL_OVERLAP","controls_required":["precedence","conflict records","protected fields","versioning","tests","rollback"]},
+    {"id":"F0-CAP-004","name":"Deployment, health and rollback controls","disposition":"PARTIAL_DUPLICATE_CURRENT_CONTROL_PLANE","controls_required":["real environment proof","no permissive healthcheck fallthrough","independent release gate"]},
+    {"id":"F0-CAP-005","name":"Research, vector search and knowledge graph services","disposition":"CANDIDATE_REQUIREMENT_SIMULATION_DETECTED","controls_required":["real connectors","source provenance","claim verification","freshness","cost and privacy policy"]},
+    {"id":"F0-CAP-006","name":"Database query and profiling interfaces","disposition":"CANDIDATE_REQUIREMENT_MOCKS_DETECTED","controls_required":["read-only default","query allowlist","tenant isolation","timeouts","audit","destructive approval"]}
+  ],
+  "quarantine": [
+    {"pattern":"100% complete|zero gaps|zero errors|production ready|zero hallucination","reason":"Unverified generated assertions conflict with current live and repository evidence."},
+    {"pattern":"limit: none|boundary: none|possibility: unlimited","reason":"Conflicts with owner authority, safety, budget, privacy and release controls."},
+    {"pattern":"simulated findings|placeholder web results|mock connections|mock execution","reason":"Scaffold or demonstration behavior cannot be represented as integrated runtime."},
+    {"pattern":"medical, legal, tax or investment recommendations presented from static code","reason":"High-risk outputs require current authoritative sources, qualified escalation and domain-specific safety controls."},
+    {"pattern":"healthcheck fallback ending in success","reason":"A health check must fail closed when the service endpoint is unavailable."}
+  ],
+  "conflicts": [
+    {"id":"F0-CONFLICT-001","source_claim":"92% text / 0% binary and awaiting binary upload","conflicts_with":"Later source certificate asserting 100% implementation and zero errors","decision":"Preserve both; neither is accepted as runtime truth."},
+    {"id":"F0-CONFLICT-002","source_claim":"141 modules audited","conflicts_with":"172 modules accessible and other reports with different counts","decision":"Module denominator is unknown until clean manifest and repository snapshot are supplied."},
+    {"id":"F0-CONFLICT-003","source_claim":"No security vulnerabilities or unhandled errors","conflicts_with":"Source includes permissive healthcheck fallback, mock implementations and unchecked dynamic/plugin patterns","decision":"Quarantine universal assurance claims."}
+  ],
+  "deduplication": {
+    "method": "Capability-level semantic deduplication against current jarvis-build main",
+    "exact_file_deduplication_possible": false,
+    "reason": "Raw bytes and original file boundaries are unavailable.",
+    "current_runtime_overlap": ["Jarvis Pop unified assistant","model selector surfaces","provider execution policy","panel evidence persistence","Command Centre","deployment and rollback governance"]
+  },
+  "next_actions": [
+    "Promote accepted capability candidates only through requirement, implementation, test and evidence mappings.",
+    "Obtain raw bytes or a clean archive to compute hashes and reconstruct original file boundaries.",
+    "Do not import source completion certificates as evidence."
+  ],
+  "completion_assertion": "Bounded extraction and triage are complete for the retrieved regions; whole-file ingestion and denominator completeness are not proven."
+}
