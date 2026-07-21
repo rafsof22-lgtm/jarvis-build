@@ -1,50 +1,38 @@
 {
-  "schema_version": "2.1.0",
+  "schema_version": "2.2.0",
   "program_id": "JARVIS-100-PERCENT-COMPLETION-V2",
   "snapshot_date": "2026-07-21",
-  "baseline_main_sha": "907f52805970a0f511f053657e57f9f80258d1e4",
+  "baseline_main_sha": "7ab50ac68de7fd0d4a2ea11b5fb4be2957f7beb6",
   "state": "ACTIVE_PROGRAM_NOT_100_PERCENT",
   "execution_method": "BREADTH_FIRST_MICRO_PASSES",
   "completion_formula": "minimum(mandatory source, requirement, artifact, test_or_waiver, evidence, connected_staging, production, acceptance gate percentages)",
-  "pass_rules": {
-    "target_micro_slices": "3-7",
-    "branch_required": true,
-    "tests_required": true,
-    "evidence_required": true,
-    "rollback_required": true,
-    "green_only_merge": true,
-    "non_blocking_work_continues_around_external_gates": true,
-    "no_false_100_percent": true
-  },
+  "pass_rules": {"target_micro_slices":"3-7","branch_required":true,"tests_required":true,"evidence_required":true,"rollback_required":true,"green_only_merge":true,"non_blocking_work_continues_around_external_gates":true,"no_false_100_percent":true},
   "blocks": [
-    {"block":"A","name":"Truth denominator and persistent Knowledge Fabric","tracker_tasks":["P1-2","P2-1","P2-2","P2-4"],"state":"IMPLEMENTED_NOT_INTEGRATED","exit_gate":"Persistent connected source graph, complete counted denominator and passing no-gaps verifier"},
-    {"block":"B","name":"Sovereign control plane, security and operations","tracker_tasks":["P1-6","P2-2","P2-6"],"state":"IMPLEMENTED_NOT_INTEGRATED","exit_gate":"Enforced connected-runtime policies plus proven backup, restore and rollback"},
-    {"block":"C","name":"Model router, intelligence fabric and capability sourcing","tracker_tasks":["P2-5","P2-6"],"state":"IMPLEMENTED_NOT_INTEGRATED","exit_gate":"Current connected routing, evidence-ranked retrieval and maintained quarantine decisions"},
-    {"block":"D","name":"Command Centre and operator UX","tracker_tasks":["P1-5"],"state":"IMPLEMENTED_NOT_INTEGRATED","exit_gate":"Truthful connected staging dashboard with tested operator journeys and failure states"},
-    {"block":"E","name":"Automation, integration and persistence","tracker_tasks":["P0-4","P0-7","P1-1","P1-3","P1-4","P4-1"],"state":"IMPLEMENTED_NOT_INTEGRATED","exit_gate":"Signed connected staging canaries with persistence, retry, replay protection and rollback evidence"},
-    {"block":"F","name":"CFO, trading research, revenue and product domains","tracker_tasks":["P3-1","P3-2","P3-3","P3-4","P3-5","P3-6"],"state":"INTEGRATED_STAGING","completion_scope":"BOUNDED_DETERMINISTIC_LOCAL_SLICES","exit_gate":"Expanded domain services and approved connected staging proof; no unsupported revenue or trading claims"},
-    {"block":"G","name":"External P0 recovery and provider gates","tracker_tasks":["P0-1","P0-2","P0-3","P0-4","P0-5","P0-6","P0-7"],"state":"BLOCKED","exit_gate":"Each task DONE_VERIFIED or remains BLOCKED with exact owner action"},
-    {"block":"H","name":"Full staging federation","tracker_tasks":["P4-1"],"state":"BACKLOGGED","exit_gate":"Critical connected paths pass end-to-end and disaster-recovery tests"},
-    {"block":"I","name":"Controlled production promotion","tracker_tasks":["P5-1"],"state":"BLOCKED","exit_gate":"Production services DONE_VERIFIED after approval"},
-    {"block":"J","name":"Final reconciliation and owner acceptance","tracker_tasks":["P6-1"],"state":"BACKLOGGED","exit_gate":"All in-scope items DONE_VERIFIED or owner-accepted WAIVED"}
+    {"block":"A","name":"Truth denominator and persistent Knowledge Fabric","state":"IMPLEMENTED_NOT_INTEGRATED","tracker_tasks":["P1-2","P2-1","P2-2","P2-4"],"exit_gate":"Connected source graph, complete denominator and no-gaps verifier"},
+    {"block":"B","name":"Sovereign control plane, security and operations","state":"IMPLEMENTED_NOT_INTEGRATED","tracker_tasks":["P1-6","P2-2","P2-6"],"exit_gate":"Connected policies plus proven provider-side recovery"},
+    {"block":"C","name":"Model router, intelligence fabric and capability sourcing","state":"IMPLEMENTED_NOT_INTEGRATED","tracker_tasks":["P2-5","P2-6"],"exit_gate":"Authorised live provider panel and current-source evidence"},
+    {"block":"D","name":"Command Centre and operator UX","state":"INTEGRATED_STAGING","completion_scope":"LOCAL_COMMAND_CENTRE_V1_3_MODEL_AND_TRACKER_CONTROL","tracker_tasks":["P1-5"],"exit_gate":"Authenticated deployed staging dashboard and complete operator journeys"},
+    {"block":"E","name":"Automation, integration and persistence","state":"IMPLEMENTED_NOT_INTEGRATED","tracker_tasks":["P0-4","P0-7","P1-1","P1-3","P1-4","P4-1"],"exit_gate":"Connected canaries with retry, replay and rollback evidence"},
+    {"block":"F","name":"CFO, trading research, revenue and product domains","state":"INTEGRATED_STAGING","completion_scope":"BOUNDED_DETERMINISTIC_LOCAL_SLICES","tracker_tasks":["P3-1","P3-2","P3-3","P3-4","P3-5","P3-6"],"exit_gate":"Expanded services and approved connected staging proof"},
+    {"block":"G","name":"External P0 recovery and provider gates","state":"BLOCKED","tracker_tasks":["P0-1","P0-2","P0-3","P0-4","P0-5","P0-6","P0-7"],"exit_gate":"Each task DONE_VERIFIED or explicit owner-accepted blocker"},
+    {"block":"H","name":"Full staging federation","state":"BACKLOGGED","tracker_tasks":["P4-1"],"exit_gate":"Critical connected paths pass end-to-end and DR tests"},
+    {"block":"I","name":"Controlled production promotion","state":"BLOCKED","tracker_tasks":["P5-1"],"exit_gate":"Production services DONE_VERIFIED after approval"},
+    {"block":"J","name":"Final reconciliation and owner acceptance","state":"BACKLOGGED","tracker_tasks":["P6-1"],"exit_gate":"All in-scope items verified or owner-waived"}
   ],
   "passes": [
-    {"pass_id":1,"name":"Persistent source truth","state":"DONE_VERIFIED","completion_scope":"DEPENDENCY_FREE_LOCAL_RUNTIME","evidence":["PR-81","src/jarvis_completion/runtime_v1.py","tests/test_jarvis_completion_runtime_v1.py"]},
-    {"pass_id":2,"name":"Governance foundation","state":"DONE_VERIFIED","completion_scope":"DEPENDENCY_FREE_LOCAL_RUNTIME","evidence":["PR-81","seven-green-workflows"]},
-    {"pass_id":3,"name":"Intelligence and routing","state":"DONE_VERIFIED","completion_scope":"DETERMINISTIC_LOCAL_ROUTING_AND_QUARANTINE","evidence":["PR-81","PR-71"]},
-    {"pass_id":4,"name":"Operator visibility","state":"DONE_VERIFIED","completion_scope":"BACKEND_STATUS_APPROVAL_ALERT_CONTRACTS","evidence":["PR-81","PR-68"]},
-    {"pass_id":5,"name":"Integration standard","state":"DONE_VERIFIED","completion_scope":"LOCAL_SIGNED_IDEMPOTENT_ENVELOPE_STANDARD","evidence":["PR-81","PR-55"]},
-    {"pass_id":6,"name":"Historical bounded batches","state":"IMPLEMENTED_NOT_INTEGRATED","completion_scope":"MULTIPLE_BOUNDED_BATCHES_ONLY","evidence":["PR-59","PR-60","PR-69","PR-75"],"remaining":"Process every newly accessible archive and preserve missing-source blockers"},
+    {"pass_id":1,"name":"Persistent source truth","state":"DONE_VERIFIED","completion_scope":"DEPENDENCY_FREE_LOCAL_RUNTIME","evidence":["PR-81","PR-83"]},
+    {"pass_id":2,"name":"Governance foundation","state":"DONE_VERIFIED","completion_scope":"LOCAL_CONTROL_AND_SELF_EVOLUTION","evidence":["PR-81","PR-84"]},
+    {"pass_id":3,"name":"Intelligence and routing","state":"DONE_VERIFIED","completion_scope":"DETERMINISTIC_ROUTING_SELECTOR_AND_QUARANTINE","evidence":["PR-71","PR-81","PR-85"]},
+    {"pass_id":4,"name":"Operator visibility","state":"DONE_VERIFIED","completion_scope":"LOCAL_COMMAND_CENTRE_STATUS_HISTORY_OPERATOR_AND_MODEL_CONTROLS","evidence":["PR-68","PR-81","PR-83","current-tranche-exact-head-CI"]},
+    {"pass_id":5,"name":"Integration standard","state":"DONE_VERIFIED","completion_scope":"LOCAL_SIGNED_IDEMPOTENT_QUEUE_AND_PANEL_PERSISTENCE_STANDARD","evidence":["PR-55","PR-81","PR-83","current-tranche-exact-head-CI"]},
+    {"pass_id":6,"name":"Historical bounded batches","state":"IMPLEMENTED_NOT_INTEGRATED","completion_scope":"MULTIPLE_BOUNDED_BATCHES_ONLY","evidence":["PR-59","PR-60","PR-69","PR-75","PR-85"],"remaining":"Process every newly accessible source and preserve inaccessible sources as pending or blocked"},
     {"pass_id":7,"name":"Domain scaffolds","state":"DONE_VERIFIED","completion_scope":"BOUNDED_DETERMINISTIC_STAGING_SLICES","evidence":["PR-73","PR-81"]},
-    {"pass_id":8,"name":"Connected staging proofs","state":"BLOCKED","blocker":"APPROVED_SERVICES_CREDENTIAL_REFERENCES_AND_PROVIDER_ENVIRONMENTS_REQUIRED"},
+    {"pass_id":8,"name":"Connected staging proofs","state":"BLOCKED","blocker":"APPROVED_PROVIDER_INVENTORIES_CREDENTIAL_REFERENCES_ENDPOINTS_PRICING_AND_CANARIES_REQUIRED"},
     {"pass_id":9,"name":"Full staging federation","state":"BACKLOGGED","blocker":"PASS_8_CONNECTED_CANARIES_REQUIRED"},
     {"pass_id":10,"name":"Production readiness","state":"BLOCKED","blocker":"P0_OWNER_PROVIDER_GATES_REQUIRED"},
     {"pass_id":11,"name":"Controlled production promotion","state":"BLOCKED","blocker":"OWNER_PRODUCTION_APPROVAL_REQUIRED"},
     {"pass_id":12,"name":"Final reconciliation","state":"BACKLOGGED","blocker":"ALL_PRIOR_TASKS_AND_OWNER_ACCEPTANCE_REQUIRED"}
   ],
-  "next_safe_pass": {
-    "name":"Local resilience and deterministic federation",
-    "micro_slices":["Knowledge Fabric backup and verified restore","durable local queue with retry and dead-letter quarantine","controlled replay and idempotency tests","end-to-end local federation scenario","provider-outage and corrupt-message exercises","tracker and evidence reconciliation"]
-  },
-  "truth_boundary": "Pass completion is limited to the recorded bounded scope. It is not connected staging, production, complete historical source coverage or owner acceptance."
+  "next_safe_pass": {"name":"Authorised connected model pilot and UI staging proof","micro_slices":["inventory configured models without exposing secrets","verify endpoint and price readiness","run one approved two-model canary","persist all raw responses","synthesize and independently verify","run authenticated Command Centre operator and accessibility tests"],"state":"BLOCKED","blocker":"Provider environment, credential references, budget and explicit execution approval required"},
+  "truth_boundary": "Repository-local and deterministic completion is bounded. It is not complete connected staging, production, universal source coverage or owner acceptance."
 }
