@@ -1,0 +1,43 @@
+{
+  "integration_id": "JARVIS-READ-ONLY-DATABASE-INSPECTOR-V1",
+  "version": "1.0.0",
+  "snapshot_date": "2026-07-21",
+  "runtime_state": "IMPLEMENTED_NOT_INTEGRATED",
+  "source_requirement": "F0-CAP-006",
+  "implementation": {
+    "runtime": "src/jarvis_integrations/read_only_db_inspector_v1.py",
+    "tests": "tests/test_read_only_db_inspector_v1.py",
+    "package": "src/jarvis_integrations/__init__.py"
+  },
+  "controls": [
+    "SQLITE_MODE_RO",
+    "PRAGMA_QUERY_ONLY",
+    "REGISTERED_NAMED_QUERIES_ONLY",
+    "SELECT_OR_WITH_ONLY",
+    "MUTATION_AND_DATABASE_CONTROL_KEYWORD_DENIAL",
+    "SEMICOLON_AND_MULTI_STATEMENT_DENIAL",
+    "PARAMETER_NAME_ALLOWLIST",
+    "ROW_LIMIT",
+    "PROGRESS_HANDLER_TIMEOUT",
+    "AUDIT_HASHES_WITHOUT_PARAMETER_VALUES"
+  ],
+  "policy_bounds": {
+    "maximum_rows": 1000,
+    "maximum_timeout_milliseconds": 5000,
+    "database_mutation_allowed": false,
+    "arbitrary_sql_allowed": false
+  },
+  "live_integration_gate": {
+    "state": "BLOCKED",
+    "required": [
+      "authorised database and data owner",
+      "tenant and row-level security design",
+      "approved read replica or read-only identity",
+      "query catalogue and data classifications",
+      "privacy and retention review",
+      "staging load, timeout and isolation tests",
+      "audit sink and rollback evidence"
+    ]
+  },
+  "truth_boundary": "This proves bounded local SQLite inspection only. It does not prove a live PostgreSQL, Supabase, Railway or other database connection, tenant isolation, production performance or permission correctness."
+}
