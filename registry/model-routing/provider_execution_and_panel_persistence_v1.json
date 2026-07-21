@@ -1,0 +1,44 @@
+{
+  "registry_id": "JARVIS-PROVIDER-EXECUTION-PANEL-PERSISTENCE-V1",
+  "version": "1.0.0",
+  "snapshot_date": "2026-07-21",
+  "status": "INTEGRATED_STAGING",
+  "scope": "Dependency-free provider adapters, privacy/budget/credential preflight, bounded parallel execution, SQLite panel evidence and synthesis verification.",
+  "providers": ["ollama", "llama.cpp", "vllm", "openai", "openrouter", "deepseek", "kimi", "qwen", "groq", "mistral", "anthropic", "google"],
+  "execution_defaults": {
+    "enabled": false,
+    "maximum_parallel_calls": 8,
+    "maximum_retries": 1,
+    "timeout_seconds": 60,
+    "unknown_cloud_cost_allowed": false,
+    "restricted_data_cloud_allowed": false,
+    "confidential_cloud_requires_explicit_approval": true,
+    "secret_values_returned": false
+  },
+  "persistence": {
+    "engine": "SQLite",
+    "tables": ["panel_runs", "panel_models", "panel_preflights", "panel_responses", "panel_syntheses", "panel_events"],
+    "raw_response_identity": "run_id + selector_id",
+    "proof_reference": "selector_id + response_sha256",
+    "duplicate_model_response": "REJECTED",
+    "prompt_and_response_secret_redaction": true
+  },
+  "implementation": {
+    "provider_runtime": "jarvis_model_router/provider_execution.py",
+    "panel_store": "src/jarvis_evolution/panel_store_v1.py",
+    "assistant_orchestrator": "src/jarvis_evolution/parallel_assistant_v2.py",
+    "surface_contract": "src/jarvis_evolution/surface_controls_v1.py",
+    "command_centre": "jarvis_command_centre/integrated_v13.py",
+    "tests": "tests/test_provider_execution_command_centre_v1.py"
+  },
+  "live_provider_state": "BLOCKED",
+  "live_provider_blockers": [
+    "Explicit Jarvis execution enablement",
+    "Approved provider credential references",
+    "Concrete model inventories and endpoints",
+    "Verified price or cost ceilings",
+    "Privacy classification approval",
+    "Authorised staging canary"
+  ],
+  "truth_boundary": "Deterministic fake-transport tests prove adapter, preflight, persistence and UI contracts. They do not prove any external provider call, billable usage, connected staging deployment or production operation."
+}
