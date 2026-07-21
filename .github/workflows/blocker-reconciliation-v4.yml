@@ -1,0 +1,32 @@
+name: Blocker Reconciliation V4
+
+on:
+  pull_request:
+    paths:
+      - 'registry/trackers/all_progress_tracker_reconciliation_v4.json'
+      - 'scripts/verify_blocker_reconciliation_v4.py'
+      - '.github/workflows/blocker-reconciliation-v4.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'registry/trackers/all_progress_tracker_reconciliation_v4.json'
+      - 'scripts/verify_blocker_reconciliation_v4.py'
+      - '.github/workflows/blocker-reconciliation-v4.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify blocker truth contract
+        run: python scripts/verify_blocker_reconciliation_v4.py
+      - name: Reject committed secret assignments
+        run: |
+          ! grep -RInE '(API_KEY|ACCESS_TOKEN|CLIENT_SECRET|REFRESH_TOKEN|SIGNING_SECRET)=[A-Za-z0-9_./+-]{16,}' registry/trackers/all_progress_tracker_reconciliation_v4.json scripts/verify_blocker_reconciliation_v4.py
