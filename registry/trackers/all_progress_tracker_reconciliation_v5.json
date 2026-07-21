@@ -1,0 +1,53 @@
+{
+  "id": "JARVIS-ALL-PROGRESS-TRACKER-RECONCILIATION-V5",
+  "version": "5.0.0",
+  "snapshot_date": "2026-07-21",
+  "program_state": "ACTIVE_PROGRAM_NOT_100_PERCENT",
+  "baseline_main": "178f0e0445904fb41245c9f5c316f86bdcc3673a",
+  "resolved_this_pass": [
+    {
+      "blocker_id": "SOURCE-FOLDER0-BOUNDED-EXTRACTION",
+      "state": "DONE_VERIFIED_BOUNDED",
+      "evidence_path": "registry/sources/folder0_partial_bounded_ingestion_v1.json",
+      "truth_boundary": "Retrieved regions were classified, deduplicated and quarantined where unsafe; raw-byte hashing, original file boundaries and whole-file denominator completeness remain unavailable."
+    },
+    {
+      "blocker_id": "COMMAND-CENTRE-STALE-PROGRESS-TRACKER",
+      "state": "IMPLEMENTED_PENDING_CI",
+      "evidence_path": "jarvis_command_centre/integrated_v13.py",
+      "truth_boundary": "The progress endpoint is changed to resolve the highest numbered reconciliation tracker instead of hard-coding v3."
+    }
+  ],
+  "new_findings": [
+    {
+      "finding_id": "F0-SOURCE-CONFLICTS",
+      "state": "REGISTERED",
+      "summary": "The source contains incompatible module counts and completion certificates, encoding corruption, mock/simulated behavior and unsafe unlimited-authority language."
+    },
+    {
+      "finding_id": "F0-CAPABILITY-CANDIDATES",
+      "state": "REGISTERED_NOT_IMPLEMENTED_BY_INGESTION",
+      "summary": "n8n orchestration, scoped instruction management, knowledge/research services and database interfaces were retained as governed candidates, not runtime claims."
+    }
+  ],
+  "still_blocked": [
+    {"blocker_id":"P0-1-RECOVERY-CONSOLE","class":"OWNER_RECOVERY_CONSOLE_REQUIRED"},
+    {"blocker_id":"P0-2-TOKEN-ROTATION","class":"OWNER_PROVIDER_ACTION_REQUIRED"},
+    {"blocker_id":"P0-3-RAILWAY-HEALTH","class":"RAILWAY_DOMAIN_AND_SECRET_REFERENCE_REQUIRED"},
+    {"blocker_id":"P0-4-SHEETS-WEBHOOK","class":"GOOGLE_APPS_SCRIPT_AND_RAILWAY_CONFIGURATION_REQUIRED"},
+    {"blocker_id":"P0-5-FRESH-WORKFLOW-DISPATCH","class":"GITHUB_WORKFLOW_DISPATCH_REQUIRED"},
+    {"blocker_id":"P0-6-COBALT-HOST","class":"PROTECTED_HOST_CREDENTIAL_REQUIRED"},
+    {"blocker_id":"P0-7-VTI-HUB-FEDERATION","class":"CONNECTED_STAGING_AND_SIGNING_SECRET_REQUIRED"},
+    {"blocker_id":"LIVE-PROVIDER-PANEL","class":"PROVIDER_INVENTORY_CREDENTIAL_COST_PRIVACY_AND_EXECUTION_APPROVAL_REQUIRED"},
+    {"blocker_id":"AUTHENTICATED-COMMAND-CENTRE-STAGING","class":"AUTHENTICATED_STAGING_DEPLOYMENT_REQUIRED"},
+    {"blocker_id":"MISSING-SOURCE-BYTES","class":"SOURCE_BYTES_REQUIRED"},
+    {"blocker_id":"PRODUCTION-PROMOTION-AND-OWNER-ACCEPTANCE","class":"ALL_PRIOR_GATES_AND_OWNER_ACCEPTANCE_REQUIRED"}
+  ],
+  "next_executable_tasks": [
+    "Run CI for bounded source ingestion and latest-tracker selection.",
+    "Merge only after exact-head checks pass.",
+    "Continue repository-local hardening and candidate requirement mapping.",
+    "Reconcile external gates only when new evidence is available."
+  ],
+  "completion_assertion": "The bounded folder0 pass advances source coverage but does not establish full historical, runtime or production completion."
+}
