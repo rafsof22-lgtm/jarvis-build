@@ -18,7 +18,7 @@ def main() -> None:
         json.loads(path.read_text(encoding="utf-8"))
 
     snapshot = build_snapshot(live=False)
-    assert snapshot["command_centre_version"] == "1.1.0"
+    assert snapshot["command_centre_version"] == "1.2.0"
     assert snapshot["contract_version"] == "1.0.0"
     assert snapshot["summary"]["repositories"] == 5
     assert {item["repository_id"] for item in snapshot["repositories"]} == {
@@ -26,12 +26,23 @@ def main() -> None:
     }
     assert snapshot["summary"]["known_credit_balances"] == 0
     assert snapshot["summary"]["unknown_credit_balances"] >= 1
+    assert snapshot["summary"]["active_asset_profiles"] >= 2
     assert all("blockers" in item for item in snapshot["repositories"])
     assert "configuration_readiness" in snapshot
     assert "setup_actions" in snapshot
+    assert "asset_intelligence" in snapshot
+    assert set(snapshot["asset_intelligence"]["active_assets"]) >= {"XRP", "HBAR"}
+    assert snapshot["asset_intelligence"]["apex_sources_per_asset_maximum"] == 100
+    assert snapshot["asset_intelligence"]["simultaneous_all_asset_fanout"] is True
+    assert snapshot["asset_intelligence"]["dynamic_ceiling_engine"] is True
+    assert "global_jarvis" in snapshot
+    assert snapshot["global_jarvis"]["available_on_every_page"] is True
+    assert snapshot["global_jarvis"]["stop_mute_cancel_always_available"] is True
     assert snapshot["safety"]["secret_values_returned"] is False
     assert snapshot["safety"]["automatic_secret_deletion"] is False
-    print("command-centre smoke checks passed")
+    assert snapshot["safety"]["financial_execution"] is False
+    assert snapshot["safety"]["voice_bypasses_approval"] is False
+    print("command-centre v1.2 smoke checks passed")
 
 
 if __name__ == "__main__":

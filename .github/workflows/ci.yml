@@ -25,7 +25,7 @@ jobs:
           python-version: "3.12"
 
       - name: Compile runtime scaffold
-        run: python -m compileall jarvis_model_router jarvis_voice_gateway jarvis_command_centre scripts
+        run: python -m compileall jarvis_model_router jarvis_voice_gateway jarvis_asset_intelligence jarvis_command_centre scripts
 
       - name: Run model-router smoke test
         run: python scripts/smoke_model_router.py
@@ -35,6 +35,9 @@ jobs:
 
       - name: Validate Jarvis voice command gateway
         run: python scripts/verify_voice_command_gateway_v1.py
+
+      - name: Validate multi-asset intelligence and omnichannel Command Centre
+        run: python scripts/verify_multi_asset_intelligence_v1.py
 
       - name: Validate credential and setup automation policy
         run: python scripts/verify_credential_setup_automation_v1.py
@@ -125,6 +128,7 @@ jobs:
             evidence/tool-registry-pilot.json
             evidence/model-routing-modes-v2-verification.json
             evidence/voice-command-gateway-v1-verification.json
+            evidence/multi-asset-intelligence-v1-verification.json
             evidence/credential-setup-automation-v1-verification.json
             evidence/runtime-auto-resume-policy-verification-v1.json
             evidence/runtime-auto-resume-v1.json
