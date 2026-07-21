@@ -1,31 +1,47 @@
 {
   "id": "JARVIS-CHATHUB-INTEGRATION-V1",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "status": "IMPLEMENTED_NOT_INTEGRATED",
   "owner_requirement_date": "2026-07-21",
   "source_detection": {
     "rule": "Treat filenames containing ChatHub or Chat Hub, case-insensitively, as ChatHub multi-LLM source candidates.",
-    "raw_preservation": "Store exact source bytes under SHA-256 before parsing.",
-    "wording_rule": "Do not alter original uploaded framework or model-response wording. Store normalized requirements and any synthesis as separate derived records with source pointers.",
+    "raw_preservation": "Store or retain exact source bytes under SHA-256 before parsing. When the raw upload remains in an authorised external file source, store its immutable pointer, measured hash and coordinates.",
+    "wording_rule": "Do not alter original uploaded framework, prompt, user-message or model-response wording. Store normalized requirements, corrections, mappings and synthesis as separate derived records with source pointers.",
     "automatic_routes": [
-      "raw_source_vault",
+      "raw_source_vault_or_authorised_external_pointer",
+      "role_aware_message_manifest",
       "multi_llm_response_manifest",
       "request_and_requirement_extraction",
       "capability_and_tool_discovery",
       "connector_lineage",
       "duplicate_and_conflict_review",
+      "cross_module_delta_routing",
       "progress_and_open_loop_tracking"
     ]
+  },
+  "validated_source_pack": {
+    "filename": "Chathub INst Prmpt.txt",
+    "external_pointer": "chat-upload:file_00000000552481fb8dc25dc3483d34fc",
+    "sha256": "7073bfef49bedca84df4097bbd3b6eafff2399b1a86c66bb0349ffaec7c81d74",
+    "bytes": 804767,
+    "lines": 13529,
+    "words": 103016,
+    "message_count": 35,
+    "response_count": 17,
+    "user_prompt_count": 18,
+    "assistant_word_count": 90146,
+    "models": ["DeepSeek V4", "Kimi K2.7 Code", "Mistral Large", "Perplexity Sonar", "Qwen 3.8 Max", "Tencent HY3"],
+    "parser_state": "DONE_VERIFIED_LOCALLY_PENDING_PR_CI"
   },
   "operating_routes": {
     "paid_subscription": {
       "state": "OWNER_CONFIRMED_PAID_MEMBER",
-      "recommended_use": "ChatHub browser/web user interface for parallel model questioning and manual or supported export workflows.",
+      "recommended_use": "ChatHub browser/web user interface for parallel model questioning and supported export or owner-upload workflows.",
       "credential_rule": "Do not store browser session cookies or scrape authenticated sessions."
     },
     "custom_chatbot": {
       "state": "DOCUMENTED_ROUTE_TO_VALIDATE_IN_SANDBOX",
-      "recommended_use": "Expose an approved Jarvis OpenAI-compatible endpoint to ChatHub Custom Chatbot where ChatHub configuration supports it.",
+      "recommended_use": "Expose an approved Jarvis OpenAI-compatible endpoint to ChatHub Custom Chatbot where supported.",
       "gate": "Requires a scoped endpoint, authentication design, rate limits, privacy review and sandbox proof."
     },
     "server_api": {
@@ -33,17 +49,22 @@
       "rule": "Do not infer that a paid ChatHub subscription includes a server-to-server API."
     },
     "upload_and_export": {
-      "state": "IMPLEMENTED_LOCAL_INTAKE",
+      "state": "REAL_TXT_SOURCE_VALIDATED",
       "formats": ["json", "txt", "md"],
-      "limitations": "Unknown or changed export schemas are preserved raw and marked for parser review rather than discarded."
+      "limitations": "Unknown or changed schemas are preserved raw and marked for parser review rather than discarded."
     }
   },
   "multi_llm_consolidation": {
     "panel_target": "6_OR_8_RESPONSES_WHEN_PRESENT",
-    "preservation": "Each response remains verbatim with model identity and source coordinates.",
+    "preservation": "Each response and user prompt remains verbatim with role, model, line coordinates, word count, hash and duplicate lineage.",
     "derived_output": "One consolidated answer may be generated only as a separate artifact.",
     "strategies": ["synthesis", "consensus", "best_evidenced", "structured", "disagreement_map"],
     "truth_rule": "Consensus is not proof; source and claim verification remain required."
+  },
+  "cross_module_routing": {
+    "state": "MAPPED_FOR_DELTA_REVIEW",
+    "registry": "registry/requirements/chathub-applicability-matrix-20260721.json",
+    "rule": "Route applicable requirements to existing repository and module owners; do not create duplicate competing frameworks."
   },
   "security_and_legal_controls": {
     "external_code": "QUARANTINE_UNTIL_STATIC_LICENSE_SECURITY_AND_DUPLICATE_REVIEW",
@@ -53,13 +74,20 @@
   },
   "evidence": [
     "src/jarvis_chathub/intake.py",
+    "src/jarvis_chathub/intake_v2.py",
     "tests/test_chathub_intake_v1.py",
-    ".github/workflows/chathub-intake-v1.yml"
+    "tests/test_chathub_intake_v2.py",
+    "registry/source-accounting/chathub-source-pack-20260721.json",
+    "registry/requirements/chathub-applicability-matrix-20260721.json",
+    ".github/workflows/chathub-intake-v1.yml",
+    ".github/workflows/chathub-source-pack-v2.yml"
   ],
   "open_loops": [
-    "Validate the current ChatHub export formats against owner-supplied exports.",
+    "Validate future ChatHub export variants as separately hashed source tranches.",
     "Validate ChatHub Custom Chatbot interoperability with a scoped Jarvis staging endpoint.",
-    "Map all accessible files with ChatHub in their filename into the measured source denominator.",
-    "Connect parsed requirements to the persistent Knowledge Fabric and progress tracker."
-  ]
+    "Connect parsed message and requirement records to the persistent Knowledge Fabric.",
+    "Perform per-module delta extraction and implementation through each existing repository owner.",
+    "Complete staging and production only after provider, credential, privacy, cost and owner-approval gates."
+  ],
+  "truth_boundary": "The supplied ChatHub text file is measured, parsed and routed. Cross-module mapping does not prove that every mapped feature is implemented or deployed."
 }
