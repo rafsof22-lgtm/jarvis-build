@@ -1,0 +1,61 @@
+{
+  "id": "JARVIS-RUNTIME-AUTO-RESUME-MANIFEST-V1",
+  "version": "1.0.0",
+  "state": "SAFE_STAGING_READINESS_AUTOMATION",
+  "policy": {
+    "read_only_network_checks_only": true,
+    "no_secret_values_in_output": true,
+    "no_provider_mutation": true,
+    "no_billing": true,
+    "no_production_promotion": true,
+    "no_money_movement": true,
+    "no_clinical_device_control": true,
+    "timeouts_seconds": 8,
+    "maximum_attempts": 2
+  },
+  "groups": [
+    {
+      "group_id": "P0_HEALTH_RUNTIME",
+      "task_ids": ["P0-3"],
+      "checks": [
+        {"type": "http_get", "url_env": "JARVIS_HEALTH_BASE_URL", "path": "/health", "auth_env": "JARVIS_HEALTH_MCP_BEARER_TOKEN", "expected_status": [200, 204]}
+      ]
+    },
+    {
+      "group_id": "P0_VTI_HUB_FEDERATION",
+      "task_ids": ["P0-7"],
+      "checks": [
+        {"type": "http_get", "url_env": "HUB_STAGING_BASE_URL", "path": "/health", "expected_status": [200, 204]},
+        {"type": "http_get", "url_env": "VTI_STAGING_BASE_URL", "path": "/health", "expected_status": [200, 204]},
+        {"type": "hmac_self_test", "secret_env": "VTI_EVENT_SIGNING_SECRET"},
+        {"type": "url_parse", "url_env": "HUB_VTI_EVENT_ENDPOINT"}
+      ]
+    },
+    {
+      "group_id": "P0_PROPERTY_SHEETS",
+      "task_ids": ["P0-4"],
+      "checks": [
+        {"type": "url_parse", "url_env": "PROPERTY_GOOGLE_SHEETS_WEBHOOK_URL"},
+        {"type": "presence", "env": "PROPERTY_GOOGLE_SHEET_ID"},
+        {"type": "presence", "env": "PROPERTY_GOOGLE_SHEETS_WEBHOOK_SECRET"}
+      ]
+    },
+    {
+      "group_id": "P0_VTI_COBALT",
+      "task_ids": ["P0-6"],
+      "checks": [
+        {"type": "http_get", "url_env": "VTI_COBALT_BASE_URL", "path": "/health", "auth_env": "VTI_COBALT_ACCESS_TOKEN", "expected_status": [200, 204]}
+      ]
+    },
+    {
+      "group_id": "OPTIONAL_MODEL_GATEWAY",
+      "task_ids": [],
+      "optional": true,
+      "checks": [
+        {"type": "presence", "env": "OPENROUTER_API_KEY"}
+      ]
+    }
+  ],
+  "proof_boundary": "This manifest permits presence checks, URL validation, local HMAC validation and read-only health requests. It does not authorise deployment, provider configuration changes, writes, publication, production promotion or financial actions.",
+  "rollback": "Disable the Jarvis Secret Readiness workflow or revert the runtime auto-resume commit. No provider state is changed by these checks."
+}
