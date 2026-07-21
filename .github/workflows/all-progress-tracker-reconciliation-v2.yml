@@ -1,0 +1,31 @@
+name: All Progress Tracker Reconciliation V2
+
+on:
+  pull_request:
+    paths:
+      - 'registry/jarvis_completion_pass_registry_v2.json'
+      - 'registry/jarvis_unblocked_completion_runtime_v1.json'
+      - 'registry/trackers/all_progress_tracker_reconciliation_v2.json'
+      - 'scripts/verify_all_progress_tracker_reconciliation_v2.py'
+      - '.github/workflows/all-progress-tracker-reconciliation-v2.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate JSON
+        run: |
+          python -m json.tool registry/jarvis_completion_pass_registry_v2.json >/dev/null
+          python -m json.tool registry/jarvis_unblocked_completion_runtime_v1.json >/dev/null
+          python -m json.tool registry/trackers/all_progress_tracker_reconciliation_v2.json >/dev/null
+      - name: Verify reconciliation
+        run: python scripts/verify_all_progress_tracker_reconciliation_v2.py
