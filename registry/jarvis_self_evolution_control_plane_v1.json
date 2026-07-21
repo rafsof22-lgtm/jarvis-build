@@ -1,0 +1,64 @@
+{
+  "registry_id": "JARVIS-SELF-EVOLUTION-CONTROL-PLANE-V1",
+  "version": "1.0.0",
+  "snapshot_date": "2026-07-21",
+  "owner": "JARVIS_OWNER",
+  "program_state": "IMPLEMENTED_NOT_INTEGRATED",
+  "purpose": "One governed editable-object, self-coding, self-repair, manual-override, voice/chat and popup-assistant control plane.",
+  "editable_object_types": [
+    "framework", "spec", "workflow", "stack", "architecture", "orchestrator",
+    "skill", "agent", "prompt", "instruction", "policy", "schema", "model_route",
+    "tool", "integration", "connector", "ui", "test", "deployment_profile",
+    "memory_policy", "source", "module", "service", "sop", "ojt"
+  ],
+  "automation_modes": ["MANUAL_ONLY", "RECOMMEND", "AUTO_REVERSIBLE", "GATED_EXECUTION"],
+  "change_protocol": [
+    "OBSERVE", "DETECT", "CLASSIFY", "CONTAIN", "DIAGNOSE", "PROPOSE", "DIFF",
+    "SIMULATE", "TEST", "SECURITY_REVIEW", "APPROVAL", "CANARY", "OBSERVE_RESULT",
+    "PROMOTE_OR_ROLLBACK"
+  ],
+  "unified_assistant": {
+    "component": "JARVIS_POP_UNIFIED_ASSISTANT_V1",
+    "channels": ["text", "voice", "multimodal"],
+    "required_panels": [
+      "chat", "voice_transcript", "llm_selector", "object_browser", "context_and_evidence",
+      "diff_preview", "approval_queue", "activity_timeline", "tests_and_health", "rollback_history"
+    ],
+    "model_routes": ["deterministic", "local", "free-first", "manual"],
+    "voice_and_text_same_policy": true,
+    "voice_is_authorization": false,
+    "production_button": "DISABLED_UNTIL_RELEASE_GATE",
+    "money_movement": "DISABLED",
+    "live_trading": "DISABLED"
+  },
+  "manual_override": {
+    "capabilities": ["pause", "reject", "approve", "select_alternative", "request_more_tests", "change_model_route", "rollback"],
+    "cannot_bypass": ["law", "security", "secrets", "production_release", "financial", "health", "destructive", "evidence"]
+  },
+  "implementation": {
+    "runtime": "src/jarvis_evolution/control_plane_v1.py",
+    "package": "src/jarvis_evolution/__init__.py",
+    "tests": "tests/test_jarvis_self_evolution_v1.py",
+    "reference": "skills/jarvis-sovereign-builder/references/self-evolution-and-unified-assistant.md",
+    "documentation": "docs/jarvis-self-evolution-and-unified-assistant-v1.md",
+    "verifier": "scripts/verify_jarvis_self_evolution_v1.py",
+    "workflow": ".github/workflows/jarvis-self-evolution-control-plane-v1.yml"
+  },
+  "skill_package_evidence": {
+    "artifact": "artifacts/jarvis-sovereign-builder/skill.zip",
+    "source_files": 25,
+    "zip_bytes": 45265,
+    "source_sha256": "31af795649d2b45b3617af3c6d6493b4b8fd6831c09ffeeaef5350474a7887a6",
+    "generated_by": "Package Jarvis Skill workflow",
+    "values_exposed": false
+  },
+  "acceptance": {
+    "test_methods": 11,
+    "direct_production_self_modification": false,
+    "source_100_percent_without_denominator": false,
+    "builder_self_certification": false,
+    "rollback_required": true,
+    "audit_required": true
+  },
+  "truth_boundary": "DONE_VERIFIED may apply only to the local editable-object, reversible staging, assistant contract, source truth gate and deterministic test scope after CI. Live microphones, provider LLMs, connected repositories, deployment and universal historical coverage remain separate gates."
+}

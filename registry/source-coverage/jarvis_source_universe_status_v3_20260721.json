@@ -1,0 +1,37 @@
+{
+  "coverage_id": "JARVIS-SOURCE-UNIVERSE-STATUS-V3-20260721",
+  "snapshot_date": "2026-07-21",
+  "baseline_main_sha": "96abba65904e478314593dd63b2c90954c09289b",
+  "universal_100_percent_allowed": false,
+  "known_sources": [
+    {"source_id":"current-chat","title":"Current visible Jarvis conversation","state":"AVAILABLE","pointer":"chat:current"},
+    {"source_id":"jarvis-build-main","title":"Canonical jarvis-build repository","state":"AVAILABLE","pointer":"github:rafsof22-lgtm/jarvis-build@96abba65904e478314593dd63b2c90954c09289b"},
+    {"source_id":"accessible-repositories","title":"Five currently accessible GitHub repositories and source-level federation contracts","state":"AVAILABLE","pointer":"registry:environment-completion"},
+    {"source_id":"chathub-source-pack","title":"Measured ChatHub instruction source pack","state":"AVAILABLE","pointer":"file-library:Chathub INst Prmpt.txt"},
+    {"source_id":"folder0-partial","title":"Partial historical Jarvis workspace stream","state":"AVAILABLE","pointer":"file-library:folder0_partial.raw"},
+    {"source_id":"historical-master-spec","title":"Historical master specification and completion reports","state":"AVAILABLE","pointer":"file-library:MASTER_SPEC_20260419_192720.txt"},
+    {"source_id":"health-bounded-capture","title":"Bounded Health and Spooky2 derived capture","state":"AVAILABLE","pointer":"registry:health-source-denominator"},
+    {"source_id":"xrp-hbar-batch-002","title":"Bounded XRP HBAR reconciliation batch 002","state":"AVAILABLE","pointer":"registry:xrp-hbar-batch-002"},
+    {"source_id":"chatgpt-export-may","title":"ChatGPT export 2026-05-12","state":"PENDING_INGEST","pointer":"expected:chatgpt-export-2026-05-12T11-43-26.7z"},
+    {"source_id":"chatgpt-export-june","title":"ChatGPT export 2026-06-12","state":"PENDING_INGEST","pointer":"expected:chatgpt-export-2026-06-12T06-47-34.7z"},
+    {"source_id":"jarvis-start-pack-v9","title":"Jarvis start prompt pack v9","state":"PENDING_INGEST","pointer":"expected:JARVIS_START_HERE_PROMPT_PACK_2026-02-15_v9.zip"},
+    {"source_id":"requirements-workbook","title":"Historical workbook claiming 5,407 unique requirements","state":"PENDING_INGEST","pointer":"expected:historical-requirements-workbook"},
+    {"source_id":"complete-original-workspace","title":"Complete original Jarvis workspace beyond partial stream","state":"BLOCKED_BY_ACCESS","pointer":"expected:complete-original-workspace","reason":"Only partial historical bytes are available."},
+    {"source_id":"unseen-project-chats","title":"Project chats and attachments not visible or exported in the authorised source universe","state":"BLOCKED_BY_ACCESS","pointer":"chatgpt:unavailable-project-content","reason":"No supported access to unseen or non-exported chats."},
+    {"source_id":"opaque-nested-archives","title":"Opaque or unparsed nested archives and image-only items","state":"PENDING_INGEST","pointer":"source-ledger:opaque-items"},
+    {"source_id":"live-provider-state","title":"Provider consoles, vault values, connected staging and production runtime evidence","state":"BLOCKED_BY_ACCESS","pointer":"providers:external","reason":"Requires provider-admin access, protected credentials and owner approvals."}
+  ],
+  "captured_scope": [
+    "Current visible requests and assistant outcomes",
+    "Canonical GitHub history and verified merged artifacts",
+    "Measured supplied source packs and bounded reconstruction batches",
+    "Historical source claims preserved with conflict and proof labels"
+  ],
+  "not_captured_or_not_proven": [
+    "Every ChatGPT account chat, project and attachment",
+    "Every original historical archive byte",
+    "Every provider console and production configuration",
+    "Universal requirement-to-runtime completion and owner acceptance"
+  ],
+  "truth_boundary": "Jarvis is consolidated across the verified available source universe, not across all possible historical or hidden sources. Missing material remains explicitly pending or blocked."
+}
