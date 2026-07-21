@@ -2,7 +2,7 @@
 
 **Snapshot:** 2026-07-21  
 **Canonical repository:** `rafsof22-lgtm/jarvis-build`  
-**Baseline main commit:** `e7f89ff02374e2783e33ddb173b0751250e6912a`  
+**Baseline main commit:** `2826eb488fc52468ef69d166b772af238bee3eed`  
 **State:** `ACTIVE_PROGRAM_NOT_100_PERCENT`
 
 ## Mandatory resume protocol
@@ -23,6 +23,21 @@
 | Knowledge Fabric predeployment controls | `MERGED_VERIFIED` |
 | Initial source intake SOP/OJT | `MERGED_VERIFIED` |
 | Knowledge operator SOP/OJT | `MERGED_VERIFIED` |
+| Exact canonical Jarvis/RAF213G constitution | `FOUND_ON_MAIN_VERIFIED` |
+| Project constitution and continuity startup verifier | `MERGED_VERIFIED` |
+| GitHub repository capability scout | `MERGED_VERIFIED_REPOSITORY_SCOPE` |
+
+## Current review tranche
+
+Branch: `jarvis/completion-tranche-2026-07-21`
+
+| Item | State | Artifact |
+|---|---|---|
+| Canonical-constitution blocker correction | `IMPLEMENTED_PENDING_CI_AND_MERGE` | `registry/decisions/constitution_recovery_resolution_v1.json` |
+| Master Source Universe Controller module instructions | `IMPLEMENTED_PENDING_CI_AND_MERGE` | `docs/module-instructions/master-source-universe-controller.md` |
+| Six screenshot repository/tool candidates | `REGISTERED_NOT_INSTALLED_PENDING_CI_AND_MERGE` | `registry/repository-intake/screenshot_repo_intake_2026_07_21.json` |
+| Nine-family accessible tracker consolidation | `IMPLEMENTED_PENDING_CI_AND_MERGE` | `registry/trackers/all_accessible_tracker_consolidation_v1.json` |
+| Deterministic completion-tranche validator | `IMPLEMENTED_PENDING_CI_AND_MERGE` | `scripts/verify_completion_tranche_2026_07_21.py` |
 
 ## Critical queue
 
@@ -46,8 +61,8 @@
 | P2-3 | XRP/HBAR historical reconciliation batch 002 | `NOT_STARTED_VERIFIED` | process dated source batch with conflicts and probability history |
 | P2-4 | Health/Spooky2 exact source reconstruction | `PARTIAL` | evidence tiers, permission separation, hashes and safety boundaries |
 | P2-5 | Universal intelligence/opportunity fabric | `OPEN` | source acquisition, evidence ranking, model routing and cost registry |
-| P2-6 | Shared-core specialist workstreams | `OPEN` | knowledge, data, model lab, automation, security, UX and compliance |
-| P3-1 | Operating-domain specialist workstreams | `OPEN` | revenue, property, VTI, Fast 8 Auto, Family Office and communications |
+| P2-6 | Shared-core specialist workstreams | `OPEN` | knowledge, data, model lab, automation, security, UX and compliance workstreams |
+| P3-1 | Operating-domain specialist workstreams | `OPEN` | revenue, property, VTI, Fast 8 Auto, Family Office and communications workstreams |
 | P3-2 | AI CFO/Xero operating system | `SPECIFICATION_STAGE` | isolated service, OAuth map, read-only/sandbox controls and audit evidence |
 | P3-3 | XRP/HBAR–CFO integration | `ARCHITECTURE_STAGE` | evidence graph, scenarios, suitability/conflict review and approvals |
 | P3-4 | Trading research and paper factory | `SPECIFICATION_STAGE` | data, backtesting, paper execution, risk, kill switch and evidence |
