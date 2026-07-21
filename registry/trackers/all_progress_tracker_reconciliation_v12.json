@@ -1,0 +1,44 @@
+{
+  "id": "JARVIS-ALL-PROGRESS-TRACKER-RECONCILIATION-V12",
+  "version": "12.0.0",
+  "snapshot_date": "2026-07-21",
+  "program_state": "ACTIVE_PROGRAM_NOT_100_PERCENT",
+  "baseline_main": "073020bac3a6e737613b521abec609cf873e1dcc",
+  "supersedes_for_current_execution": "registry/trackers/all_progress_tracker_reconciliation_v11.json",
+  "preservation_rule": "v11 remains historical evidence and is not overwritten",
+  "new_verified_bounded_completions": [
+    {"work_id":"CHATGPT-EXPORT-2026-06-25-EXTRACTION-DENOMINATOR","state":"DONE_VERIFIED","evidence":["registry/sources/chatgpt_export_2026_06_25_denominator_v1.json"],"scope":"2,610 conversations, 357,835 messages and zero parse errors; raw content not committed."},
+    {"work_id":"REQUESTED-TEN-PROJECT-DENOMINATOR","state":"DONE_VERIFIED","evidence":["registry/sources/chatgpt_export_2026_06_25_denominator_v1.json"],"scope":"10 project IDs, 430 conversations and 123,175 messages identified."},
+    {"work_id":"UPLOADED-SOURCE-UNIVERSE-MANIFEST","state":"DONE_VERIFIED","evidence":["registry/sources/uploaded_source_universe_2026_07_21_v1.json"],"scope":"51 top-level files hashed and 11 compatible containers listed."},
+    {"work_id":"FULL-COMPLETION-ATTACK-PLAN-V1","state":"DONE_VERIFIED","evidence":["docs/plans/JARVIS_FULL_COMPLETION_ATTACK_PLAN_2026_07_21.md"],"scope":"Dependency-ordered P0-P6 plan with evidence and approval gates."}
+  ],
+  "phases": [
+    {"phase":"P0","name":"Owner/provider gates","state":"BLOCKED_EXTERNALLY"},
+    {"phase":"P1","name":"Connected platform and Command Centre integration","state":"IMPLEMENTED_NOT_INTEGRATED"},
+    {"phase":"P2","name":"Source reconstruction and canonical spec lock","state":"ACTIVE"},
+    {"phase":"P3","name":"Domain factories","state":"PARTIAL_OR_BACKLOGGED"},
+    {"phase":"P4","name":"Cross-module staging and E2E proof","state":"BACKLOGGED"},
+    {"phase":"P5","name":"Controlled production promotion","state":"BLOCKED_OWNER_APPROVAL"},
+    {"phase":"P6","name":"Final reconciliation and owner acceptance","state":"BACKLOGGED"}
+  ],
+  "domain_batch_queue": [
+    {"order":1,"project":"Cost + $1 Auto Parts","conversations":15,"messages":14654},
+    {"order":2,"project":"XRP Tracking New","conversations":83,"messages":32239},
+    {"order":3,"project":"Health Optimisation","conversations":106,"messages":22051},
+    {"order":4,"project":"Spooky2","conversations":36,"messages":2908},
+    {"order":5,"project":"Longevity Plan","conversations":6,"messages":2614},
+    {"order":6,"project":"Tax","conversations":8,"messages":8672},
+    {"order":7,"project":"Active Trust","conversations":17,"messages":11478},
+    {"order":8,"project":"Psychologist","conversations":15,"messages":2368},
+    {"order":9,"project":"Finance Planning","conversations":132,"messages":17356},
+    {"order":10,"project":"Financial New","conversations":12,"messages":8835}
+  ],
+  "corrections": [
+    "The exact June 2026 ChatGPT export is no longer missing; it is extracted, hashed and denominator-verified.",
+    "The v11 visible-context reconstruction remains valid historical bounded evidence but is not the complete-export denominator.",
+    "Historical universal completion, zero-gap, deployment and guaranteed-profit statements remain unverified until the constitutional proof chain passes."
+  ],
+  "remaining_external_blockers": ["DigitalOcean Recovery Console","provider token rotation","Railway Health domain and secret references","Apps Script and Sheets webhook","fresh Hub workflow dispatch","protected Cobalt host","VTI-Hub staging signing configuration","live provider panel","authenticated Command Centre staging","production promotion and owner acceptance"],
+  "next_safe_openloop": "Process Cost + $1 Auto Parts as the first bounded project batch, then reconcile shared requirements across the other nine projects without merging private business, health, tax, trust, finance or psychology data scopes.",
+  "completion_assertion": "Accessible export and uploaded-source denominators are verified. Requirement-level reconstruction, build reconciliation, connected staging, production and owner acceptance remain incomplete."
+}
