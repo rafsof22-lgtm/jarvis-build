@@ -1,0 +1,23 @@
+{
+  "non_duplication_rule": "Map requirements to existing owners; do not create a second competing framework when an owner already exists.",
+  "routes": [
+    {"applicable_scope":"orchestration, approvals, audit, continuity","module":"control_plane","repository":"jarvis-build","state":"MAPPED_FOR_DELTA_REVIEW"},
+    {"applicable_scope":"RAG, structured memory, provenance, source indexing","module":"knowledge_fabric","repository":"jarvis-build","state":"MAPPED_FOR_DELTA_REVIEW"},
+    {"applicable_scope":"ChatHub panel intake, direct-provider routing, local/free-first models","module":"model_router","repository":"jarvis-build","state":"MAPPED_FOR_DELTA_REVIEW"},
+    {"applicable_scope":"CFO analysis, valuation, risk-adjusted decision support","module":"finance_cfo","repository":"jarvis-build","state":"MAPPED_FOR_DELTA_REVIEW"},
+    {"applicable_scope":"backtests, paper trading, risk gates, kill switch","module":"trading_research","repository":"jarvis-build","state":"MAPPED_FOR_DELTA_REVIEW"},
+    {"applicable_scope":"jurisdiction-tagged research and professional escalation","module":"legal_tax","repository":"jarvis-build","state":"MAPPED_FOR_DELTA_REVIEW"},
+    {"applicable_scope":"evidence grading, contraindications, practitioner escalation","module":"health","repository":"Jarvis-Health","state":"MAPPED_FOR_DELTA_REVIEW"},
+    {"applicable_scope":"digital products, content workflows, measurable unit economics","module":"digital_income","repository":"jarvis-build","state":"MAPPED_FOR_DELTA_REVIEW"},
+    {"applicable_scope":"lawful Apollo export, dedupe, privacy and outreach gates","module":"apollo_property","repository":"property-agent-mcp","state":"MAPPED_FOR_DELTA_REVIEW"},
+    {"applicable_scope":"video/transcript source intake and evidence packs","module":"video_intelligence","repository":"videotranscribe","state":"MAPPED_FOR_DELTA_REVIEW"},
+    {"applicable_scope":"n8n/workflow integration, queues and adapters","module":"automation","repository":"hub","state":"MAPPED_FOR_DELTA_REVIEW"},
+    {"applicable_scope":"secrets, IAM, backup, restore, observability","module":"security_operations","repository":"jarvis-build","state":"MAPPED_FOR_DELTA_REVIEW"},
+    {"applicable_scope":"plain-language status, approval packets and progress cards","module":"ux_command_centre","repository":"jarvis-build","state":"MAPPED_FOR_DELTA_REVIEW"},
+    {"applicable_scope":"GitHub/open-source discovery, licence/security quarantine","module":"capability_scout","repository":"jarvis-build","state":"MAPPED_FOR_DELTA_REVIEW"}
+  ],
+  "schema_version": "1.0.0",
+  "source_pointer": "chat-upload:file_00000000552481fb8dc25dc3483d34fc",
+  "status": "ROUTED_NOT_FULLY_IMPLEMENTED",
+  "truth_boundary": "Mapping proves applicability, not runtime completion. Each routed item still requires a delta, implementation, test and evidence chain."
+}
