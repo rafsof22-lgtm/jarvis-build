@@ -1,0 +1,65 @@
+{
+  "id": "JARVIS-LOCAL-RESILIENCE-FEDERATION-V1",
+  "version": "1.0.0",
+  "date": "2026-07-21",
+  "baseline_main_sha": "34be1ecb98c01c846ddd89517830a507f35e37fc",
+  "program_state": "ACTIVE_PROGRAM_NOT_100_PERCENT",
+  "scope": "Complete NOW-01, NOW-02, NOW-03, NOW-04 and NOW-06 for dependency-free deterministic local scope.",
+  "work_packages": [
+    {
+      "work_id": "NOW-01",
+      "name": "Knowledge Fabric resilience",
+      "status": "DONE_VERIFIED",
+      "completion_scope": "FILE_BACKED_SQLITE_LOCAL_SCOPE",
+      "artifacts": ["src/jarvis_completion/resilience_v1.py"],
+      "proof": ["atomic SQLite backup API", "SHA-256 manifest", "integrity check", "schema-version gate", "atomic restore", "retention enforcement"]
+    },
+    {
+      "work_id": "NOW-02",
+      "name": "Durable local integration queue",
+      "status": "DONE_VERIFIED",
+      "completion_scope": "SQLITE_LOCAL_QUEUE_SCOPE",
+      "artifacts": ["src/jarvis_completion/resilience_v1.py"],
+      "proof": ["persistent jobs", "idempotent enqueue", "leases", "stale lease recovery", "bounded retries", "dead-letter quarantine", "approved replay", "event ledger"]
+    },
+    {
+      "work_id": "NOW-03",
+      "name": "Deterministic federation exercises",
+      "status": "DONE_VERIFIED",
+      "completion_scope": "LOCAL_SIMULATION_SCOPE",
+      "artifacts": ["src/jarvis_completion/resilience_v1.py"],
+      "proof": ["policy preflight", "domain queue execution", "audit evidence", "duplicate suppression", "retry and outage injection", "dead letter", "controlled replay", "approval fail-closed"]
+    },
+    {
+      "work_id": "NOW-04",
+      "name": "Command Centre operator pack",
+      "status": "DONE_VERIFIED",
+      "completion_scope": "LOCAL_OPERATOR_CONTRACT_SCOPE",
+      "artifacts": ["src/jarvis_completion/resilience_v1.py"],
+      "proof": ["traffic-light state", "Knowledge Fabric status", "queue status", "exercise evidence", "blocker cards", "truthful disabled high-risk actions"]
+    },
+    {
+      "work_id": "NOW-06",
+      "name": "Repository release and continuity pack",
+      "status": "DONE_VERIFIED",
+      "completion_scope": "DETERMINISTIC_REPOSITORY_PACK_GENERATOR_SCOPE",
+      "artifacts": ["src/jarvis_completion/resilience_v1.py"],
+      "proof": ["artifact hashes", "test index", "risk list", "gap list", "rollback", "resume instruction", "truth boundary"]
+    }
+  ],
+  "tests": {
+    "suite": "tests.test_jarvis_resilience_federation_v1",
+    "expected_test_methods": 9,
+    "required_checks": ["compile", "unit tests", "JSON validation", "full-history security scan", "repository-wide CI"]
+  },
+  "remaining_hard_gates": [
+    "missing historical source bytes",
+    "connected Postgres, queue and n8n staging",
+    "provider consoles and protected credentials",
+    "public and production deployment",
+    "live finance, billing, trading or money movement",
+    "owner acceptance"
+  ],
+  "rollback": "Revert the tranche merge. The new module, tests, workflow and registry are isolated and do not alter existing production paths.",
+  "truth_boundary": "DONE_VERIFIED applies only to the explicitly named local, deterministic and repository generator scopes. It does not prove connected staging, production or whole-program completion."
+}
