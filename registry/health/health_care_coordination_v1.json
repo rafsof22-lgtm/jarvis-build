@@ -1,0 +1,12 @@
+{
+  "registry_id":"JARVIS-HEALTH-CARE-COORDINATION-V1",
+  "schema_version":"1.0.0",
+  "snapshot_date":"2026-07-21",
+  "status":"DONE_VERIFIED_LOCAL",
+  "runtime_path":"src/jarvis_health/care_coordination_v1.py",
+  "components":["pseudonymous restricted-health subject registry","scope-specific consent lifecycle","hash-only diagnostic source records","medication/supplement regimen references","default-blocked device inventory","official-source provider freshness records","evidence/review-gated intervention records","hash-and-pointer-only high-risk claim queue","privacy-safe clinician review packet summary"],
+  "controls":{"raw_medical_values_persisted":false,"direct_identifiers_allowed":false,"active_consent_required":true,"device_control_default":"BLOCKED","unreviewed_intervention_execution":false,"professional_decision_required":true},
+  "test_evidence":{"deterministic_tests":23,"path":"tests/test_health_care_coordination_v1.py"},
+  "release_state":"LOCAL_ONLY_SYNTHETIC_FIXTURES",
+  "truth_boundary":"This is a local pseudonymous data-contract and workflow foundation. It is not connected to real health data, a clinician portal, a device or production."
+}

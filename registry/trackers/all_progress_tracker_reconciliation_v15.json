@@ -1,0 +1,23 @@
+{
+  "id":"JARVIS-ALL-PROGRESS-TRACKER-RECONCILIATION-V15",
+  "version":"15.0.0",
+  "snapshot_date":"2026-07-21",
+  "baseline_main":"3f0ffdda9dd54dd776e10d4f89ea78cc053bfd5b",
+  "supersedes_tracker":"registry/trackers/all_progress_tracker_reconciliation_v14.json",
+  "program_state":"ACTIVE_PROGRAM_NOT_100_PERCENT",
+  "resolved_this_pass":[
+    {"work_id":"HEALTH-PSEUDONYMOUS-PROFILE-STORE","state":"DONE_VERIFIED_LOCAL","scope":"Restricted-health pseudonymous subjects with no direct identifier columns.","evidence":["src/jarvis_health/care_coordination_v1.py","tests/test_health_care_coordination_v1.py"]},
+    {"work_id":"HEALTH-CONSENT-LIFECYCLE","state":"DONE_VERIFIED_LOCAL","scope":"Scope-specific granted, withdrawn, expired and pending consent states gate protected records.","evidence":["src/jarvis_health/care_coordination_v1.py"]},
+    {"work_id":"HEALTH-CARE-RECORD-SCHEMAS","state":"DONE_VERIFIED_LOCAL","scope":"Diagnostic-source, regimen, device, provider and intervention records use references and hashes rather than raw medical bodies.","evidence":["registry/health/health_care_coordination_v1.json"]},
+    {"work_id":"HEALTH-HIGH-RISK-CLAIM-QUEUE","state":"DONE_VERIFIED_LOCAL","scope":"Deduplicated queue stores claim hashes, pointers, risk classes and priority only.","evidence":["src/jarvis_health/care_coordination_v1.py"]},
+    {"work_id":"HEALTH-REVIEW-PACKET-FOUNDATION","state":"DONE_VERIFIED_LOCAL","scope":"Packet reports consent and record counts without raw medical values and requires professional decision.","evidence":["src/jarvis_health/care_coordination_v1.py"]}
+  ],
+  "health_current_states":{"source_reconstruction":"DONE_VERIFIED_BOUNDED","evidence_gate":"DONE_VERIFIED_LOCAL","pseudonymous_care_store":"DONE_VERIFIED_LOCAL","consent_lifecycle":"DONE_VERIFIED_LOCAL","claim_review_queue":"DONE_VERIFIED_LOCAL","connected_health_data":"NOT_CONNECTED","clinician_portal":"NOT_CONNECTED","device_control":"BLOCKED","staging":"NOT_CONNECTED","production":"NOT_AUTHORISED"},
+  "next_open_loops":[
+    {"priority":"P1","safe_now":true,"task":"Generate a bounded hash/pointer claim queue manifest from the v14 safety categories without raw claim text."},
+    {"priority":"P1","safe_now":true,"task":"Build synthetic end-to-end care coordination exercises covering consent withdrawal, diagnostic import, regimen review, device blocking and clinician packet generation."},
+    {"priority":"P1","safe_now":true,"task":"Resume Cost profile schemas and synthetic order-to-billing workflow preserved from v13/v14."},
+    {"priority":"P2","safe_now":false,"task":"Connect real health data or clinician review.","blocker":"Requires explicit consent, privacy/security approval, scoped credentials and professional participation."}
+  ],
+  "truth_boundary":"Local synthetic-fixture care coordination advanced. No real patient data, clinical validation, connected staging, device operation or production is claimed."
+}
