@@ -1,0 +1,40 @@
+name: Completion Tranche V17
+
+on:
+  pull_request:
+    paths:
+      - 'jarvis_command_centre/full_stack_v17.py'
+      - 'src/jarvis_health/synthetic_care_journeys_v17.py'
+      - 'src/jarvis_business/cost_plus_profiles_v3.py'
+      - 'src/jarvis_staging/full_stack_digital_twin_v17.py'
+      - 'registry/**v17*.json'
+      - 'scripts/build_health_claim_review_manifest_v17.py'
+      - 'scripts/verify_completion_tranche_v17.py'
+      - 'tests/test_v17_workstreams.py'
+      - 'PROJECT_CONTINUITY.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-v17:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile V17 runtime
+        run: |
+          python -m py_compile \
+            jarvis_command_centre/full_stack_v17.py \
+            src/jarvis_health/synthetic_care_journeys_v17.py \
+            src/jarvis_business/cost_plus_profiles_v3.py \
+            src/jarvis_staging/full_stack_digital_twin_v17.py \
+            scripts/build_health_claim_review_manifest_v17.py \
+            scripts/verify_completion_tranche_v17.py
+      - name: Run V17 deterministic tests
+        run: python -m unittest tests.test_v17_workstreams -v
+      - name: Verify V17 evidence and truth boundaries
+        run: python scripts/verify_completion_tranche_v17.py
