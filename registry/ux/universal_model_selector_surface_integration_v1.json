@@ -1,0 +1,25 @@
+{
+  "registry_id": "JARVIS-UNIVERSAL-MODEL-SELECTOR-SURFACE-INTEGRATION-V1",
+  "version": "1.0.0",
+  "snapshot_date": "2026-07-21",
+  "status": "INTEGRATED_STAGING",
+  "component": "JARVIS_SHARED_MODEL_CONTROL_V1",
+  "surfaces": [
+    "jarvis_pop", "command_centre", "framework_editor", "spec_editor", "workflow_builder",
+    "stack_and_architecture_editor", "orchestrator_editor", "skill_editor", "agent_editor",
+    "prompt_library", "source_analyst", "test_and_evaluation_console", "deployment_wizard"
+  ],
+  "shared_capabilities": [
+    "view all connected concrete models", "manual selection", "automatic best-fit selection",
+    "parallel thinking with two to eight models", "view every raw response",
+    "view consolidated response", "claim and evidence matrix", "contradiction and omission registers",
+    "stop and cancel", "policy-gated retry", "owner-gated manual override"
+  ],
+  "protected_controls": [
+    "owner authority", "security baseline", "credential values", "autonomy ceiling",
+    "approval bypass", "production promotion", "billing", "public exposure", "destructive actions"
+  ],
+  "main_command_centre_version": "1.3.0",
+  "api_routes": ["/api/v1/model-control", "/api/v1/editor-surfaces", "/api/v1/progress-tracker"],
+  "truth_boundary": "The shared component is integrated into local Command Centre and editor payload contracts. Separate front-end applications and live provider environments still require connected staging evidence."
+}
