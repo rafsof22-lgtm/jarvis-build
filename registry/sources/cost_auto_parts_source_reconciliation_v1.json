@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "source_batch_id": "COST-AUTO-PARTS-SOURCE-RECONCILIATION-V1",
+  "snapshot_date": "2026-07-21",
+  "program_state": "ACTIVE_PROGRAM_NOT_100_PERCENT",
+  "exact_project_export": {
+    "project_id": "g-p-67ff22c1d23c819199900d68d0228556",
+    "conversation_envelope_count": 15,
+    "top_level_project_conversation_count": 14,
+    "mixed_lineage_conversation_count": 1,
+    "conversation_envelope_message_count": 14654,
+    "top_level_project_conversation_message_count": 14602,
+    "message_metadata_tagged_count": 3804,
+    "message_metadata_tagged_role_counts": {"assistant": 3770, "tool": 34},
+    "mapping_node_count": 14669,
+    "role_counts_for_all_envelope_messages": {"assistant": 7679, "system": 961, "tool": 4510, "user": 1504},
+    "content_type_counts": {"text": 6262, "code": 2819, "thoughts": 2679, "execution_output": 1439, "multimodal_text": 519, "reasoning_recap": 450, "tether_browsing_display": 315, "model_editable_context": 67, "tether_quote": 43, "system_error": 29, "user_editable_context": 19, "computer_output": 12, "citable_code_output": 1},
+    "status_counts": {"finished_successfully": 14519, "in_progress": 135},
+    "parse_errors": 0,
+    "duplicate_content_hash_groups": 402,
+    "duplicate_occurrences_beyond_first": 4547,
+    "attachment_like_counts": {"asset_pointer": 27, "part_content_type": 27},
+    "raw_chat_bodies_committed": false,
+    "privacy_class": "CONFIDENTIAL_BUSINESS_SOURCE",
+    "state": "MESSAGE_LEVEL_DENOMINATOR_VERIFIED_REQUIREMENT_SEMANTICS_PARTIAL",
+    "conversation_index_sha256": "07d9f8b42e4b22ec5788a9ee1f9af64421dc4228f546f5d2720f5c04cbd1ee52",
+    "conversation_index_count": 15,
+    "conversation_titles_committed": false
+  },
+  "uploaded_sources": [
+    {"name": "COST AUTO PARTS FINAL.docx", "bytes": 38241, "sha256": "66f50caa0965a5a8532773e0c30f32f40ccb5bfa007928404799901deb6ab9a2", "relationship": "EXACT_DUPLICATE_OF_HANDOFF_MEMBER", "state": "READY"},
+    {"name": "COST AUTO PARTS FINAL1.docx", "bytes": 107784, "sha256": "3651efc76299fd6b962e611b20b751e4dc2b4135dedbd45c7c2f2e41c9cead40", "relationship": "EXACT_DUPLICATE_OF_HANDOFF_MEMBER", "state": "READY"},
+    {"name": "JARVIS_COST_AUTO_PARTS_MODULE_HANDOFF_v2_NO_CHATGPT_EXPORT.zip", "bytes": 62530742, "sha256": "8197723c73a6801d83cb5a8944acfc1f2e5fdc7c651ac5ccef108fa2591b08d5", "members": 50, "unsafe_paths": 0, "state": "SAFE_LISTED_AND_SELECTED_REGISTRIES_PARSED"},
+    {"name": "Chathub Health.txt", "sha256": "2c1513e3d846055eabe0df8fd025f36251b1586201cc3b3f639d159841a97405", "relationship": "EXACT_DUPLICATE_ALIAS_OF_MERGED_CHATHUB_V3", "state": "DUPLICATE_WITH_LINEAGE"},
+    {"name": "Chathub INst Prmpt.txt", "sha256": "7073bfef49bedca84df4097bbd3b6eafff2399b1a86c66bb0349ffaec7c81d74", "relationship": "EXACT_DUPLICATE_ALIAS_OF_MERGED_CHATHUB_V3", "state": "DUPLICATE_WITH_LINEAGE"},
+    {"name": "ChathubApolloSearch.txt", "sha256": "65d52194d8bde549abd90562e8bf0ea464a3df39a32d61325f8798617e353c65", "relationship": "EXACT_DUPLICATE_ALIAS_OF_MERGED_CHATHUB_V3", "state": "DUPLICATE_WITH_LINEAGE"},
+    {"name": "ChatHubINstrPrompt.sql", "bytes": 7361, "sha256": "832fc9c77c6fd980c0696de105d9875a8d7cb5974461f34aae7a9847f48de3ae", "source_type": "PROMPT_TEMPLATE_NOT_SQL", "state": "REFERENCE_ONLY_PENDING_DELTA_REVIEW", "activation": "DENIED_AUTOMATIC", "reason": "Contains impossible universal capture and word-count guarantees; preserve as source, do not activate as canonical policy."}
+  ],
+  "handoff_internal_counts": {"requirements": 18, "module_feature_rows": 12, "agent_rows": 7, "skill_rows": 5, "toolplan_rows": 12, "integration_rows": 9, "workflow_rows": 7, "conflicts": 3, "old_gaps": 14, "wfw_conversation_rows": 0, "wfw_user_rows": 0, "wfw_assistant_rows": 0},
+  "document_version_relationship": {"FINAL_word_count": 3838, "FINAL1_word_count": 13508, "text_similarity_ratio": 0.260698881685994, "decision": "PRESERVE_BOTH_AS_DISTINCT_VERSIONS", "reason": "FINAL1 is substantially expanded; neither silently replaces the other."},
+  "internal_conflicts": [
+    {"conflict_id": "COST-HANDOFF-CF-001", "topic": "Curated chat ledger completeness", "claim_a": "Proof label says CURATED_WFW_LEDGER_COMPLETE_FOR_84_CHAT_SET", "claim_b": "Final audit and all WFW CSVs contain zero conversations/messages", "resolution": "ZERO_ROW_LEDGER_CONTROLS_CURRENT_PROOF", "state": "CONFLICT_REVIEW"},
+    {"conflict_id": "COST-HANDOFF-CF-002", "topic": "Repository availability", "claim_a": "Handoff says latest Jarvis repository/runtime not located", "claim_b": "Current GitHub main contains PR #72 framework and PR #73 executable local runtime", "resolution": "CURRENT_MERGED_GITHUB_TRUTH_SUPERSEDES_OLD_GAP", "state": "RESOLVED_CURRENT_SOURCE"},
+    {"conflict_id": "CF-001", "topic": "Trade pricing", "variant_a": "20% monthly/service margin fee", "variant_b": "Cost + $1 or variable 5-20% markup references", "resolution": "OPEN_DECISION", "risk": "Financial model inconsistency"},
+    {"conflict_id": "CF-002", "topic": "Software core", "variant_a": "Fishbowl/HubSpot/Xero stack", "variant_b": "Odoo/custom OMS with Xero ledger", "resolution": "OPEN_DECISION", "risk": "Architecture and migration cost"},
+    {"conflict_id": "CF-003", "topic": "Locker geometry", "variant_a": "Earlier 30-locker trolley references", "variant_b": "Later correction: 20 lockers per side trolley, 40 per vehicle plus centre trolley", "resolution": "LATEST_USER_CORRECTION_PREVAILS", "risk": "Physical design errors"}
+  ],
+  "truth_boundary": "Exact source bytes and message-level denominator are verified for the accessible batch. Full semantic requirement extraction, nested archive semantics, connected staging and production remain incomplete."
+}
