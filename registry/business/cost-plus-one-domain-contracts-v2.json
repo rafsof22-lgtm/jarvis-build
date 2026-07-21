@@ -1,0 +1,42 @@
+{
+  "schema_version": "2.0.0",
+  "contract_id": "COST-PLUS-ONE-DOMAIN-CONTRACTS-V2",
+  "snapshot_date": "2026-07-21",
+  "status": "IMPLEMENTED_NOT_INTEGRATED",
+  "architecture_decision": {
+    "canonical_operational_core": "Jarvis-owned custom automotive domain core",
+    "odoo_role": "Optional adapter for commodity ERP capabilities after sandbox comparison and licence/cost review",
+    "xero_role": "Accounting ledger and approved export boundary; never the canonical order, fitment or logistics source",
+    "rollback": "Disable adapters and retain the deterministic local domain core and event ledger"
+  },
+  "latest_physical_rule": {
+    "side_trolley_lockers_per_side": 20,
+    "side_lockers_per_vehicle": 40,
+    "centre_trolley": "present_but_capacity_not_engineering_approved",
+    "zone_swap_model": "six_trolley_candidate",
+    "truth_boundary": "Reference allocator enforces 40 side lockers. Centre-trolley capacity remains fail-closed until engineering evidence is approved."
+  },
+  "workflows": [
+    {"workflow_id":"WF-ORDER","event_type":"cost.order.created.v2","database_table":"cost_events","state":"LOCAL_CONTRACT_IMPLEMENTED","external_gate":"supplier splitting and live order service not connected"},
+    {"workflow_id":"WF-PICKUP","event_type":"cost.supplier_pickup.received.v2","database_table":"cost_events","state":"LOCAL_CONTRACT_IMPLEMENTED","external_gate":"supplier/OCR/scanner services not connected"},
+    {"workflow_id":"WF-DELIVERY","event_type":"cost.delivery_assignment.created.v2","database_table":"cost_events","state":"LOCAL_CONTRACT_IMPLEMENTED","external_gate":"routing, driver app, scales and proof-of-delivery services not connected"},
+    {"workflow_id":"WF-LEAD","event_type":"cost.workshop_lead.created.v2","database_table":"cost_events","state":"LOCAL_CONTRACT_IMPLEMENTED","external_gate":"customer/workshop CRM and billing not connected"},
+    {"workflow_id":"WF-BILL","event_type":"cost.monthly_statement.calculated.v2","database_table":"cost_events","state":"LOCAL_CONTRACT_IMPLEMENTED","external_gate":"pricing policy approval, Xero and direct debit not connected"},
+    {"workflow_id":"WF-WARRANTY","event_type":"cost.warranty_claim.opened.v2","database_table":"cost_events","state":"LOCAL_CONTRACT_IMPLEMENTED","external_gate":"supplier and consumer-law resolution workflow not connected"},
+    {"workflow_id":"WF-JENOK","event_type":"jenok.catalogue_item.upserted.v2","database_table":"cost_events","state":"LOCAL_CONTRACT_IMPLEMENTED","external_gate":"authoritative catalogue/fitment source not connected"}
+  ],
+  "controls": [
+    "Separate Cost + $1 and Jenok namespaces",
+    "Versioned event envelopes with correlation and causation identifiers",
+    "Idempotency collision detection",
+    "Source pointer and payload hash evidence",
+    "Raw secret-like payload fields prohibited",
+    "No default 20%, 25% or Cost+A$1 trade policy",
+    "Latest 40-side-locker rule enforced",
+    "Centre-trolley overflow disabled unless explicitly configured",
+    "No external provider or production action"
+  ],
+  "implementation": "src/jarvis_business/cost_plus_contracts_v2.py",
+  "tests": "tests/test_cost_plus_contracts_v2.py",
+  "truth_boundary": "Repository-local contracts and deterministic SQLite evidence only. No supplier, Xero, payment, route, scanner, staging or production integration is proven."
+}

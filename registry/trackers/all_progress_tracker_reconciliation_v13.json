@@ -1,0 +1,26 @@
+{
+  "id":"JARVIS-ALL-PROGRESS-TRACKER-RECONCILIATION-V13","version":"13.0.0","snapshot_date":"2026-07-21","program_state":"ACTIVE_PROGRAM_NOT_100_PERCENT","baseline_main":"815cd0e7d136b1176d89bc54b8a080e0044966e6",
+  "resolved_this_pass":[
+    {"work_id":"COST-PROJECT-EXACT-DENOMINATOR","state":"DONE_VERIFIED_BOUNDED","evidence":["registry/sources/cost_auto_parts_source_reconciliation_v1.json"],"scope":"14 top-level Cost project conversations (14,602 messages), plus one mixed-lineage conversation; 15 conversation envelopes total and 3,804 exactly Cost-tagged messages."},
+    {"work_id":"COST-HANDOFF-SOURCE-INVENTORY","state":"DONE_VERIFIED_BOUNDED","evidence":["registry/sources/cost_auto_parts_source_reconciliation_v1.json"],"scope":"50-member handoff, exact hashes, selected registries and duplicate source relationships verified."},
+    {"work_id":"COST-REQUIREMENT-TO-BUILD-MAPPING","state":"DONE_VERIFIED_REPOSITORY_SCOPE","evidence":["registry/requirements/cost_auto_parts_requirements_reconciliation_v1.json"],"scope":"18 canonical requirements mapped to current implementation truth or explicit gaps."},
+    {"work_id":"COST-STALE-REPOSITORY-BLOCKER","state":"RESOLVED","evidence":["registry/sources/cost_auto_parts_source_reconciliation_v1.json"],"scope":"Old handoff gap superseded by current merged repository evidence."},
+    {"work_id":"COST-84-CHAT-PROOF-CONFLICT","state":"CONFLICT_RECORDED","evidence":["registry/sources/cost_auto_parts_source_reconciliation_v1.json"],"scope":"84-chat proof label rejected because included WFW ledgers contain zero rows."},
+    {"work_id":"HEALTH-SPLIT-ARCHIVE-INTEGRITY","state":"DONE_VERIFIED_BOUNDED","evidence":["registry/sources/health_spooky2_psychology_split_handover_v1.json"],"scope":"All five parts hash-match manifest, combined ZIP passes integrity, 642 members safely listed."},
+    {"work_id":"CHATHUB-REUPLOAD-DEDUPE","state":"DONE_VERIFIED","evidence":["registry/sources/cost_auto_parts_source_reconciliation_v1.json"],"scope":"Three text uploads match merged ChatHub v3 hashes and are retained as aliases only."},
+    {"work_id":"COST-DOMAIN-EVENT-CONTRACTS-V2","state":"DONE_VERIFIED_LOCAL","evidence":["src/jarvis_business/cost_plus_contracts_v2.py","registry/business/cost-plus-one-domain-contracts-v2.json","tests/test_cost_plus_contracts_v2.py"],"scope":"Seven versioned workflow contracts with namespace, evidence, approval and validation controls."},
+    {"work_id":"COST-IDEMPOTENT-EVENT-LEDGER","state":"DONE_VERIFIED_LOCAL","evidence":["src/jarvis_business/cost_plus_contracts_v2.py","tests/test_cost_plus_contracts_v2.py"],"scope":"SQLite append-only event ledger with exact-replay suppression and mismatched-payload collision rejection."},
+    {"work_id":"COST-LOCKER-ALLOCATION-REFERENCE","state":"DONE_VERIFIED_LOCAL","evidence":["src/jarvis_business/cost_plus_contracts_v2.py","tests/test_cost_plus_contracts_v2.py"],"scope":"Latest 40-side-locker rule enforced; same customer reuses allocation within a run; centre trolley remains capacity-gated."},
+    {"work_id":"COST-ARCHITECTURE-BOUNDARY","state":"DECISION_RECORDED","evidence":["registry/business/cost-plus-one-domain-contracts-v2.json","docs/plans/COST_PLUS_ONE_RECONCILIATION_AND_BUILD_PLAN_2026_07_21.md"],"scope":"Jarvis custom domain core is canonical; Odoo optional adapter; Xero accounting boundary only."}
+  ],
+  "cost_plus_one_current_states":{"source_denominator":"DONE_VERIFIED_BOUNDED","requirements_mapping":"DONE_VERIFIED_REPOSITORY_SCOPE","local_business_runtime":"IMPLEMENTED_NOT_INTEGRATED","retail_trade_workshop_ui":"SPECIFICATION_ONLY","supplier_xero_payments_logistics":"BLOCKED_EXTERNAL_INTEGRATION","physical_fulfilment_engineering":"SPECIFICATION_ONLY","staging":"NOT_CONNECTED","production":"NOT_AUTHORISED","domain_event_contracts":"DONE_VERIFIED_LOCAL","local_event_ledger":"DONE_VERIFIED_LOCAL","locker_allocator_reference":"DONE_VERIFIED_LOCAL"},
+  "still_blocked":["P0-1","P0-2","P0-3","P0-4","P0-5","P0-6","P0-7","LIVE-PROVIDER-PANEL","AUTHENTICATED-COMMAND-CENTRE-STAGING","PRODUCTION-PROMOTION-AND-OWNER-ACCEPTANCE"],
+  "next_open_loops":[
+    {"priority":"P1","task":"Implement customer/member, trade, workshop, vehicle, supplier and order profile schemas on the domain/event foundation.","safe_now":true},
+    {"priority":"P1","task":"Implement synthetic end-to-end order to pickup to locker to delivery to billing/warranty simulations with evidence and rollback.","safe_now":true},
+    {"priority":"P1","task":"Create unit-economics model with auditable assumptions and sensitivity tests; reject double counting and omitted variable costs.","safe_now":true},
+    {"priority":"P2","task":"Process remaining nested Cost source archives and spreadsheets with source lineage and duplicate mapping.","safe_now":true},
+    {"priority":"P2","task":"Process Health/Spooky2/Psychology archive claim-level evidence under restricted privacy and safety controls.","safe_now":true}
+  ],
+  "truth_boundary":"Source and repository mapping advanced. No supplier, Xero, payment, logistics, staging or production integration is claimed."
+}

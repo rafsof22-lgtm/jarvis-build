@@ -1,0 +1,51 @@
+name: Cost Source Contracts V13
+
+on:
+  pull_request:
+    paths:
+      - 'src/jarvis_business/cost_plus_contracts_v2.py'
+      - 'src/jarvis_business/__init__.py'
+      - 'registry/sources/cost_auto_parts_source_reconciliation_v1.json'
+      - 'registry/sources/health_spooky2_psychology_split_handover_v1.json'
+      - 'registry/requirements/cost_auto_parts_requirements_reconciliation_v1.json'
+      - 'registry/business/cost-plus-one-domain-contracts-v2.json'
+      - 'registry/trackers/all_progress_tracker_reconciliation_v13.json'
+      - 'docs/plans/COST_PLUS_ONE_RECONCILIATION_AND_BUILD_PLAN_2026_07_21.md'
+      - 'tests/test_cost_handoff_reconciliation_v13.py'
+      - 'tests/test_cost_plus_contracts_v2.py'
+      - 'scripts/verify_cost_source_contracts_v13.py'
+      - '.github/workflows/cost-source-contracts-v13.yml'
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile implementation and tests
+        run: python -m py_compile src/jarvis_business/cost_plus_contracts_v2.py tests/test_cost_handoff_reconciliation_v13.py tests/test_cost_plus_contracts_v2.py scripts/verify_cost_source_contracts_v13.py
+      - name: Run 23 deterministic tests
+        run: python -m unittest -v tests/test_cost_handoff_reconciliation_v13.py tests/test_cost_plus_contracts_v2.py
+      - name: Parse JSON registries
+        run: python - <<'PY'
+          import json
+          from pathlib import Path
+          for path in [
+              'registry/sources/cost_auto_parts_source_reconciliation_v1.json',
+              'registry/sources/health_spooky2_psychology_split_handover_v1.json',
+              'registry/requirements/cost_auto_parts_requirements_reconciliation_v1.json',
+              'registry/business/cost-plus-one-domain-contracts-v2.json',
+              'registry/trackers/all_progress_tracker_reconciliation_v13.json',
+          ]:
+              json.loads(Path(path).read_text())
+          PY
+      - name: Run truth and evidence verifier
+        run: python scripts/verify_cost_source_contracts_v13.py

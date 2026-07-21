@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0.0",
+  "source_batch_id": "HEALTH-SPOOKY2-PSYCHOLOGY-SPLIT-HANDOVER-V1",
+  "snapshot_date": "2026-07-21",
+  "parts": [
+    {"name":"part001","sha256":"8bd8bc179a0bb5ed8f806198f535525697f8b2db597dfecf54b174623614016d","bytes":94371840},
+    {"name":"part002","sha256":"f66c2acfcad9b9133bdc7a3061e85ff38791967ce48336384fd6a3c85eb07aee","bytes":94371840},
+    {"name":"part003","sha256":"83223326e6af37eaaefce9f406d2247d4c02e1890e9d9d64a8c53ce560a3fa2b","bytes":94371840},
+    {"name":"part004","sha256":"deffb612d0c5a9f0e5273b6aa011fb90d347f8702a155193abb165a684c0146a","bytes":94371840},
+    {"name":"part005","sha256":"3468181e1cde8a05fed34eb7f2c23cf0c92bb6cc8b3cf0aa3dc8aacca6fb5a7f","bytes":66083320}
+  ],
+  "combined_zip": {"sha256":"4f1a81b09f3fa79441068404ed44611e2ae30ef26bb1ed03df392c408d657093","bytes":443570680,"members":642,"zip_integrity":"PASS","unsafe_paths":0},
+  "declared_audit": {"total_conversations_scanned":2349,"selected_conversations":194,"parse_errors":0,"source_files_copied":52},
+  "privacy_class": "RESTRICTED_HEALTH_AND_PSYCHOLOGY",
+  "raw_content_committed": false,
+  "state": "ARCHIVE_INTEGRITY_VERIFIED_SEMANTIC_RECONSTRUCTION_PENDING",
+  "safety": {"medical_claims_executable":false,"device_control_enabled":false,"unsafe_cure_claims":"QUARANTINE_REQUIRED","clinical_validation":"NOT_PROVEN"},
+  "next_action": "Process claim-level evidence and safety classification in bounded batches after Cost + $1 source reconciliation."
+}
