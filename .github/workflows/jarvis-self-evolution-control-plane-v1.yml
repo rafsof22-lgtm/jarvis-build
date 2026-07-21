@@ -1,0 +1,40 @@
+name: Jarvis Self Evolution Control Plane V1
+
+on:
+  pull_request:
+    paths:
+      - 'src/jarvis_evolution/**'
+      - 'tests/test_jarvis_self_evolution_v1.py'
+      - 'registry/jarvis_self_evolution_control_plane_v1.json'
+      - 'registry/source-coverage/jarvis_source_universe_status_v3_20260721.json'
+      - 'skills/jarvis-sovereign-builder/SKILL.md'
+      - 'skills/jarvis-sovereign-builder/references/self-evolution-and-unified-assistant.md'
+      - 'docs/jarvis-self-evolution-and-unified-assistant-v1.md'
+      - 'scripts/verify_jarvis_self_evolution_v1.py'
+      - '.github/workflows/jarvis-self-evolution-control-plane-v1.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile runtime and verifier
+        run: python -m compileall -q src/jarvis_evolution scripts/verify_jarvis_self_evolution_v1.py
+      - name: Run deterministic self-evolution tests
+        run: python -m unittest -v tests.test_jarvis_self_evolution_v1
+      - name: Validate machine registries
+        run: |
+          python -m json.tool registry/jarvis_self_evolution_control_plane_v1.json >/dev/null
+          python -m json.tool registry/source-coverage/jarvis_source_universe_status_v3_20260721.json >/dev/null
+      - name: Verify control plane and truth gates
+        run: python scripts/verify_jarvis_self_evolution_v1.py
+      - name: Validate test count
+        run: test "$(grep -c '^    def test_' tests/test_jarvis_self_evolution_v1.py)" -eq 11
