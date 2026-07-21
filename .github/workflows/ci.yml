@@ -51,6 +51,9 @@ jobs:
       - name: Validate platform operations control plane
         run: python scripts/verify_platform_ops_control_plane_v1.py
 
+      - name: Validate command centre history and alerts
+        run: python scripts/verify_command_centre_history_alerts_v2.py
+
       - name: Run cost-governor smoke test
         run: python scripts/smoke_cost_governor.py
 
