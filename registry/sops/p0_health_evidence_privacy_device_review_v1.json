@@ -1,0 +1,74 @@
+{
+  "sop_id": "SOP-P0-HEALTH-EVIDENCE-PRIVACY-DEVICE-001",
+  "version": "1.0.0",
+  "owner_role": "Jarvis Health Evidence and Safety Operator",
+  "state": "PREDEPLOY_READY_LIVE_DEVICE_DISABLED",
+  "purpose": "Review health, wellness, frequency-device and Spooky2 source material without converting unverified claims into clinical advice or live device control.",
+  "steps": [
+    "Confirm source identity, hash, permission, consent, authority tier and coordinates.",
+    "Classify the record as emergency, clinical evidence, official device documentation, manufacturer claim, community claim, symbolic material, user report, historical instruction, assistant claim, duplicate, conflict or irrelevant.",
+    "Remove or restrict direct identifiers and sensitive health information before derived indexing.",
+    "Apply emergency triage before frequency, wellness or device content.",
+    "Identify contraindications, implanted devices, pregnancy, seizures, cardiac risk, active cancer treatment, severe psychiatric instability, intoxication or withdrawal and inability to stop equipment independently.",
+    "Separate conventional medical evidence, peer-reviewed research, official device documentation, manufacturer claims, community reports and symbolic interpretations.",
+    "Record supporting and contradictory evidence, confidence, invalidation conditions and jurisdictional or regulatory limits.",
+    "For device material, capture model, firmware, software version, transmission mode, accessories, calibration and electrical inspection state.",
+    "Reject exact settings when device version, connection, calibration, mode compatibility or user-risk information is insufficient.",
+    "Keep all write, control, schedule-launch and hardware commands disabled.",
+    "Map accepted requirements to artifacts, deterministic tests, evidence and rollback before promotion.",
+    "Retain raw-source provenance separately from summaries and derived knowledge records."
+  ],
+  "emergency_classes": [
+    "EMERGENCY_NOW",
+    "URGENT_SAME_DAY",
+    "PROMPT_CLINICAL_REVIEW",
+    "ROUTINE_CLINICAL_REVIEW",
+    "WELLNESS_ONLY",
+    "INSUFFICIENT_INFORMATION"
+  ],
+  "evidence_labels": [
+    "CONFIRMED_SOURCE",
+    "RESEARCH_SUPPORTED",
+    "OFFICIAL_DEVICE_DOCUMENTATION",
+    "MANUFACTURER_CLAIM_UNVERIFIED",
+    "COMMUNITY_REPORT_UNVERIFIED",
+    "USER_REPORTED",
+    "INFERRED",
+    "EXPERIMENTAL",
+    "SYMBOLIC_NON_CLINICAL",
+    "MISSING",
+    "UNSAFE_OR_MODE_INCOMPATIBLE"
+  ],
+  "required_tests": [
+    "emergency_routes_before_wellness_content",
+    "patient_identifier_redaction",
+    "namespace_permission_isolation",
+    "unsupported_cure_claim_rejection",
+    "manufacturer_claim_labelling",
+    "implant_and_pregnancy_gate",
+    "mode_mismatch_block",
+    "unknown_version_blocks_exact_settings",
+    "live_device_write_surface_absent",
+    "citation_coordinates_present",
+    "rollback_preserves_raw_evidence"
+  ],
+  "approval_gates": [
+    "access to identifiable health records",
+    "new health connector or OAuth scope",
+    "production health database migration",
+    "clinical decision support",
+    "personalised device settings",
+    "live device or hardware control",
+    "publication or external sharing"
+  ],
+  "prohibitions": [
+    "guaranteed cure or guaranteed pathogen removal",
+    "remote-healing or quantum-entanglement claims presented as proven",
+    "substitution for emergency or clinician care",
+    "diagnosis or medication changes",
+    "live Spooky2, PEMF, laser, scalar, electrical or other device control",
+    "cross-namespace health-data leakage"
+  ],
+  "rollback": "Remove derived indexes and unapproved mappings, restore the last verified snapshot and preserve raw provenance and audit evidence.",
+  "proof_state": "SPECIFIED_WITH_DETERMINISTIC_TEST_REQUIREMENTS"
+}
