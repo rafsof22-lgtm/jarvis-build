@@ -1,0 +1,30 @@
+name: Health Care Coordination V15
+
+on:
+  pull_request:
+    paths:
+      - 'src/jarvis_health/care_coordination_v1.py'
+      - 'src/jarvis_health/__init__.py'
+      - 'tests/test_health_care_coordination_v1.py'
+      - 'registry/health/health_care_coordination_v1.json'
+      - 'registry/trackers/all_progress_tracker_reconciliation_v15.json'
+      - 'scripts/verify_health_care_coordination_v15.py'
+      - '.github/workflows/health-care-coordination-v15.yml'
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m py_compile src/jarvis_health/care_coordination_v1.py src/jarvis_health/evidence_gate_v1.py src/jarvis_health/__init__.py
+      - run: PYTHONPATH=. python -m unittest tests.test_health_care_coordination_v1 -v
+      - run: python scripts/verify_health_care_coordination_v15.py
