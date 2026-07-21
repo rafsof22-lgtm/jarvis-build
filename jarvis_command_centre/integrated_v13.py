@@ -13,6 +13,7 @@ from src.jarvis_evolution.panel_store_v1 import PanelRunStore
 from src.jarvis_evolution.surface_controls_v1 import build_all_surface_payloads
 
 from . import command_centre as legacy
+from .progress_tracker import read_latest_progress_tracker
 
 
 def build_model_control_snapshot(config: RouterConfig | None = None, *, store: PanelRunStore | None = None) -> dict[str, Any]:
@@ -118,8 +119,7 @@ def serve(host: str, port: int, live: bool, *, store_path: str = ":memory:") -> 
             elif self.path == "/api/v1/editor-surfaces":
                 content, media = json.dumps(snapshot["model_control"]["selector_surfaces"], indent=2).encode(), "application/json"
             elif self.path == "/api/v1/progress-tracker":
-                path = legacy.REGISTRY / "trackers" / "all_progress_tracker_reconciliation_v3.json"
-                content = path.read_bytes() if path.exists() else b'{"state":"PENDING_TRACKER"}'
+                content = read_latest_progress_tracker(legacy.REGISTRY)
                 media = "application/json"
             elif self.path == "/health":
                 content, media = b'{"status":"ok","version":"1.3.0"}', "application/json"
