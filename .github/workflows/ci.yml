@@ -48,6 +48,9 @@ jobs:
       - name: Validate progress tracker and continuity reconciliation
         run: python scripts/verify_progress_reconciliation_v2.py
 
+      - name: Validate platform operations control plane
+        run: python scripts/verify_platform_ops_control_plane_v1.py
+
       - name: Run cost-governor smoke test
         run: python scripts/smoke_cost_governor.py
 
@@ -123,6 +126,7 @@ jobs:
             evidence/runtime-auto-resume-policy-verification-v1.json
             evidence/runtime-auto-resume-v1.json
             evidence/progress-reconciliation-v2-verification.json
+            evidence/platform-ops-control-plane-v1-verification.json
             evidence/config-readiness.json
             evidence/command-centre.snapshot.json
             evidence/module-federation-verification.json
