@@ -1,0 +1,45 @@
+name: XRP HBAR Historical Matrix
+
+on:
+  pull_request:
+    paths:
+      - 'registry/xrp-hbar-cross-asset-historical-reconciliation-matrix.json'
+      - 'registry/xrp-hbar-cross-asset-historical-reconciliation-matrix.schema.json'
+      - 'scripts/validate-xrp-hbar-historical-matrix.mjs'
+      - '.github/workflows/xrp-hbar-historical-matrix.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'registry/xrp-hbar-cross-asset-historical-reconciliation-matrix.json'
+      - 'registry/xrp-hbar-cross-asset-historical-reconciliation-matrix.schema.json'
+      - 'scripts/validate-xrp-hbar-historical-matrix.mjs'
+      - '.github/workflows/xrp-hbar-historical-matrix.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: xrp-hbar-historical-matrix-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validate matrix contract and control invariants
+        run: node scripts/validate-xrp-hbar-historical-matrix.mjs
+      - name: Verify no secret-shaped fields were added
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs');
+          const text = fs.readFileSync('registry/xrp-hbar-cross-asset-historical-reconciliation-matrix.json', 'utf8').toLowerCase();
+          for (const marker of ['private_key', 'access_token', 'refresh_token', 'seed_phrase', 'api_key_value']) {
+            if (text.includes(marker)) throw new Error(`Secret-shaped field marker detected: ${marker}`);
+          }
+          console.log('SECRET_FIELD_SCAN_PASSED');
+          NODE
