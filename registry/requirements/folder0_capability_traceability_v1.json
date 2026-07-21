@@ -1,0 +1,64 @@
+{
+  "registry_id": "FOLDER0-CAPABILITY-TRACEABILITY-V1",
+  "version": "1.0.0",
+  "snapshot_date": "2026-07-21",
+  "source_registry": "registry/sources/folder0_partial_bounded_ingestion_v1.json",
+  "program_state": "ACTIVE_PROGRAM_NOT_100_PERCENT",
+  "capabilities": [
+    {
+      "candidate_id": "F0-CAP-001",
+      "normalized_requirement": "Provide one governed inline Jarvis assistant with selectable models, evidence, protected fields and owner-gated actions.",
+      "disposition": "PARTIAL_DUPLICATE",
+      "runtime_state": "INTEGRATED_STAGING",
+      "artifacts": ["src/jarvis_evolution/parallel_assistant_v2.py", "src/jarvis_evolution/surface_controls_v1.py", "jarvis_command_centre/integrated_v13.py"],
+      "remaining_gap": "Authenticated deployed popup interaction, tooltip/action UX and live-provider evidence."
+    },
+    {
+      "candidate_id": "F0-CAP-002",
+      "normalized_requirement": "Integrate n8n through a default-off, signed, idempotent, replay-resistant and auditable adapter.",
+      "disposition": "ACCEPTED_AND_IMPLEMENTED_LOCAL",
+      "runtime_state": "IMPLEMENTED_NOT_INTEGRATED",
+      "artifacts": ["src/jarvis_integrations/n8n_adapter_v1.py", "tests/test_n8n_adapter_v1.py", "registry/integrations/n8n_adapter_v1.json"],
+      "remaining_gap": "Authorised n8n staging endpoint, vault reference, workflow inventory, canary and rollback proof."
+    },
+    {
+      "candidate_id": "F0-CAP-003",
+      "normalized_requirement": "Manage scoped instructions and editable Jarvis objects with precedence, protected fields, diffs, approvals, tests and rollback.",
+      "disposition": "SUBSTANTIAL_DUPLICATE",
+      "runtime_state": "IMPLEMENTED_NOT_INTEGRATED",
+      "artifacts": ["src/jarvis_evolution/control_plane_v1.py", "registry/jarvis_self_evolution_control_plane_v1.json", "tests/test_jarvis_self_evolution_v1.py"],
+      "remaining_gap": "Connected multi-repository editing and authenticated staging."
+    },
+    {
+      "candidate_id": "F0-CAP-004",
+      "normalized_requirement": "Operate deployment, health, incident, backup, restore and rollback through independent release controls.",
+      "disposition": "PARTIAL_DUPLICATE",
+      "runtime_state": "IMPLEMENTED_NOT_INTEGRATED",
+      "artifacts": ["registry/platform-ops/platform_operations_control_plane_v1.json", "src/jarvis_platform_ops/runtime_auto_resume_v1.py"],
+      "remaining_gap": "Live topology, Recovery Console repair, staging health, restore and rollback evidence."
+    },
+    {
+      "candidate_id": "F0-CAP-005",
+      "normalized_requirement": "Provide provenance-aware hybrid research, retrieval, vector and knowledge-graph services without treating retrieved text as executable truth.",
+      "disposition": "FOUNDATION_EXISTS_SOURCE_MOCKS_REJECTED",
+      "runtime_state": "INTEGRATED_STAGING",
+      "artifacts": ["registry/jarvis_knowledge_fabric_decision_v1.json", "src/jarvis_knowledge_fabric/runtime_v1.py", "src/jarvis_completion/runtime_v1.py"],
+      "remaining_gap": "Connected PostgreSQL/pgvector staging, permissions benchmark and current external-source adapters."
+    },
+    {
+      "candidate_id": "F0-CAP-006",
+      "normalized_requirement": "Provide tenant-safe read-only database inspection with query allowlists, limits, timeouts, audit and separately approved mutations.",
+      "disposition": "ACCEPTED_GAP_NOT_IMPLEMENTED",
+      "runtime_state": "BACKLOGGED",
+      "artifacts": [],
+      "remaining_gap": "Design and implement the generic inspector against a bounded local fixture before any live database connection."
+    }
+  ],
+  "decision_rules": [
+    "Source prose is not implementation evidence.",
+    "Duplicate capabilities inherit the strongest current Jarvis controls rather than creating weaker parallel modules.",
+    "Live integration remains separate from repository-local deterministic implementation.",
+    "The database inspector remains BACKLOGGED until code and tests exist."
+  ],
+  "completion_assertion": "All six retrieved capability candidates are dispositioned and traceable; this does not establish whole-file source coverage or whole-program completion."
+}
