@@ -1,0 +1,49 @@
+{
+  "integration_id": "JARVIS-N8N-ADAPTER-V1",
+  "version": "1.0.0",
+  "snapshot_date": "2026-07-21",
+  "runtime_state": "IMPLEMENTED_NOT_INTEGRATED",
+  "source_requirement": "F0-CAP-002",
+  "purpose": "Governed outbound n8n webhook adapter composed with Jarvis signing, idempotency, privacy, approval and evidence controls.",
+  "implementation": {
+    "runtime": "src/jarvis_integrations/n8n_adapter_v1.py",
+    "package": "src/jarvis_integrations/__init__.py",
+    "tests": "tests/test_n8n_adapter_v1.py"
+  },
+  "execution_defaults": {
+    "enabled": false,
+    "workflow_allowlist_required": true,
+    "https_required": true,
+    "private_http_requires_explicit_policy": true,
+    "transport_injected": true,
+    "maximum_timeout_seconds": 30,
+    "maximum_attempts": 3
+  },
+  "security_controls": [
+    "HMAC_SHA256_SIGNED_ENVELOPE",
+    "TIMESTAMPED_MESSAGE",
+    "WORKFLOW_ALLOWLIST",
+    "PERSISTENT_MESSAGE_AND_IDEMPOTENCY_REPLAY_GUARD",
+    "DATA_CLASSIFICATION_ALLOWLIST",
+    "NO_SECRET_VALUE_IN_EVIDENCE",
+    "NO_PAYLOAD_IN_REPLAY_STORE",
+    "FAIL_CLOSED_WITHOUT_TRANSPORT"
+  ],
+  "evidence_contract": {
+    "preserved": ["workflow_id", "endpoint_origin", "message_id", "idempotency_key", "payload_sha256", "response_sha256", "preflight_reasons"],
+    "prohibited": ["signing_key_value", "raw_authorization_header", "raw_secret", "response_body", "payload_in_replay_store"]
+  },
+  "live_integration_gate": {
+    "state": "BLOCKED",
+    "required": [
+      "authorised n8n staging endpoint",
+      "approved signing-key vault reference",
+      "workflow IDs and owners",
+      "data classifications",
+      "network and egress policy",
+      "bounded staging canary approval",
+      "rollback and workflow-disable proof"
+    ]
+  },
+  "truth_boundary": "Repository-local adapter and fake-transport tests do not prove a connected n8n instance, deployed workflow, credential readiness, staging canary or production operation."
+}

@@ -1,0 +1,53 @@
+{
+  "id": "JARVIS-ALL-PROGRESS-TRACKER-RECONCILIATION-V6",
+  "version": "6.0.0",
+  "snapshot_date": "2026-07-21",
+  "program_state": "ACTIVE_PROGRAM_NOT_100_PERCENT",
+  "baseline_main": "48ee5c8cfccc224b6f92eabdf59369c6f2721412",
+  "resolved_this_pass": [
+    {
+      "blocker_id": "FOLDER0-CAPABILITY-DISPOSITION",
+      "state": "DONE_VERIFIED",
+      "evidence_path": "registry/requirements/folder0_capability_traceability_v1.json",
+      "scope": "All six bounded folder0 capability candidates have explicit duplicate, accepted-gap or local-implementation dispositions."
+    },
+    {
+      "blocker_id": "N8N-LOCAL-ADAPTER-CONTRACT",
+      "state": "IMPLEMENTED_NOT_INTEGRATED",
+      "evidence_path": "registry/integrations/n8n_adapter_v1.json",
+      "scope": "Default-off signed webhook adapter, workflow allowlist, data classification gate, replay guard, redacted evidence and fake-transport tests."
+    }
+  ],
+  "open_repository_work": [
+    {
+      "work_id": "GENERIC-DATABASE-INSPECTOR",
+      "state": "BACKLOGGED",
+      "next_action": "Implement a tenant-safe, read-only local SQLite inspector with query allowlists, row limits, timeouts, audit and mutation denial before considering any live database adapter."
+    },
+    {
+      "work_id": "N8N-CONNECTED-STAGING",
+      "state": "BLOCKED",
+      "next_action": "Connect an authorised n8n staging endpoint and vault reference, register approved workflows and run signed duplicate/replay/rollback canaries."
+    }
+  ],
+  "still_blocked": [
+    {"blocker_id":"P0-1-RECOVERY-CONSOLE","class":"OWNER_RECOVERY_CONSOLE_REQUIRED"},
+    {"blocker_id":"P0-2-TOKEN-ROTATION","class":"OWNER_PROVIDER_ACTION_REQUIRED"},
+    {"blocker_id":"P0-3-RAILWAY-HEALTH","class":"RAILWAY_DOMAIN_AND_SECRET_REFERENCE_REQUIRED"},
+    {"blocker_id":"P0-4-SHEETS-WEBHOOK","class":"GOOGLE_APPS_SCRIPT_AND_RAILWAY_CONFIGURATION_REQUIRED"},
+    {"blocker_id":"P0-5-FRESH-WORKFLOW-DISPATCH","class":"GITHUB_WORKFLOW_DISPATCH_REQUIRED"},
+    {"blocker_id":"P0-6-COBALT-HOST","class":"PROTECTED_HOST_CREDENTIAL_REQUIRED"},
+    {"blocker_id":"P0-7-VTI-HUB-FEDERATION","class":"CONNECTED_STAGING_AND_SIGNING_SECRET_REQUIRED"},
+    {"blocker_id":"LIVE-PROVIDER-PANEL","class":"PROVIDER_INVENTORY_CREDENTIAL_COST_PRIVACY_AND_EXECUTION_APPROVAL_REQUIRED"},
+    {"blocker_id":"AUTHENTICATED-COMMAND-CENTRE-STAGING","class":"AUTHENTICATED_STAGING_DEPLOYMENT_REQUIRED"},
+    {"blocker_id":"MISSING-SOURCE-BYTES","class":"SOURCE_BYTES_REQUIRED"},
+    {"blocker_id":"PRODUCTION-PROMOTION-AND-OWNER-ACCEPTANCE","class":"ALL_PRIOR_GATES_AND_OWNER_ACCEPTANCE_REQUIRED"}
+  ],
+  "next_executable_tasks": [
+    "Run exact-head CI for n8n adapter and capability traceability.",
+    "Merge only after all affected workflows pass.",
+    "Implement the bounded local read-only database inspector as the next repository-safe gap.",
+    "Reconcile external gates only when new owner or provider evidence is available."
+  ],
+  "completion_assertion": "This pass closes candidate disposition and implements a local n8n contract. It does not prove connected n8n staging, live databases, external blockers, full source coverage or production acceptance."
+}
