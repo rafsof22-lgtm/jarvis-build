@@ -1,0 +1,75 @@
+{
+  "id": "JARVIS-CURRENT-CHAT-REQUIREMENT-CANDIDATES-V1",
+  "version": "1.0.0",
+  "snapshot_date": "2026-07-21",
+  "source_manifest": "registry/source_intake/current_chat_conversation_manifest_v1.json",
+  "promotion_policy": "CANDIDATE_UNTIL_RECONCILED_WITH_CANONICAL_REQUIREMENTS",
+  "requirements": [
+    {
+      "requirement_id": "CHAT-REQ-001",
+      "verbatim": "COMPLETE ALL TASKS AND RECONDILE PROGRSS TRACKSERS SO WE CLSE TIHS CHAT AND CONTNUE WORKING ON OTHER CURRENT CHAT IN THIS JARVIS BUILD",
+      "normalised_intent": "Complete all safe tasks, reconcile progress trackers, close this chat and continue in another current Jarvis chat.",
+      "classification": "BOTH",
+      "state": "DONE_VERIFIED_BOUNDED",
+      "artifact": "registry/trackers/all_progress_tracker_reconciliation_v10.json",
+      "test_or_waiver": "scripts/verify_chat_closeout_reconciliation_v10.py",
+      "evidence": "PR #93 and merge commit 8d72b2771a3277e7ee58a183e4b2e6fce3c50819",
+      "runtime_state": "REPOSITORY_ONLY",
+      "rollback": "Revert PR #93 merge commit",
+      "reason": "Repository closeout was completed, but external runtime and owner gates remain."
+    },
+    {
+      "requirement_id": "CHAT-REQ-002",
+      "verbatim": "CAN U SHARE THIS ENTIRE CHAT",
+      "normalised_intent": "Create a shareable conversation artifact containing the complete user-visible chat.",
+      "classification": "BOTH",
+      "state": "PARTIAL_VISIBLE_SCOPE_VERIFIED",
+      "artifact": "evidence/chat_transcripts/2026-07-21-current-chat-visible-transcript.md",
+      "test_or_waiver": "scripts/verify_current_chat_ingestion_v11.py",
+      "evidence": "SHA-256 in current-chat conversation manifest",
+      "runtime_state": "REPOSITORY_AND_DOWNLOAD_ARTIFACT",
+      "rollback": "Revert the v11 ingestion merge commit",
+      "reason": "Accessible visible messages are preserved; an exact full ChatGPT UI transcript requires a share link or fresh export."
+    },
+    {
+      "requirement_id": "CHAT-REQ-003",
+      "verbatim": "INTERGARE ENTIRE CHAT ITO JARVIS BUILD",
+      "normalised_intent": "Integrate the conversation as governed Jarvis source evidence, requirements and progress state.",
+      "classification": "BOTH",
+      "state": "DONE_VERIFIED_BOUNDED",
+      "artifact": "registry/source_intake/current_chat_conversation_manifest_v1.json",
+      "test_or_waiver": "scripts/verify_current_chat_ingestion_v11.py",
+      "evidence": "GitHub branch and pull request evidence",
+      "runtime_state": "REPOSITORY_ONLY",
+      "rollback": "Revert the v11 ingestion merge commit",
+      "reason": "The accessible conversation scope is integrated without claiming inaccessible turns."
+    },
+    {
+      "requirement_id": "CHAT-REQ-004",
+      "verbatim": "ORGNAISE AND SORT THROUGH LIK JARVIS BUILD INISTRUCTED",
+      "normalised_intent": "Organise and sort conversation content using Jarvis source-first, raw-versus-derived, requirement, evidence, gap and tracker controls.",
+      "classification": "BOTH",
+      "state": "DONE_VERIFIED_BOUNDED",
+      "artifact": "docs/current-chat-ingestion-and-handoff-2026-07-21.md",
+      "test_or_waiver": "scripts/verify_current_chat_ingestion_v11.py",
+      "evidence": "Manifest, transcript, requirement registry and tracker v11",
+      "runtime_state": "REPOSITORY_ONLY",
+      "rollback": "Revert the v11 ingestion merge commit",
+      "reason": "The chat is separated into raw transcript, derived timeline, requirement candidates, exact gaps and continuation state."
+    },
+    {
+      "requirement_id": "CHAT-REQ-005",
+      "verbatim": "entire chat",
+      "normalised_intent": "Replace the bounded reconstruction with a byte-exact complete ChatGPT conversation when a primary export becomes available.",
+      "classification": "BOTH",
+      "state": "BLOCKED_AT_EXACT_STEP",
+      "artifact": "registry/source_intake/current_chat_conversation_manifest_v1.json",
+      "test_or_waiver": "Pending byte-exact message-tree reconciliation",
+      "evidence": "Current environment access limitation",
+      "runtime_state": "SOURCE_REQUIRED",
+      "rollback": "Not applicable",
+      "reason": "The active environment cannot create a ChatGPT share link or recover messages no longer present after context compaction."
+    }
+  ],
+  "completion_assertion": "ALL_ACCESSIBLE_CHAT_REQUIREMENTS_MAPPED; EXACT_FULL_UI_TRANSCRIPT_REMAINS_BLOCKED"
+}
