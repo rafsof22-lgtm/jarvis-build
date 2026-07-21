@@ -34,7 +34,7 @@
       "normalized_requirement": "Operate deployment, health, incident, backup, restore and rollback through independent release controls.",
       "disposition": "PARTIAL_DUPLICATE",
       "runtime_state": "IMPLEMENTED_NOT_INTEGRATED",
-      "artifacts": ["registry/platform-ops/platform_operations_control_plane_v1.json", "src/jarvis_platform_ops/runtime_auto_resume_v1.py"],
+      "artifacts": ["registry/platform/platform_ops_control_plane_v1.json", "registry/platform/runtime_auto_resume_manifest_v1.json", "scripts/runtime_auto_resume.py"],
       "remaining_gap": "Live topology, Recovery Console repair, staging health, restore and rollback evidence."
     },
     {
@@ -42,7 +42,7 @@
       "normalized_requirement": "Provide provenance-aware hybrid research, retrieval, vector and knowledge-graph services without treating retrieved text as executable truth.",
       "disposition": "FOUNDATION_EXISTS_SOURCE_MOCKS_REJECTED",
       "runtime_state": "INTEGRATED_STAGING",
-      "artifacts": ["registry/jarvis_knowledge_fabric_decision_v1.json", "src/jarvis_knowledge_fabric/runtime_v1.py", "src/jarvis_completion/runtime_v1.py"],
+      "artifacts": ["registry/jarvis_knowledge_fabric_decision_v1.json", "scripts/run_knowledge_fabric_local_pilot.py", "src/jarvis_completion/runtime_v1.py"],
       "remaining_gap": "Connected PostgreSQL/pgvector staging, permissions benchmark and current external-source adapters."
     },
     {
