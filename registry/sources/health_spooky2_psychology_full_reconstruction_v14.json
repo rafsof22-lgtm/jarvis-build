@@ -1,0 +1,65 @@
+{
+  "analysis_artifact_hashes": {
+    "health_pdf_full_analysis_v14.json": "ff6bcf5f5bc2e6110379d365f37a56299fa7d5e8de5d2a83510341bd1a71b2ac",
+    "health_pdf_summary_v14.json": "21360a847542310e5d86022a664af4fe4ad075b1903f63eb9ec2b7a39cf8d2d3",
+    "health_source_files_full_analysis_v14.json": "151bbe37f03854d831d0efbce9ae4360bb40ff8ccde1428ce7effa9173f9a773",
+    "health_source_files_summary_v14.json": "28dbe277cc311a08642e50bd1c613c973bc9108f203d925a6404202f334376c0",
+    "health_xlsx_full_analysis_v14.json": "d3369d9a88175ad90aba01ed240941faaead0094db4a3029705e43b226a94424",
+    "health_xlsx_summary_v14.json": "cac862fd57fa88100be37ce05172560f762b93d9fcb29b67894ee9f2984e30e5"
+  },
+  "bundled_source_file_pass": {
+    "bytes": 26723166,
+    "direct_text_chars": 3971313,
+    "direct_text_files": 36,
+    "direct_text_words": 574219,
+    "exact_duplicate_groups": 1,
+    "extensions": {"docx":16,"jpeg":4,"md":1,"pdf":4,"py":1,"txt":18,"xlsx":7,"zip":1},
+    "extraction_errors": 0,
+    "files": 52,
+    "images": [
+      {"class":"PROVIDER_OR_SOCIAL_MEDIA_CLAIM_SCREENSHOT","count":2,"disposition":"CURRENT_PRIMARY_SOURCE_AND_CLINICAL_REVIEW_REQUIRED"},
+      {"class":"SUPPLEMENT_ALTERNATIVES_LIST_SCREENSHOT","count":1,"disposition":"INTERACTION_EVIDENCE_AND_QUALITY_REVIEW_REQUIRED"},
+      {"class":"SUPPLEMENT_PRODUCT_LABEL","count":1,"disposition":"INGREDIENT_METADATA_ONLY_CLINICIAN_OR_PHARMACIST_REVIEW_REQUIRED","visible_components":["L-serine","lion's mane","blueberry juice powder","acetyl-L-carnitine","turmeric extract","trans-resveratrol","French maritime pine bark extract","PQQ"]}
+    ],
+    "pdf": {"alternative_test_sources_requiring_review":1,"bytes":15705724,"diagnostic_sources_requiring_clinician":2,"files":4,"first_page_rendered_all":true,"pages":774,"text_chars":1472446,"universal_cure_sources_quarantined":1},
+    "xlsx": {"errors":0,"formula_cells":0,"nonempty_cells":2476,"sheets":42,"workbooks":7}
+  },
+  "denominator_conflict": {
+    "corrected_unique_conversations": 156,
+    "disposition": "CONFLICT_RECORDED_PRIOR_ARTIFACT_PRESERVED",
+    "prior_project_counts": {"Health Optimisation":106,"Psychologist":15,"Spooky2":36},
+    "prior_v12_envelopes": 157,
+    "reason": "One Psychology conversation was also counted in the prior Health envelope by mixed-lineage/template metadata. Direct source project identity places it in Psychology only."
+  },
+  "latest_unique_project_denominator": {
+    "canonical_messages": 27153,
+    "mapping_nodes": 27309,
+    "projects": [
+      {"assistant_words":1448097,"canonical_messages":21877,"conversations":105,"mapping_nodes":21982,"newer_export_only":64,"older_handover_overlap":41,"project_id":"g-p-67c501fc0198819193554d54fd96e379","project_name":"Health Optimisation","user_words":179150},
+      {"assistant_words":240505,"canonical_messages":2908,"conversations":36,"mapping_nodes":2944,"newer_export_only":3,"older_handover_overlap":33,"project_id":"g-p-67c7c5b330f481919300b4ea6d87b062","project_name":"Spooky2","user_words":27277},
+      {"assistant_words":308257,"canonical_messages":2368,"conversations":15,"mapping_nodes":2383,"newer_export_only":12,"older_handover_overlap":3,"project_id":"g-p-684fdaf88c388191917aefcd588d5337","project_name":"Psychologist","user_words":46597}
+    ],
+    "subset_bytes": 194157792,
+    "subset_sha256": "0f629a0145e6f68bc44acc6e35dc3c1584346b60a4ffec37f2ca6c404b9dfa62",
+    "unique_conversations": 156
+  },
+  "message_semantic_pass": {
+    "all_canonical_messages_machine_read": true,
+    "assistant_safety_triage_flags": {"crisis_signal":66,"frequency_as_drug_or_cure":5,"guaranteed_cure_or_inevitability":33,"invasive_experimental_as_actionable":167,"medical_device_control_settings":358,"prescription_or_medication_change":420,"psychedelic_or_controlled_dosing":149,"spiritual_claim_as_medical_fact":35,"unsafe_detox_or_unverified_biologic":308,"unverified_provider_legal_regulatory":88},
+    "flag_total": 1629,
+    "interpretation": "Pattern flags are triage evidence, not clinical truth or proof of harm.",
+    "semantic_analysis_sha256": "3afcf8b768ff95a20b05bc3a2002c8fddf5add8137047811136326a540d7d49d",
+    "semantic_summary_sha256": "ac0061c969bb16806cc6acff05f8fa825c13abe5f36e682488c9a3f552e05775"
+  },
+  "older_handover_comparison": {"exact_target_conversations":77,"keyword_selected_conversations":194,"latest_target_conversations_missing_from_older_handover":79,"missing_by_project":{"Health Optimisation":64,"Psychologist":12,"Spooky2":3},"non_target_or_unscoped_keyword_hits":117,"reason":"Older handover used keyword selection over a 2,349-conversation export because project metadata was unreliable; latest source uses direct project identity over 2,610 conversations."},
+  "parent_sources": [
+    {"bytes":2336598546,"conversations":2610,"parse_errors":0,"sha256":"1b5ff075a422bc57884588e908bba705a65a8473065ebe49f10e6757abb45a3b","source_id":"SRC-CHATGPT-EXPORT-2026-06-25"},
+    {"bytes":443570680,"members":642,"sha256":"4f1a81b09f3fa79441068404ed44611e2ae30ef26bb1ed03df392c408d657093","source_id":"HEALTH-SPOOKY2-PSYCHOLOGY-SPLIT-HANDOVER-V1","zip_integrity":"PASS"}
+  ],
+  "privacy_boundary": "Raw conversation bodies, titles, patient identifiers, laboratory values, genetic variants, images and sensitive source filenames remain in the authorised local source environment and are not committed.",
+  "schema_version": "1.0.0",
+  "snapshot_date": "2026-07-21",
+  "source_batch_id": "HEALTH-SPOOKY2-PSYCHOLOGY-FULL-RECONSTRUCTION-V14",
+  "state": "FULL_MACHINE_RECONSTRUCTION_VERIFIED_PRIVACY_SAFE",
+  "truth_boundary": "Full machine reading is proven for every canonical message in the 156 unique latest-project conversations and every accessible bundled file through format-specific passes. This does not clinically validate source claims, prove all historical project sources ever created, or authorise diagnosis, treatment or device control."
+}
