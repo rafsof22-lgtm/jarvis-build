@@ -1,0 +1,37 @@
+name: N8n Candidate Reconciliation V1
+
+on:
+  pull_request:
+    paths:
+      - 'src/jarvis_integrations/**'
+      - 'tests/test_n8n_adapter_v1.py'
+      - 'registry/integrations/n8n_adapter_v1.json'
+      - 'registry/requirements/folder0_capability_traceability_v1.json'
+      - 'registry/trackers/all_progress_tracker_reconciliation_v6.json'
+      - 'scripts/verify_n8n_candidate_reconciliation_v1.py'
+      - '.github/workflows/n8n-candidate-reconciliation-v1.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile adapter and verifier
+        run: python -m compileall -q src/jarvis_integrations tests/test_n8n_adapter_v1.py scripts/verify_n8n_candidate_reconciliation_v1.py
+      - name: Run deterministic adapter tests
+        run: python -m unittest -v tests.test_n8n_adapter_v1
+      - name: Validate registries
+        run: |
+          python -m json.tool registry/integrations/n8n_adapter_v1.json >/dev/null
+          python -m json.tool registry/requirements/folder0_capability_traceability_v1.json >/dev/null
+          python -m json.tool registry/trackers/all_progress_tracker_reconciliation_v6.json >/dev/null
+      - name: Verify traceability and truth gates
+        run: python scripts/verify_n8n_candidate_reconciliation_v1.py
