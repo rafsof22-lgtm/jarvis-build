@@ -4,6 +4,7 @@
 **Canonical repository:** `rafsof22-lgtm/jarvis-build`  
 **Baseline main commit:** `f9d02bbaf03d676f42342b7970607ec803f86b25`  
 **Current tracker:** `registry/trackers/all_progress_tracker_reconciliation_v17.json`  
+**Previous tracker preserved:** `registry/trackers/all_progress_tracker_reconciliation_v16.json`  
 **State:** `ACTIVE_PROGRAM_NOT_100_PERCENT`
 
 ## Mandatory resume protocol
