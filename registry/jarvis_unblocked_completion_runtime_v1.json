@@ -1,0 +1,60 @@
+{
+  "id": "JARVIS-UNBLOCKED-COMPLETION-RUNTIME-V1",
+  "version": "1.0.0",
+  "date": "2026-07-21",
+  "baseline_sha": "333b81473068a491806d36d0e18a80944acebb8d",
+  "scope": "Complete the currently unblocked local and deterministic staging boundary for phases A1, A2, B1, B2, B3, C1, C2, C3, D1, D2, D3, E1 and bounded F1-F5 slices.",
+  "artifacts": [
+    "src/jarvis_completion/runtime_v1.py",
+    "src/jarvis_completion/__init__.py",
+    "tests/test_jarvis_completion_runtime_v1.py",
+    ".github/workflows/jarvis-unblocked-completion-runtime-v1.yml"
+  ],
+  "phase_status": [
+    {"phase":"A1","status":"IMPLEMENTED_NOT_INTEGRATED","proof":"SQLite source/message/requirement/evidence graph, idempotent ingestion, exact text, coordinates, duplicates, fragments, reproduction views and transaction rollback tests."},
+    {"phase":"A2","status":"IMPLEMENTED_NOT_INTEGRATED","proof":"No-gaps report and synthesis coverage validator with explicit exclusions and unresolved-fragment checks."},
+    {"phase":"B1","status":"IMPLEMENTED_NOT_INTEGRATED","proof":"Validated task contracts, autonomy ceilings, quotas, tool boundaries, approvals and rollback metadata."},
+    {"phase":"B2","status":"IMPLEMENTED_NOT_INTEGRATED","proof":"Fail-closed high-risk policy engine and credential-reference readiness checks with raw-secret detection."},
+    {"phase":"B3","status":"IMPLEMENTED_NOT_INTEGRATED","proof":"Append-only audit records, deduplicated alerts, health/status dashboard contracts and deterministic local recovery boundary."},
+    {"phase":"C1","status":"IMPLEMENTED_NOT_INTEGRATED","proof":"Deterministic cache/local/free/paid route classes with capability, cost, privacy and reliability gates."},
+    {"phase":"C2","status":"IMPLEMENTED_NOT_INTEGRATED","proof":"Evidence score and verified-fact/source-claim/inference/assumption/risk/action-hypothesis classification."},
+    {"phase":"C3","status":"IMPLEMENTED_NOT_INTEGRATED","proof":"Licence, security, maintenance, duplication, cost and data-access quarantine gate; staging-adapter-only approval."},
+    {"phase":"D1","status":"IMPLEMENTED_NOT_INTEGRATED","proof":"Truthful runtime vocabulary counts, requirement rows, no-gaps output and active alerts dashboard payload."},
+    {"phase":"D2","status":"IMPLEMENTED_NOT_INTEGRATED","proof":"Policy preflight and exact fail-closed owner-approval outcomes for high-risk actions."},
+    {"phase":"D3","status":"IMPLEMENTED_NOT_INTEGRATED","proof":"Immutable audit events and deduplicated acknowledgement-ready alert records."},
+    {"phase":"E1","status":"IMPLEMENTED_NOT_INTEGRATED","proof":"HMAC signed envelopes, freshness verification, idempotency records and replay-age rejection."},
+    {"phase":"F1","status":"INTEGRATED_STAGING","proof":"Deterministic read-only CFO net-worth, stress and coverage scenario slice."},
+    {"phase":"F2","status":"INTEGRATED_STAGING","proof":"Research-only holdings, price and illustrative-yield scenario slice."},
+    {"phase":"F3","status":"INTEGRATED_STAGING","proof":"Paper-only order execution with cash and maximum-position risk gates."},
+    {"phase":"F4","status":"INTEGRATED_STAGING","proof":"Bounded agency contribution, margin and contribution-per-hour model; no revenue claim."},
+    {"phase":"F5","status":"INTEGRATED_STAGING","proof":"SaaS staging gate that blocks failed tests/security and refuses production/billing paths."}
+  ],
+  "tests": {
+    "suite": "tests.test_jarvis_completion_runtime_v1",
+    "cases": 12,
+    "coverage_topics": [
+      "idempotent ingestion", "exact text preservation", "duplicate lineage", "transaction rollback",
+      "requirement evidence", "no-gaps", "synthesis denominator", "alert dedupe", "approval policy",
+      "secret readiness", "free-first routing", "evidence scoring", "capability quarantine",
+      "signed envelopes", "replay age", "CFO", "XRP/HBAR scenarios", "paper trading",
+      "agency unit economics", "SaaS staging gate"
+    ],
+    "result": "PENDING_CI_ON_EXACT_HEAD"
+  },
+  "truth_boundary": {
+    "completed_now": "Dependency-free implementation and deterministic local/staging contracts for the listed phases.",
+    "not_claimed": [
+      "complete historical source universe",
+      "connected provider or database staging proof",
+      "live model/provider calls",
+      "live Xero, banking, exchange, CRM or billing integration",
+      "production deployment",
+      "public publishing",
+      "live trading or money movement",
+      "owner acceptance"
+    ],
+    "external_blocks": ["A3", "E2", "E3", "G1", "G2", "G3", "H1", "H2", "H3", "I1", "I2", "I3", "J1", "J2", "J3"]
+  },
+  "rollback": "Revert the squash merge for this tranche; the implementation adds a new isolated package, test suite, workflow and registry without altering existing runtime paths.",
+  "status": "IMPLEMENTED_NOT_INTEGRATED"
+}
