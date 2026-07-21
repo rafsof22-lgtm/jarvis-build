@@ -1,0 +1,250 @@
+{
+  "contract_id": "JARVIS-OMNICHANNEL-COMMAND-CENTRE-V1",
+  "version": "1.0.0",
+  "state": "IMPLEMENTED_NOT_INTEGRATED",
+  "design_identity": "Original cinematic systems interface inspired by advanced aerospace, observability and science-fiction interaction patterns; no proprietary film assets, voices or branding are copied.",
+  "purpose": "Provide one visual, conversational and voice-enabled control surface that can explain, navigate and coordinate every authorised Jarvis module while preserving module boundaries, approvals, evidence and rollback.",
+  "surfaces": [
+    "desktop_web",
+    "mobile_web",
+    "installable_PWA",
+    "tablet_wallboard",
+    "optional_local_desktop_shell",
+    "voice_and_text_popup",
+    "command_palette",
+    "notification_and_approval_inbox"
+  ],
+  "global_jarvis_presence": {
+    "floating_orb_or_core": true,
+    "available_on_every_page": true,
+    "text_and_voice_input": true,
+    "context_aware_of_current_page": true,
+    "can_explain_every_visible_control": true,
+    "can_navigate_to_any_authorised_page": true,
+    "can_prepare_workflows_and_fill_safe_defaults": true,
+    "can_show_progress_blockers_evidence_and_next_actions": true,
+    "can_resume_from_last_verified_step": true,
+    "always_visible_stop_mute_and_cancel": true,
+    "voice_routes_through": "JARVIS-VOICE-COMMAND-GATEWAY-V1",
+    "voice_never_bypasses_approval": true
+  },
+  "primary_layout": {
+    "top_bar": [
+      "global_search",
+      "voice_state",
+      "current_mode",
+      "system_health",
+      "cost_and_budget",
+      "alerts",
+      "approvals",
+      "user_and_environment"
+    ],
+    "left_navigation": [
+      "home",
+      "assets",
+      "intelligence_runs",
+      "knowledge_fabric",
+      "agents_and_skills",
+      "workflows",
+      "projects",
+      "sources",
+      "evidence",
+      "deployments",
+      "costs",
+      "security",
+      "settings"
+    ],
+    "centre_stage": [
+      "mission_or_task_canvas",
+      "asset_intelligence_HUD",
+      "source_and_evidence_map",
+      "timeline_and_milestone_view",
+      "scenario_and_ceiling_lab",
+      "progress_and_dependency_graph",
+      "interactive_results_and_recommendations"
+    ],
+    "right_context_rail": [
+      "Jarvis_conversation",
+      "plain_English_explanation",
+      "current_context",
+      "recommended_next_action",
+      "approval_card",
+      "evidence_and_confidence",
+      "risks_and_rollback"
+    ],
+    "bottom_command_dock": [
+      "push_to_talk",
+      "type_command",
+      "attach_source",
+      "choose_scope",
+      "choose_intelligence_depth",
+      "run_preview",
+      "stop_or_cancel"
+    ]
+  },
+  "visual_system": {
+    "themes": ["midnight_holographic", "high_contrast", "light_accessible"],
+    "default_theme": "midnight_holographic",
+    "design_tokens": [
+      "layered_depth_without_visual_clutter",
+      "soft_glow_reserved_for_active_or_critical_state",
+      "traffic_light_status_plus_text_labels",
+      "animated_data_flow_only_when_meaningful",
+      "reduced_motion_mode",
+      "large_touch_targets",
+      "responsive_grid",
+      "accessible_type_scale",
+      "keyboard_first_navigation",
+      "screen_reader_semantics"
+    ],
+    "status_language": {
+      "green": "verified_or_operational_with_evidence",
+      "amber": "partial_pending_or_needs_review",
+      "red": "blocked_failed_or_owner_action_required",
+      "grey": "unknown_not_configured_or_not_applicable",
+      "blue": "running_or_in_progress",
+      "purple": "simulation_or_scenario_not_live_fact"
+    },
+    "no_colour_only_meaning": true
+  },
+  "asset_intelligence_experience": {
+    "separate_asset_workspaces": true,
+    "shared_cross_asset_compare_mode": true,
+    "XRP_and_HBAR_never_silently_merged": true,
+    "cards": [
+      "current_verified_state",
+      "what_changed",
+      "milestone_ladder",
+      "dynamic_ceiling_bands",
+      "direct_value_capture_pathways",
+      "catalyst_and_trigger_meter",
+      "risk_and_invalidation_panel",
+      "source_coverage_and_freshness",
+      "forecast_history_and_accuracy",
+      "whale_institutional_and_market_structure",
+      "recommendations_and_watch_actions",
+      "knowledge_export_status"
+    ],
+    "views": [
+      "overview",
+      "deep_scan",
+      "sources",
+      "onchain_or_fundamentals",
+      "market_structure",
+      "milestones",
+      "ceiling_lab",
+      "catalysts",
+      "risks",
+      "history",
+      "compare",
+      "evidence"
+    ]
+  },
+  "command_language": {
+    "natural_language_supported": true,
+    "typed_and_voice_commands_same_intent_router": true,
+    "examples": [
+      "Update all asset intelligence",
+      "Deep scan XRP and HBAR at the same time",
+      "Show XRP to ten thousand and above",
+      "Show HBAR to one hundred and above",
+      "Find new sources we have not used before",
+      "Explain why this ceiling is plausible or impossible",
+      "Add a stock using the full asset template",
+      "Open the evidence behind this recommendation",
+      "Continue from the first incomplete Jarvis task",
+      "Take me to the blocked setup and guide me"
+    ],
+    "context_resolution": [
+      "current_page",
+      "selected_asset_or_project",
+      "selected_environment",
+      "last_verified_task",
+      "user_permissions",
+      "risk_class",
+      "required_approval"
+    ]
+  },
+  "guided_user_experience": {
+    "novice_mode_default": true,
+    "expert_mode_available": true,
+    "explain_terms_inline": true,
+    "show_recommended_default": true,
+    "frequent_actions_target_clicks": 3,
+    "progressive_disclosure": true,
+    "one_blocker_at_a_time_when_required": true,
+    "one_consolidated_human_action_card": true,
+    "never_show_secret_values": true,
+    "never_repeat_resolved_setup_steps": true,
+    "guided_tours": [
+      "first_run",
+      "asset_intelligence",
+      "source_and_evidence_review",
+      "workflow_and_agent_control",
+      "approval_and_rollback",
+      "voice_controls",
+      "knowledge_fabric"
+    ]
+  },
+  "unified_llm_functions": [
+    "ask_and_answer",
+    "summarise_and_explain",
+    "research_and_source",
+    "extract_and_structure",
+    "compare_and_rank",
+    "forecast_and_scenario_test",
+    "code_and_build_in_sandbox",
+    "review_and_verify",
+    "plan_and_route_workflows",
+    "create_drafts_and_previews",
+    "navigate_and_guide",
+    "monitor_and_alert_from_configured_sources",
+    "prepare_approvals",
+    "export_to_Knowledge_Fabric"
+  ],
+  "action_truth_contract": {
+    "every_button_has_purpose_inputs_action_output_next_step_failure_rollback_and_evidence": true,
+    "preview_before_consequential_action": true,
+    "read_only_actions_may_auto_run_when_authorised": true,
+    "external_communication_is_draft_or_preview_first": true,
+    "production_actions_are_prepare_only_until_approved": true,
+    "financial_actions_require_separate_non_voice_approval": true,
+    "destructive_actions_require_exact_target_readback_and_rollback": true,
+    "credentials_MFA_and_recovery_material_never_collected_by_voice": true
+  },
+  "observability_and_continuity": {
+    "global_progress_tracker": true,
+    "per_module_progress": true,
+    "per_asset_intelligence_run_history": true,
+    "source_denominator_and_gap_view": true,
+    "decision_risk_and_discrepancy_ledgers": true,
+    "live_runtime_and_repository_truth_separated": true,
+    "last_verified_step_and_resume_action": true,
+    "immutable_snapshot_hashes": true,
+    "exportable_continuity_pack": true
+  },
+  "performance_and_resilience": {
+    "offline_or_degraded_mode": true,
+    "cached_last_verified_snapshot": true,
+    "streaming_results": true,
+    "cancelable_long_running_tasks": true,
+    "bounded_retries": true,
+    "partial_results_preserved": true,
+    "mobile_low_bandwidth_mode": true,
+    "feature_flags_and_safe_rollback": true
+  },
+  "runtime_gates": [
+    "authenticated_user_session",
+    "role_and_permission_mapping",
+    "microphone_permission_and_visible_capture",
+    "approved_STT_TTS_and_transport",
+    "connected_Knowledge_Fabric",
+    "live_module_adapters",
+    "accessibility_and_responsive_E2E_tests",
+    "latency_false_trigger_and_replay_tests",
+    "security_privacy_and_redaction_tests",
+    "staging_canary",
+    "separate_production_approval"
+  ],
+  "rollback": "Disable the omnichannel UI feature flag, revoke microphone permission, stop speech transport, retain the existing text Command Centre and restore the prior UI bundle."
+}
