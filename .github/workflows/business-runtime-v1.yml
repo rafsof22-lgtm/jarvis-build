@@ -1,0 +1,33 @@
+name: Business Runtime V1
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Compile runtime
+        run: python -m compileall -q src
+      - name: Run deterministic business runtime tests
+        run: python -m unittest discover -s tests -p 'test_business_runtime_v1.py' -v
+      - name: Generate staging deployment evidence
+        run: |
+          PYTHONPATH=. python -m src.jarvis_business.cli deployment-plan BUSINESS-JENOK staging --required-env DATABASE_URL > evidence/jenok-staging-deployment-plan.json
+          PYTHONPATH=. python -m src.jarvis_business.cli deployment-plan BUSINESS-COST-PLUS-ONE-AUTO-PARTS staging --required-env DATABASE_URL > evidence/cost-plus-one-staging-deployment-plan.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: business-runtime-v1-evidence
+          path: evidence/*staging-deployment-plan.json

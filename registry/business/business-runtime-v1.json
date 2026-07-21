@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0.0",
+  "runtime_id": "JARVIS-BUSINESS-RUNTIME-V1",
+  "as_of": "2026-07-21",
+  "status": "IMPLEMENTED_NOT_INTEGRATED",
+  "base_merge_sha": "3e088681f5402c8e6cba59e1069dcad385cddd51",
+  "business_namespaces": [
+    "BUSINESS-JENOK",
+    "BUSINESS-COST-PLUS-ONE-AUTO-PARTS"
+  ],
+  "implemented_components": [
+    {"component": "source_reconstruction", "path": "src/jarvis_business/runtime.py", "proof": "tests/test_business_runtime_v1.py", "status": "IMPLEMENTED_NOT_INTEGRATED"},
+    {"component": "catalogue_normalisation_and_dedupe", "path": "src/jarvis_business/runtime.py", "proof": "tests/test_business_runtime_v1.py", "status": "IMPLEMENTED_NOT_INTEGRATED"},
+    {"component": "cost_plus_one_pricing", "path": "src/jarvis_business/runtime.py", "proof": "tests/test_business_runtime_v1.py", "status": "IMPLEMENTED_NOT_INTEGRATED"},
+    {"component": "procurement_and_po_gates", "path": "src/jarvis_business/runtime.py", "proof": "tests/test_business_runtime_v1.py", "status": "IMPLEMENTED_NOT_INTEGRATED"},
+    {"component": "order_verification_and_exception_queue", "path": "src/jarvis_business/runtime.py", "proof": "tests/test_business_runtime_v1.py", "status": "IMPLEMENTED_NOT_INTEGRATED"},
+    {"component": "deployment_planning_and_rollback_contract", "path": "src/jarvis_business/runtime.py", "proof": ".github/workflows/business-runtime-v1.yml", "status": "IMPLEMENTED_NOT_INTEGRATED"},
+    {"component": "command_line_interface", "path": "src/jarvis_business/cli.py", "proof": ".github/workflows/business-runtime-v1.yml", "status": "IMPLEMENTED_NOT_INTEGRATED"}
+  ],
+  "standing_execution_pattern": [
+    "capture_request_and_source_pointer",
+    "update_progress_continuity_and_gap_records",
+    "resume_first_safe_incomplete_task",
+    "implement_on_branch",
+    "run_independent_checks",
+    "repair_failures",
+    "merge_only_after_green",
+    "continue_remaining_safe_phases",
+    "preserve_blocked_items_with_exact_owner_action"
+  ],
+  "remaining_phases": [
+    {"phase": "full_historical_source_ingestion", "status": "PENDING_INGEST", "blocker": "Complete exports, chat bodies, attachments and generated artifacts are not all accessible."},
+    {"phase": "authoritative_catalogue_source_adapters", "status": "BLOCKED", "blocker": "Approved URLs, feeds, robots/terms review and source credentials are not proven."},
+    {"phase": "persistent_database_and_api", "status": "BACKLOGGED", "next_action": "Select and configure an approved staging database and service after credential and cost gate."},
+    {"phase": "supplier_and_procurement_integrations", "status": "BLOCKED", "blocker": "Supplier agreements, endpoints, credentials, spend limits and operating rules are missing."},
+    {"phase": "finance_payments_xero_logistics", "status": "BLOCKED", "blocker": "Scoped credentials, accounting design and owner approvals are required."},
+    {"phase": "staging_deployment", "status": "BLOCKED", "blocker": "No approved connected staging target and secrets are available in this execution context."},
+    {"phase": "production_release", "status": "BLOCKED", "blocker": "Requires staging evidence, legal/accounting confirmation, owner approval, credentials, domain, payments and rollback proof."}
+  ],
+  "completion_truth": "Executable local components and CI verification are implemented by this tranche. Full source reconstruction, external integration, staging deployment and production operation remain evidence- or approval-gated and cannot be marked DONE_VERIFIED yet."
+}
