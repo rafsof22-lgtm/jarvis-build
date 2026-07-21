@@ -1,0 +1,45 @@
+name: XRP HBAR Apex Runtime Tranche
+
+on:
+  pull_request:
+    paths:
+      - 'registry/asset-intelligence/xrp_hbar_apex_agent_framework_v1.json'
+      - 'registry/asset-intelligence/runs/xrp_hbar_all_intelligence_20260721.json'
+      - 'jarvis_asset_intelligence/adapters.py'
+      - 'jarvis_command_centre/auth.py'
+      - 'jarvis_voice_gateway/local_runtime.py'
+      - 'scripts/verify_xrp_hbar_apex_runtime_tranche_v1.py'
+      - '.github/workflows/xrp-hbar-apex-runtime.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'registry/asset-intelligence/xrp_hbar_apex_agent_framework_v1.json'
+      - 'registry/asset-intelligence/runs/xrp_hbar_all_intelligence_20260721.json'
+      - 'jarvis_asset_intelligence/adapters.py'
+      - 'jarvis_command_centre/auth.py'
+      - 'jarvis_voice_gateway/local_runtime.py'
+      - 'scripts/verify_xrp_hbar_apex_runtime_tranche_v1.py'
+      - '.github/workflows/xrp-hbar-apex-runtime.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile new runtime modules
+        run: python -m compileall jarvis_asset_intelligence jarvis_command_centre jarvis_voice_gateway scripts/verify_xrp_hbar_apex_runtime_tranche_v1.py
+      - name: Verify unified framework current run adapters auth and speech
+        run: python scripts/verify_xrp_hbar_apex_runtime_tranche_v1.py
+      - name: Upload redacted evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: xrp-hbar-apex-runtime-tranche-v1
+          path: evidence/xrp-hbar-apex-runtime-tranche-v1-verification.json
+          retention-days: 30
