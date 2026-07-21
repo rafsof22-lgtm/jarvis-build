@@ -1,0 +1,46 @@
+{
+  "aliases": [
+    {
+      "bytes": 11546,
+      "canonical_evidence": "PR-94 / current-chat visible transcript pack v11",
+      "canonical_relationship": "EXACT_DUPLICATE_ALIAS",
+      "sha256": "749cfc6d646ef000f72309ce3cdb23d31d6a1851e3ac64833bc379abcfac50cf",
+      "uploaded_name": "jarvis-current-chat-visible-transcript-pack-v11(2).zip"
+    },
+    {
+      "bytes": 734,
+      "canonical_evidence": "health split handover manifest v1",
+      "canonical_relationship": "EXACT_DUPLICATE_ALIAS",
+      "sha256": "5f0bcbf9b173d37d5058aa28e64e86aa8f4712f242e1187af531ed0a3e9c8747",
+      "uploaded_name": "HEALTH_OPTIMISATION_SPOOKY2_PSYCHOLOGY_MASTER_HANDOVER.zip.parts(2).csv"
+    },
+    {
+      "bytes": 94371840,
+      "canonical_evidence": "part003 registered in split handover v1",
+      "canonical_relationship": "EXACT_DUPLICATE_ALIAS",
+      "sha256": "83223326e6af37eaaefce9f406d2247d4c02e1890e9d9d64a8c53ce560a3fa2b",
+      "uploaded_name": "HEALTH_OPTIMISATION_SPOOKY2_PSYCHOLOGY_MASTER_HANDOVER.zip(2).part003"
+    },
+    {
+      "bytes": 94371840,
+      "canonical_evidence": "part004 registered in split handover v1",
+      "canonical_relationship": "EXACT_DUPLICATE_ALIAS",
+      "sha256": "deffb612d0c5a9f0e5273b6aa011fb90d347f8702a155193abb165a684c0146a",
+      "uploaded_name": "HEALTH_OPTIMISATION_SPOOKY2_PSYCHOLOGY_MASTER_HANDOVER.zip(2).part004"
+    },
+    {
+      "bytes": 66083320,
+      "canonical_evidence": "part005 registered in split handover v1",
+      "canonical_relationship": "EXACT_DUPLICATE_ALIAS",
+      "sha256": "3468181e1cde8a05fed34eb7f2c23cf0c92bb6cc8b3cf0aa3dc8aacca6fb5a7f",
+      "uploaded_name": "HEALTH_OPTIMISATION_SPOOKY2_PSYCHOLOGY_MASTER_HANDOVER.zip(2).part005"
+    }
+  ],
+  "new_source_bytes": 0,
+  "processing_rule": "Do not create new requirement or evidence rows from exact duplicate aliases; retain receipt lineage and canonical pointer.",
+  "registry_id": "UPLOAD-ALIAS-DEDUPE-V14",
+  "schema_version": "1.0.0",
+  "snapshot_date": "2026-07-21",
+  "state": "DONE_VERIFIED",
+  "truth_boundary": "All five current-turn uploads were byte-hashed. They are exact aliases of previously registered sources and add no novel content."
+}
