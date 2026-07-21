@@ -60,6 +60,9 @@ Read `references/registry-and-evidence-contracts.md`, `references/missing-contro
 ## Automatic skill-update governance
 Read `references/skill-update-and-release-governance.md`. Mark durable reusable discoveries as SKILL_UPDATE_CANDIDATE; run an additions-only delta against installed and canonical skill sources; update the full bundle; validate scripts/references/frontmatter; package the complete `skill.zip`; preserve the previous version/hash; and report install status. Never claim silent installation or permanent cross-chat activation without evidence.
 
+## Governed self-evolution and unified assistant
+Read `references/self-evolution-and-unified-assistant.md` whenever Jarvis must self-code, self-repair, update or expose editable frameworks, specifications, workflows, stacks, architecture, orchestrators, Skills, agents, prompts, policies, schemas, model routes, tools, integrations, UI, tests, deployment profiles, memory, modules, services, SOPs or OJT. Register every editable object with versions, dependencies, protected fields, tests, evidence and rollback. Use the same approval and policy engine for voice and popup chat. Allow explicit owner manual override, model selection, pause, rejection and rollback, but prohibit direct production self-modification or bypass of legal, security, credential, financial, health, destructive and evidence gates.
+
 ## Canonical constitution and project-instruction output
 Treat the repository's canonical Jarvis constitution as unlimited and additions-only. Never make its length a packaging, CI, reconstruction, deployment, or completion blocker.
 
