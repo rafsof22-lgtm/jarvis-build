@@ -78,6 +78,9 @@ jobs:
       - name: Validate bounded Health source denominator and safety controls
         run: python scripts/verify_health_source_denominator_v1.py
 
+      - name: Validate XRP HBAR reconciliation batch 002
+        run: python scripts/verify_xrp_hbar_batch_002.py
+
       - name: Generate redacted configuration-readiness report
         run: python scripts/config_readiness.py --root . --output evidence/config-readiness.json
 
@@ -106,3 +109,4 @@ jobs:
             evidence/project-constitution-continuity-v1-verification.json
             evidence/completion-tranche-2026-07-21-verification.json
             evidence/health-source-denominator-v1-verification.json
+            evidence/xrp-hbar-batch-002-verification.json

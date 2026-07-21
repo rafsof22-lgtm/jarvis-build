@@ -1,0 +1,78 @@
+{
+  "register_id": "XRP-HBAR-BATCH-002-DISCREPANCIES",
+  "version": "1.0.0",
+  "discrepancies": [
+    {
+      "discrepancy_id": "XH-B002-D001",
+      "topic": "XRP 10,000-dollar probability",
+      "historical_claim": "81.9 percent core and 94 percent maximum scenario",
+      "artifact_result": "0.1 percent in four early offline snapshots, then 0.03 percent in seven later offline/fallback snapshots",
+      "resolution": "Keep all values as historical model outputs; reject 81.9/94 as verified or current probabilities.",
+      "state": "RESOLVED_FOR_BATCH"
+    },
+    {
+      "discrepancy_id": "XH-B002-D002",
+      "topic": "Fast-forward trigger count",
+      "historical_claim": "8 of 12 live or confirmed",
+      "artifact_result": "trigger_register.csv has zero data records",
+      "resolution": "The trigger count lacks register evidence in this batch and is invalidated for current use.",
+      "state": "RESOLVED_FOR_BATCH"
+    },
+    {
+      "discrepancy_id": "XH-B002-D003",
+      "topic": "Live execution readiness",
+      "historical_claim": "Fully active, synchronized and ready for live execution",
+      "artifact_result": "Execution status proves offline/demo output only; live run did not complete; DNS/source checks failed",
+      "resolution": "Classify as OFFLINE_ENGINE_PATH_PROVEN and LIVE_DATA_RUNTIME_NOT_PROVEN.",
+      "state": "RESOLVED_FOR_BATCH"
+    },
+    {
+      "discrepancy_id": "XH-B002-D004",
+      "topic": "Populated tracking registers",
+      "historical_claim": "Discrepancy, forecast, social and trigger tracking were operational",
+      "artifact_result": "Four corresponding register CSVs contain headers only",
+      "resolution": "Registry schemas exist; populated historical tracking is not proven.",
+      "state": "RESOLVED_FOR_BATCH"
+    },
+    {
+      "discrepancy_id": "XH-B002-D005",
+      "topic": "Live prices and market values",
+      "historical_claim": "Dated prices and metrics represented current live values",
+      "artifact_result": "JSON explicitly labels prices offline demo or offline demo/fallback",
+      "resolution": "Treat values as test fixtures only and require current official-source retrieval for future reports.",
+      "state": "RESOLVED_FOR_BATCH"
+    }
+  ],
+  "direct_token_demand_policy": {
+    "rule": "Network, payment, stablecoin, RWA, institutional, CBDC or application adoption does not automatically create direct XRP or HBAR token demand.",
+    "required_pathway_fields": [
+      "actor",
+      "required_token",
+      "transaction_or_reserve_mechanism",
+      "volume",
+      "velocity",
+      "liquidity_source",
+      "circulating_supply_effect",
+      "time horizon",
+      "counterfactual alternatives",
+      "primary evidence"
+    ],
+    "default_without_pathway": "ADOPTION_SIGNAL_NOT_DIRECT_DEMAND_PROOF"
+  },
+  "invalidation_rules": [
+    "Invalidate live-status claims when source health fails or values are labelled demo/fallback.",
+    "Invalidate probability claims without reproducible model inputs, calibration and outcome testing.",
+    "Invalidate populated-register claims when the register contains only a header.",
+    "Invalidate completion claims when runtime, rollback and owner acceptance are absent.",
+    "Reverify all current legal, regulatory, market, company and adoption facts from official sources."
+  ],
+  "open_gaps": [
+    "Complete request-to-response message-level lineage for all 22,672 text lines.",
+    "Process historical XRP/HBAR DOCX files not included in this bounded batch.",
+    "Create semantic duplicate and supersession groups across the full historical source universe.",
+    "Rebuild evidence-backed catalyst and trigger history from dated primary sources.",
+    "Populate forecast accuracy only after predictions and actual outcomes are linked.",
+    "Create current official-source update separately from historical reconciliation."
+  ],
+  "rollback": "Supersede individual discrepancy resolutions only with new source-linked evidence; never delete the historical record."
+}

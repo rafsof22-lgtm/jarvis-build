@@ -1,0 +1,105 @@
+{
+  "register_id": "XRP-HBAR-BATCH-002-CLAIMS",
+  "version": "1.0.0",
+  "claims": [
+    {
+      "claim_id": "XH-B002-C001",
+      "source_id": "XH-B002-S002",
+      "claim": "The historical tracking system had 133 or more fully operational tables and 2,809 tracked rows.",
+      "classification": "HISTORICAL_ASSISTANT_CLAIM_NEEDS_PROOF",
+      "disposition": "NOT_ADOPTED_AS_CURRENT_TRUTH",
+      "reason": "No exact table inventory, row ledger and independent reconciliation evidence is present in this bounded batch."
+    },
+    {
+      "claim_id": "XH-B002-C002",
+      "source_id": "XH-B002-S002",
+      "claim": "XRP had an 81.9 percent real-time likelihood of reaching 10,000 dollars.",
+      "classification": "HISTORICAL_MODEL_CLAIM_INVALID_FOR_CURRENT_USE",
+      "disposition": "REJECTED_AS_VERIFIED_PROBABILITY",
+      "reason": "The transcript does not provide a reproducible model, calibrated denominator or outcome validation. The execution archive contains much lower offline-demo model values."
+    },
+    {
+      "claim_id": "XH-B002-C003",
+      "source_id": "XH-B002-S002",
+      "claim": "A 94 percent maximum scenario activates when enough fast-forward triggers are live.",
+      "classification": "HISTORICAL_CONDITIONAL_MODEL_CLAIM_NEEDS_PROOF",
+      "disposition": "NOT_ADOPTED",
+      "reason": "Trigger definitions, weights, source evidence and calibration are not reproducibly populated in the execution archive."
+    },
+    {
+      "claim_id": "XH-B002-C004",
+      "source_id": "XH-B002-S002",
+      "claim": "Eight of twelve fast-forward triggers were live or confirmed.",
+      "classification": "HISTORICAL_ASSISTANT_CLAIM_CONTRADICTED_BY_EMPTY_REGISTER",
+      "disposition": "UNVERIFIED_AND_INVALIDATED_FOR_CURRENT_USE",
+      "reason": "The bundled trigger_register.csv contains only the header and zero trigger records."
+    },
+    {
+      "claim_id": "XH-B002-C005",
+      "source_id": "XH-B002-S002",
+      "claim": "The system was fully active, synchronized and ready for live execution.",
+      "classification": "HISTORICAL_COMPLETION_CLAIM_CONTRADICTED_BY_RUNTIME_EVIDENCE",
+      "disposition": "REJECTED",
+      "reason": "The execution status states that live API mode did not complete and only offline/demo output generation was proven."
+    },
+    {
+      "claim_id": "XH-B002-C006",
+      "source_id": "XH-B002-S001",
+      "claim": "The tracker engine and output generation path work in offline/demo mode.",
+      "classification": "PROVEN_BOUNDED_EXECUTION_ARTIFACT",
+      "disposition": "ADOPTED_WITH_SCOPE_LIMIT",
+      "reason": "Multiple JSON, markdown and CSV snapshots were generated and execution status explicitly records offline/demo success."
+    },
+    {
+      "claim_id": "XH-B002-C007",
+      "source_id": "XH-B002-S001",
+      "claim": "The bundled tracker had live market and chain-source verification.",
+      "classification": "CONTRADICTED_BY_SOURCE_HEALTH",
+      "disposition": "REJECTED",
+      "reason": "CoinGecko, Binance, CoinPaprika, XRPSCAN and Hedera Mirror Node checks failed DNS or timed out; source sweep was skipped."
+    },
+    {
+      "claim_id": "XH-B002-C008",
+      "source_id": "XH-B002-S001",
+      "claim": "Offline tracker snapshots used XRP price 1.32 and HBAR price 0.18.",
+      "classification": "PROVEN_HISTORICAL_FIXTURE_VALUE",
+      "disposition": "ADOPTED_AS_FIXTURE_ONLY",
+      "reason": "All reviewed snapshots label the values offline demo or offline demo/fallback; they are not current market prices."
+    },
+    {
+      "claim_id": "XH-B002-C009",
+      "source_id": "XH-B002-S001",
+      "claim": "The archive modeled XRP 10,000-dollar probabilities at 0.1 percent and later 0.03 percent with scenario-consistency values 8.1 and 5.03.",
+      "classification": "PROVEN_HISTORICAL_MODEL_OUTPUT",
+      "disposition": "ADOPTED_AS_UNCALIBRATED_OFFLINE_OUTPUT_ONLY",
+      "reason": "Values appear in the eleven JSON snapshots, but no calibration or current evidence supports financial use."
+    },
+    {
+      "claim_id": "XH-B002-C010",
+      "source_id": "XH-B002-S001",
+      "claim": "Trigger, discrepancy, forecast-accuracy and social-claims registers were populated.",
+      "classification": "CONTRADICTED_BY_ARCHIVE",
+      "disposition": "REJECTED",
+      "reason": "Each corresponding CSV contains only its header and zero data records."
+    },
+    {
+      "claim_id": "XH-B002-C011",
+      "source_id": "XH-B002-S001",
+      "claim": "Six candidate source endpoints were registered.",
+      "classification": "PROVEN_CONFIGURATION_RECORD",
+      "disposition": "ADOPTED_AS_REGISTRY_METADATA",
+      "reason": "The source register contains CoinGecko, XRPSCAN, Hedera Mirror Node, DeFiLlama, BIS and IMF rows. Registration does not prove successful retrieval."
+    },
+    {
+      "claim_id": "XH-B002-C012",
+      "source_id": "XH-B002-S001",
+      "claim": "The archive proves a current investment recommendation or autonomous trading readiness.",
+      "classification": "UNSUPPORTED_AND_OUTSIDE_ALLOWED_SCOPE",
+      "disposition": "REJECTED",
+      "reason": "The archive states research automation only, requires primary-source verification and contains no live trading proof."
+    }
+  ],
+  "financial_boundary": "Research and paper-first only. No personalised regulated advice, trading, custody or money movement.",
+  "current_fact_policy": "All dated market, adoption, legal, regulatory and company claims require fresh official-source verification before reuse.",
+  "rollback": "Revert classifications only through a new evidence-linked supersession record. Preserve this register and source hashes."
+}
