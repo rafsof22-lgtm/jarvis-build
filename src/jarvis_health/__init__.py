@@ -1,5 +1,16 @@
 """Governed health intelligence contracts for Jarvis."""
 
+from .care_coordination_v1 import (
+    CareCoordinationStore,
+    ClaimQueueItem,
+    ConsentRecord,
+    DeviceRecord,
+    DiagnosticSourceRecord,
+    InterventionRecord,
+    ProviderRecord,
+    RegimenItem,
+    synthetic_subject_ref,
+)
 from .evidence_gate_v1 import (
     HealthClaimAssessment,
     HealthClaimInput,
@@ -9,6 +20,15 @@ from .evidence_gate_v1 import (
 )
 
 __all__ = [
+    "CareCoordinationStore",
+    "ClaimQueueItem",
+    "ConsentRecord",
+    "DeviceRecord",
+    "DiagnosticSourceRecord",
+    "InterventionRecord",
+    "ProviderRecord",
+    "RegimenItem",
+    "synthetic_subject_ref",
     "HealthClaimAssessment",
     "HealthClaimInput",
     "HealthEvidenceGate",
