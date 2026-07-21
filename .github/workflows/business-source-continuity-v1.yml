@@ -1,0 +1,27 @@
+name: Business Source Continuity V1
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify business modules, source accounting and safe property capture
+        run: python scripts/verify_business_source_continuity_v1.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: business-source-continuity-v1-evidence
+          path: evidence/business-source-continuity-v1-verification.json
