@@ -1,0 +1,46 @@
+name: Provider Execution and Command Centre V1
+
+on:
+  pull_request:
+    paths:
+      - 'jarvis_model_router/**'
+      - 'jarvis_command_centre/**'
+      - 'src/jarvis_evolution/**'
+      - 'tests/test_provider_execution_command_centre_v1.py'
+      - 'registry/model-routing/provider_execution_and_panel_persistence_v1.json'
+      - 'registry/ux/universal_model_selector_surface_integration_v1.json'
+      - 'registry/trackers/all_progress_tracker_reconciliation_v3.json'
+      - 'registry/jarvis_completion_pass_registry_v2.json'
+      - 'registry/full_completion_priority_plan_v1.json'
+      - 'docs/jarvis-provider-execution-command-centre-v1.md'
+      - 'scripts/verify_provider_execution_command_centre_v1.py'
+      - '.github/workflows/provider-execution-command-centre-v1.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile runtime
+        run: python -m compileall -q jarvis_model_router jarvis_command_centre src/jarvis_evolution scripts/verify_provider_execution_command_centre_v1.py
+      - name: Run deterministic tests
+        run: python -m unittest -v tests.test_provider_execution_command_centre_v1
+      - name: Validate registries
+        run: |
+          python -m json.tool registry/model-routing/provider_execution_and_panel_persistence_v1.json >/dev/null
+          python -m json.tool registry/ux/universal_model_selector_surface_integration_v1.json >/dev/null
+          python -m json.tool registry/trackers/all_progress_tracker_reconciliation_v3.json >/dev/null
+          python -m json.tool registry/jarvis_completion_pass_registry_v2.json >/dev/null
+          python -m json.tool registry/full_completion_priority_plan_v1.json >/dev/null
+      - name: Verify truth and integration gates
+        run: python scripts/verify_provider_execution_command_centre_v1.py
+      - name: Validate test count
+        run: test "$(grep -c '^    def test_' tests/test_provider_execution_command_centre_v1.py)" -eq 16
