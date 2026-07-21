@@ -25,7 +25,9 @@ def main() -> None:
     require(len(matrix["capabilities"]) == 6, "all six folder0 candidates must be dispositioned")
     require({item["candidate_id"] for item in matrix["capabilities"]} == {f"F0-CAP-{index:03d}" for index in range(1, 7)}, "candidate set drifted")
     db_item = next(item for item in matrix["capabilities"] if item["candidate_id"] == "F0-CAP-006")
-    require(db_item["runtime_state"] == "BACKLOGGED" and not db_item["artifacts"], "database inspector falsely implemented")
+    require(db_item["runtime_state"] in {"BACKLOGGED", "IMPLEMENTED_NOT_INTEGRATED"}, "database inspector state invalid")
+    if db_item["runtime_state"] == "IMPLEMENTED_NOT_INTEGRATED":
+        require(len(db_item["artifacts"]) >= 3, "implemented database inspector lacks evidence")
     for item in matrix["capabilities"]:
         for artifact in item["artifacts"]:
             require((ROOT / artifact).exists(), f"missing traceability artifact: {artifact}")
