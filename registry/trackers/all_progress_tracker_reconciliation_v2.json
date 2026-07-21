@@ -1,0 +1,62 @@
+{
+  "tracker_id": "JARVIS-ALL-PROGRESS-TRACKER-RECONCILIATION-V2",
+  "version": "2.0.0",
+  "snapshot_date": "2026-07-21",
+  "baseline_main_sha": "907f52805970a0f511f053657e57f9f80258d1e4",
+  "program_state": "ACTIVE_PROGRAM_NOT_100_PERCENT",
+  "canonical_priority_tracker": "registry/full_completion_priority_plan_v1.json",
+  "canonical_pass_tracker": "registry/jarvis_completion_pass_registry_v2.json",
+  "rule": "This delta supersedes stale states and percentages only where the listed merged evidence proves a bounded state transition. Parent missions remain open until their full exit gates pass.",
+  "merged_evidence": [
+    {"pr":67,"scope":"platform operations repository control plane"},
+    {"pr":68,"scope":"Command Centre history and alert persistence"},
+    {"pr":71,"scope":"bounded intelligence, routing and Apex agent contracts"},
+    {"pr":73,"scope":"executable business runtime components"},
+    {"pr":75,"scope":"measured ChatHub source pack and role-aware intake"},
+    {"pr":81,"scope":"dependency-free local runtime and bounded deterministic staging slices","merge_sha":"907f52805970a0f511f053657e57f9f80258d1e4"}
+  ],
+  "task_state_corrections": [
+    {"task_id":"P1-6","previous":"BACKLOGGED","current":"IMPLEMENTED_NOT_INTEGRATED","scope":"Repository-side topology, IAM, policy, audit, alerts, recovery contracts and deterministic tests; connected infrastructure remains unproven."},
+    {"task_id":"P2-5","previous":"BACKLOGGED","current":"IMPLEMENTED_NOT_INTEGRATED","scope":"Deterministic source/evidence ranking, free-first routing and capability quarantine; current connected acquisition schedules remain unproven."},
+    {"task_id":"P2-6","previous":"BACKLOGGED","current":"IMPLEMENTED_NOT_INTEGRATED","scope":"Shared local governance, knowledge, routing, security, UX and integration contracts; complete connected shared-core runtime remains open."},
+    {"task_id":"P3-2","previous":"SPEC_ONLY","current":"INTEGRATED_STAGING","scope":"Bounded deterministic read-only CFO scenario slice only."},
+    {"task_id":"P3-3","previous":"SPEC_ONLY","current":"INTEGRATED_STAGING","scope":"Bounded research-only XRP/HBAR holdings and scenario slice only."},
+    {"task_id":"P3-4","previous":"SPEC_ONLY","current":"INTEGRATED_STAGING","scope":"Bounded paper-order and position-risk slice only; full backtest/walk-forward factory remains open."},
+    {"task_id":"P3-5","previous":"SPEC_ONLY","current":"INTEGRATED_STAGING","scope":"Bounded agency unit-economics slice only; demand, CRM and delivery runtime remain open."},
+    {"task_id":"P3-6","previous":"SPEC_ONLY","current":"INTEGRATED_STAGING","scope":"Bounded SaaS staging gate only; product lifecycle, billing and publication remain open."},
+    {"task_id":"P2-3","previous":"DONE_VERIFIED","current":"DONE_VERIFIED","scope":"BOUNDED_BATCH_002_ONLY","issue_49":"CLOSED_COMPLETED_2026_07_21"}
+  ],
+  "fully_completed_bounded_scopes": [
+    "Accessible five-repository inventory and source-level federation contracts",
+    "Canonical project constitution recovery",
+    "XRP/HBAR reconciliation batch 002",
+    "ChatHub supplied source-pack measurement and role-aware parsing",
+    "Dependency-free local completion runtime package",
+    "Local signed integration-envelope standard",
+    "Bounded CFO, XRP/HBAR, paper-trading, agency and SaaS staging slices",
+    "Repository-wide CI and full-history security verification for PR 81"
+  ],
+  "additional_work_fully_executable_now": [
+    {"work_id":"NOW-01","name":"Knowledge Fabric resilience","deliverables":["SQLite backup/export","verified restore","corruption detection","schema migration test","rollback evidence"],"target_state":"DONE_VERIFIED_LOCAL_SCOPE"},
+    {"work_id":"NOW-02","name":"Durable local integration queue","deliverables":["persistent queue","bounded retries","dead-letter quarantine","controlled replay","idempotency","failure injection"],"target_state":"DONE_VERIFIED_LOCAL_SCOPE"},
+    {"work_id":"NOW-03","name":"Deterministic federation exercises","deliverables":["source-to-evidence-to-routing-to-domain-to-audit scenario","provider outage","corrupt message","duplicate request","queue failure","restore and rollback"],"target_state":"DONE_VERIFIED_SIMULATION_SCOPE"},
+    {"work_id":"NOW-04","name":"Command Centre operator pack","deliverables":["read model","progress cards","approval packets","blocker actions","rollback display","accessibility and failure-state tests"],"target_state":"DONE_VERIFIED_LOCAL_UI_CONTRACT_SCOPE"},
+    {"work_id":"NOW-05","name":"Expanded bounded domain services","deliverables":["CFO entity and immutable ledger fixtures","paper backtest and walk-forward harness","agency CRM and QA fixtures","SaaS lifecycle and analytics fixtures"],"target_state":"INTEGRATED_STAGING_BOUNDED_SCOPE"},
+    {"work_id":"NOW-06","name":"Repository-scope release and continuity pack","deliverables":["manifest","hashes","test index","risk and gap registers","rollback pack","resume prompt"],"target_state":"DONE_VERIFIED_REPOSITORY_SCOPE"},
+    {"work_id":"NOW-07","name":"Accessible source batches","deliverables":["process each currently available archive/file as a separately counted batch","preserve missing files as PENDING_INGEST or BLOCKED_BY_ACCESS"],"target_state":"DONE_VERIFIED_PER_BOUNDED_BATCH"}
+  ],
+  "hard_blocks": [
+    {"tasks":["P0-1"],"reason":"DigitalOcean Recovery Console access"},
+    {"tasks":["P0-2"],"reason":"Provider-side token revocation or rotation"},
+    {"tasks":["P0-3"],"reason":"Authoritative Railway domain and provider configuration"},
+    {"tasks":["P0-4"],"reason":"Google Apps Script, Sheet and Railway configuration"},
+    {"tasks":["P0-5"],"reason":"Provider workflow dispatch and runtime result"},
+    {"tasks":["P0-6"],"reason":"Protected host identity and authorised canary source"},
+    {"tasks":["P0-7","P4-1"],"reason":"Connected staging endpoints and vault-held signing references"},
+    {"tasks":["P2-1","P2-4"],"reason":"Missing or opaque source bytes prevent universal source completion"},
+    {"tasks":["P5-1"],"reason":"Owner approval, provider accounts, costs and production secrets"},
+    {"tasks":["P6-1"],"reason":"All prior tasks plus explicit owner acceptance"}
+  ],
+  "next_execution_tranche": ["NOW-01","NOW-02","NOW-03","NOW-04","NOW-06"],
+  "truth_boundary": "All percentages and completion claims must name their denominator. Whole-program 100 percent remains impossible until missing sources, connected staging, production and owner acceptance gates are resolved."
+}
