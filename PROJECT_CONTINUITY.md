@@ -102,6 +102,15 @@ This expands the original Jarvis core architecture without replacing it. Each la
 4. Resume Cost + $1 customer, trade, workshop, vehicle, supplier and order schemas plus synthetic order-to-billing flow.
 5. Reconcile the remaining nine requested projects through bounded source and requirement batches.
 
+## Preserved historical verifier language and supersession
+
+The following earlier continuity statements remain preserved for lineage and legacy verifier compatibility; they are not current gap claims:
+
+- **Visible Health handover denominator v2** remains a historical bounded completion.
+- **Runtime auto-resume controller** remains a verified repository capability.
+- The earlier statement **“Four images remain without OCR”** is superseded by the V14 format-specific image review.
+- The earlier reference to **“three opaque archives”** is preserved as historical lineage; later bounded processing must control the current state.
+
 ## Automation boundary
 
 Repository changes, tests, reports, staging plans and safe read-only checks may continue autonomously. Provider consoles, credentials, billing/legal acceptance, recovery-console actions, destructive operations, production promotion, money movement, live trading, external publication and clinical/device control remain owner-gated.
