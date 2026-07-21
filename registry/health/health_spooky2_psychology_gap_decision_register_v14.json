@@ -1,0 +1,29 @@
+{
+  "decisions": [
+    {"decision":"Latest direct project identity controls the unique denominator; prior 157-envelope count is retained as mixed-lineage history.","id":"HLTH-DEC-001","state":"DECISION_RECORDED"},
+    {"decision":"Raw sensitive records remain outside GitHub; only hashes, counts, normalized requirements and safety classifications are committed.","id":"HLTH-DEC-002","state":"DECISION_RECORDED"},
+    {"decision":"Spooky2/frequency/bioresonance claims remain exploratory and cannot trigger medical execution or device control.","id":"HLTH-DEC-003","state":"DECISION_RECORDED"},
+    {"decision":"Personal diagnostic PDF and genetics/lab sources require clinician interpretation; Jarvis may organise but not make final diagnoses.","id":"HLTH-DEC-004","state":"DECISION_RECORDED"}
+  ],
+  "gaps": [
+    {"evidence":"health_spooky2_psychology_full_reconstruction_v14.json","gap":"79 latest target-project conversations were absent from the older keyword-selected handover.","id":"HLTH-GAP-001","state":"RESOLVED_BY_LATEST_EXPORT_MACHINE_PASS"},
+    {"gap":"Claim-level primary-source validation has not been completed for all historical recommendations.","id":"HLTH-GAP-002","next_action":"Build evidence work queue and verify highest-risk/highest-use claims against current official guidance and peer-reviewed sources.","state":"OPEN"},
+    {"gap":"No connected encrypted health database, consent service or clinician portal is proven.","id":"HLTH-GAP-003","next_action":"Design and stage with explicit owner approval, privacy review and least-privilege credentials.","state":"BLOCKED_EXTERNAL_INTEGRATION"},
+    {"gap":"Provider directory, availability and AUD pricing are not current without web verification.","id":"HLTH-GAP-004","next_action":"Run current official-source provider verification by requested service and location.","state":"OPEN_CURRENT_RESEARCH"},
+    {"gap":"Medication/supplement interaction record is not reconciled by a clinician or pharmacist.","id":"HLTH-GAP-005","next_action":"Generate a review packet from user-confirmed current list without changing treatment.","state":"BLOCKED_PROFESSIONAL_REVIEW"},
+    {"gap":"Device inventory, regulatory status, contraindications and operator competency are not fully proven.","id":"HLTH-GAP-006","next_action":"Create device register; keep all controls disabled until model/manual/regulatory evidence and professional supervision are resolved.","state":"OPEN"},
+    {"gap":"The historical archive contains 1,629 assistant safety-pattern flags requiring claim-level review.","id":"HLTH-GAP-007","next_action":"Prioritise medication changes, device settings, invasive interventions, psychedelic dosing, cure claims and detox claims.","state":"OPEN_BOUNDED_QUEUE"},
+    {"gap":"No connected staging, production deployment or owner acceptance exists for the health module.","id":"HLTH-GAP-008","next_action":"Complete privacy/security design, representative fixtures, independent review, staging and owner acceptance.","state":"BLOCKED_RELEASE_GATES"}
+  ],
+  "program_state": "ACTIVE_PROGRAM_NOT_100_PERCENT",
+  "registry_id": "HEALTH-SPOOKY2-PSYCHOLOGY-GAP-DECISION-REGISTER-V14",
+  "risks": [
+    {"control":"Source-class separation, evidence gate and quarantine.","id":"HLTH-RISK-001","risk":"Historical assistant proposals may be mistaken for medical facts."},
+    {"control":"No raw content in repository; hash-only ledger and restricted classification.","id":"HLTH-RISK-002","risk":"Sensitive records may expose PII/health data."},
+    {"control":"Device control disabled and clinician/specialist review required.","id":"HLTH-RISK-003","risk":"Frequency/device parameters may cause harm or delay care."},
+    {"control":"Current official-source verification and freshness expiry required.","id":"HLTH-RISK-004","risk":"Provider, legal-status and product claims may be stale."}
+  ],
+  "schema_version": "1.0.0",
+  "snapshot_date": "2026-07-21",
+  "truth_boundary": "The source universe is materially deeper and privacy-safe requirements are locked. Clinical validation, connected systems, staging and production remain incomplete."
+}
