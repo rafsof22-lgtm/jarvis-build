@@ -1,0 +1,76 @@
+{
+  "framework_id": "JARVIS-XRP-HBAR-APEX-AGENT-FRAMEWORK-V1",
+  "version": "1.0.0",
+  "effective_date": "2026-07-21",
+  "state": "IMPLEMENTED_NOT_INTEGRATED",
+  "purpose": "Operate one governed XRP/HBAR Apex Intelligence OS with shared control, evidence, tools, APIs, memory and verification while preserving separate XRP and HBAR asset domains.",
+  "architecture": {
+    "instruction_plane": "Unified inheritance rules, triggers, safety, tool and cost routing.",
+    "registry_plane": "Asset profiles, sources, claims, milestones, forecasts, risks, agents, integrations, tests, evidence and decisions.",
+    "execution_plane": "Hub-owned workers, schedulers, queues, source adapters, calculations, reports and alerts.",
+    "verification_plane": "Jarvis-build independent source, schema, calculation, security, cost, deployment and rollback checks.",
+    "media_plane": "Videotranscribe-owned media intake, transcription, timestamped claims and evidence delivery."
+  },
+  "repository_boundaries": {
+    "jarvis-build": ["governance", "registries", "Command Centre", "verification", "continuity", "release evidence"],
+    "hub": ["runtime orchestration", "market and chain collection", "scheduled execution", "forecasts", "alerts", "persistent state"],
+    "videotranscribe": ["video and audio evidence", "transcripts", "creator records", "claim extraction", "media provenance"]
+  },
+  "unified_inheritance": {
+    "applies_to": ["all Jarvis modules", "all XRP agents", "all HBAR agents", "future asset profiles", "Command Centre", "Knowledge Fabric", "source adapters", "voice and UI surfaces"],
+    "rules": [
+      "additions-only evolution with source lineage and superseded-not-deleted history",
+      "source-first current verification and explicit source denominator",
+      "separate user requirements, assistant proposals, external claims, implementation and runtime evidence",
+      "use universal evidence-backed status vocabulary only",
+      "separate network or company adoption from direct token demand",
+      "separate unconditional probability, scenario-consistency and trigger-activation scores",
+      "record capital-flow pathway, counterfactual alternatives and invalidation for material adoption claims",
+      "free/local/deterministic routing before paid models or tools",
+      "least privilege, secret references only, redacted logs and approval gates",
+      "idempotency, bounded retries, timeouts, dead-letter handling and rollback",
+      "no agent or module self-certification; independent verification required",
+      "research-only and paper-first financial operation",
+      "voice and UI never bypass MFA, credentials, financial, destructive or production approvals",
+      "every durable output maps to Knowledge Fabric with provenance, freshness, conflict and supersession metadata"
+    ]
+  },
+  "shared_agents": [
+    {"id":"APEX-ORCHESTRATOR","role":"Decompose UPDATE, DEEP_SCAN and ALL_INTELLIGENCE, enforce dependency, budget and approval policy."},
+    {"id":"SOURCE-SCOUT","role":"Discover official, primary, technical, regulatory, market, chain, media and adverse sources without padding counts."},
+    {"id":"EVIDENCE-CURATOR","role":"Hash, timestamp, classify, deduplicate and preserve every accepted source and negative result."},
+    {"id":"CLAIM-VERIFIER","role":"Verify claims, preserve contradictions and apply freshness and authority tiers."},
+    {"id":"DIRECT-DEMAND-ANALYST","role":"Map actor, required token, mechanism, volume, velocity, liquidity, float and alternatives."},
+    {"id":"MARKET-CHAIN-ANALYST","role":"Evaluate liquidity, float, supply, unlocks, fees, staking, chain usage and market structure."},
+    {"id":"REGULATORY-INSTITUTIONAL-ANALYST","role":"Track official regulation, filings, funds, custody, banks, enterprises and policy changes."},
+    {"id":"VTI-MEDIA-ANALYST","role":"Route videos, podcasts and social claims through timestamped evidence extraction."},
+    {"id":"MILESTONE-FORECAST-ENGINE","role":"Maintain milestone scenarios, probabilities, conditions, timing and outcome calibration."},
+    {"id":"CEILING-SCENARIO-ENGINE","role":"Calculate credible, high-adoption, extreme-tail, mechanical and incoherent price regions."},
+    {"id":"RISK-INVALIDATION-ANALYST","role":"Find adverse evidence, failure modes, competitor substitution and thesis invalidators."},
+    {"id":"DISCREPANCY-AUDITOR","role":"Compare current outputs with prior values, explanations and historical claims."},
+    {"id":"KNOWLEDGE-FABRIC-PUBLISHER","role":"Write append-only, schema-valid evidence and derived records to the approved backend."},
+    {"id":"INDEPENDENT-VERIFIER","role":"Recompute denominators, critical calculations, source mappings and evidence chains."},
+    {"id":"COMMAND-CENTRE-PRESENTER","role":"Render novice-first status, evidence, uncertainty, blockers and recommended actions."},
+    {"id":"RELEASE-GATEKEEPER","role":"Approve repository or staging state only after tests, evidence and rollback proof; production remains owner-gated."}
+  ],
+  "xrp_domain": {
+    "namespace": "asset/XRP",
+    "specialists": ["Ripple/XRPL/RLUSD separation", "XRPL amendments and validator activation", "payments and liquidity", "institutional DeFi and lending", "ETF/fund/custody", "escrow and circulating supply", "XRP direct-demand pathways"],
+    "milestone_ceiling": "fixed milestones through USD 10,000 plus evidence-labelled dynamic scenarios above it",
+    "non_transferable_rule": "Ripple company success, RLUSD usage or XRPL activity cannot be counted as XRP demand without an evidenced XRP capital-flow mechanism."
+  },
+  "hbar_domain": {
+    "namespace": "asset/HBAR",
+    "specialists": ["Hedera/Hiero/Council separation", "HCS/HTS/EVM services", "fees paid in HBAR", "staking and node economics", "treasury distribution", "enterprise production usage", "tokenization and DeFi", "HBAR direct value capture"],
+    "milestone_ceiling": "fixed milestones through USD 100 plus evidence-labelled dynamic scenarios above it",
+    "non_transferable_rule": "Council membership, transaction counts or enterprise pilots cannot be counted as HBAR demand without measured fees, staking, liquidity, holdings or other value capture."
+  },
+  "tool_api_policy": {
+    "rule": "All approved tools, APIs and skills inherit the shared controls, but are selected by capability and asset applicability rather than invoked blindly.",
+    "required_adapter_fields": ["adapter_id", "asset_scope", "source_authority", "base_url_or_endpoint_name", "authentication_name_only", "rate_limit", "cost", "freshness", "timeout", "retry", "idempotency", "schema", "health", "evidence", "rollback"],
+    "preferred_order": ["verified cache", "deterministic local tool", "official public API", "approved internal connector", "local model", "free provider", "cheapest qualified paid provider", "specialist premium provider", "independent verifier"]
+  },
+  "completion_chain": "Requirement -> Agent/Module -> Artifact -> Test/Waiver -> Evidence -> Runtime state -> Rollback -> Owner acceptance",
+  "runtime_truth": "The unified governance and registry contract is implemented in jarvis-build. Connected adapters, persistent Knowledge Fabric, authenticated UI and local speech still require staging and runtime proof.",
+  "rollback": "Revert the framework tranche; prior independent XRP/HBAR profiles and historical matrix remain preserved."
+}
