@@ -1,0 +1,84 @@
+{
+  "contract_id": "JARVIS-VOICE-COMMAND-GATEWAY-V1",
+  "version": "1.0.0",
+  "state": "DETERMINISTIC_TEXT_POLICY_IMPLEMENTED_AUDIO_RUNTIME_NOT_CONNECTED",
+  "purpose": "Provide one shared voice-command gateway for all Jarvis modules with local-first speech processing, visible consent, fail-closed action routing and exact approval boundaries.",
+  "data_flow": [
+    "local_wake_word_or_push_to_talk",
+    "visible_recording_indicator",
+    "voice_activity_and_noise_control",
+    "approved_local_or_private_speech_to_text",
+    "sensitive_text_redaction",
+    "deterministic_risk_classification",
+    "capability_and_permission_router",
+    "readback_or_owner_gate_when_required",
+    "restricted_adapter_execution_if_separately_approved",
+    "output_validation",
+    "approved_local_or_private_text_to_speech",
+    "audit_and_evidence_record"
+  ],
+  "candidate_stack": {
+    "wake_word": ["custom permissively licensed Jarvis model", "LiveKit Wakeword", "openWakeWord architecture after model-licence review"],
+    "voice_activity": ["Silero VAD or equivalent reviewed local VAD"],
+    "speech_to_text": ["faster-whisper", "whisper.cpp", "approved cloud fallback on demand"],
+    "realtime_transport": ["LiveKit self-hosted", "bounded WebRTC or WebSocket adapter"],
+    "text_to_speech": ["reviewed local TTS", "approved cloud TTS on demand"],
+    "notification": ["ntfy", "approved OS notification adapter"]
+  },
+  "default_controls": {
+    "wake_word_local_only": true,
+    "push_to_talk": true,
+    "visible_recording_indicator": true,
+    "microphone_enabled": false,
+    "camera_enabled": false,
+    "clipboard_enabled": false,
+    "raw_audio_retention": false,
+    "transcript_retention": false,
+    "lock_screen_commands": false,
+    "speaker_verification_as_sole_auth": false,
+    "replay_protection": true,
+    "barge_in_and_stop": true
+  },
+  "voice_cannot_authorise": [
+    "credentials or MFA",
+    "billing or legal acceptance",
+    "purchases, transfers, trading, betting or money movement",
+    "production deployment or ownership change",
+    "destructive or irreversible operations without separate explicit approval",
+    "clinical or wellness-device control",
+    "publication or external communication without preview and approval"
+  ],
+  "risk_classes": {
+    "R0": "read-only or emergency stop",
+    "R1": "local reversible action with confirmation",
+    "R2": "ambiguous request requiring clarification",
+    "R3": "external communication or code/system action requiring review",
+    "R4": "production, destructive or locked-device action",
+    "R5": "credentials, financial action or clinical/wellness-device control"
+  },
+  "required_tests": [
+    "stop_phrase_always_available",
+    "locked_device_denial",
+    "secret_redaction",
+    "credential_command_block",
+    "financial_command_block",
+    "health_device_command_block",
+    "production_prepare_only",
+    "destructive_exact_readback_gate",
+    "communication_preview_gate",
+    "read_only_route",
+    "ambiguous_clarification",
+    "no_raw_transcript_retention",
+    "no_action_execution_by_classifier"
+  ],
+  "runtime_gates": [
+    "microphone permission",
+    "wake-word model licence and test",
+    "speech provider privacy and retention review",
+    "speaker and replay threat model",
+    "local device permission review",
+    "staging latency and false-trigger tests",
+    "explicit production approval"
+  ],
+  "rollback": "Disable the voice gateway feature flag, revoke microphone permissions, stop transport and speech services, purge transient recordings and return to text-only Jarvis input."
+}

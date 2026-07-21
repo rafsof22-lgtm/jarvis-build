@@ -25,13 +25,16 @@ jobs:
           python-version: "3.12"
 
       - name: Compile runtime scaffold
-        run: python -m compileall jarvis_model_router jarvis_command_centre scripts
+        run: python -m compileall jarvis_model_router jarvis_voice_gateway jarvis_command_centre scripts
 
       - name: Run model-router smoke test
         run: python scripts/smoke_model_router.py
 
       - name: Validate model routing modes and self-hosted selector
         run: python scripts/verify_model_routing_modes_v2.py
+
+      - name: Validate Jarvis voice command gateway
+        run: python scripts/verify_voice_command_gateway_v1.py
 
       - name: Run cost-governor smoke test
         run: python scripts/smoke_cost_governor.py
@@ -103,6 +106,7 @@ jobs:
           path: |
             evidence/tool-registry-pilot.json
             evidence/model-routing-modes-v2-verification.json
+            evidence/voice-command-gateway-v1-verification.json
             evidence/config-readiness.json
             evidence/command-centre.snapshot.json
             evidence/module-federation-verification.json
