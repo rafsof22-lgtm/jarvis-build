@@ -1,6 +1,7 @@
 {
   "id": "JARVIS-FULL-COMPLETION-PLAN-V1",
-  "version": "1.2.0",
+  "version": "1.1.0",
+  "reconciliation_revision": "2026-07-21-provider-command-centre-v1",
   "snapshot_date": "2026-07-21",
   "baseline_main_sha": "7ab50ac68de7fd0d4a2ea11b5fb4be2957f7beb6",
   "state": "ACTIVE_PROGRAM_NOT_100_PERCENT",
