@@ -1,0 +1,63 @@
+{
+  "id": "JARVIS-FULL-COMPLETION-EXECUTION-PLAN-V2",
+  "version": "2.0.0",
+  "snapshot_date": "2026-07-21",
+  "state": "ACTIVE_EVIDENCE_GATED_PROGRAM",
+  "objective": "Complete every safe, lawful, reversible and no-new-cost task available through authorised repositories, native connectors, GitHub Actions and approved staging runtimes; isolate genuine owner-only or provider-only blockers.",
+  "completion_chain": "Source -> Request -> Requirement -> Module -> Artifact -> Test/Waiver -> Evidence -> Runtime -> Rollback -> Acceptance",
+  "authority": {
+    "autonomous": [
+      "read-only discovery",
+      "repository branches, code, tests, documentation and registries",
+      "GitHub Actions workflows",
+      "safe pull requests and merges after passing checks",
+      "reuse of existing approved secret references",
+      "read-only staging health checks",
+      "local and CI simulations",
+      "redacted evidence generation",
+      "issue and tracker reconciliation"
+    ],
+    "owner_or_provider_gate": [
+      "login, MFA, CAPTCHA or hardware-key touch",
+      "billing or legal acceptance",
+      "domain ownership",
+      "creation or rotation of a missing protected value where no authorised vault connector exists",
+      "production promotion",
+      "permission elevation",
+      "destructive production actions",
+      "publication or external communication",
+      "money movement or live trading",
+      "clinical or wellness-device control"
+    ]
+  },
+  "phases": [
+    {"phase":"F0","name":"Spec and denominator lock","priority":"P0","mode":"AUTONOMOUS","exit":"All known tasks have source, owner, state, blocker, test and rollback fields."},
+    {"phase":"F1","name":"Credential and connector readiness","priority":"P0","mode":"AUTONOMOUS_THEN_OWNER_ONLY_BLOCKERS","exit":"Safe values reused; missing protected values shown once; automatic resume enabled."},
+    {"phase":"F2","name":"Runtime auto-resume and harmless canaries","priority":"P0","mode":"AUTONOMOUS","exit":"Ready groups run bounded read-only checks and write redacted evidence."},
+    {"phase":"F3","name":"Infrastructure and operations control plane","priority":"P1","mode":"AUTONOMOUS_REPOSITORY_BUILD","exit":"Topology, IAM, observability, backup, restore, incident, DR and cost contracts are implemented and tested."},
+    {"phase":"F4","name":"Knowledge Fabric and source ingestion","priority":"P1-P2","mode":"AUTONOMOUS_WITH_ACCESS_LIMITS","exit":"Accessible source denominator is processed with provenance, dedupe, retrieval and QA evidence."},
+    {"phase":"F5","name":"Command Centre and guided repair","priority":"P1","mode":"AUTONOMOUS_REPOSITORY_BUILD","exit":"Runtime adapters, readiness, alerts, blockers and safe repair guidance are federated."},
+    {"phase":"F6","name":"Cross-repository application completion","priority":"P1-P3","mode":"AUTONOMOUS_PER_REPOSITORY","exit":"Hub, VTI, Property and Health source/runtime gaps are implemented or reduced to exact external blockers."},
+    {"phase":"F7","name":"Specialist domain factories","priority":"P3","mode":"AUTONOMOUS_SANDBOX_ONLY","exit":"CFO, paper trading, agency and SaaS bounded products pass unit, security, cost and rollback tests."},
+    {"phase":"F8","name":"End-to-end staging federation","priority":"P4","mode":"AUTONOMOUS_WHEN_STAGING_READY","exit":"Contracts, privacy, negative, persistence, retry, recovery and cost tests pass."},
+    {"phase":"F9","name":"Controlled production promotion","priority":"P5","mode":"OWNER_APPROVAL_REQUIRED","exit":"Approved services are promoted with deployment IDs, health, rollback and monitoring evidence."},
+    {"phase":"F10","name":"Final reconciliation and acceptance","priority":"P6","mode":"AUTONOMOUS_PREPARATION_OWNER_ACCEPTANCE","exit":"Every task is DONE_VERIFIED, WAIVED or BLOCKED with exact evidence; release and rollback manifests are signed off."}
+  ],
+  "execution_rules": [
+    "Always start from the highest-priority unblocked task.",
+    "Execute all independent safe tasks in parallel only when their writes do not conflict.",
+    "Use native free connectors only when they materially reduce manual work and require no hidden billing or scope expansion.",
+    "Never mark a provider or deployment task complete from repository evidence alone.",
+    "After each merge refresh task states, evidence pointers, blockers and the next executable queue.",
+    "Do not repeatedly ask for already-resolved values or optional integrations.",
+    "Show one consolidated HUMAN ACTION REQUIRED card only for current critical-path blockers."
+  ],
+  "current_next_queue": [
+    "runtime auto-resume controller",
+    "infrastructure and operations control-plane contracts",
+    "Command Centre runtime-readiness federation",
+    "accessible historical-source processing",
+    "cross-repository safe application gaps"
+  ],
+  "rollback": "Each tranche uses a dedicated branch and pull request. Revert the merge commit for repository rollback; provider state is unchanged unless separately evidenced and approved."
+}
