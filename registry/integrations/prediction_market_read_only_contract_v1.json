@@ -1,0 +1,53 @@
+{
+  "contract_id": "JARVIS-PREDICTION-MARKET-READ-ONLY-V1",
+  "version": "1.0.0",
+  "capability_id": "capability.intelligence.prediction_market",
+  "state": "SPECIFIED_NOT_CONNECTED",
+  "initial_provider": "Polymarket public data interfaces",
+  "purpose": "Use prediction-market observations as one timestamped research signal without enabling betting, trading, custody or money movement.",
+  "allowed_operations": [
+    "list_public_markets",
+    "read_public_market_metadata",
+    "read_public_prices_and_probabilities",
+    "read_public_order_book_when_available",
+    "record_timestamped_snapshot",
+    "compare_market_probability_with_primary_evidence",
+    "run local paper simulation"
+  ],
+  "blocked_operations": [
+    "create_order",
+    "cancel_order",
+    "sign_transaction",
+    "connect_wallet",
+    "read_or_store_private_key",
+    "deposit",
+    "withdraw",
+    "bridge_assets",
+    "approve_tokens",
+    "submit_identity_documents",
+    "circumvent geographic or account restrictions"
+  ],
+  "evidence_rules": [
+    "Market probability is sentiment and capital-weighted opinion, not verified fact.",
+    "Record market ID, title, resolution criteria, source URL, retrieval time, liquidity and available spread.",
+    "Identify ambiguous or manipulable resolution wording.",
+    "Compare material claims with official and primary sources.",
+    "Record contradictory evidence and invalidation conditions.",
+    "Do not convert probability directly into a financial recommendation."
+  ],
+  "cost_policy": "Use unauthenticated public reads and local caching first. Any paid data route requires current price review and owner approval.",
+  "required_tests": [
+    "public_read_success_fixture",
+    "write_method_absent",
+    "order_request_fail_closed",
+    "wallet_field_rejection",
+    "secret_redaction",
+    "cache_freshness",
+    "resolution_criteria_capture",
+    "rate_limit_handling",
+    "source_citation",
+    "paper_only_boundary"
+  ],
+  "production_gate": "Read-only sandbox and staging proof, legal/jurisdiction review where applicable and explicit owner approval for any provider connection.",
+  "rollback": "Disable the adapter, remove cached derived records according to retention policy and preserve timestamped evidence already cited in audit history."
+}
