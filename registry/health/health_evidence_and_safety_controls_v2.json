@@ -1,0 +1,16 @@
+{
+  "evidence_grades": ["A","B","C","D","F","UNASSESSED"],
+  "fail_closed_categories": ["guaranteed cure or inevitable remission","prescription or medication change","psychedelic or controlled-substance dosing","invasive or experimental intervention","medical-device settings","frequency-as-cure or drug simulation","unsafe detox or unverified biologic"],
+  "historical_triage": {"assistant_messages_flagged":1629,"interpretation":"Pattern flags identify review candidates and are not clinical judgments.","raw_claims_retained_outside_repository":true},
+  "professional_gates": {"alternative_claim":"current primary-source evidence review","diagnostic_document":"licensed clinician interpretation","emergency_signal":"urgent qualified human or emergency service","provider_marketing":"official-source verification","supplement_product_label":"clinician or pharmacist review"},
+  "registry_id": "JARVIS-HEALTH-EVIDENCE-AND-SAFETY-CONTROLS-V2",
+  "release_state": "LOCAL_ONLY_NO_CONNECTED_HEALTH_DATA_OR_PROVIDER",
+  "rollback": "Revert the additive module and registries; no external health system or device state exists.",
+  "runtime": {"claim_text_persisted":false,"diagnosis_or_treatment_execution":false,"ledger":"privacy-safe SQLite hash/classification ledger","medical_device_control":false,"path":"src/jarvis_health/evidence_gate_v1.py"},
+  "schema_version": "2.0.0",
+  "snapshot_date": "2026-07-21",
+  "source_classes": ["USER_REPORTED_FACT","USER_PROVIDED_DIAGNOSTIC_DOCUMENT","USER_PROVIDED_PRODUCT_LABEL","ASSISTANT_HISTORICAL_PROPOSAL","OFFICIAL_CLINICAL_GUIDANCE","PEER_REVIEWED_RESEARCH","PROVIDER_MARKETING_OR_DIRECTORY","ALTERNATIVE_OR_EXPLORATORY_SOURCE","SYSTEM_DERIVED_REQUIREMENT"],
+  "status": "IMPLEMENTED_NOT_INTEGRATED",
+  "test_evidence": {"deterministic_tests":19,"path":"tests/test_health_evidence_gate_v1.py"},
+  "truth_boundary": "The gate is a deterministic safety and provenance control. It does not validate medical claims, interpret patient records, diagnose, treat or operate devices."
+}
