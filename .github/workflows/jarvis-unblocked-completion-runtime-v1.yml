@@ -1,0 +1,29 @@
+name: Jarvis Unblocked Completion Runtime V1
+
+on:
+  pull_request:
+    paths:
+      - 'src/jarvis_completion/**'
+      - 'tests/test_jarvis_completion_runtime_v1.py'
+      - 'registry/jarvis_unblocked_completion_runtime_v1.json'
+      - '.github/workflows/jarvis-unblocked-completion-runtime-v1.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile
+        run: python -m compileall -q src/jarvis_completion
+      - name: Unit tests
+        run: python -m unittest -v tests.test_jarvis_completion_runtime_v1
+      - name: Validate registry
+        run: python -m json.tool registry/jarvis_unblocked_completion_runtime_v1.json >/dev/null
