@@ -36,6 +36,9 @@ jobs:
       - name: Validate Jarvis voice command gateway
         run: python scripts/verify_voice_command_gateway_v1.py
 
+      - name: Validate credential and setup automation policy
+        run: python scripts/verify_credential_setup_automation_v1.py
+
       - name: Run cost-governor smoke test
         run: python scripts/smoke_cost_governor.py
 
@@ -107,6 +110,7 @@ jobs:
             evidence/tool-registry-pilot.json
             evidence/model-routing-modes-v2-verification.json
             evidence/voice-command-gateway-v1-verification.json
+            evidence/credential-setup-automation-v1-verification.json
             evidence/config-readiness.json
             evidence/command-centre.snapshot.json
             evidence/module-federation-verification.json
