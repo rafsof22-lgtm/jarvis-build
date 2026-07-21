@@ -1,0 +1,47 @@
+name: ChatHub Intake V1
+
+on:
+  pull_request:
+    paths:
+      - 'src/jarvis_chathub/**'
+      - 'tests/test_chathub_intake_v1.py'
+      - 'registry/integrations/chathub-integration-v1.json'
+      - 'registry/capabilities/free-ai-repository-intake-v1.json'
+      - 'docs/chathub-integration-v1.md'
+      - '.github/workflows/chathub-intake-v1.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile
+        run: python -m compileall -q src/jarvis_chathub tests/test_chathub_intake_v1.py
+      - name: Unit tests
+        run: |
+          mkdir -p evidence
+          python -m unittest -v tests.test_chathub_intake_v1 2>&1 | tee evidence/chathub-intake-v1-tests.txt
+      - name: Validate registries
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          for path in [
+              Path('registry/integrations/chathub-integration-v1.json'),
+              Path('registry/capabilities/free-ai-repository-intake-v1.json'),
+          ]:
+              json.loads(path.read_text(encoding='utf-8'))
+              print(f'valid: {path}')
+          PY
+      - name: Upload evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: chathub-intake-v1-evidence
+          path: evidence/chathub-intake-v1-tests.txt
