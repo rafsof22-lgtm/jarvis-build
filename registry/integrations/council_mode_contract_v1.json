@@ -1,0 +1,36 @@
+{
+  "contract_id": "JARVIS-COUNCIL-MODE-V1",
+  "version": "1.0.0",
+  "capability_id": "capability.decision.multi_model_council",
+  "state": "SPECIFIED_NOT_CONNECTED",
+  "source_candidate": "0xNyk/council-of-high-intelligence",
+  "purpose": "Provide optional structured multi-model deliberation while controlling cost, privacy, disagreement and evidence quality.",
+  "modes": {
+    "duo": {"panel_size": 2, "roles": ["primary", "critic"]},
+    "triad": {"panel_size": 3, "roles": ["primary", "critic", "verifier"]},
+    "quick": {"panel_size": 3, "roles": ["researcher", "risk", "synthesiser"]},
+    "full": {"panel_size": 8, "roles": ["researcher", "architect", "security", "cost", "domain_specialist", "critic", "verifier", "synthesiser"]}
+  },
+  "defaults": {
+    "enabled": false,
+    "mode": "triad",
+    "maximum_models": 8,
+    "independent_first_pass": true,
+    "shared_hidden_chain_of_thought": false,
+    "evidence_required": true,
+    "disagreements_preserved": true,
+    "early_stop_on_verified_consensus": true,
+    "budget_preflight_required": true
+  },
+  "routing_order": ["deterministic_or_cached", "single_local_or_economy_model", "second_model_if_uncertain", "council_only_when_value_justifies_cost"],
+  "data_policy": {
+    "restricted_data": "local_or_approved_private_routes_only",
+    "free_provider_sensitive_data": false,
+    "secret_values": false,
+    "provider_policy_check_required": true
+  },
+  "output_schema": ["answer", "key_findings", "sources", "confidence", "assumptions", "risks", "disagreements", "recommended_action", "model_contributions", "cost", "latency"],
+  "required_tests": ["panel_size_limit", "budget_stop", "partial_failure", "timeout_isolation", "disagreement_preservation", "evidence_validation", "early_stop", "restricted_data_routing"],
+  "production_gate": "Explicit integration, provider, cost and privacy approval after sandbox and staging evidence.",
+  "rollback": "Disable the feature flag and return all requests to the existing single/adaptive Jarvis model router."
+}

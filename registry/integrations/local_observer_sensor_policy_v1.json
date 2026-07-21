@@ -1,0 +1,53 @@
+{
+  "policy_id": "JARVIS-LOCAL-OBSERVER-SENSOR-V1",
+  "version": "1.0.0",
+  "capability_id": "capability.sensor.local_observer",
+  "state": "POLICY_SPECIFIED_SERVICE_NOT_CONNECTED",
+  "source_candidate": "Roy3838/Observer",
+  "licence": "AGPL-3.0",
+  "architecture": "Separately deployed local service behind a narrow Jarvis adapter. Do not copy source into proprietary core without an approved licence decision.",
+  "default_permissions": {
+    "service_enabled": false,
+    "screen": false,
+    "camera": false,
+    "microphone": false,
+    "system_audio": false,
+    "clipboard": false,
+    "keyboard_input": false,
+    "mouse_input": false,
+    "file_read": false,
+    "file_write": false,
+    "network_egress": false
+  },
+  "grant_rules": [
+    "Grant one sensor and one bounded purpose at a time.",
+    "Require explicit user approval and a visible active indicator.",
+    "Use allowlisted applications, windows, devices and time limits.",
+    "Exclude password managers, banking, health portals, private messages, authentication screens and secret stores.",
+    "Redact detected credentials, payment data and sensitive personal information before model access.",
+    "Store no raw sensor data by default; retain only minimal evidence-linked derived events when approved.",
+    "Use local models for restricted data unless an approved private provider route exists.",
+    "Provide immediate stop, revoke and purge controls."
+  ],
+  "forbidden": [
+    "silent or continuous whole-device surveillance",
+    "background camera or microphone activation without a visible indicator",
+    "capture of credentials, MFA, private keys, recovery phrases or payment data",
+    "monitoring another person without lawful authority and consent",
+    "production credential or unrestricted filesystem access"
+  ],
+  "required_tests": [
+    "all_permissions_denied_by_default",
+    "single_permission_does_not_grant_others",
+    "window_allowlist",
+    "sensitive_application_denylist",
+    "visible_indicator",
+    "stop_and_revoke",
+    "retention_and_purge",
+    "network_egress_block",
+    "prompt_injection_from_screen_content",
+    "licence_boundary_review"
+  ],
+  "production_gate": "Privacy threat model, legal/licence review, isolated sandbox, user acceptance and explicit deployment approval.",
+  "rollback": "Stop and remove the separate sensor service, revoke permissions, purge transient data and disable the Jarvis adapter feature flag."
+}

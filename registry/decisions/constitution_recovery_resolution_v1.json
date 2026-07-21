@@ -1,0 +1,34 @@
+{
+  "decision_id": "DEC-CONSTITUTION-RECOVERY-001",
+  "version": "1.0.0",
+  "decision_date": "2026-07-21",
+  "classification": "PROVEN",
+  "decision": "The exact canonical Jarvis RAF213G project constitution is present on the current main branch of rafsof22-lgtm/jarvis-build and is the controlling project constitution.",
+  "canonical_source": {
+    "repository": "rafsof22-lgtm/jarvis-build",
+    "path": "JARVIS_RAF213G_PROJECT_CONSTITUTION.md",
+    "blob_sha": "509ab39e606808dfa4dffbc4f93ffec4eea81569",
+    "introducing_commit": "2826eb488fc52468ef69d166b772af238bee3eed",
+    "version": "1.0.0",
+    "effective_date": "2026-07-21"
+  },
+  "supersedes": [
+    {
+      "state": "BLOCKED: CANONICAL_CONSTITUTION_UNAVAILABLE",
+      "reason": "That state was accurate before the canonical file was committed and connected. Current merged GitHub truth now proves the exact file."
+    }
+  ],
+  "historical_candidate_policy": "JARVIS_RAF213G_PROJECT_CONSTITUTION_RECOVERED_CANDIDATE.md remains historical recovery evidence and does not replace or amend the canonical GitHub file.",
+  "applicability": "All material Jarvis work in the connected project and repository.",
+  "required_startup_order": [
+    "PROJECT_CONSTITUTION.md",
+    "JARVIS_RAF213G_PROJECT_CONSTITUTION.md",
+    "PROJECT_CONTINUITY.md",
+    "AGENTS.md",
+    "applicable module-local instructions, deployment ledger and rollback",
+    "current issue, branch, pull request, CI and runtime evidence"
+  ],
+  "rollback": "Revert this DecisionRecord only if the canonical file is removed or proven invalid by a later owner-approved constitutional amendment. Preserve this record in Git history.",
+  "residual_risk": "Unconnected chats cannot automatically read repository files. They must retrieve the canonical path before material work.",
+  "status": "DONE_VERIFIED_SOURCE_SCOPE"
+}
