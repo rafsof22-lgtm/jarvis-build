@@ -54,6 +54,9 @@ Read `references/credential-readiness-and-workflow-discovery.md`. Automatically 
 ## Model and cost routing
 Read `references/model-cost-routing.md`. Route through verified artifact/cache, deterministic local tool, internal DB/API, local/private model, included capability, free allowance, cheapest qualified paid route, scalable value tier, specialist premium, justified panel, then qualified human. Track tokens, calls, credits, compute, storage, bandwidth, expiry, quality, lock-in, and migration.
 
+## Universal model selectors, Parallel Thinking, and ChatHub intake
+Read `references/universal-model-selector-and-chathub-intake.md` whenever any Jarvis surface exposes an LLM selector, multi-model comparison, Parallel Thinking, ChatHub text export, response consolidation, or zero-loss source intake. Enumerate only concrete connected model IDs, expose the same selector contract across applicable surfaces, permit governed panels of two to eight models, preserve every raw response independently, and verify the consolidated output by model identity plus response hash. Treat user messages as requirement candidates and model outputs as proposals. Quarantine unsafe health, guaranteed-profit, access-bypass, unsupported-platform, and credential-exposure claims. Never equate panel agreement with truth or claim universal zero error/gaps.
+
 ## Registries, controls, and domains
 Read `references/registry-and-evidence-contracts.md`, `references/missing-controls-checklist.md`, and `references/domain-modules.md`. Maintain request, instruction, source, requirement, coverage, module, agent, skill, integration, model, tool, risk, gap, decision, test, evidence, build, discrepancy, continuity, and release records. No module self-certifies.
 
