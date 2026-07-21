@@ -1,0 +1,37 @@
+{
+  "id": "JARVIS-ALL-PROGRESS-TRACKER-RECONCILIATION-V9",
+  "version": "9.0.0",
+  "snapshot_date": "2026-07-21",
+  "program_state": "ACTIVE_PROGRAM_NOT_100_PERCENT",
+  "baseline_main": "f3509bc56c5a7783482e6ddbd342058cbc025dbb",
+  "resolved_this_pass": [
+    {"work_id":"APIVAULT-SOURCE-LEGAL-SECURITY-RECONCILIATION","state":"DONE_VERIFIED","evidence":["registry/integrations/apivault_discovery_fabric_v1.json"],"scope":"Official repository endpoint, serializer, licence and security configuration evidence captured with explicit use boundaries."},
+    {"work_id":"APIVAULT-GUARDED-DISCOVERY-ADAPTER","state":"IMPLEMENTED_NOT_INTEGRATED","evidence":["src/jarvis_integrations/apivault_discovery_v1.py","tests/test_apivault_discovery_v1.py"],"scope":"Default-off injected-transport discovery adapter with HTTPS/origin/result/timeout controls and no catalogue persistence."},
+    {"work_id":"APIVAULT-CANDIDATE-SCORING","state":"IMPLEMENTED_NOT_INTEGRATED","evidence":["src/jarvis_integrations/apivault_discovery_v1.py","tests/test_apivault_discovery_v1.py"],"scope":"Deterministic metadata scoring that never promotes a discovery entry beyond independent-verification-required."},
+    {"work_id":"APIVAULT-CROSS-JARVIS-ROUTING","state":"IMPLEMENTED_NOT_INTEGRATED","evidence":["registry/integrations/apivault_cross_jarvis_routing_v1.json","src/jarvis_integrations/apivault_discovery_v1.py"],"scope":"Candidate routing across finance, crypto, health, context, intelligence, product, automation, operations and general intake."},
+    {"work_id":"APIVAULT-SEVEN-GATE-ADOPTION-PIPELINE","state":"IMPLEMENTED_NOT_INTEGRATED","evidence":["registry/integrations/apivault_discovery_fabric_v1.json","registry/integrations/apivault_cross_jarvis_routing_v1.json"],"scope":"Official docs, current free tier, terms/licence, security/privacy, cost ceiling, canary and rollback required before adoption."},
+    {"work_id":"APIVAULT-CONTINUOUS-LEARNING-POLICY","state":"IMPLEMENTED_NOT_INTEGRATED","evidence":["registry/integrations/apivault_discovery_fabric_v1.json","registry/integrations/apivault_cross_jarvis_routing_v1.json"],"scope":"Weekly delta-only proposal process for repository, contract, licence, security, free-tier, deprecation and incident changes."},
+    {"work_id":"APIVAULT-SPECIALIST-OJT","state":"IMPLEMENTED_NOT_INTEGRATED","evidence":["registry/ojt/apivault_discovery_specialist_v1.json"],"scope":"Eight competency scenarios, denied actions and automatic failure conditions for safe API discovery and adoption."}
+  ],
+  "still_blocked": [
+    {"blocker_id":"P0-1-RECOVERY-CONSOLE","class":"OWNER_RECOVERY_CONSOLE_REQUIRED"},
+    {"blocker_id":"P0-2-TOKEN-ROTATION","class":"OWNER_PROVIDER_ACTION_REQUIRED"},
+    {"blocker_id":"P0-3-RAILWAY-HEALTH","class":"RAILWAY_DOMAIN_AND_SECRET_REFERENCE_REQUIRED"},
+    {"blocker_id":"P0-4-SHEETS-WEBHOOK","class":"GOOGLE_APPS_SCRIPT_AND_RAILWAY_CONFIGURATION_REQUIRED"},
+    {"blocker_id":"P0-5-FRESH-WORKFLOW-DISPATCH","class":"GITHUB_WORKFLOW_DISPATCH_REQUIRED"},
+    {"blocker_id":"P0-6-COBALT-HOST","class":"PROTECTED_HOST_CREDENTIAL_REQUIRED"},
+    {"blocker_id":"P0-7-VTI-HUB-FEDERATION","class":"CONNECTED_STAGING_AND_SIGNING_SECRET_REQUIRED"},
+    {"blocker_id":"LIVE-PROVIDER-PANEL","class":"PROVIDER_INVENTORY_CREDENTIAL_COST_PRIVACY_AND_EXECUTION_APPROVAL_REQUIRED"},
+    {"blocker_id":"AUTHENTICATED-COMMAND-CENTRE-STAGING","class":"AUTHENTICATED_STAGING_DEPLOYMENT_REQUIRED"},
+    {"blocker_id":"MISSING-SOURCE-BYTES","class":"SOURCE_BYTES_REQUIRED"},
+    {"blocker_id":"PRODUCTION-PROMOTION-AND-OWNER-ACCEPTANCE","class":"ALL_PRIOR_GATES_AND_OWNER_ACCEPTANCE_REQUIRED"}
+  ],
+  "apivault_connected_gaps": [
+    "Live APIVault endpoint availability and response contract not proven by repository-local tests",
+    "No approved persistent catalogue licence for commercial Jarvis use",
+    "No candidate API has completed all seven independent adoption gates",
+    "No authenticated staging canary or production candidate integration",
+    "Human APIVault specialist certification remains pending"
+  ],
+  "completion_assertion": "Seven APIVault repository-local work packages advanced. APIVault remains a discovery-only, non-authoritative source; no candidate API, connected staging or production integration is proven."
+}
