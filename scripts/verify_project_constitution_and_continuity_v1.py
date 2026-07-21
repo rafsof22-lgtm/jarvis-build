@@ -21,7 +21,7 @@ REQUIRED = [
     ROOT / "skills/github-repo-capability-scout/references/verbatim-content-manifest.json",
     ROOT / "skills/github-repo-capability-scout/references/verbatim-source-pointer.md",
 ]
-TASK_FIELDS = {"task_id", "priority", "repository", "title", "state", "blocker_class", "next_action"}
+TASK_FIELDS = {"task_id", "priority", "repository", "title", "state", "next_action"}
 
 
 def main() -> None:
@@ -39,6 +39,7 @@ def main() -> None:
     tasks = plan.get("tasks", [])
     checks["task_count"] = len(tasks) >= 28
     checks["task_fields"] = all(TASK_FIELDS.issubset(task) for task in tasks)
+    checks["blocker_fields"] = all(task.get("blocker_class") for task in tasks if task.get("state") in {"BLOCKED", "BACKLOGGED", "SPEC_ONLY", "SCAFFOLDED", "IMPLEMENTED_NOT_INTEGRATED", "INTEGRATED_STAGING", "DEPLOYED_UNVERIFIED"})
     checks["priority_coverage"] = {task.get("priority") for task in tasks}.issuperset({"P0", "P1", "P2", "P3", "P4", "P5", "P6"})
     checks["top_level_completion_rule"] = "Requirement -> Module -> Artifact" in plan.get("completion_rule", "")
     manifest = json.loads((ROOT / "skills/github-repo-capability-scout/references/verbatim-content-manifest.json").read_text(encoding="utf-8"))
