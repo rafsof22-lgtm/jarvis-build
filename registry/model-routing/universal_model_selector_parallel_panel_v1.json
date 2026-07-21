@@ -34,5 +34,13 @@
     "tests": "tests/test_universal_model_selector_chathub_v3.py",
     "verifier": "scripts/verify_universal_model_selector_chathub_v3.py"
   },
+  "skill_package_evidence": {
+    "artifact": "artifacts/jarvis-sovereign-builder/skill.zip",
+    "source_files": 26,
+    "zip_bytes": 47512,
+    "source_sha256": "97c2d32f9ce6f0dc87bb71a9d7a84a8222929d472232afec7c70906d34397c91",
+    "generated_by": "Package Jarvis Skill workflow",
+    "values_exposed": false
+  },
   "truth_boundary": "This release implements model inventory, selection, panel planning and synthesis evidence contracts. Live provider calls require configured provider adapters, approved credentials, budget preflight and runtime evidence."
 }
