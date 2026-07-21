@@ -1,0 +1,73 @@
+{
+  "id": "JARVIS-FREE-AI-REPOSITORY-INTAKE-V1",
+  "version": "1.0.0",
+  "status": "ACTIVE_DISCOVERY_AND_QUARANTINE",
+  "automatic_trigger": "When an uploaded source, user request or Jarvis gap mentions an AI tool, app, plugin, connector, model, workflow or similar capability, search existing Jarvis capability records first, then current GitHub and official sources for free/open alternatives and consolidated repositories.",
+  "pipeline": [
+    "need_detection",
+    "existing_capability_check",
+    "github_and_official_source_discovery",
+    "provenance_capture",
+    "licence_review",
+    "security_quarantine",
+    "dependency_and_cost_review",
+    "duplicate_and_fit_analysis",
+    "connector_and_logging_map",
+    "adapter_plan",
+    "sandbox_tests",
+    "staging_evidence",
+    "owner_approved_production"
+  ],
+  "candidate_records": [
+    {
+      "repository": "chathub-dev/chathub",
+      "reviewed_ref": "main",
+      "review_date": "2026-07-21",
+      "licence": "GPL-3.0",
+      "capability_class": "MULTI_LLM_BROWSER_UI_AND_EXPORT_IMPORT",
+      "integration_state": "STATICALLY_REVIEWED",
+      "risk_state": "MODERATE_REVIEW_REQUIRED",
+      "evidence": ["README.md", "LICENSE"],
+      "notes": "Supports multiple chatbots, parallel comparison, local history, import/export and web access. Keep upstream separate; assess GPL obligations before code reuse."
+    },
+    {
+      "repository": "open-webui/open-webui",
+      "reviewed_ref": "main",
+      "review_date": "2026-07-21",
+      "licence": "PENDING_EXACT_FILE_REVIEW",
+      "capability_class": "SELF_HOSTED_MULTI_MODEL_UI_AND_TOOL_PLATFORM",
+      "integration_state": "DISCOVERED",
+      "risk_state": "UNKNOWN_INSUFFICIENT_EVIDENCE",
+      "evidence": ["repository_metadata_only"],
+      "notes": "Candidate for self-hosted UI/tool capabilities; no integration approval until licence, manifests, security and duplicate review are completed."
+    },
+    {
+      "repository": "danny-avila/LibreChat",
+      "reviewed_ref": "main",
+      "review_date": "2026-07-21",
+      "licence": "PENDING_EXACT_FILE_REVIEW",
+      "capability_class": "SELF_HOSTED_MULTI_PROVIDER_CHAT_AND_AGENT_UI",
+      "integration_state": "DISCOVERED",
+      "risk_state": "UNKNOWN_INSUFFICIENT_EVIDENCE",
+      "evidence": ["repository_metadata_only"],
+      "notes": "Candidate for provider routing and chat UI capabilities; no integration approval until full review."
+    }
+  ],
+  "logging_and_trace_contract": {
+    "required_fields": [
+      "request_id",
+      "source_id",
+      "repository_and_commit",
+      "capability_id",
+      "connector_or_adapter",
+      "tool_call_or_action",
+      "approval_state",
+      "cost_route",
+      "result_state",
+      "evidence_pointer",
+      "rollback_pointer"
+    ],
+    "rule": "Every accepted capability must remain traceable from the originating user request or upload through discovery, implementation, test and runtime evidence."
+  },
+  "truth_boundary": "A repository being public or open source does not prove it is free for every use, secure, maintained, compatible or integrated."
+}
