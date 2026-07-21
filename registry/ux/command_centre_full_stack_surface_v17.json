@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0.0",
+  "surface_id": "COMMAND-CENTRE-FULL-STACK-SURFACE-V17",
+  "state": "INTEGRATED_STAGING",
+  "route": "/api/v1/full-stack",
+  "module": "jarvis_command_centre/full_stack_v17.py",
+  "layers": 18,
+  "traffic_lights": {
+    "GREEN": ["DONE_VERIFIED"],
+    "AMBER": ["INTEGRATED_STAGING", "IMPLEMENTED_NOT_INTEGRATED"],
+    "BLUE": ["SCAFFOLDED", "SPEC_ONLY"],
+    "GREY": ["BACKLOGGED"],
+    "RED": ["BLOCKED"]
+  },
+  "button_truth": {
+    "purpose": "Review all 18 layers, current evidence state and gaps.",
+    "inputs": "Canonical architecture registry and local staging evidence.",
+    "primary_action": "Expand a layer to inspect gaps and evidence pointers.",
+    "approval_required": false,
+    "output": "Read-only architecture status.",
+    "failure_state": "Missing or invalid architecture registry; fail closed.",
+    "rollback": "Revert V17 Command Centre package.",
+    "evidence_written": "No write side effect while rendering."
+  },
+  "truth_boundary": "Read-only repository/local staging surface. No provider or production action is executed."
+}

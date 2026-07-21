@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0.0",
+  "manifest_id": "HEALTH-CLAIM-REVIEW-HASH-MANIFEST-V17",
+  "state": "DONE_VERIFIED_BOUNDED_LOCAL_SOURCE",
+  "source_scope": "HEALTH_HANDOVER_194_KEYWORD_SELECTED_CONVERSATIONS",
+  "source_sha256": "34b94ac0014a9abaa26b0213b8617c4845b96265bab2061136fe26501254eaea",
+  "conversation_count": 194,
+  "assistant_message_count": 5177,
+  "flagged_message_count": 1786,
+  "flag_occurrence_count": 2458,
+  "category_counts": {
+    "CRISIS_SIGNAL": 597,
+    "FREQUENCY_AS_DRUG_OR_CURE": 38,
+    "GUARANTEED_CURE_OR_INEVITABILITY": 43,
+    "INVASIVE_EXPERIMENTAL_AS_ACTIONABLE": 194,
+    "MEDICAL_DEVICE_CONTROL_SETTINGS": 928,
+    "PRESCRIPTION_OR_MEDICATION_CHANGE": 146,
+    "PSYCHEDELIC_OR_CONTROLLED_DOSING": 26,
+    "SPIRITUAL_CLAIM_AS_MEDICAL_FACT": 4,
+    "UNSAFE_DETOX_OR_UNVERIFIED_BIOLOGIC": 304,
+    "UNVERIFIED_PROVIDER_LEGAL_REGULATORY": 178
+  },
+  "category_merkle_roots": {
+    "CRISIS_SIGNAL": "bceb22c172bb3bc3173b80c4a3f3c0a831c439e73b7a1ef89b56e8b1a2883e57",
+    "FREQUENCY_AS_DRUG_OR_CURE": "cc87accd9022b401d9c0d32adc5286d040b98bda3b6779d43ed5cbc5603639e4",
+    "GUARANTEED_CURE_OR_INEVITABILITY": "3e5b0e988ba966f28e41cbac72b3274b7a4d03da7513d21767e4f68049ed48df",
+    "INVASIVE_EXPERIMENTAL_AS_ACTIONABLE": "20c992b1412267c4ca01ae80d52363bf6804035059d1fc7b296cc09311e074a2",
+    "MEDICAL_DEVICE_CONTROL_SETTINGS": "630eb8617dfa0db9a6cdbf34703211936c5808a6aaee56aef6f16788f75b9ae9",
+    "PRESCRIPTION_OR_MEDICATION_CHANGE": "2eca3b93559bd61dd9c70a618e9096b82c3027be996318182a31dfeb52ceffc0",
+    "PSYCHEDELIC_OR_CONTROLLED_DOSING": "fd3d91f736a49b5473ec6ed08ba737a081c4ba9a29b5150ee8778859f9ba3a25",
+    "SPIRITUAL_CLAIM_AS_MEDICAL_FACT": "0a34252784ad555ac2d297d4df20b80511c18a9acc2850fcc10783ec5d99d4a6",
+    "UNSAFE_DETOX_OR_UNVERIFIED_BIOLOGIC": "7aba5b1f7e1790f224b47ce251f8e5866e958b6d4bddd22231a39440902e1996",
+    "UNVERIFIED_PROVIDER_LEGAL_REGULATORY": "cfd28e6b61cba4b154d1d208b5e263fe76a6908311fc754a52511dfec69bfde3"
+  },
+  "overall_merkle_root": "b1c6b278186a5f7d4254162b25257c1c09097ab6b6901c4b459d3debf6a25a54",
+  "privacy_boundary": "Contains hashes, risk classes and priorities only. No raw claim text, titles, names, medical values or direct identifiers.",
+  "truth_boundary": "Pattern-based triage for the older 194-conversation handover only; not clinical validation and not a replacement for the v14 latest-project denominator.",
+  "detailed_manifest_sha256": "939af2b1d32aa31777c09bf18bc72bf31f54d1591c2bbd6481bcb517596691cc",
+  "detailed_manifest_path_class": "AUTHORISED_LOCAL_EVIDENCE_NOT_RAW_TEXT"
+}

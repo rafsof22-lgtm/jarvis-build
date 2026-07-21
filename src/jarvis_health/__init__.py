@@ -18,6 +18,7 @@ from .evidence_gate_v1 import (
     PrivacySafeHealthLedger,
     health_output_contract,
 )
+from .synthetic_care_journeys_v17 import run_synthetic_care_journeys
 
 __all__ = [
     "CareCoordinationStore",
@@ -34,4 +35,5 @@ __all__ = [
     "HealthEvidenceGate",
     "PrivacySafeHealthLedger",
     "health_output_contract",
+    "run_synthetic_care_journeys",
 ]

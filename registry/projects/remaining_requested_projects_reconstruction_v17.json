@@ -1,0 +1,102 @@
+{
+  "schema_version": "1.0.0",
+  "batch_id": "REMAINING-REQUESTED-PROJECTS-BOUNDED-RECONSTRUCTION-V17",
+  "snapshot_date": "2026-07-22",
+  "projects": [
+    {
+      "project_name": "XRP Tracking New",
+      "project_id": "g-p-6806f25e3a58819197f825182a7da557",
+      "export_conversations": 83,
+      "export_messages": 32239,
+      "source_bucket": "03_Crypto_XRP_HBAR_Finance",
+      "bucket_user_rows": 8644,
+      "bucket_unique_conversations": 347,
+      "bucket_goal_rows": 870,
+      "bucket_open_loop_rows": 1235,
+      "state": "IMPLEMENTED_NOT_INTEGRATED",
+      "scope": "Shared XRP/HBAR/finance source bucket plus prior bounded XRP batches; direct 83-chat requirement reconciliation continues."
+    },
+    {
+      "project_name": "Longevity Plan",
+      "project_id": "g-p-6933c49f41508191b269f844c48a207e",
+      "export_conversations": 6,
+      "export_messages": 2614,
+      "source_bucket": "06_Health_Psychology_Biohacking_Family",
+      "bucket_user_rows": 2670,
+      "bucket_unique_conversations": 171,
+      "bucket_goal_rows": 278,
+      "bucket_open_loop_rows": 156,
+      "state": "PENDING_INGEST",
+      "scope": "Shared health/psychology bucket is indexed; the six direct Longevity project chats are not separately reconstructed from the duplicate June export in this tranche."
+    },
+    {
+      "project_name": "Tax",
+      "project_id": "g-p-6941bca371108191a4f7de8e9c492364",
+      "export_conversations": 8,
+      "export_messages": 8672,
+      "source_bucket": "04_Finance_Tax_Active_Trust_SMSF",
+      "bucket_user_rows": 1851,
+      "bucket_unique_conversations": 134,
+      "bucket_goal_rows": 362,
+      "bucket_open_loop_rows": 212,
+      "state": "PENDING_INGEST",
+      "scope": "Shared finance/tax/trust bucket reconstructed; exact Tax project classification and current-law verification remain separate."
+    },
+    {
+      "project_name": "Active Trust",
+      "project_id": "g-p-68e3814f62388191b915a26d235f5142",
+      "export_conversations": 17,
+      "export_messages": 11478,
+      "source_bucket": "04_Finance_Tax_Active_Trust_SMSF",
+      "bucket_user_rows": 1851,
+      "bucket_unique_conversations": 134,
+      "bucket_goal_rows": 362,
+      "bucket_open_loop_rows": 212,
+      "state": "PENDING_INGEST",
+      "scope": "Shared finance/tax/trust bucket reconstructed; exact Active Trust project classification and legal/adviser review remain separate."
+    },
+    {
+      "project_name": "Finance Planning",
+      "project_id": "g-p-67c93d46da8c8191b87c7168c5ba973e",
+      "export_conversations": 132,
+      "export_messages": 17356,
+      "source_bucket": "04_Finance_Tax_Active_Trust_SMSF",
+      "bucket_user_rows": 1851,
+      "bucket_unique_conversations": 134,
+      "bucket_goal_rows": 362,
+      "bucket_open_loop_rows": 212,
+      "state": "PENDING_INGEST",
+      "scope": "Shared finance/tax/trust bucket reconstructed; direct Finance Planning chat-level mapping remains open."
+    },
+    {
+      "project_name": "Financial New",
+      "project_id": "g-p-68dde9ed46608191a3dbd0bbc5ed082f",
+      "export_conversations": 12,
+      "export_messages": 8835,
+      "source_bucket": "04_Finance_Tax_Active_Trust_SMSF",
+      "bucket_user_rows": 1851,
+      "bucket_unique_conversations": 134,
+      "bucket_goal_rows": 362,
+      "bucket_open_loop_rows": 212,
+      "state": "PENDING_INGEST",
+      "scope": "Shared finance/tax/trust bucket reconstructed; direct Financial New chat-level mapping remains open."
+    }
+  ],
+  "bucket_evidence": {
+    "source_pack": "universal_intelligence_research_instruction_framework_source_pack(1).zip",
+    "source_pack_sha256": "9da690e62880d7c80ebc4fa9f660f0305ddb0c39271e166c6d54bf865ddb9c7e",
+    "method": "Role-separated user-request, goal/requirement and open-loop CSV counts by historical primary_project bucket."
+  },
+  "separation_rules": [
+    "Tax, trust and finance remain separate legal/accounting decision domains despite sharing a source bucket.",
+    "Health/longevity data remains restricted and non-diagnostic.",
+    "XRP projections and historical probability claims remain research hypotheses until current-source verification."
+  ],
+  "next_batches": [
+    "Direct project-chat requirement extraction for XRP Tracking New.",
+    "Direct project-chat extraction for Tax and Active Trust with Australian current-law source verification.",
+    "Direct Finance Planning and Financial New reconciliation into AI CFO modules.",
+    "Direct Longevity project extraction under Health evidence and privacy gates."
+  ],
+  "truth_boundary": "This is a bounded source-bucket reconciliation, not proof that every direct project message is classified or implemented."
+}

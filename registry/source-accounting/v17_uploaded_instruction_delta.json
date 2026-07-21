@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0.0",
+  "batch_id": "V17-UPLOADED-INSTRUCTION-DELTA",
+  "snapshot_date": "2026-07-22",
+  "sources": [
+    {"name":"jarvis-unified-agent-build-registers.md","sha256":"c238669b654a87f7e2d396361160ca2032714bc5d222d0fb7db3c629af951c4c","bytes":891,"classification":"SOURCE_TEMPLATE","state":"READY_FOR_BOUNDED_RECONCILIATION","canonical_placement":"Registry deepening: module consolidation, shared services, cost, gaps, integration gates"},
+    {"name":"jarvis-basic-stack-baseline.md","sha256":"9f86c61f15a4b7bfebc418566818089032682abf6cea2822c37af97c72b00cb1","bytes":4549,"classification":"USER_BASELINE","state":"READY_FOR_BOUNDED_RECONCILIATION","canonical_placement":"Layers 2, 6, 7, 8, 10, 11, 13, 14 and 16; free/local-first platform routing"},
+    {"name":"jarvis-reconstruction-rules.md","sha256":"0282109b0109cf217deeae3fc3086991074fd579d423c25f16e787cc7ec0f7ae","bytes":1701,"classification":"USER_GOVERNANCE_SOURCE","state":"READY_FOR_BOUNDED_RECONCILIATION","canonical_placement":"Layer 18 ingestion and source accounting; complements canonical constitution without superseding it"},
+    {"name":"Apex Omni Mapping Request.txt","sha256":"7b995b816fc87467f7afb2fbb5115e974e9ee570447cbbf7b3d860ce83f1808f","bytes":3028,"classification":"REQUEST_SOURCE","state":"READY_FOR_BOUNDED_RECONCILIATION","canonical_placement":"Universal requirement-to-module mapping and gap analysis"},
+    {"name":"xrp tracking cont.txt","sha256":"7a4dad18ee8e34850fef337f34daf08614232fd8aa30ec99f5ed345832adfc63","bytes":994265,"classification":"HISTORICAL_DOMAIN_SOURCE","state":"READY_FOR_BOUNDED_RECONCILIATION","canonical_placement":"XRP/Ripple intelligence; preserve historical claims for verification, not as current facts"}
+  ],
+  "decisions": [
+    "Canonical constitution and current repository truth retain higher authority.",
+    "The free/local-first baseline is adopted as a routing baseline subject to current pricing/security verification.",
+    "Historical 100% and production claims remain unproven until current artifacts and runtime evidence support them."
+  ],
+  "truth_boundary": "Hashes and applicability are registered. Full content-level reconstruction continues in bounded batches."
+}
