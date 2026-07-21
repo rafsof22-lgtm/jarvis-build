@@ -1,0 +1,138 @@
+{
+  "template_id": "JARVIS-ASSET-INTELLIGENCE-PROFILE-TEMPLATE-V1",
+  "version": "1.0.0",
+  "state": "IMPLEMENTED_NOT_INTEGRATED",
+  "purpose": "Create a unique, evidence-governed intelligence profile for any future crypto, stock, ETF, commodity, FX, index, property or macro asset without forcing unlike assets into identical analysis.",
+  "required_common_fields": [
+    "profile_id",
+    "version",
+    "state",
+    "asset_class",
+    "primary_asset",
+    "entity_aliases",
+    "objective",
+    "unique_value_capture_or_demand_model",
+    "fixed_milestones",
+    "dynamic_milestones",
+    "required_milestone_fields",
+    "asset_specific_intelligence_layers",
+    "ceiling_engine_inputs",
+    "priority_source_families",
+    "source_budget",
+    "trigger_families",
+    "risks_and_invalidation_conditions",
+    "knowledge_fabric_namespace",
+    "execution_boundary",
+    "rollback"
+  ],
+  "common_controls": {
+    "research_only_default": true,
+    "append_only_history": true,
+    "official_primary_source_first": true,
+    "supporting_and_adverse_evidence_required": true,
+    "maximum_meaningful_sources_per_apex_run": 100,
+    "source_registry_expands_between_runs": true,
+    "dynamic_ceiling_is_not_a_prediction": true,
+    "probability_scenario_and_trigger_scores_separate": true,
+    "historical_forecasts_link_to_outcomes": true,
+    "unique_asset_assumptions_required": true,
+    "no_guaranteed_return_or_price_claim": true
+  },
+  "class_specific_extensions": {
+    "crypto": {
+      "required": [
+        "token_or_coin_role",
+        "network_or_protocol_separation_rule",
+        "direct_token_demand_pathways",
+        "supply_emissions_unlocks_burn_and_float",
+        "onchain_and_market_microstructure_metrics",
+        "staking_mining_validator_or_security_economics",
+        "governance_developer_and_security_activity",
+        "stablecoin_DeFi_bridge_RWA_and_ecosystem_context",
+        "custody_exchange_derivatives_and_regulatory_access",
+        "competitors_and_non_token_value_capture_routes"
+      ]
+    },
+    "stock": {
+      "required": [
+        "company_legal_name_ticker_exchange_and_share_classes",
+        "business_segments_and_revenue_model",
+        "unit_economics_margins_cash_flow_and_capital_intensity",
+        "balance_sheet_debt_liquidity_and_maturity_profile",
+        "shares_outstanding_dilution_options_and_buybacks",
+        "management_board_governance_and_capital_allocation",
+        "earnings_guidance_consensus_and_revision_history",
+        "valuation_multiples_DCF_reverse_DCF_and_sum_of_parts",
+        "insider_institutional_13F_short_interest_and_options signals",
+        "filings_earnings_transcripts_patents_products_and competitor sources",
+        "bull_base_bear_failure_and_bankruptcy scenarios"
+      ]
+    },
+    "etf": {
+      "required": [
+        "issuer_fund_structure_index_methodology_and mandate",
+        "holdings_weighting_rebalance_and concentration",
+        "fees_tracking_error_liquidity_spread_and AUM",
+        "creation_redemption_custody_and counterparty risks",
+        "flows_tax_distributions_and underlying exposure",
+        "issuer_filings_and index-provider primary sources"
+      ]
+    },
+    "commodity": {
+      "required": [
+        "physical_supply_demand_inventory_and capacity",
+        "production_cost_curve_and marginal producer",
+        "transport_storage_quality_and geographic basis",
+        "futures_curve_positioning_and hedging",
+        "substitution_recycling_weather_and geopolitical risks",
+        "official_agency_exchange_and producer sources"
+      ]
+    },
+    "fx_or_macro": {
+      "required": [
+        "central_bank_policy_rates_inflation_growth_and labour",
+        "fiscal_external_balance_reserves_and capital flows",
+        "yield_curve_real_rates_carry_and positioning",
+        "regime_history_policy reaction function and scenarios",
+        "official_statistics_central_bank_and multilateral sources"
+      ]
+    },
+    "property": {
+      "required": [
+        "exact_geography_property_type_and title constraints",
+        "comparable_sales_rents_yields_vacancy_and supply pipeline",
+        "land_tax_rates_planning_building_and climate constraints",
+        "finance_serviceability_holding_costs_and transaction costs",
+        "official_title_planning_rates_and transaction sources"
+      ]
+    }
+  },
+  "onboarding_workflow": [
+    "capture_asset_and_decision_objective",
+    "select_asset_class_and_extensions",
+    "identify_aliases_identifiers_and jurisdictions",
+    "define_unique_value_capture_or_demand thesis",
+    "define milestone ladder_and_dynamic ceiling rules",
+    "generate primary_adverse_and_not_yet_found source families",
+    "define metrics_catalysts_risks_and invalidation conditions",
+    "define Knowledge Fabric namespace_and schemas",
+    "run deterministic schema_and source-plan validation",
+    "activate in research-only mode",
+    "add to Command Centre and voice routing",
+    "perform first bounded intelligence run",
+    "independent verification_before stronger status"
+  ],
+  "profile_statuses": [
+    "PENDING_INGEST",
+    "SPEC_ONLY",
+    "BACKLOGGED",
+    "SCAFFOLDED",
+    "IMPLEMENTED_NOT_INTEGRATED",
+    "INTEGRATED_STAGING",
+    "DEPLOYED_UNVERIFIED",
+    "DONE_VERIFIED",
+    "WAIVED",
+    "BLOCKED"
+  ],
+  "rollback": "Deactivate the profile, preserve its historical records and remove it from active fan-out. Never delete source, forecast or discrepancy lineage."
+}
