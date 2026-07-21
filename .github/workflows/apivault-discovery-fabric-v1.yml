@@ -1,0 +1,39 @@
+name: APIVault Discovery Fabric V1
+
+on:
+  pull_request:
+    paths:
+      - 'src/jarvis_integrations/apivault_discovery_v1.py'
+      - 'src/jarvis_integrations/__init__.py'
+      - 'tests/test_apivault_discovery_v1.py'
+      - 'registry/integrations/apivault_*.json'
+      - 'registry/ojt/apivault_*.json'
+      - 'registry/trackers/all_progress_tracker_reconciliation_v9.json'
+      - 'scripts/verify_apivault_discovery_v1.py'
+      - '.github/workflows/apivault-discovery-fabric-v1.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile APIVault integration
+        run: python -m py_compile src/jarvis_integrations/apivault_discovery_v1.py tests/test_apivault_discovery_v1.py scripts/verify_apivault_discovery_v1.py
+      - name: Run eleven deterministic tests
+        run: python -m unittest tests.test_apivault_discovery_v1 -v
+      - name: Validate APIVault registries
+        run: |
+          python -m json.tool registry/integrations/apivault_discovery_fabric_v1.json >/dev/null
+          python -m json.tool registry/integrations/apivault_cross_jarvis_routing_v1.json >/dev/null
+          python -m json.tool registry/ojt/apivault_discovery_specialist_v1.json >/dev/null
+          python -m json.tool registry/trackers/all_progress_tracker_reconciliation_v9.json >/dev/null
+      - name: Verify APIVault truth and evidence gates
+        run: python scripts/verify_apivault_discovery_v1.py

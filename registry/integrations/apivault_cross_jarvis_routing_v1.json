@@ -1,0 +1,40 @@
+{
+  "routing_id": "JARVIS-APIVAULT-CROSS-DOMAIN-ROUTING-V1",
+  "version": "1.0.0",
+  "state": "IMPLEMENTED_NOT_INTEGRATED",
+  "default_state": "PROPOSAL_ONLY",
+  "routes": [
+    {"apivault_signal":"Finance or business","jarvis_targets":["AI CFO","market research","agency factory"],"constraints":["research-only until provider verified","no money movement","cost approval for paid plans"]},
+    {"apivault_signal":"Cryptocurrency","jarvis_targets":["asset intelligence","XRP/HBAR research","trading research"],"constraints":["paper-first","no autonomous execution","official market-data terms required"]},
+    {"apivault_signal":"Health","jarvis_targets":["health evidence","care coordination"],"constraints":["privacy and consent review","not diagnosis","no live device control"]},
+    {"apivault_signal":"Weather or geolocation","jarvis_targets":["context engine","alerts","property operations","logistics"],"constraints":["location minimisation","freshness and outage handling"]},
+    {"apivault_signal":"News or government","jarvis_targets":["intelligence fabric","legal and compliance research"],"constraints":["source credibility","attribution","jurisdiction and recency validation"]},
+    {"apivault_signal":"Machine learning or development","jarvis_targets":["model lab","product factory","automation factory"],"constraints":["licence scan","security review","free-tier and deprecation monitoring"]},
+    {"apivault_signal":"Transportation","jarvis_targets":["Fast 8 Auto","operations and logistics","property workflows"],"constraints":["commercial-use terms","rate limits","location and personal-data review"]},
+    {"apivault_signal":"Unknown category","jarvis_targets":["general research intake"],"constraints":["manual classification before canary"]}
+  ],
+  "universal_candidate_pipeline": [
+    "DISCOVER",
+    "NORMALIZE",
+    "DEDUPE",
+    "ROUTE",
+    "VERIFY_OFFICIAL_DOCS",
+    "VERIFY_TERMS_AND_LICENCE",
+    "VERIFY_CURRENT_FREE_TIER",
+    "SECURITY_PRIVACY_REVIEW",
+    "DEFINE_RATE_AND_COST_CEILING",
+    "BUILD_ADAPTER_IN_SANDBOX",
+    "RUN_BOUNDED_CANARY",
+    "INDEPENDENT_VERIFY",
+    "OWNER_APPROVE_IF_EXTERNAL_OR_PAID",
+    "STAGING_INTEGRATE",
+    "MONITOR_OR_ROLLBACK"
+  ],
+  "continuous_operation": {
+    "recommended_cadence": "WEEKLY",
+    "delta_only": true,
+    "notify_only_on_material_change": true,
+    "material_changes": ["licence", "security posture", "endpoint contract", "free tier", "quota", "deprecation", "incident", "official documentation contradiction"]
+  },
+  "truth_boundary": "Routing records identify where a candidate could help. They do not verify, integrate, deploy or approve any candidate API."
+}

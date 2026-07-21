@@ -1,0 +1,75 @@
+{
+  "integration_id": "JARVIS-APIVAULT-DISCOVERY-FABRIC-V1",
+  "version": "1.0.0",
+  "snapshot_date": "2026-07-21",
+  "runtime_state": "IMPLEMENTED_NOT_INTEGRATED",
+  "purpose": "Use APIVault as a transient, low-trust public API discovery index feeding independent Jarvis verification and routing.",
+  "source": {
+    "website": "https://apivault.dev",
+    "repository": "https://github.com/exa-studio/ApiVault",
+    "repository_head_observed": "60ebaf9a0636ed5b8ca9330fa3e136ef5d35f8ac",
+    "rest_endpoints_observed": ["/api/all", "/api/search?query=", "/api/count", "/api/categories", "/api/category/<name>", "/api/random"],
+    "serializer_fields_observed": ["id", "name", "auth", "category", "cors", "description", "https", "url", "likes_count", "liked_by_user"]
+  },
+  "implementation": {
+    "runtime": "src/jarvis_integrations/apivault_discovery_v1.py",
+    "tests": "tests/test_apivault_discovery_v1.py",
+    "package": "src/jarvis_integrations/__init__.py"
+  },
+  "free_first_route": {
+    "apivault_account_required_for_read_discovery": false,
+    "apivault_api_key_required_for_read_discovery": false,
+    "local_cache": "HASHES_AND_VERIFICATION_METADATA_ONLY",
+    "paid_upgrade_required": false,
+    "fallback": "Official provider documentation and other approved public API directories"
+  },
+  "licence_boundary": {
+    "observed_licence": "CC BY-NC-ND 4.0",
+    "commercial_catalogue_reuse": "PROHIBITED_UNLESS_SEPARATE_PERMISSION",
+    "derivative_catalogue": "PROHIBITED_UNLESS_SEPARATE_PERMISSION",
+    "mirroring_or_redistribution": false,
+    "jarvis_design": "TRANSIENT_DISCOVERY_WITH_ATTRIBUTION_AND_INDEPENDENT_PROVIDER_VERIFICATION"
+  },
+  "security_findings": [
+    "PUBLIC_REPOSITORY_CONTAINS_HARDCODED_DJANGO_SECRET",
+    "WILDCARD_ALLOWED_HOSTS",
+    "GLOBAL_CORS_ALLOW_ALL",
+    "CORS_CREDENTIALS_ENABLED",
+    "DO_NOT_REUSE_OR_DEPLOY_UPSTREAM_BACKEND_CONFIGURATION"
+  ],
+  "execution_defaults": {
+    "network_enabled": false,
+    "allowed_origin": "https://apivault.dev",
+    "https_required": true,
+    "discovery_only": true,
+    "catalogue_persistence": false,
+    "maximum_results": 25,
+    "maximum_timeout_seconds": 30,
+    "candidate_execution_approved": false
+  },
+  "adoption_gates": [
+    "OFFICIAL_DOCUMENTATION_VERIFIED",
+    "CURRENT_FREE_TIER_VERIFIED",
+    "TERMS_AND_LICENCE_REVIEWED",
+    "SECURITY_AND_PRIVACY_REVIEWED",
+    "RATE_LIMIT_AND_COST_CEILING_DEFINED",
+    "BOUNDED_STAGING_CANARY_PASSED",
+    "ROLLBACK_PROVEN"
+  ],
+  "continuous_learning": {
+    "cadence": "WEEKLY_OR_ON_DEMAND_UPDATE",
+    "checks": [
+      "repository_head_change",
+      "endpoint_contract_change",
+      "licence_change",
+      "security_configuration_change",
+      "catalogue_count_change",
+      "candidate_official_docs_freshness",
+      "candidate_free_tier_change",
+      "candidate_deprecation_or_incident"
+    ],
+    "automatic_effect": "PROPOSAL_ONLY",
+    "production_change": false
+  },
+  "truth_boundary": "This integration proves only repository-local discovery policy, parsing, scoring and routing. It does not prove APIVault live availability, catalogue correctness, candidate API safety, candidate free tiers, connected staging or production adoption."
+}
