@@ -35,6 +35,6 @@ jobs:
             scripts/build_health_claim_review_manifest_v17.py \
             scripts/verify_completion_tranche_v17.py
       - name: Run V17 deterministic tests
-        run: python -m unittest tests.test_v17_workstreams -v
+        run: PYTHONPATH=src:. python -m unittest tests.test_v17_workstreams -v
       - name: Verify V17 evidence and truth boundaries
         run: python scripts/verify_completion_tranche_v17.py
