@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0.0",
+  "source_set_id": "SRC-UNIVERSE-UPLOAD-2026-07-21",
+  "state": "TOP_LEVEL_HASHED_ARCHIVES_LISTED",
+  "top_level_source_count": 51,
+  "top_level_total_bytes": 267037663,
+  "archive_count": 11,
+  "archive_member_count": 1293,
+  "archive_total_uncompressed_bytes": 2785181116,
+  "top_level_duplicate_groups": [
+    {"sha256":"60eb7a1927fba344d911d4df1c9602b69ed185dc6396b6b74f086dc5e03c5900","files":["ed76e888-93a0-41d8-b66d-5c7fa1eab85c_2816x1536(1).jpg","ed76e888-93a0-41d8-b66d-5c7fa1eab85c_2816x1536.jpg"]},
+    {"sha256":"7073bfef49bedca84df4097bbd3b6eafff2399b1a86c66bb0349ffaec7c81d74","files":["Chathub INst Prmpt(1).txt","Chathub INst Prmpt.txt"]}
+  ],
+  "archive_member_duplicate_group_count": 114,
+  "archives": [
+    {"name":"apex-jarvis-unified-one-click-source (1).zip","sha256":"61ec20cb119e289b720a057685e1dae2145fc67f52d436c6b7de1af4c6e341c7","member_count":374,"total_uncompressed_bytes":1078073,"unsafe_member_count":0},
+    {"name":"chatgpt-export-2026-06-25T03-06-22 (2) (1).7z","sha256":"fa61e528ae1ffbe1b8f5c2addc76dab0129264fc5c918fdfc4dd78a23964ac82","member_count":1,"total_uncompressed_bytes":2336598546,"unsafe_member_count":0},
+    {"name":"JARVIS_CODE_BUILD_AGENT_LOOPS_V35.zip","sha256":"48a363b3607af104f34773932be3a739e9f0fd50a334dc610b86d14896050911","member_count":68,"total_uncompressed_bytes":169353,"unsafe_member_count":0},
+    {"name":"JARVIS_EXECUTABLE_BUILD_PACKAGE_V3.zip","sha256":"a4bd78bee41400ba02014a423321826246a5cbc2db5daf9297a73af78a942b34","member_count":483,"total_uncompressed_bytes":114704708,"unsafe_member_count":0},
+    {"name":"JARVIS_REQUIREMENT_RESCAN_V34.zip","sha256":"9d8b723d366221051ad2543328d09a4a1f7601bcb17e82f168b6006687400bd7","member_count":36,"total_uncompressed_bytes":122613548,"unsafe_member_count":0},
+    {"name":"jarvis_source_universe_initial_evidence_pack(1).zip","sha256":"82850beb19b38553146405ea58e0fac926285b6b5f3e3325b2b4349ca0a9d6c8","member_count":31,"total_uncompressed_bytes":948781,"unsafe_member_count":0},
+    {"name":"Kimi_Agent_OmniUniversal Clone Framework.zip","sha256":"190e67f4230a8983c2248b692e5c3263b9f82d010a17329817b979add5d8adb6","member_count":110,"total_uncompressed_bytes":1606729,"unsafe_member_count":0},
+    {"name":"Kimi_Agent_物业销售自动化.zip","sha256":"0982de4ab63583533965c69a119f3e14808a1152699268b33df0acb334c31280","member_count":5,"total_uncompressed_bytes":220961,"unsafe_member_count":0},
+    {"name":"Omni Quantum Trading Framework (3).docx","sha256":"32be29f83bdf8d8689845154f4f6ec3f441546f763aa7757c023243a2a83c736","member_count":22,"total_uncompressed_bytes":3830797,"unsafe_member_count":0},
+    {"name":"universal_intelligence_research_instruction_framework_source_pack(1).zip","sha256":"9da690e62880d7c80ebc4fa9f660f0305ddb0c39271e166c6d54bf865ddb9c7e","member_count":87,"total_uncompressed_bytes":203151328,"unsafe_member_count":0},
+    {"name":"xrp_hbar_apex_v4_execution_outputs (1).zip","sha256":"67a73e62e378d21f183ecce5188c53392419aa9f56338851524447ca94d817cc","member_count":76,"total_uncompressed_bytes":258292,"unsafe_member_count":0}
+  ],
+  "privacy_boundary": "No raw export, sensitive chat body, personal record, image or opaque archive member is committed by this registry.",
+  "completion_boundary": "Top-level files are hashed and compatible archives are listed. Content-level extraction, classification, provenance mapping and implementation reconciliation continue as bounded batches."
+}
