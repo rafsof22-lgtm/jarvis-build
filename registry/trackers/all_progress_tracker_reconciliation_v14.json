@@ -1,0 +1,30 @@
+{
+  "baseline_main":"1284593de79e1a264d8cb6d3c2ab64cadd64450e",
+  "cost_plus_one_preserved_from_v13":{"domain_event_contracts":"DONE_VERIFIED_LOCAL","external_integrations":"BLOCKED","local_event_ledger":"DONE_VERIFIED_LOCAL","locker_allocator_reference":"DONE_VERIFIED_LOCAL"},
+  "health_current_states":{"claim_level_clinical_validation":"OPEN","clinician_portal":"NOT_CONNECTED","device_control":"BLOCKED","encrypted_connected_health_store":"NOT_CONNECTED","evidence_gate":"DONE_VERIFIED_LOCAL","latest_source_reconstruction":"DONE_VERIFIED_BOUNDED","normalized_requirements":"DONE_VERIFIED_REPOSITORY_SCOPE","privacy_safe_ledger":"DONE_VERIFIED_LOCAL","production":"NOT_AUTHORISED","provider_directory":"CURRENT_RESEARCH_REQUIRED","staging":"NOT_CONNECTED"},
+  "id":"JARVIS-ALL-PROGRESS-TRACKER-RECONCILIATION-V14",
+  "next_open_loops":[
+    {"priority":"P1","safe_now":true,"task":"Build privacy-safe health profile, symptom, diagnostic-source, medication/supplement, device, provider and intervention schemas using synthetic fixtures."},
+    {"priority":"P1","safe_now":true,"task":"Create a bounded high-risk claim review queue from the 1,629 historical safety flags, starting with medication changes and device settings; store hashes/pointers only."},
+    {"priority":"P1","safe_now":true,"task":"Implement Cost customer/member/trade/workshop/vehicle/supplier/order profile schemas and synthetic E2E simulation preserved from v13."},
+    {"priority":"P2","safe_now":true,"task":"Verify current provider, product, device, regulation and clinical evidence only when a specific decision requires current web research."},
+    {"priority":"P2","safe_now":false,"task":"Prepare clinician/pharmacist review packet after the user confirms the current medication, supplement and device list.","blocker":"Current user-confirmed regimen and licensed professional review are required."}
+  ],
+  "program_state":"ACTIVE_PROGRAM_NOT_100_PERCENT",
+  "resolved_this_pass":[
+    {"work_id":"CURRENT-UPLOAD-ALIAS-DEDUPE","state":"DONE_VERIFIED","scope":"All five current-turn uploads are exact aliases; zero new source bytes.","evidence":["registry/sources/upload_alias_dedupe_v14.json"]},
+    {"work_id":"HEALTH-LATEST-UNIQUE-DENOMINATOR","state":"DONE_VERIFIED_BOUNDED","scope":"156 unique conversations and 27,153 canonical messages across Health, Spooky2 and Psychology.","evidence":["registry/sources/health_spooky2_psychology_full_reconstruction_v14.json"]},
+    {"work_id":"HEALTH-V12-DENOMINATOR-CONFLICT","state":"CONFLICT_RECORDED","scope":"Prior 157 envelopes preserved; one mixed-lineage duplicate corrected to 156 unique conversations.","evidence":["registry/sources/health_spooky2_psychology_full_reconstruction_v14.json"]},
+    {"work_id":"HEALTH-ALL-MESSAGE-MACHINE-PASS","state":"DONE_VERIFIED_BOUNDED","scope":"Every canonical message in every latest target-project conversation was machine-read and counted.","evidence":["registry/sources/health_spooky2_psychology_full_reconstruction_v14.json"]},
+    {"work_id":"HEALTH-52-SOURCE-FILE-PASS","state":"DONE_VERIFIED_BOUNDED","scope":"52 bundled sources processed through text, spreadsheet, PDF and image-specific passes.","evidence":["registry/sources/health_spooky2_psychology_full_reconstruction_v14.json"]},
+    {"work_id":"HEALTH-NORMALIZED-REQUIREMENTS","state":"DONE_VERIFIED_REPOSITORY_SCOPE","scope":"32 canonical requirements mapped to implemented, spec-locked or blocked states.","evidence":["registry/requirements/health_spooky2_psychology_requirements_v14.json"]},
+    {"work_id":"HEALTH-EVIDENCE-GATE-V1","state":"DONE_VERIFIED_LOCAL","scope":"Fail-closed claim triage, evidence/source classes, professional gates and no medical execution.","evidence":["src/jarvis_health/evidence_gate_v1.py","tests/test_health_evidence_gate_v1.py"]},
+    {"work_id":"HEALTH-PRIVACY-SAFE-LEDGER-V1","state":"DONE_VERIFIED_LOCAL","scope":"SQLite idempotent ledger stores claim hashes/classifications only, never raw claim text.","evidence":["src/jarvis_health/evidence_gate_v1.py","tests/test_health_evidence_gate_v1.py"]},
+    {"work_id":"HEALTH-SAFETY-QUARANTINE-V2","state":"DONE_VERIFIED_LOCAL","scope":"High-risk historical categories remain quarantined and medical-device control remains blocked.","evidence":["registry/health/health_evidence_and_safety_controls_v2.json"]}
+  ],
+  "snapshot_date":"2026-07-21",
+  "still_blocked":["P0-1","P0-2","P0-3","P0-4","P0-5","P0-6","P0-7","LIVE-PROVIDER-PANEL","AUTHENTICATED-COMMAND-CENTRE-STAGING","PRODUCTION-PROMOTION-AND-OWNER-ACCEPTANCE","CONNECTED-ENCRYPTED-HEALTH-DATA","LICENSED-CLINICIAN-VALIDATION"],
+  "supersedes_tracker":"registry/trackers/all_progress_tracker_reconciliation_v13.json",
+  "truth_boundary":"Every latest target-project message and all accessible bundled source files were machine-processed with privacy-safe summaries. This does not clinically validate all claims, connect health systems, diagnose, treat, operate devices, deploy staging or authorise production.",
+  "version":"14.0.0"
+}
