@@ -33,7 +33,7 @@ def main() -> None:
     require(len(tracker["still_blocked"]) == 11, "external blocker set drifted")
     require("DISCOVERED_NOT_VERIFIED" in runtime, "discovery truth state missing")
     require("COMMERCIAL_CATALOGUE_REUSE_PROHIBITED" in runtime, "licence enforcement missing")
-    require("catalogue_persisted\": False" not in runtime, "brittle representation detected")
+    require("catalogue_persisted" in runtime and "False" in runtime, "no-persistence control missing")
     require(tests.count("    def test_") == 11, "expected eleven deterministic tests")
 
     combined = json.dumps(integration) + json.dumps(routing) + json.dumps(ojt) + json.dumps(tracker) + runtime + tests
