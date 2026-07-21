@@ -44,6 +44,14 @@
     "verifier": "scripts/verify_jarvis_self_evolution_v1.py",
     "workflow": ".github/workflows/jarvis-self-evolution-control-plane-v1.yml"
   },
+  "skill_package_evidence": {
+    "artifact": "artifacts/jarvis-sovereign-builder/skill.zip",
+    "source_files": 25,
+    "zip_bytes": 45265,
+    "source_sha256": "31af795649d2b45b3617af3c6d6493b4b8fd6831c09ffeeaef5350474a7887a6",
+    "generated_by": "Package Jarvis Skill workflow",
+    "values_exposed": false
+  },
   "acceptance": {
     "test_methods": 11,
     "direct_production_self_modification": false,
