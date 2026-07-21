@@ -1,0 +1,69 @@
+{
+  "id": "JARVIS-ALL-PROGRESS-TRACKER-RECONCILIATION-V16",
+  "version": "16.0.0",
+  "snapshot_date": "2026-07-21",
+  "baseline_main": "248116287739ef9dd476c1338b4947d13a21c55d",
+  "supersedes_tracker": "registry/trackers/all_progress_tracker_reconciliation_v15.json",
+  "program_state": "ACTIVE_PROGRAM_NOT_100_PERCENT",
+  "resolved_this_pass": [
+    {
+      "work_id": "HEALTH-SPLIT-NEW-UPLOAD-DEDUPE-V16",
+      "state": "DONE_VERIFIED",
+      "scope": "Three newly uploaded archive parts exactly match canonical part001, part002 and part003 by SHA-256 and byte size; zero novel source bytes.",
+      "evidence": ["registry/sources/health_split_upload_aliases_v16.json"]
+    },
+    {
+      "work_id": "PROJECT-CHAT-ACCESS-TRUTH-V16",
+      "state": "DONE_VERIFIED_BOUNDED",
+      "scope": "Current conversation, visible project context and historical export are distinguished from unavailable live sibling-chat enumeration and post-export deltas.",
+      "evidence": ["registry/source-accounting/project_chat_access_reconciliation_v1.json"]
+    },
+    {
+      "work_id": "JARVIS-18-LAYER-FULL-STACK-REFERENCE",
+      "state": "DONE_VERIFIED_REPOSITORY_SCOPE",
+      "scope": "Canonical 18-layer full-stack architecture exceeds the 13-layer minimum and maps each layer to existing evidence, runtime state and exact gaps.",
+      "evidence": ["registry/architecture/jarvis_full_stack_18_layer_reference_v1.json", "docs/architecture/JARVIS_FULL_STACK_18_LAYER_ARCHITECTURE_2026_07_21.md", "tests/test_full_stack_architecture_v16.py"]
+    }
+  ],
+  "project_chat_state": {
+    "historical_export": "EXTRACTED_DENOMINATOR_VERIFIED",
+    "live_project_ui_enumeration": "BLOCKED_BY_ACCESS",
+    "post_export_delta": "PENDING_INGEST",
+    "all_chats_current_claim": false
+  },
+  "full_stack_state": {
+    "minimum_required_layers": 13,
+    "declared_layers": 18,
+    "architecture_reference": "DONE_VERIFIED_REPOSITORY_SCOPE",
+    "end_to_end_connected_runtime": "NOT_VERIFIED"
+  },
+  "next_open_loops": [
+    {
+      "priority": "P1",
+      "safe_now": true,
+      "task": "Expose the 18-layer architecture, per-layer traffic lights and OpenLoops in the authenticated Command Centre staging view."
+    },
+    {
+      "priority": "P1",
+      "safe_now": true,
+      "task": "Generate a fresh project-chat delta ledger when a newer export or explicit chat pack becomes available."
+    },
+    {
+      "priority": "P1",
+      "safe_now": true,
+      "task": "Continue v15 hash-only health claim manifest and synthetic care-coordination exercises."
+    },
+    {
+      "priority": "P1",
+      "safe_now": true,
+      "task": "Resume Cost + $1 profile schemas and synthetic order-to-billing workflow."
+    },
+    {
+      "priority": "P2",
+      "safe_now": false,
+      "task": "Connect all 18 layers in authenticated staging and run cross-layer E2E, privacy, security, persistence, retry, backup, restore, cost and rollback proof.",
+      "blocker": "Requires connected services, scoped credentials and staging approval."
+    }
+  ],
+  "truth_boundary": "The upload aliases and 18-layer architecture are verified for repository scope. Full live-project chat access, connected staging, production and owner acceptance remain unproven."
+}

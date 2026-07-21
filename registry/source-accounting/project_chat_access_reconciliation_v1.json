@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "registry_id": "JARVIS-PROJECT-CHAT-ACCESS-RECONCILIATION-V1",
+  "snapshot_date": "2026-07-21",
+  "all_live_project_chats_accessible": false,
+  "sources": [
+    {
+      "source_class": "ACTIVE_CONVERSATION",
+      "state": "AVAILABLE",
+      "coverage": "Current active conversation and its mounted uploads are visible in this runtime.",
+      "proof_limit": "Does not enumerate sibling project chats."
+    },
+    {
+      "source_class": "VISIBLE_PROJECT_CONTEXT",
+      "state": "AVAILABLE_BOUNDED",
+      "coverage": "Only project-chat context explicitly exposed to this runtime can be used.",
+      "proof_limit": "The project UI's complete chat list and hidden sibling-chat bodies are not directly enumerable."
+    },
+    {
+      "source_class": "CHATGPT_EXPORT_2026_06_25",
+      "state": "EXTRACTED_DENOMINATOR_VERIFIED",
+      "coverage": {
+        "conversations": 2610,
+        "messages": 357835,
+        "jarvis_core_inferred_candidates": 602
+      },
+      "proof_limit": "The 602 Jarvis-core count is an overlapping bounded inference, not canonical membership in the current live project."
+    },
+    {
+      "source_class": "POST_EXPORT_PROJECT_CHAT_DELTA",
+      "state": "PENDING_INGEST",
+      "coverage": "Chats or edits after 2026-06-25 are not guaranteed to exist in the historical export.",
+      "exact_next_action": "Ingest a fresh ChatGPT export or explicit project chat/source packs, then delta-map by conversation and message ID."
+    },
+    {
+      "source_class": "LIVE_PROJECT_UI_CHAT_ENUMERATION",
+      "state": "BLOCKED_BY_ACCESS",
+      "coverage": "No connector in this runtime exposes a complete authoritative project-chat list and bodies.",
+      "exact_next_action": "Use a fresh export, move/copy chats into accessible source packs, or connect an authorised project-chat export mechanism."
+    }
+  ],
+  "continuous_reconciliation_contract": [
+    "Inventory every newly visible chat or export.",
+    "Preserve user and assistant messages separately with exact pointers and hashes.",
+    "Delta-map new requirements, conflicts, decisions and OpenLoops into canonical registries.",
+    "Never claim all project chats are current unless the live denominator and post-export delta both reconcile."
+  ],
+  "current_conclusion": "Historical and supplied project evidence can be continuously consolidated, but full live-project chat visibility is not proven."
+}

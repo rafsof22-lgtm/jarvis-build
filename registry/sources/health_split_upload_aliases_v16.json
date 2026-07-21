@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0.0",
+  "batch_id": "HEALTH-SPLIT-UPLOAD-ALIASES-V16",
+  "snapshot_date": "2026-07-21",
+  "canonical_source_registry": "registry/sources/health_spooky2_psychology_split_handover_v1.json",
+  "novel_source_bytes": 0,
+  "records": [
+    {
+      "source_id": "UPLOAD-ALIAS-HEALTH-PART001-V16",
+      "file_id": "file_0000000096f481f7a3544776f4911cf8",
+      "uploaded_name": "HEALTH_OPTIMISATION_SPOOKY2_PSYCHOLOGY_MASTER_HANDOVER.zip(2).part001",
+      "bytes": 94371840,
+      "sha256": "8bd8bc179a0bb5ed8f806198f535525697f8b2db597dfecf54b174623614016d",
+      "canonical_member": "part001",
+      "state": "DUPLICATE_WITH_LINEAGE",
+      "reason": "Exact SHA-256 and byte-size match to the previously verified canonical archive part."
+    },
+    {
+      "source_id": "UPLOAD-ALIAS-HEALTH-PART002-V16",
+      "file_id": "file_00000000ddec81f79139f9961ca503be",
+      "uploaded_name": "HEALTH_OPTIMISATION_SPOOKY2_PSYCHOLOGY_MASTER_HANDOVER.zip(2).part002",
+      "bytes": 94371840,
+      "sha256": "f66c2acfcad9b9133bdc7a3061e85ff38791967ce48336384fd6a3c85eb07aee",
+      "canonical_member": "part002",
+      "state": "DUPLICATE_WITH_LINEAGE",
+      "reason": "Exact SHA-256 and byte-size match to the previously verified canonical archive part."
+    },
+    {
+      "source_id": "UPLOAD-ALIAS-HEALTH-PART003-V16",
+      "file_id": "file_00000000cea881f7bf7b6403b79839c5",
+      "uploaded_name": "HEALTH_OPTIMISATION_SPOOKY2_PSYCHOLOGY_MASTER_HANDOVER.zip(3).part003",
+      "bytes": 94371840,
+      "sha256": "83223326e6af37eaaefce9f406d2247d4c02e1890e9d9d64a8c53ce560a3fa2b",
+      "canonical_member": "part003",
+      "state": "DUPLICATE_WITH_LINEAGE",
+      "reason": "Exact SHA-256 and byte-size match to the previously verified canonical archive part despite the new filename suffix."
+    }
+  ],
+  "truth_boundary": "The three current uploads add no novel source bytes. They remain receipt aliases and are not reprocessed as new evidence."
+}
