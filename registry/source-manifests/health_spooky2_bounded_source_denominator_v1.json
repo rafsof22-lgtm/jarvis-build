@@ -1,0 +1,82 @@
+{
+  "manifest_id": "HEALTH-SPOOKY2-BOUNDED-DENOMINATOR-V1",
+  "version": "1.0.0",
+  "created_date": "2026-07-21",
+  "scope": "One accessible derived CSV capture containing Health, Spooky2, frequency-protocol and related historical user-request records.",
+  "proof_state": "BOUNDED_SOURCE_DENOMINATOR_VERIFIED",
+  "full_health_universe_complete": false,
+  "source": {
+    "filename": "intelligence_health_spooky2_research_capture.csv",
+    "size_bytes": 10721363,
+    "sha256": "2d69a29249e4cfcdbd3d16cfc404f15ad9f8cea8419f627c65a93c2222ba02c0",
+    "source_layer": "baseline_20260612_exact_available",
+    "upstream_lineage": "master_kb_remaining_required_source_files_addon_20260625/.../09_source_registers/current_all_user_requests_with_project.csv.gz",
+    "repository_storage": "NOT_COMMITTED_DERIVED_SOURCE",
+    "reason_not_committed": "Large historical text source may contain sensitive health and personal material. The manifest stores counts, lineage and hash only."
+  },
+  "schema_fields": [
+    "conversation_id",
+    "title",
+    "primary_project",
+    "domain_category",
+    "message_key",
+    "message_index",
+    "message_order",
+    "timestamp",
+    "create_time",
+    "text_sha256",
+    "source_layer",
+    "source_file",
+    "matched_keywords",
+    "full_text",
+    "proof_limit"
+  ],
+  "counts": {
+    "rows": 3598,
+    "unique_conversation_ids": 361,
+    "unique_message_keys": 3598,
+    "timestamp_min": "2023-05-24T07:38:47+00:00",
+    "timestamp_max": "2026-04-10T11:10:15+00:00"
+  },
+  "project_counts": {
+    "09_Spooky2_Frequency_Energy_Protocols": 502,
+    "06_Health_Psychology_Biohacking_Family": 2670,
+    "03_Crypto_XRP_HBAR_Finance": 263,
+    "04_Finance_Tax_Active_Trust_SMSF": 100,
+    "01_Master_ChatGPT_Knowledge_Base_Source_Hub": 28,
+    "08_Automotive_Business_Jenok_Cost_Auto": 17,
+    "11_Video_Social_Content_Digital_Output": 10,
+    "02_Jarvis_Build_AI_Agents_Automation": 6,
+    "13_Business_Side_Hustles_Ecommerce": 2
+  },
+  "domain_counts": {
+    "Health/biohacking/medical research intelligence": 2560,
+    "Finance/crypto/tax intelligence": 582,
+    "Spooky2/frequency protocol research": 451,
+    "Jarvis/Emergent AI/agent/bot frameworks": 5
+  },
+  "known_limits": [
+    "This is a keyword-derived and project-labelled historical capture, not the complete health source universe.",
+    "Some records are cross-domain false positives or context records and require semantic classification.",
+    "The raw 7Z source was not re-expanded during this bounded counting step.",
+    "Attachments, screenshots, manuals, device files and File Library items require separate manifests.",
+    "No clinical validity or device compatibility is implied by record inclusion."
+  ],
+  "required_next_passes": [
+    "classify each row as requirement, evidence, assistant claim, historical instruction, conflict, duplicate or irrelevant",
+    "link assistant responses to originating user requests",
+    "create exact and semantic duplicate groups",
+    "separate medical evidence from manufacturer, community, symbolic and unsupported claims",
+    "extract emergency, contraindication, device, privacy, consent and approval requirements",
+    "map accepted requirements to Jarvis-Health artifacts, tests and evidence",
+    "create separate attachment/manual/device inventory denominator",
+    "run independent QA on counts and source coordinates"
+  ],
+  "safety_boundary": {
+    "clinical_deployment": "NOT_AUTHORISED",
+    "live_device_control": "DISABLED",
+    "diagnosis_or_treatment_authority": false,
+    "financial_execution": false
+  },
+  "rollback": "Revert this manifest if the counted artifact or hash is disproven. Preserve the prior record and add a supersession link rather than deleting history."
+}
