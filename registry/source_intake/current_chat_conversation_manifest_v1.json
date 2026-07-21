@@ -1,0 +1,37 @@
+{
+  "id": "JARVIS-CURRENT-CHAT-CONVERSATION-MANIFEST-V1",
+  "version": "1.0.0",
+  "snapshot_date": "2026-07-21",
+  "source_authority": "USER_VISIBLE_CHAT_CONTENT_AVAILABLE_IN_ACTIVE_CONTEXT",
+  "source_state": "VISIBLE_CONTEXT_RECONSTRUCTED_EXACT_FULL_UI_EXPORT_PENDING",
+  "raw_artifact": {
+    "path": "evidence/chat_transcripts/2026-07-21-current-chat-visible-transcript.md",
+    "sha256": "1de4748e2cb333ede539e5cd0bbeb79bf58edf03f03fbf7072f1f7ccc04c34cf",
+    "size_bytes": 6250,
+    "verbatim_visible_message_count": 3,
+    "derived_summary_separate": true
+  },
+  "excluded_content": [
+    "system_instructions",
+    "developer_instructions",
+    "private_chain_of_thought",
+    "connector_internal_payloads",
+    "credentials_and_secrets",
+    "messages_not_available_after_context_compaction"
+  ],
+  "controls": {
+    "raw_and_derived_separated": true,
+    "no_hidden_content_exported": true,
+    "no_automatic_requirement_promotion": true,
+    "contradictions_preserved": true,
+    "duplicate_analysis_required_when_exact_export_arrives": true,
+    "lineage_required": true
+  },
+  "exact_gap": {
+    "blocker_id": "CURRENT_CHAT_FULL_UI_EXPORT_REQUIRED",
+    "class": "USER_CHATGPT_SHARE_LINK_OR_FRESH_DATA_EXPORT_REQUIRED",
+    "owner": "USER",
+    "next_action": "Provide a ChatGPT shared-conversation link or a fresh ChatGPT data export containing this conversation, then run byte-exact message-tree reconciliation."
+  },
+  "completion_assertion": "ACCESSIBLE_USER_VISIBLE_CHAT_CONTENT_REGISTERED_AND_ORGANISED; FULL_CHATGPT_UI_HISTORY_NOT_PROVEN"
+}
