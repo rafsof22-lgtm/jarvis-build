@@ -1,0 +1,48 @@
+name: ChatHub Source Pack V2
+
+on:
+  pull_request:
+    paths:
+      - 'src/jarvis_chathub/**'
+      - 'tests/test_chathub_intake_v2.py'
+      - 'registry/source-accounting/chathub-source-pack-20260721.json'
+      - 'registry/requirements/chathub-applicability-matrix-20260721.json'
+      - 'registry/integrations/chathub-integration-v1.json'
+      - 'docs/chathub-source-pack-v2.md'
+      - '.github/workflows/chathub-source-pack-v2.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile
+        run: python -m compileall -q src/jarvis_chathub tests/test_chathub_intake_v2.py
+      - name: Unit tests
+        run: |
+          mkdir -p evidence
+          python -m unittest -v tests.test_chathub_intake_v2 2>&1 | tee evidence/chathub-source-pack-v2-tests.txt
+      - name: Validate JSON registries
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          for path in [
+              Path('registry/source-accounting/chathub-source-pack-20260721.json'),
+              Path('registry/requirements/chathub-applicability-matrix-20260721.json'),
+              Path('registry/integrations/chathub-integration-v1.json'),
+          ]:
+              json.loads(path.read_text(encoding='utf-8'))
+              print(f'valid: {path}')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: chathub-source-pack-v2-evidence
+          path: evidence/chathub-source-pack-v2-tests.txt

@@ -1,0 +1,27 @@
+{
+  "bytes": 804767,
+  "external_pointer": "chat-upload:file_00000000552481fb8dc25dc3483d34fc",
+  "filename": "Chathub INst Prmpt.txt",
+  "lines": 13529,
+  "parsed_counts": {
+    "assistant_word_count": 90146,
+    "exact_duplicate_message_count": 15,
+    "message_count": 35,
+    "models": [
+      "DeepSeek V4",
+      "Kimi K2.7 Code",
+      "Mistral Large",
+      "Perplexity Sonar",
+      "Qwen 3.8 Max",
+      "Tencent HY3"
+    ],
+    "response_count": 17,
+    "user_prompt_count": 18
+  },
+  "raw_source_in_repository": false,
+  "reason": "The immutable upload remains in the authorised ChatGPT file source; the repository stores its measured hash, coordinates and derived manifests without silently rewriting it.",
+  "schema_version": "2.0.0",
+  "sha256": "7073bfef49bedca84df4097bbd3b6eafff2399b1a86c66bb0349ffaec7c81d74",
+  "status": "READY_EXTERNAL_RAW_POINTER",
+  "words": 103016
+}
