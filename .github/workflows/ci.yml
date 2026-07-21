@@ -45,6 +45,9 @@ jobs:
       - name: Generate runtime auto-resume dry-run evidence
         run: python scripts/runtime_auto_resume.py
 
+      - name: Validate progress tracker and continuity reconciliation
+        run: python scripts/verify_progress_reconciliation_v2.py
+
       - name: Run cost-governor smoke test
         run: python scripts/smoke_cost_governor.py
 
@@ -119,6 +122,7 @@ jobs:
             evidence/credential-setup-automation-v1-verification.json
             evidence/runtime-auto-resume-policy-verification-v1.json
             evidence/runtime-auto-resume-v1.json
+            evidence/progress-reconciliation-v2-verification.json
             evidence/config-readiness.json
             evidence/command-centre.snapshot.json
             evidence/module-federation-verification.json
