@@ -1,0 +1,121 @@
+{
+  "id": "JARVIS-PLATFORM-OPS-CONTROL-PLANE-V1",
+  "version": "1.0.0",
+  "effective_date": "2026-07-21",
+  "state": "IMPLEMENTED_NOT_INTEGRATED",
+  "scope": "Shared governance and evidence contract for isolated Jarvis services; this file does not create or prove live infrastructure.",
+  "architecture": {
+    "environments": ["development", "staging", "production"],
+    "service_isolation_required": true,
+    "dependency_graph_required": true,
+    "private_networking_preferred": true,
+    "public_ingress_default": "deny_except_declared_routes",
+    "production_promotion": "separate_owner_approval"
+  },
+  "required_service_record": [
+    "service_id",
+    "repository",
+    "service_root",
+    "environment",
+    "provider",
+    "region",
+    "runtime",
+    "public_routes",
+    "private_dependencies",
+    "database_and_queue",
+    "identity",
+    "secret_names_only",
+    "health_and_readiness",
+    "observability",
+    "backup_policy",
+    "restore_test",
+    "rollback",
+    "cost_limit",
+    "owner",
+    "runtime_state",
+    "evidence"
+  ],
+  "iam": {
+    "default": "deny",
+    "least_privilege": true,
+    "human_and_service_identities_separated": true,
+    "staging_and_production_credentials_separated": true,
+    "oidc_or_short_lived_credentials_preferred": true,
+    "credential_inheritance_between_agents": false,
+    "self_elevation": false,
+    "break_glass": {
+      "enabled_only_by_owner": true,
+      "time_limited": true,
+      "audited": true,
+      "automatic_revoke_required": true
+    }
+  },
+  "secrets": {
+    "values_in_repository": false,
+    "values_in_chat": false,
+    "approved_locations": ["GitHub Actions secrets", "provider secret manager", "approved vault"],
+    "rotation_and_revocation_record_required": true,
+    "redacted_presence_check_only": true
+  },
+  "observability": {
+    "required_signals": ["health", "readiness", "status", "structured_logs", "metrics", "traces_where_supported", "deployment_sha", "queue_depth", "error_rate", "latency", "cost"],
+    "log_redaction_required": true,
+    "patient_financial_and_secret_data_in_logs": false,
+    "alert_severities": ["SEV0", "SEV1", "SEV2", "SEV3"],
+    "stale_evidence_detection": true,
+    "synthetic_checks": "read_only_and_non_sensitive"
+  },
+  "resilience": {
+    "backup_before_migration": true,
+    "encrypted_versioned_backups": true,
+    "restore_into_isolated_target": true,
+    "restore_test_frequency": "at_least_quarterly_or_before_material_release",
+    "rpo_rto_required_per_service": true,
+    "dead_letter_or_reconciliation_required_for_queues": true,
+    "idempotency_required_for_retries": true,
+    "rollback_proof_required_before_production": true
+  },
+  "incident_response": {
+    "stages": ["detect", "classify", "contain", "preserve_evidence", "recover", "verify", "communicate_with_approval", "post_incident_review"],
+    "automatic_safe_actions": ["stop_new_jobs", "disable_optional_connector", "switch_to_read_only", "quarantine_untrusted_input", "open_incident_record"],
+    "owner_gated_actions": ["credential_rotation", "destructive_cleanup", "public_communication", "production_failover_with_cost", "legal_notification"],
+    "kill_switch_required": true
+  },
+  "cost_governance": {
+    "free_local_first": true,
+    "budget_per_service_required": true,
+    "soft_alert_percent": 70,
+    "hard_alert_percent": 90,
+    "automatic_paid_scale_out": false,
+    "automatic_billing_acceptance": false,
+    "optional_workload_shed_at_hard_limit": true,
+    "production_shutdown_requires_service_specific_safety_policy": true
+  },
+  "agent_separation": [
+    {"role":"Infrastructure Planner","may_build":false,"may_verify":false,"may_release":false},
+    {"role":"Deployment Agent","may_build":true,"may_verify":false,"may_release":false},
+    {"role":"IAM Reviewer","may_build":false,"may_verify":true,"may_release":false},
+    {"role":"Security Scanner","may_build":false,"may_verify":true,"may_release":false},
+    {"role":"Backup Restore Agent","may_build":true,"may_verify":false,"may_release":false},
+    {"role":"Observability Agent","may_build":true,"may_verify":false,"may_release":false},
+    {"role":"Cost Guard","may_build":false,"may_verify":true,"may_release":false},
+    {"role":"Incident Commander","may_build":false,"may_verify":false,"may_release":false},
+    {"role":"Release Gatekeeper","may_build":false,"may_verify":true,"may_release":true}
+  ],
+  "release_gates": [
+    "topology_and_dependency_record_complete",
+    "least_privilege_review_passed",
+    "secret_names_and_storage_locations_recorded_without_values",
+    "health_readiness_and_status_contracts_pass",
+    "negative_and_authentication_tests_pass",
+    "backup_created_and_isolated_restore_test_passed",
+    "rollback_test_passed",
+    "observability_and_alerts_verified",
+    "cost_limit_verified",
+    "deployment_sha_and_environment_recorded",
+    "independent_verifier_passed",
+    "owner_approval_for_production"
+  ],
+  "proof_states": ["SPEC_ONLY", "SCAFFOLDED", "IMPLEMENTED_NOT_INTEGRATED", "INTEGRATED_STAGING", "DEPLOYED_UNVERIFIED", "DONE_VERIFIED", "BLOCKED", "WAIVED"],
+  "rollback": "Revert the control-plane pull request. No live provider resources or secret values are created or modified by this repository contract."
+}
