@@ -1,0 +1,60 @@
+{
+  "tracker_id": "JARVIS-ALL-PROGRESS-TRACKER-RECONCILIATION-V3",
+  "version": "3.0.0",
+  "snapshot_date": "2026-07-21",
+  "baseline_main_sha": "7ab50ac68de7fd0d4a2ea11b5fb4be2957f7beb6",
+  "program_state": "ACTIVE_PROGRAM_NOT_100_PERCENT",
+  "rule": "State transitions apply only to named bounded scopes with merged artifact, test and CI evidence. Connected providers, production, missing sources and owner acceptance remain separate gates.",
+  "merged_evidence": [
+    {"pr": 81, "scope": "dependency-free local completion runtime and deterministic domain slices"},
+    {"pr": 83, "scope": "Knowledge Fabric backup/restore, durable queue, deterministic federation exercises, operator and continuity packs", "merge_sha": "96abba65904e478314593dd63b2c90954c09289b"},
+    {"pr": 84, "scope": "governed self-evolution, editable-object registry and unified assistant", "merge_sha": "cff4bce9c81d6602148f84ceaf0813b6b9859fc7"},
+    {"pr": 85, "scope": "concrete model selector, two-to-eight-model panel and three-file ChatHub V3 intake", "merge_sha": "7ab50ac68de7fd0d4a2ea11b5fb4be2957f7beb6"},
+    {"scope": "current tranche: provider preflight/adapters, SQLite panel evidence, Command Centre v1.3 and shared editor controls", "evidence_gate": "exact-head CI and merge required"}
+  ],
+  "completed_bounded_work": [
+    {"work_id": "NOW-01", "state": "DONE_VERIFIED", "scope": "LOCAL_KNOWLEDGE_FABRIC_BACKUP_AND_RESTORE", "evidence": ["PR-83"]},
+    {"work_id": "NOW-02", "state": "DONE_VERIFIED", "scope": "DURABLE_LOCAL_QUEUE_RETRY_DEAD_LETTER_AND_REPLAY", "evidence": ["PR-83"]},
+    {"work_id": "NOW-03", "state": "DONE_VERIFIED", "scope": "DETERMINISTIC_LOCAL_FEDERATION_AND_FAILURE_EXERCISES", "evidence": ["PR-83"]},
+    {"work_id": "NOW-04", "state": "DONE_VERIFIED", "scope": "LOCAL_COMMAND_CENTRE_OPERATOR_PACK", "evidence": ["PR-83"]},
+    {"work_id": "NOW-06", "state": "DONE_VERIFIED", "scope": "REPOSITORY_RELEASE_AND_CONTINUITY_PACK", "evidence": ["PR-83"]},
+    {"work_id": "SELF-EVOLUTION-01", "state": "DONE_VERIFIED", "scope": "LOCAL_EDITABLE_OBJECT_AND_REVERSIBLE_STAGING_CONTROL", "evidence": ["PR-84"]},
+    {"work_id": "MODEL-PANEL-01", "state": "DONE_VERIFIED", "scope": "CONCRETE_MODEL_SELECTION_AND_PANEL_CAPTURE_CONTRACT", "evidence": ["PR-85"]},
+    {"work_id": "CHATHUB-03", "state": "DONE_VERIFIED", "scope": "THREE_SUPPLIED_TEXT_FILES_ONLY", "evidence": ["PR-85"]}
+  ],
+  "task_state_corrections": [
+    {"task_id": "P1-5", "current": "INTEGRATED_STAGING", "scope": "Command Centre v1.3 local model selector, panel metrics, editor surfaces and progress API; external adapters and authenticated deployed UI remain open."},
+    {"task_id": "P1-6", "current": "IMPLEMENTED_NOT_INTEGRATED", "scope": "Local resilience, backup/restore, queue, incident exercises and self-evolution controls; connected infrastructure and provider operations remain open."},
+    {"task_id": "P2-1", "current": "IMPLEMENTED_NOT_INTEGRATED", "scope": "Multiple bounded source batches including three ChatHub files; missing exports and inaccessible history remain pending or blocked."},
+    {"task_id": "P2-2", "current": "IMPLEMENTED_NOT_INTEGRATED", "scope": "Core control plane, editable objects, model selector, panel store and deterministic provider adapters; whole-program denominator and connected runtime remain open."},
+    {"task_id": "P2-5", "current": "IMPLEMENTED_NOT_INTEGRATED", "scope": "Source ranking, model routing, concrete selectors, provider adapter contracts and evidence capture; live current-source research remains open."},
+    {"task_id": "P2-6", "current": "IMPLEMENTED_NOT_INTEGRATED", "scope": "Shared governance, model, persistence, UX and workflow contracts; complete connected shared-core runtime remains open."},
+    {"task_id": "P3-2", "current": "INTEGRATED_STAGING", "scope": "BOUNDED_DETERMINISTIC_CFO_SLICE"},
+    {"task_id": "P3-3", "current": "INTEGRATED_STAGING", "scope": "BOUNDED_XRP_HBAR_CFO_SCENARIO_SLICE"},
+    {"task_id": "P3-4", "current": "INTEGRATED_STAGING", "scope": "BOUNDED_PAPER_RISK_SLICE_ONLY"},
+    {"task_id": "P3-5", "current": "INTEGRATED_STAGING", "scope": "BOUNDED_AGENCY_UNIT_ECONOMICS_SLICE_ONLY"},
+    {"task_id": "P3-6", "current": "INTEGRATED_STAGING", "scope": "BOUNDED_SAAS_STAGING_GATE_ONLY"}
+  ],
+  "next_execution_tranche": [
+    "LIVE-01 provider inventory and cost-readiness scan",
+    "LIVE-02 authorised local or included-provider two-model canary",
+    "LIVE-03 persist, synthesize and independently verify one real panel run",
+    "UI-02 authenticated staging operator journey and accessibility tests",
+    "NOW-07 process each newly accessible source batch",
+    "P0 owner/provider actions where access is supplied"
+  ],
+  "hard_blocks": [
+    {"tasks": ["P0-1"], "reason": "DigitalOcean Recovery Console access"},
+    {"tasks": ["P0-2"], "reason": "Provider-side token revocation or rotation"},
+    {"tasks": ["P0-3"], "reason": "Authoritative Railway domain and provider configuration"},
+    {"tasks": ["P0-4"], "reason": "Google Apps Script, Sheet and Railway configuration"},
+    {"tasks": ["P0-5"], "reason": "Provider workflow dispatch and runtime result"},
+    {"tasks": ["P0-6"], "reason": "Protected host identity and authorised canary source"},
+    {"tasks": ["P0-7", "P4-1"], "reason": "Connected staging endpoints and vault-held signing references"},
+    {"tasks": ["P2-1", "P2-4"], "reason": "Missing or opaque source bytes prevent universal source completion"},
+    {"tasks": ["LIVE-01", "LIVE-02", "LIVE-03"], "reason": "Provider model inventories, credentials, endpoints, pricing and explicit execution approval"},
+    {"tasks": ["P5-1"], "reason": "Owner approval, provider accounts, costs and production secrets"},
+    {"tasks": ["P6-1"], "reason": "All prior tasks plus explicit owner acceptance"}
+  ],
+  "truth_boundary": "Repository-local provider adapters and fake-transport tests are not live provider proof. Whole-program 100 percent remains unavailable until every source, connected staging, production and owner-acceptance gate is resolved."
+}
