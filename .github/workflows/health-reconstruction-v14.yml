@@ -1,0 +1,54 @@
+name: Health Reconstruction V14
+
+on:
+  pull_request:
+    paths:
+      - 'src/jarvis_health/**'
+      - 'tests/test_health_evidence_gate_v1.py'
+      - 'registry/sources/health_spooky2_psychology_full_reconstruction_v14.json'
+      - 'registry/sources/upload_alias_dedupe_v14.json'
+      - 'registry/health/health_evidence_and_safety_controls_v2.json'
+      - 'registry/health/health_spooky2_psychology_gap_decision_register_v14.json'
+      - 'registry/requirements/health_spooky2_psychology_requirements_v14.json'
+      - 'registry/trackers/all_progress_tracker_reconciliation_v14.json'
+      - 'scripts/verify_health_reconstruction_v14.py'
+      - '.github/workflows/health-reconstruction-v14.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'src/jarvis_health/**'
+      - 'tests/test_health_evidence_gate_v1.py'
+      - 'registry/sources/health_spooky2_psychology_full_reconstruction_v14.json'
+      - 'registry/sources/upload_alias_dedupe_v14.json'
+      - 'registry/health/health_evidence_and_safety_controls_v2.json'
+      - 'registry/health/health_spooky2_psychology_gap_decision_register_v14.json'
+      - 'registry/requirements/health_spooky2_psychology_requirements_v14.json'
+      - 'registry/trackers/all_progress_tracker_reconciliation_v14.json'
+      - 'scripts/verify_health_reconstruction_v14.py'
+      - '.github/workflows/health-reconstruction-v14.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile
+        run: python -m py_compile src/jarvis_health/evidence_gate_v1.py src/jarvis_health/__init__.py
+      - name: Deterministic tests
+        run: PYTHONPATH=. python -m unittest tests.test_health_evidence_gate_v1 -v
+      - name: Parse registries
+        run: python - <<'PY'
+          import json
+          from pathlib import Path
+          for path in Path('registry').rglob('*.json'):
+              json.loads(path.read_text(encoding='utf-8'))
+          PY
+      - name: Truth and evidence gate
+        run: python scripts/verify_health_reconstruction_v14.py
