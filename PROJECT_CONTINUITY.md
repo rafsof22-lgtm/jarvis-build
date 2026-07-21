@@ -2,80 +2,82 @@
 
 **Snapshot:** 2026-07-21  
 **Canonical repository:** `rafsof22-lgtm/jarvis-build`  
-**Baseline main commit:** `2826eb488fc52468ef69d166b772af238bee3eed`  
+**Baseline main commit:** `f2987638d93add70ef3a81a68b3379ff9be88024`  
 **State:** `ACTIVE_PROGRAM_NOT_100_PERCENT`
 
 ## Mandatory resume protocol
 
-1. Read `PROJECT_CONSTITUTION.md`, the full constitution and `AGENTS.md`.
-2. Refresh current main SHAs, pull requests, issues and runtime/provider evidence.
-3. Resume each task from its last verified step.
+1. Read `PROJECT_CONSTITUTION.md`, `JARVIS_RAF213G_PROJECT_CONSTITUTION.md` and `AGENTS.md`.
+2. Refresh current main SHAs, open pull requests, issues and runtime/provider evidence.
+3. Resume each task from its last verified evidence-backed state.
 4. Execute the highest-priority safe repository task.
-5. Stop only at the exact owner, provider, credential, cost or production gate.
-6. Update continuity, the machine-readable tracker, issue evidence and rollback records.
+5. Stop only at an exact owner, provider, credential, cost, legal, destructive or production gate.
+6. Update this continuity file, the machine-readable tracker, issue evidence and rollback records.
 
 ## Verified bounded completions
 
-| Area | State |
-|---|---|
-| Framework trigger and intelligence governance | `MERGED_VERIFIED` |
-| Local Knowledge Fabric pilot | `MERGED_VERIFIED` |
-| Knowledge Fabric predeployment controls | `MERGED_VERIFIED` |
-| Initial source intake SOP/OJT | `MERGED_VERIFIED` |
-| Knowledge operator SOP/OJT | `MERGED_VERIFIED` |
-| Exact canonical Jarvis/RAF213G constitution | `FOUND_ON_MAIN_VERIFIED` |
-| Project constitution and continuity startup verifier | `MERGED_VERIFIED` |
-| GitHub repository capability scout | `MERGED_VERIFIED_REPOSITORY_SCOPE` |
+| Area | State | Evidence boundary |
+|---|---|---|
+| Framework trigger and intelligence governance | `DONE_VERIFIED` | Repository/CI scope |
+| Local Knowledge Fabric pilot and predeployment controls | `DONE_VERIFIED` | Local and repository scope; connected backend remains open |
+| Initial source-intake and Knowledge operator SOP/OJT | `DONE_VERIFIED` | Repository scope |
+| Canonical Jarvis/RAF213G constitution and startup verifier | `DONE_VERIFIED` | Repository scope |
+| GitHub repository capability scout | `DONE_VERIFIED` | Repository discovery/quarantine scope |
+| Constitution resolution, source universe controller and tracker consolidation | `DONE_VERIFIED` | PR #58 / repository scope |
+| Bounded Health source denominator and safety controls | `DONE_VERIFIED` | PR #59 / bounded source scope |
+| XRP/HBAR reconciliation batch 002 | `DONE_VERIFIED` | PR #60 / bounded batch only |
+| Model routing modes and local/self-hosted selector | `DONE_VERIFIED` | PR #61 / repository scope |
+| Default-deny Jarvis voice gateway | `DONE_VERIFIED` | PR #62 / repository scope; no microphone or provider connected |
+| GitHub Actions secret readiness | `DONE_VERIFIED` | PR #63 / names and presence only |
+| Credential/setup automation policy | `DONE_VERIFIED` | Repository policy and CI scope |
+| Runtime auto-resume controller and completion plan v2 | `DONE_VERIFIED` | PR #65 / safe read-only checks; live values remain external |
+| Jarvis Health Framework v2 | `DONE_VERIFIED` | Jarvis-Health PR #5 / repository scope |
+| Visible Health handover denominator v2 | `DONE_VERIFIED` | Jarvis-Health PR #6 / exact visible archive denominator; claim-level reconstruction remains open |
 
-## Current review tranche
+## Active reconciliation tranche
 
-Branch: `jarvis/completion-tranche-2026-07-21`
+Branch: `jarvis/progress-reconciliation-2026-07-21-v2`
 
 | Item | State | Artifact |
 |---|---|---|
-| Canonical-constitution blocker correction | `IMPLEMENTED_PENDING_CI_AND_MERGE` | `registry/decisions/constitution_recovery_resolution_v1.json` |
-| Master Source Universe Controller module instructions | `IMPLEMENTED_PENDING_CI_AND_MERGE` | `docs/module-instructions/master-source-universe-controller.md` |
-| Six screenshot repository/tool candidates | `REGISTERED_NOT_INSTALLED_PENDING_CI_AND_MERGE` | `registry/repository-intake/screenshot_repo_intake_2026_07_21.json` |
-| Nine-family accessible tracker consolidation | `IMPLEMENTED_PENDING_CI_AND_MERGE` | `registry/trackers/all_accessible_tracker_consolidation_v1.json` |
-| Deterministic completion-tranche validator | `IMPLEMENTED_PENDING_CI_AND_MERGE` | `scripts/verify_completion_tranche_2026_07_21.py` |
+| Evidence-backed priority tracker refresh | `IMPLEMENTED_PENDING_CI_AND_MERGE` | `registry/full_completion_priority_plan_v1.json` |
+| Current continuity refresh | `IMPLEMENTED_PENDING_CI_AND_MERGE` | `PROJECT_CONTINUITY.md` |
+| Tracker/continuity integrity verifier | `IMPLEMENTED_PENDING_CI_AND_MERGE` | `scripts/verify_progress_reconciliation_v2.py` |
 
 ## Critical queue
 
 | Priority | Task | Current state | Exact next action |
 |---:|---|---|---|
-| P0-1 | Recover Hub DigitalOcean runtime | `RECOVERY_CONSOLE_REQUIRED` | diagnose boot/network/firewall, run host self-heal, prove public routes and rollback |
-| P0-2 | Revoke/rotate historical VTI provider token | `OWNER_PROVIDER_ACTION_REQUIRED` | revoke old token and retain redacted proof |
-| P0-3 | Prove Jarvis Health public Railway runtime | `RAILWAY_DOMAIN_REQUIRED` | confirm domain, privacy-safe routes, read-only tools and restore/rollback |
-| P0-4 | Prove Property Google Sheets webhook fallback | `GOOGLE_RAILWAY_CONFIGURATION_REQUIRED` | deploy webhook path and prove one non-sensitive raw staging row |
-| P0-5 | Run fresh Hub deployment/Gmail proof workflow | `WORKFLOW_DISPATCH_REQUIRED` | dispatch current workflow and classify provider result |
-| P0-6 | Deploy protected VTI Cobalt worker and canary | `HOST_CREDENTIAL_REQUIRED` | configure protected host, authorised canary and purge proof |
-| P0-7 | Prove VTI-to-Hub staging federation | `PROVIDER_CONFIGURATION_REQUIRED` | configure staging endpoint/signing secret and run signature/retry/replay/rollback tests |
-| P1-1 | Property persistence, queue and canonical promotion | `PARTIAL` | approved Postgres, signed queue, n8n, dedupe/QA/quarantine/manual promotion |
-| P1-2 | Complete connected Knowledge Fabric | `PREDEPLOY_COMPLETE_NOT_CONNECTED` | counted backend benchmark and remaining SOP/OJT/source denominator |
-| P1-3 | Governed Hub source discovery/API intake | `SPECIFIED_NOT_COMPLETE` | implement intake, registry, quarantine, canary and rollback |
-| P1-4 | Complete VTI application integration backlog | `PARTIAL` | OAuth/PKCE/encryption, export parsers, evidence ZIP, retries, purge and telemetry |
-| P1-5 | Command Centre phases 2–6 | `PARTIAL` | adapters, balances, history, alerts, UI and approval-gated repair |
-| P1-6 | Infrastructure/security/operations control plane | `OPEN` | topology, IAM, observability, backup/restore, DR and cost guards |
-| P2-1 | Complete historical ChatGPT/Jarvis reconstruction | `PARTIAL_DENOMINATOR` | process all accessible archive items with lineage and independent QA |
-| P2-2 | Complete Jarvis core source lock/control plane | `PARTIAL` | denominator, provenance graph, registries, model router and federation governance |
-| P2-3 | XRP/HBAR historical reconciliation batch 002 | `NOT_STARTED_VERIFIED` | process dated source batch with conflicts and probability history |
-| P2-4 | Health/Spooky2 exact source reconstruction | `PARTIAL` | evidence tiers, permission separation, hashes and safety boundaries |
-| P2-5 | Universal intelligence/opportunity fabric | `OPEN` | source acquisition, evidence ranking, model routing and cost registry |
-| P2-6 | Shared-core specialist workstreams | `OPEN` | knowledge, data, model lab, automation, security, UX and compliance workstreams |
-| P3-1 | Operating-domain specialist workstreams | `OPEN` | revenue, property, VTI, Fast 8 Auto, Family Office and communications workstreams |
-| P3-2 | AI CFO/Xero operating system | `SPECIFICATION_STAGE` | isolated service, OAuth map, read-only/sandbox controls and audit evidence |
-| P3-3 | XRP/HBAR–CFO integration | `ARCHITECTURE_STAGE` | evidence graph, scenarios, suitability/conflict review and approvals |
-| P3-4 | Trading research and paper factory | `SPECIFICATION_STAGE` | data, backtesting, paper execution, risk, kill switch and evidence |
-| P3-5 | Digital agency recurring-revenue factory | `SPECIFICATION_STAGE` | offers, delivery, CRM, automation, QA, cost and approvals |
-| P3-6 | SaaS/app/product factory | `SPECIFICATION_STAGE` | discovery-to-staging lifecycle with security, billing design and rollback |
-| P4 | Cross-module staging/end-to-end proof | `NOT_COMPLETE` | federation, privacy/security, persistence, DR and cost tests |
-| P5 | Controlled production promotion | `NOT_AUTHORISED` | provider, cost, secret and production approvals after P0–P4 |
-| P6 | Final reconciliation and acceptance | `NOT_COMPLETE` | zero unclassified accessible requirements and complete release evidence |
+| P0-1 | Recover Hub DigitalOcean runtime | `BLOCKED` | owner/provider Recovery Console diagnosis, then health/migration/worker/rollback proof |
+| P0-2 | Revoke/rotate historical VTI provider token | `BLOCKED` | owner/provider token revocation and redacted proof |
+| P0-3 | Prove Jarvis Health Railway runtime | `BLOCKED` | authoritative domain and secret references, then live route/restart/restore/rollback proof |
+| P0-4 | Prove Property Sheets webhook fallback | `BLOCKED` | Apps Script/Railway configuration and one non-sensitive staging-row proof |
+| P0-5 | Run Hub deployment/Gmail proof workflow | `BLOCKED` | workflow dispatch and read-only provider result classification |
+| P0-6 | Prove protected VTI Cobalt canary | `BLOCKED` | host credentials, authorised canary, purge, negative and rollback proof |
+| P0-7 | Prove VTI-to-Hub staging federation | `BLOCKED` | staging endpoint and signing secret, then signature/idempotency/retry/replay/rollback tests |
+| P1-1 | Property persistence, queue and promotion | `IMPLEMENTED_NOT_INTEGRATED` | connect approved Postgres/queue/n8n and prove workflow |
+| P1-2 | Connected Knowledge Fabric | `IMPLEMENTED_NOT_INTEGRATED` | counted connected-backend benchmark and remaining source evidence |
+| P1-3 | Governed Hub source intake | `IMPLEMENTED_NOT_INTEGRATED` | connected persistence, quarantine, canary and rollback proof |
+| P1-4 | VTI application integration | `IMPLEMENTED_NOT_INTEGRATED` | OAuth/PKCE, encryption, export, purge, telemetry and sync proof |
+| P1-5 | Command Centre phases 2–6 | `IMPLEMENTED_NOT_INTEGRATED` | live adapters, alerts/history and approval-gated repair proof |
+| P1-6 | Platform operations control plane | `BACKLOGGED` | topology, IAM, observability, backup/restore, DR, incident and cost guards |
+| P2-1 | Historical source reconstruction | `IMPLEMENTED_NOT_INTEGRATED` | process remaining accessible archives with lineage and QA |
+| P2-2 | Jarvis core control plane/source lock | `IMPLEMENTED_NOT_INTEGRATED` | whole-program denominator, provenance/factories and runtime federation |
+| P2-3 | XRP/HBAR batch 002 | `DONE_VERIFIED` | broader history continues as separately bounded batches |
+| P2-4 | Health evidence reconstruction | `IMPLEMENTED_NOT_INTEGRATED` | claim-level extraction, four images, three opaque archives, evidence grading and Railway proof |
+| P2-5 to P3-6 | Intelligence, shared-core and domain factories | `BACKLOGGED_OR_SPEC_ONLY` | execute in dependency order after higher-priority safe work |
+| P4 | Cross-module staging/E2E proof | `BACKLOGGED` | complete dependency chain and run privacy/security/persistence/DR/cost tests |
+| P5 | Controlled production promotion | `BLOCKED` | separate provider, cost, secret and production approval after P0–P4 |
+| P6 | Final reconciliation and acceptance | `BACKLOGGED` | close/waive every item and obtain owner acceptance |
+
+## Exact Health reconstruction proof
+
+The mounted Health handover archive has a verified SHA-256, passing ZIP integrity, 642 visible files, 201 directories, 641 reconciled internal-manifest rows with zero missing/mismatches, 438 canonical text extractions, 195 exact-duplicate reuses, 9 preserved binaries and 46,451 messages across 194 selected conversations. Four images remain without OCR and three opaque archives remain preserved for controlled processing. This proves the visible denominator, not clinical validity or exact ChatGPT project membership.
 
 ## Automation boundary
 
-This repository makes the programme resumable, but a chat response does not continue running after it ends. Provider consoles, credentials, paid infrastructure, recovery-console actions and production-impacting changes remain explicitly owner-gated.
+Repository changes, tests, reports, staging plans and safe read-only checks may continue autonomously. A chat response does not keep running after it ends. Provider consoles, credentials, billing/legal acceptance, recovery-console actions, destructive operations, production promotion, money movement, live trading, external publication and clinical/device control remain owner-gated.
 
 ## Completion declaration gate
 
-Do not change `ACTIVE_PROGRAM_NOT_100_PERCENT` to `END_TO_END_VERIFIED` until every tracker item is either verified complete with artifacts, tests, evidence, runtime and rollback, or explicitly waived with residual risk and review date.
+Do not change `ACTIVE_PROGRAM_NOT_100_PERCENT` to `END_TO_END_VERIFIED` until every task is either `DONE_VERIFIED` with the full completion chain or explicitly `WAIVED` with residual risk and review date.
