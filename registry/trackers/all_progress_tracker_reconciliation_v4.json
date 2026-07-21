@@ -1,0 +1,127 @@
+{
+  "id": "JARVIS-ALL-PROGRESS-TRACKER-RECONCILIATION-V4",
+  "version": "4.0.0",
+  "snapshot_date": "2026-07-21",
+  "program_state": "ACTIVE_PROGRAM_NOT_100_PERCENT",
+  "truth_boundary": "This ledger records only evidence verified through connected repositories, File Library, Google Drive, DigitalOcean, Vercel and Supabase. It does not convert owner-only, credential, billing, recovery-console, missing-byte or production-acceptance gates into completion.",
+  "baseline": {
+    "jarvis_build_main_before_reconciliation": "e60a93a817ce03329f41ec6e3fe062102f5469b3",
+    "vti_repair_merge_sha": "421db7d14dabd3d109a7225b59648c48374e2a89",
+    "vti_repair_pr": 21
+  },
+  "resolved_this_pass": [
+    {
+      "blocker_id": "VTI-AUDIT-SCHEMA-CONTRACT",
+      "state": "DONE_VERIFIED",
+      "scope": "VTI production audit_events logger-to-database compatibility",
+      "evidence": [
+        "Repository logger inserted details and request_id while baseline/live schema lacked both.",
+        "PR 21 added an additive idempotent migration, drift verifier and path-scoped CI.",
+        "Audit Event Contract CI, Jarvis Federation Contract CI and application TypeScript/lint/build validation passed.",
+        "Supabase migration reconcile_audit_event_contract applied successfully to pgzojuscxtxhfemivrrk.",
+        "Live details column is jsonb NOT NULL DEFAULT '{}'; request_id is nullable text.",
+        "Partial index idx_audit_events_request_id exists.",
+        "Post-change Supabase security advisor count is zero.",
+        "No /api/audit/log runtime errors were observed after the migration timestamp in the checked Vercel window."
+      ],
+      "rollback": "Application rollback is backward compatible because the migration is additive. Column removal is prohibited without a separate approved data-loss review."
+    },
+    {
+      "blocker_id": "SOURCE-FOLDER0-ACCESS",
+      "state": "ACCESSIBLE_BOUNDED_SOURCE",
+      "scope": "folder0_partial.raw",
+      "evidence": [
+        "The source is present in the user's File Library and can be processed as a bounded reconstruction batch."
+      ],
+      "remaining_gate": "The source has not been promoted to whole-program denominator completion; extraction and deduplication remain a separate bounded batch."
+    },
+    {
+      "blocker_id": "DIGITALOCEAN-CONTROL-PLANE-AND-ROLLBACK",
+      "state": "CONTROL_PLANE_AND_ROLLBACK_VERIFIED",
+      "scope": "Hub main and repair droplets",
+      "evidence": [
+        "Main droplet 584697763 and repair droplet 585011459 are active in Sydney.",
+        "Main reboot, power-cycle and power-on actions completed.",
+        "Main backup image 237051532 is available.",
+        "Weekly backups are enabled with 28-day retention."
+      ],
+      "remaining_gate": "Recovery Console guest boot/network/firewall/SSH recovery and post-recovery route proof remain owner-console actions."
+    },
+    {
+      "blocker_id": "VTI-VERCEL-DEPLOYMENT-INVENTORY",
+      "state": "PRODUCTION_DEPLOYMENT_VERIFIED",
+      "scope": "videotranscribe production hosting",
+      "evidence": [
+        "Latest inspected production deployment was READY from verified main commit f3afcf6de1400bc344f1828e7abe82c7657f35c7.",
+        "Prior production deployments remain rollback candidates.",
+        "VTI Supabase project pgzojuscxtxhfemivrrk is ACTIVE_HEALTHY."
+      ],
+      "remaining_gate": "Cobalt protected-host credentials, authorised media canary, purge proof and connected Hub staging federation remain separate gates."
+    }
+  ],
+  "still_blocked": [
+    {
+      "blocker_id": "P0-1-RECOVERY-CONSOLE",
+      "class": "OWNER_RECOVERY_CONSOLE_REQUIRED",
+      "exact_action": "Open DigitalOcean Recovery Console for droplet 584697763; inspect boot, network and firewall; enable SSH; run approved host self-heal; prove health, readiness, deployment, migration, worker, outbound, source-discovery and rollback routes.",
+      "why_not_automated": "The available DigitalOcean connector exposes control-plane actions but not guest Recovery Console or shell access. Repeating reboot/power-cycle is not evidence-based and could increase risk."
+    },
+    {
+      "blocker_id": "P0-2-TOKEN-ROTATION",
+      "class": "OWNER_PROVIDER_ACTION_REQUIRED",
+      "exact_action": "Revoke and rotate the historical provider token in the provider console and record redacted proof; never paste the token into chat or the repository."
+    },
+    {
+      "blocker_id": "P0-3-RAILWAY-HEALTH",
+      "class": "RAILWAY_DOMAIN_AND_SECRET_REFERENCE_REQUIRED",
+      "exact_action": "Supply or connect the authoritative Railway service/domain and approved secret references, then run privacy-safe health, restart, restore and rollback proof."
+    },
+    {
+      "blocker_id": "P0-4-SHEETS-WEBHOOK",
+      "class": "GOOGLE_APPS_SCRIPT_AND_RAILWAY_CONFIGURATION_REQUIRED",
+      "exact_action": "Select the authorised Sheet, deploy the Apps Script webhook, store the signing secret by reference and prove one redacted staging row plus replay rejection."
+    },
+    {
+      "blocker_id": "P0-5-FRESH-WORKFLOW-DISPATCH",
+      "class": "GITHUB_WORKFLOW_DISPATCH_REQUIRED",
+      "exact_action": "Run the current DigitalOcean Auto Deploy workflow on hub/main. Do not rerun the old run because it would use the old workflow definition and cannot test Gmail alias mapping."
+    },
+    {
+      "blocker_id": "P0-6-COBALT-HOST",
+      "class": "PROTECTED_HOST_CREDENTIAL_REQUIRED",
+      "exact_action": "Configure the protected Cobalt host through approved secret references; run an authorised rights-confirmed canary, transient-media purge, negative tests and rollback."
+    },
+    {
+      "blocker_id": "P0-7-VTI-HUB-FEDERATION",
+      "class": "CONNECTED_STAGING_AND_SIGNING_SECRET_REQUIRED",
+      "exact_action": "Recover or deploy the Hub staging ingress, configure signing secret by reference and prove signature, idempotency, retry, replay rejection and rollback."
+    },
+    {
+      "blocker_id": "LIVE-PROVIDER-PANEL",
+      "class": "PROVIDER_INVENTORY_CREDENTIAL_COST_PRIVACY_AND_EXECUTION_APPROVAL_REQUIRED",
+      "exact_action": "Provide approved provider inventory, endpoint/model IDs, vault secret references, price ceilings, privacy classification and explicit canary approval; then execute one bounded two-model panel and independently verify persisted synthesis evidence."
+    },
+    {
+      "blocker_id": "AUTHENTICATED-COMMAND-CENTRE-STAGING",
+      "class": "AUTHENTICATED_STAGING_DEPLOYMENT_REQUIRED",
+      "exact_action": "Connect an authorised staging runtime and identity provider; deploy Command Centre v1.3; execute operator, accessibility, failure-state, cancellation and rollback journeys."
+    },
+    {
+      "blocker_id": "MISSING-SOURCE-BYTES",
+      "class": "SOURCE_BYTES_REQUIRED",
+      "exact_action": "Upload or connect the actual bytes for chatgpt-export-2026-05-12T11-43-26.7z, chatgpt-export-2026-06-12T06-47-34.7z, JARVIS_START_HERE_PROMPT_PACK_2026-02-15_v9.zip and the 5,407-requirement workbook. Prior references prove names/existence but cannot substitute for byte-level ingestion."
+    },
+    {
+      "blocker_id": "PRODUCTION-PROMOTION-AND-OWNER-ACCEPTANCE",
+      "class": "ALL_PRIOR_GATES_AND_OWNER_ACCEPTANCE_REQUIRED",
+      "exact_action": "Close or explicitly waive each prior gate, generate the final release/evidence/rollback manifest, then obtain owner acceptance before any 100-percent or production-ready claim."
+    }
+  ],
+  "next_executable_tasks": [
+    "Process folder0_partial.raw as a bounded source batch with hash, provenance, deduplication, requirement extraction and gap register.",
+    "Run a fresh tracker reconciliation whenever any owner/provider gate receives new evidence.",
+    "Run the authenticated audit-write canary when a safe authorised session is available.",
+    "Continue repository-local tests, documentation and rollback hardening without representing external gates as complete."
+  ],
+  "completion_assertion": "No whole-program completion claim is permitted. One live VTI schema blocker was fully resolved; multiple external and missing-source gates remain."
+}
