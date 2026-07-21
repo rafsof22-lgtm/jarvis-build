@@ -1,0 +1,71 @@
+{
+  "batch_id": "XRP-HBAR-RECONCILIATION-BATCH-002",
+  "version": "1.0.0",
+  "created_date": "2026-07-21",
+  "state": "BOUNDED_BATCH_PROCESSED",
+  "scope": "Two accessible historical artifacts: one XRP/HBAR execution-output archive and one historical ChatGPT transcript text file.",
+  "sources": [
+    {
+      "source_id": "XH-B002-S001",
+      "filename": "xrp_hbar_apex_v4_execution_outputs (1).zip",
+      "size_bytes": 85793,
+      "sha256": "67a73e62e378d21f183ecce5188c53392419aa9f56338851524447ca94d817cc",
+      "archive_entries": 76,
+      "file_entries": 74,
+      "expanded_file_bytes": 258292,
+      "member_types": {"json": 11, "markdown": 16, "csv": 32, "text": 15},
+      "authority": "user_supplied_execution_artifact",
+      "access_state": "PROCESSED",
+      "notes": "Archive listing and text/JSON/CSV contents were inspected without executing bundled candidate code."
+    },
+    {
+      "source_id": "XH-B002-S002",
+      "filename": "xrp tracking cont.txt",
+      "size_bytes": 994000,
+      "sha256": "7a4dad18ee8e34850fef337f34daf08614232fd8aa30ec99f5ed345832adfc63",
+      "line_count": 22672,
+      "character_count": 948864,
+      "authority": "historical_chat_transcript",
+      "access_state": "PROCESSED_FOR_BOUNDED_CLAIM_RECONCILIATION",
+      "notes": "Contains historical user requests and assistant-generated claims. Claims are not accepted as current facts without independent evidence."
+    }
+  ],
+  "archive_observations": {
+    "tracker_json_snapshots": 11,
+    "snapshot_time_min": "2026-04-25T04:08:48+00:00",
+    "snapshot_time_max": "2026-04-25T05:52:15+00:00",
+    "initial_assets": ["XRP", "HBAR"],
+    "final_snapshot_assets": ["XRP", "HBAR", "BTC", "ETH", "QNT", "XLM", "ONDO"],
+    "market_source_state": "offline demo or offline demo/fallback",
+    "live_network_source_state": "FAILED_DNS_OR_SKIPPED",
+    "populated_trigger_records": 0,
+    "populated_discrepancy_records": 0,
+    "populated_forecast_accuracy_records": 0,
+    "populated_social_claim_records": 0,
+    "source_registry_rows": 6
+  },
+  "historical_transcript_occurrences": {
+    "81.9_percent_phrase": 13,
+    "94_percent_phrase": 24,
+    "8_slash_12_phrase": 7,
+    "8_of_12_phrase": 4,
+    "2809_phrase": 2,
+    "133_phrase": 8,
+    "100_percent_phrase": 26
+  },
+  "processing_controls": [
+    "Preserve exact source hashes and filenames.",
+    "Separate assistant claims from user requirements and execution artifacts.",
+    "Do not infer direct XRP or HBAR token demand from network or ecosystem adoption.",
+    "Do not classify offline demo data as live market evidence.",
+    "Do not enable trading, money movement or personalised financial advice.",
+    "Preserve contradictions and supersession links."
+  ],
+  "inaccessible_or_unprocessed": [
+    "Historical DOCX files not present in this bounded two-source batch.",
+    "External webpages and APIs referenced in the transcript were not revalidated in this historical reconciliation step.",
+    "Assistant responses outside the supplied transcript and archive remain outside this batch denominator."
+  ],
+  "completion_scope": "Batch 002 bounded artifact and claim reconciliation only; full XRP/HBAR historical reconstruction remains open.",
+  "rollback": "Revert this batch through Git and preserve both source hashes and the superseded reconciliation record."
+}
