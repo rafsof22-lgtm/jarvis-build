@@ -3,8 +3,8 @@
   "canonical_project_instruction_characters": 9607,
   "canonical_project_instruction_limit": null,
   "paste_ready_project_instruction_generated_only_on_explicit_request": true,
-  "skill_zip_bytes": 41197,
-  "skill_source_files": 24,
-  "skill_source_sha256": "07d62fabc3f2881a96a62c58b0a092ad01b49e714f281caa4ac793c932dec08e",
+  "skill_zip_bytes": 45265,
+  "skill_source_files": 25,
+  "skill_source_sha256": "31af795649d2b45b3617af3c6d6493b4b8fd6831c09ffeeaef5350474a7887a6",
   "values_exposed": false
 }
