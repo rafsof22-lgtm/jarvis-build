@@ -1,0 +1,31 @@
+name: Full Stack Architecture V16
+
+on:
+  pull_request:
+    paths:
+      - 'PROJECT_CONTINUITY.md'
+      - 'registry/architecture/jarvis_full_stack_18_layer_reference_v1.json'
+      - 'registry/sources/health_split_upload_aliases_v16.json'
+      - 'registry/source-accounting/project_chat_access_reconciliation_v1.json'
+      - 'registry/trackers/all_progress_tracker_reconciliation_v16.json'
+      - 'docs/architecture/JARVIS_FULL_STACK_18_LAYER_ARCHITECTURE_2026_07_21.md'
+      - 'scripts/verify_full_stack_architecture_v16.py'
+      - 'tests/test_full_stack_architecture_v16.py'
+      - '.github/workflows/full-stack-architecture-v16.yml'
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest tests/test_full_stack_architecture_v16.py -v
+      - run: python scripts/verify_full_stack_architecture_v16.py
