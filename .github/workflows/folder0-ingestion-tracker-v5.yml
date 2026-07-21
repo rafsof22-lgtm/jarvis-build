@@ -1,0 +1,36 @@
+name: Folder0 Ingestion and Tracker V5
+
+on:
+  pull_request:
+    paths:
+      - 'registry/sources/folder0_partial_bounded_ingestion_v1.json'
+      - 'registry/trackers/all_progress_tracker_reconciliation_v5.json'
+      - 'jarvis_command_centre/integrated_v13.py'
+      - 'jarvis_command_centre/progress_tracker.py'
+      - 'tests/test_progress_tracker_resolution.py'
+      - 'scripts/verify_folder0_ingestion_tracker_v5.py'
+      - '.github/workflows/folder0-ingestion-tracker-v5.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile changed Python
+        run: python -m compileall -q jarvis_command_centre tests/test_progress_tracker_resolution.py scripts/verify_folder0_ingestion_tracker_v5.py
+      - name: Run progress tracker tests
+        run: python -m unittest -v tests.test_progress_tracker_resolution
+      - name: Validate JSON registries
+        run: |
+          python -m json.tool registry/sources/folder0_partial_bounded_ingestion_v1.json >/dev/null
+          python -m json.tool registry/trackers/all_progress_tracker_reconciliation_v5.json >/dev/null
+      - name: Verify source and truth gates
+        run: python scripts/verify_folder0_ingestion_tracker_v5.py
