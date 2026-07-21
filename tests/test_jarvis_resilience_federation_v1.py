@@ -76,8 +76,8 @@ class QueueTests(unittest.TestCase):
         self.temp.cleanup()
 
     def test_idempotent_enqueue_lease_and_success(self):
-        first = self.queue.enqueue("test", {"x": 1}, "same")
-        second = self.queue.enqueue("test", {"x": 2}, "same")
+        first = self.queue.enqueue("test", {"x": 1}, "same", available_at=100)
+        second = self.queue.enqueue("test", {"x": 2}, "same", available_at=100)
         self.assertEqual(first["job_id"], second["job_id"])
         leased = self.queue.lease("worker", now=100)
         self.assertEqual(leased["state"], "LEASED")
@@ -105,6 +105,14 @@ class QueueTests(unittest.TestCase):
         self.queue.lease("lost-worker", now=5, lease_seconds=2)
         self.assertEqual(self.queue.recover_stale_leases(now=8), [job["job_id"]])
         self.assertEqual(self.queue.get(job["job_id"])["state"], "QUEUED")
+
+    def test_only_lease_owner_can_complete_job(self):
+        job = self.queue.enqueue("ownership", {}, "ownership", available_at=1)
+        self.queue.lease("worker-a", now=1)
+        with self.assertRaises(ValueError):
+            self.queue.succeed(job["job_id"], "worker-b", {"ok": False})
+        completed = self.queue.succeed(job["job_id"], "worker-a", {"ok": True})
+        self.assertEqual(completed["state"], "SUCCEEDED")
 
 
 class FederationAndOperatorTests(unittest.TestCase):
