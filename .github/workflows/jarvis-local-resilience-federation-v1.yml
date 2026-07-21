@@ -1,0 +1,31 @@
+name: Jarvis Local Resilience Federation V1
+
+on:
+  pull_request:
+    paths:
+      - 'src/jarvis_completion/resilience_v1.py'
+      - 'tests/test_jarvis_resilience_federation_v1.py'
+      - 'registry/jarvis_local_resilience_federation_v1.json'
+      - '.github/workflows/jarvis-local-resilience-federation-v1.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile
+        run: python -m compileall -q src/jarvis_completion
+      - name: Run resilience and federation tests
+        run: python -m unittest -v tests.test_jarvis_resilience_federation_v1
+      - name: Validate registry
+        run: python -m json.tool registry/jarvis_local_resilience_federation_v1.json >/dev/null
+      - name: Validate expected test count
+        run: test "$(grep -c '^    def test_' tests/test_jarvis_resilience_federation_v1.py)" -eq 9
