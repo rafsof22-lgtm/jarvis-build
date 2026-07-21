@@ -12,6 +12,9 @@ MODULE = ROOT / "docs/module-instructions/master-source-universe-controller.md"
 DECISION = ROOT / "registry/decisions/constitution_recovery_resolution_v1.json"
 INTAKE = ROOT / "registry/repository-intake/screenshot_repo_intake_2026_07_21.json"
 TRACKER = ROOT / "registry/trackers/all_accessible_tracker_consolidation_v1.json"
+COUNCIL = ROOT / "registry/integrations/council_mode_contract_v1.json"
+OBSERVER = ROOT / "registry/integrations/local_observer_sensor_policy_v1.json"
+PREDICTION = ROOT / "registry/integrations/prediction_market_read_only_contract_v1.json"
 EVIDENCE = ROOT / "evidence/completion-tranche-2026-07-21-verification.json"
 
 
@@ -27,6 +30,9 @@ def main() -> None:
     decision = load_json(DECISION)
     intake = load_json(INTAKE)
     tracker = load_json(TRACKER)
+    council = load_json(COUNCIL)
+    observer = load_json(OBSERVER)
+    prediction = load_json(PREDICTION)
 
     checks["canonical_constitution_present"] = CONSTITUTION.exists()
     checks["completion_chain_present"] = "Requirement -> Module -> Artifact -> Test or waiver -> Evidence -> Runtime state -> Rollback -> Owner acceptance" in constitution_text
@@ -52,12 +58,22 @@ def main() -> None:
     checks["financial_execution_shortcut_prohibited"] = "No live financial execution." in tracker.get("prohibited_status_shortcuts", [])
     checks["clinical_device_shortcut_prohibited"] = "No clinical or wellness device control." in tracker.get("prohibited_status_shortcuts", [])
 
+    checks["council_disabled_by_default"] = council.get("defaults", {}).get("enabled") is False
+    checks["council_model_limit"] = council.get("defaults", {}).get("maximum_models") == 8
+    checks["council_budget_gate"] = council.get("defaults", {}).get("budget_preflight_required") is True
+    observer_permissions = observer.get("default_permissions", {})
+    checks["observer_all_sensitive_permissions_off"] = all(value is False for value in observer_permissions.values())
+    checks["observer_separate_service_boundary"] = "Separately deployed local service" in observer.get("architecture", "")
+    blocked_prediction = set(prediction.get("blocked_operations", []))
+    checks["prediction_market_write_surface_blocked"] = {"create_order", "sign_transaction", "connect_wallet", "read_or_store_private_key", "deposit", "withdraw"}.issubset(blocked_prediction)
+    checks["prediction_market_evidence_warning"] = any("not verified fact" in rule for rule in prediction.get("evidence_rules", []))
+
     status = "PASS" if all(checks.values()) else "FAIL"
     report = {
         "id": "EVIDENCE-COMPLETION-TRANCHE-2026-07-21",
         "status": status,
         "checks": checks,
-        "proof_scope": "Repository governance, tracker consolidation and external-candidate intake only.",
+        "proof_scope": "Repository governance, tracker consolidation, external-candidate intake and disabled-by-default integration contracts only.",
         "runtime_state": "NOT_TESTED_BY_THIS_VERIFIER",
         "production_state": "NOT_DEPLOYED_BY_THIS_TRANCHE",
         "financial_execution": "DISABLED",
