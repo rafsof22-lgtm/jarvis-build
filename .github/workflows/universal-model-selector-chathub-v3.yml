@@ -1,0 +1,48 @@
+name: Universal Model Selector and ChatHub Intake V3
+
+on:
+  pull_request:
+    paths:
+      - 'jarvis_model_router/**'
+      - 'jarvis_command_centre/model_control_panel.py'
+      - 'src/jarvis_chathub/**'
+      - 'src/jarvis_evolution/**'
+      - 'tests/test_universal_model_selector_chathub_v3.py'
+      - 'registry/model-routing/universal_model_selector_parallel_panel_v1.json'
+      - 'registry/source-accounting/chathub-source-universe-20260721-v3.json'
+      - 'registry/requirements/chathub-applicability-20260721-v3.json'
+      - 'registry/health/chathub-health-safety-quarantine-v1.json'
+      - 'registry/integrations/chathub-apollo-source-delta-v1.json'
+      - 'skills/jarvis-sovereign-builder/**'
+      - 'docs/jarvis-universal-model-selector-chathub-v3.md'
+      - 'scripts/verify_universal_model_selector_chathub_v3.py'
+      - '.github/workflows/universal-model-selector-chathub-v3.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile runtime and verifier
+        run: python -m compileall -q jarvis_model_router jarvis_command_centre src/jarvis_chathub src/jarvis_evolution scripts/verify_universal_model_selector_chathub_v3.py
+      - name: Run deterministic selector and source tests
+        run: python -m unittest -v tests.test_universal_model_selector_chathub_v3
+      - name: Validate machine registries
+        run: |
+          python -m json.tool registry/model-routing/universal_model_selector_parallel_panel_v1.json >/dev/null
+          python -m json.tool registry/source-accounting/chathub-source-universe-20260721-v3.json >/dev/null
+          python -m json.tool registry/requirements/chathub-applicability-20260721-v3.json >/dev/null
+          python -m json.tool registry/health/chathub-health-safety-quarantine-v1.json >/dev/null
+          python -m json.tool registry/integrations/chathub-apollo-source-delta-v1.json >/dev/null
+      - name: Verify bounded contracts and source denominator
+        run: python scripts/verify_universal_model_selector_chathub_v3.py
+      - name: Validate test count
+        run: test "$(grep -c '^    def test_' tests/test_universal_model_selector_chathub_v3.py)" -eq 16
