@@ -1,0 +1,51 @@
+{
+  "id": "JARVIS-ALL-PROGRESS-TRACKER-RECONCILIATION-V17",
+  "version": "17.0.0",
+  "snapshot_date": "2026-07-22",
+  "baseline_main": "f9d02bbaf03d676f42342b7970607ec803f86b25",
+  "supersedes_tracker": "registry/trackers/all_progress_tracker_reconciliation_v16.json",
+  "program_state": "ACTIVE_PROGRAM_NOT_100_PERCENT",
+  "resolved_this_pass": [
+    {"work_id":"COMMAND-CENTRE-18-LAYER-SURFACE","state":"DONE_VERIFIED","scope":"Read-only local Command Centre v1.4 surface exposes 18-layer tree, traffic lights, evidence and gaps.","evidence":["jarvis_command_centre/full_stack_v17.py","registry/ux/command_centre_full_stack_surface_v17.json","tests/test_v17_workstreams.py"]},
+    {"work_id":"POST-2026-06-25-CHAT-DELTA-CHECK","state":"DONE_VERIFIED","scope":"Re-uploaded ChatGPT archive is an exact duplicate of the canonical June 25 archive; zero novel export bytes.","evidence":["registry/source-accounting/post_2026_06_25_project_chat_delta_v17.json"]},
+    {"work_id":"HEALTH-HASH-ONLY-CLAIM-MANIFEST","state":"DONE_VERIFIED","scope":"194-conversation older Health handover processed into a local hash-only detailed manifest and repository summary with Merkle roots.","evidence":["scripts/build_health_claim_review_manifest_v17.py","registry/health/health_claim_review_manifest_v17.json"]},
+    {"work_id":"HEALTH-SYNTHETIC-CARE-JOURNEYS","state":"DONE_VERIFIED","scope":"Synthetic subject, consent, diagnostic hash, regimen reference, blocked device, provider, intervention, claim queue and consent-withdrawal journey.","evidence":["src/jarvis_health/synthetic_care_journeys_v17.py","tests/test_v17_workstreams.py"]},
+    {"work_id":"COST-PROFILE-SCHEMAS-V3","state":"DONE_VERIFIED","scope":"Customer, workshop, vehicle, supplier and order schemas use business namespace, hash/pointer identifiers and deterministic validation.","evidence":["src/jarvis_business/cost_plus_profiles_v3.py","tests/test_v17_workstreams.py"]},
+    {"work_id":"COST-SYNTHETIC-ORDER-TO-BILLING","state":"DONE_VERIFIED","scope":"Synthetic order, supplier split, locker allocation and approved billing event route exercised locally with no provider calls.","evidence":["src/jarvis_business/cost_plus_profiles_v3.py","tests/test_v17_workstreams.py"]},
+    {"work_id":"REMAINING-REQUESTED-PROJECTS-BOUNDED-BATCH","state":"DONE_VERIFIED","scope":"XRP, Longevity, Tax, Active Trust, Finance Planning and Financial New mapped to direct export denominators and historical source buckets.","evidence":["registry/projects/remaining_requested_projects_reconstruction_v17.json"]},
+    {"work_id":"FULL-STACK-LOCAL-STAGING-DIGITAL-TWIN","state":"DONE_VERIFIED","scope":"All 18 layers exercised locally with privacy, security, persistence, retry, backup, restore, zero-cost and rollback tests.","evidence":["src/jarvis_staging/full_stack_digital_twin_v17.py","registry/staging/full_stack_local_staging_v17.json","tests/test_v17_workstreams.py"]},
+    {"work_id":"V17-UPLOADED-INSTRUCTION-DELTA","state":"DONE_VERIFIED","scope":"New baseline/register/reconstruction instruction files hashed and mapped to canonical placement.","evidence":["registry/source-accounting/v17_uploaded_instruction_delta.json"]}
+  ],
+  "current_states": {
+    "command_centre_full_stack_surface": "INTEGRATED_STAGING",
+    "post_2026_06_25_project_chat_delta": "PENDING_INGEST",
+    "health_claim_manifest": "DONE_VERIFIED_BOUNDED",
+    "health_synthetic_journeys": "DONE_VERIFIED_LOCAL",
+    "cost_profiles_and_workflow": "DONE_VERIFIED_LOCAL",
+    "remaining_projects_shared_bucket_reconstruction": "DONE_VERIFIED_BOUNDED",
+    "full_stack_local_staging": "DONE_VERIFIED_LOCAL",
+    "connected_external_staging": "NOT_VERIFIED",
+    "production": "NOT_AUTHORISED"
+  },
+  "remaining_external_blockers": [
+    "DigitalOcean Recovery Console access for Hub runtime",
+    "Historical VTI provider-token revocation/rotation",
+    "Jarvis Health Railway domain and secret references",
+    "Google Apps Script/Sheets webhook configuration",
+    "Fresh Hub deployment/Gmail workflow dispatch",
+    "Protected Cobalt host credentials and canary",
+    "VTI-to-Hub staging endpoint and signing secret",
+    "Authenticated Command Centre staging environment",
+    "Current provider credentials, cost allowances and connected databases",
+    "Production promotion and owner acceptance"
+  ],
+  "next_open_loops": [
+    {"priority":"P1","safe_now":true,"task":"Directly classify the 83 XRP Tracking New project conversations into canonical requirements, evidence, conflicts and implementation deltas when extractable project bodies are available."},
+    {"priority":"P1","safe_now":true,"task":"Continue direct Tax, Active Trust, Finance Planning and Financial New reconstruction as separate bounded batches; current-law conclusions require official-source web verification."},
+    {"priority":"P1","safe_now":true,"task":"Continue Longevity Plan direct-chat reconstruction under restricted-health evidence controls."},
+    {"priority":"P1","safe_now":false,"task":"Connect the 18-layer staging digital twin to authenticated external services.","blocker":"Requires approved staging endpoints, credentials, IAM, budget and rollback ownership."},
+    {"priority":"P2","safe_now":false,"task":"Generate post-25-June chat delta.","blocker":"A newer ChatGPT export or explicit later-chat source pack is not available."},
+    {"priority":"P5","safe_now":false,"task":"Promote to production.","blocker":"Connected staging, provider proof, rollback and owner acceptance are incomplete."}
+  ],
+  "truth_boundary": "V17 completes the requested repository-local and bounded-source work. It does not prove all live project chats are current, external staging is connected, clinical or legal claims are validated, or production is authorised."
+}
