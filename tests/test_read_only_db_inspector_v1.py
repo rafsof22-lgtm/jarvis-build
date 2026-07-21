@@ -59,11 +59,12 @@ class ReadOnlyDatabaseInspectorTests(unittest.TestCase):
         self.assertTrue(result["truncated"])
 
     def test_audit_contains_parameter_names_not_values(self):
-        result = self.inspector.execute("by_category", {"category": "a"})
+        sensitive_value = "distinctive-parameter-value-not-for-audit"
+        result = self.inspector.execute("by_category", {"category": sensitive_value})
         audit = result["audit"]
         self.assertEqual(audit["parameter_names"], ["category"])
         self.assertNotIn("parameters", audit)
-        self.assertNotIn("a", str({key: value for key, value in audit.items() if key != "parameter_names"}))
+        self.assertNotIn(sensitive_value, str(audit))
         self.assertEqual(len(audit["event_sha256"]), 64)
 
 
