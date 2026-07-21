@@ -1,0 +1,29 @@
+{
+  "registry_id": "CHATHUB-APOLLO-SOURCE-DELTA-V1",
+  "version": "1.0.0",
+  "snapshot_date": "2026-07-21",
+  "source": "ChathubApolloSearch.txt",
+  "source_sha256": "65d52194d8bde549abd90562e8bf0ea464a3df39a32d61325f8798617e353c65",
+  "status": "IMPLEMENTED_NOT_INTEGRATED",
+  "approved_direction": [
+    "Use Apollo native export or official API within account entitlement before browser automation.",
+    "Capture the exact saved-search request body and preserve all 62 titles, five industries and location priorities without guessing truncated values.",
+    "Run Melbourne and Victoria first, then remaining Australian states, then Singapore, Hong Kong, India and China.",
+    "Use deterministic partitioning, SQLite checkpoints, bounded retries, rate-limit handling, deduplication by Apollo person ID, CSV output and audit evidence.",
+    "Avoid enrichment or reveal endpoints unless separately approved and budgeted.",
+    "Do not bypass result caps, paywalls, rate limits, permissions or platform terms."
+  ],
+  "quarantined_directions": [
+    "unlimited Chrome-extension scraping claims",
+    "console or DOM automation proposed as a bypass for Apollo controls",
+    "guaranteed 100 percent extraction regardless of entitlement",
+    "unsupported zero-credit, unlimited-access or fixed-throughput claims"
+  ],
+  "remaining_exact_blockers": [
+    "redacted exact saved-search request body or authorised API payload",
+    "confirmed current API endpoint and account entitlement",
+    "measured one- or two-page Melbourne pilot showing fields, rate limits and credit use",
+    "privacy and outreach lawful-basis confirmation before downstream use"
+  ],
+  "truth_boundary": "The source delta completes requirements and safety routing only. It does not execute the 649,549-record extraction or prove Apollo entitlement."
+}

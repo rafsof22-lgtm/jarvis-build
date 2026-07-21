@@ -1,0 +1,52 @@
+{
+  "schema_version": "3.0.0",
+  "snapshot_date": "2026-07-21",
+  "source_count": 3,
+  "totals": {"bytes": 2055754, "lines": 43776, "words": 268012, "messages": 143, "responses": 71, "user_prompts": 72},
+  "all_files_hashed": true,
+  "all_messages_accounted": true,
+  "raw_sources_committed": false,
+  "files": [
+    {
+      "filename": "Chathub Health.txt",
+      "pointer": "chat-upload:file_000000007fc0820ca514064b396245e6",
+      "sha256": "2c1513e3d846055eabe0df8fd025f36251b1586201cc3b3f639d159841a97405",
+      "bytes": 872934,
+      "lines": 20616,
+      "words": 116740,
+      "messages": 84,
+      "user_prompts": 42,
+      "responses": 42,
+      "models": ["DeepSeek V4", "Kimi K2.7 Code", "Mistral Large", "Perplexity Sonar", "Qwen 3.8 Max", "Tencent HY3"],
+      "dispositions": {"DUPLICATE_WITH_LINEAGE": 15, "QUARANTINED_FOR_REVIEW": 18, "REFERENCE_AND_DELTA_REVIEW": 24, "ROUTE_AS_REQUIREMENT_CANDIDATE": 27}
+    },
+    {
+      "filename": "Chathub INst Prmpt(1).txt",
+      "pointer": "chat-upload:file_00000000c8e481f5b77ce03ecf37d22b",
+      "sha256": "7073bfef49bedca84df4097bbd3b6eafff2399b1a86c66bb0349ffaec7c81d74",
+      "bytes": 804767,
+      "lines": 13529,
+      "words": 103016,
+      "messages": 35,
+      "user_prompts": 18,
+      "responses": 17,
+      "models": ["DeepSeek V4", "Kimi K2.7 Code", "Mistral Large", "Perplexity Sonar", "Qwen 3.8 Max", "Tencent HY3"],
+      "dispositions": {"DUPLICATE_WITH_LINEAGE": 15, "QUARANTINED_FOR_REVIEW": 9, "REFERENCE_AND_DELTA_REVIEW": 8, "ROUTE_AS_REQUIREMENT_CANDIDATE": 3}
+    },
+    {
+      "filename": "ChathubApolloSearch.txt",
+      "pointer": "chat-upload:file_00000000e7cc81f5be1d378c3f96b348",
+      "sha256": "65d52194d8bde549abd90562e8bf0ea464a3df39a32d61325f8798617e353c65",
+      "bytes": 378053,
+      "lines": 9631,
+      "words": 48256,
+      "messages": 24,
+      "user_prompts": 12,
+      "responses": 12,
+      "models": ["DeepSeek V4", "GPT-5 Thinking", "Kimi K2.7 Code", "Perplexity Sonar", "Qwen 3.8 Max", "Tencent HY3"],
+      "dispositions": {"DUPLICATE_WITH_LINEAGE": 10, "QUARANTINED_FOR_REVIEW": 2, "REFERENCE_AND_DELTA_REVIEW": 10, "ROUTE_AS_REQUIREMENT_CANDIDATE": 2}
+    }
+  ],
+  "reason": "Raw uploads contain personal, health and third-party content. Immutable upload pointers and exact hashes preserve provenance while derived metadata is committed separately.",
+  "truth_boundary": "Complete only for the three supplied files. It does not establish all historical ChatGPT or ChatHub source coverage."
+}

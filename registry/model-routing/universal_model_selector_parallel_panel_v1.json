@@ -1,0 +1,46 @@
+{
+  "registry_id": "JARVIS-UNIVERSAL-MODEL-SELECTOR-PARALLEL-PANEL-V1",
+  "version": "1.0.0",
+  "snapshot_date": "2026-07-21",
+  "owner": "JARVIS_MODEL_ROUTER",
+  "status": "IMPLEMENTED_NOT_INTEGRATED",
+  "purpose": "Expose every concrete connected model ID through one shared selector contract and run governed parallel panels of two to eight models.",
+  "model_inventory": {
+    "default_model_env": "Use each route's existing default_model_env.",
+    "all_models_env_pattern": "JARVIS_<ROUTE_NAME>_MODELS",
+    "separator_support": [",", ";", "newline"],
+    "invent_unknown_models": false,
+    "routes_without_inventory_are_visible_blockers": true
+  },
+  "parallel_panel": {
+    "minimum_models": 2,
+    "maximum_models": 8,
+    "roles": ["primary_reasoner", "source_researcher", "systems_architect", "domain_specialist", "security_and_safety_critic", "cost_and_efficiency_critic", "independent_verifier", "final_synthesiser"],
+    "raw_response_retention": "REQUIRED",
+    "response_proof_key": "selector_id + sha256",
+    "claim_and_evidence_matrix": "REQUIRED",
+    "contradiction_register": "REQUIRED",
+    "omission_register": "REQUIRED",
+    "majority_vote_is_proof": false,
+    "best_supported_consolidation": true,
+    "universal_zero_error_or_zero_gap_claim": false,
+    "verified_scope_label": "NO_KNOWN_GAPS_WITHIN_VERIFIED_PANEL_SCOPE"
+  },
+  "shared_surfaces": ["jarvis_pop", "command_centre", "framework_editor", "spec_editor", "workflow_builder", "stack_and_architecture_editor", "orchestrator_editor", "skill_editor", "agent_editor", "prompt_library", "source_analyst", "test_and_evaluation_console", "deployment_wizard"],
+  "implementation": {
+    "catalogue_and_panel": "jarvis_model_router/selector.py",
+    "assistant_adapter": "src/jarvis_evolution/parallel_assistant_v2.py",
+    "command_centre_panel": "jarvis_command_centre/model_control_panel.py",
+    "tests": "tests/test_universal_model_selector_chathub_v3.py",
+    "verifier": "scripts/verify_universal_model_selector_chathub_v3.py"
+  },
+  "skill_package_evidence": {
+    "artifact": "artifacts/jarvis-sovereign-builder/skill.zip",
+    "source_files": 26,
+    "zip_bytes": 47512,
+    "source_sha256": "97c2d32f9ce6f0dc87bb71a9d7a84a8222929d472232afec7c70906d34397c91",
+    "generated_by": "Package Jarvis Skill workflow",
+    "values_exposed": false
+  },
+  "truth_boundary": "This release implements model inventory, selection, panel planning and synthesis evidence contracts. Live provider calls require configured provider adapters, approved credentials, budget preflight and runtime evidence."
+}

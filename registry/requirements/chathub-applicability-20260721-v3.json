@@ -1,0 +1,26 @@
+{
+  "schema_version": "3.0.0",
+  "snapshot_date": "2026-07-21",
+  "source_registry": "registry/source-accounting/chathub-source-universe-20260721-v3.json",
+  "message_accounting": {"messages": 143, "user_requirement_candidates": 72, "assistant_proposals": 71, "all_accounted": true},
+  "routes": [
+    {"module":"apollo_property","owner_repository":"property-agent-mcp","message_count":60,"user_requirement_candidates":8,"assistant_proposals":52,"state":"MAPPED_FOR_DELTA_REVIEW"},
+    {"module":"digital_income","owner_repository":"jarvis-build","message_count":25,"user_requirement_candidates":0,"assistant_proposals":25,"state":"MAPPED_FOR_DELTA_REVIEW"},
+    {"module":"finance_trading","owner_repository":"jarvis-build","message_count":45,"user_requirement_candidates":12,"assistant_proposals":33,"state":"MAPPED_FOR_DELTA_REVIEW"},
+    {"module":"general_unclassified","owner_repository":"jarvis-build","message_count":35,"user_requirement_candidates":35,"assistant_proposals":0,"state":"MAPPED_FOR_DELTA_REVIEW"},
+    {"module":"health","owner_repository":"Jarvis-Health","message_count":63,"user_requirement_candidates":18,"assistant_proposals":45,"state":"MAPPED_FOR_DELTA_REVIEW"},
+    {"module":"jarvis_control_plane","owner_repository":"jarvis-build","message_count":70,"user_requirement_candidates":19,"assistant_proposals":51,"state":"MAPPED_FOR_DELTA_REVIEW"},
+    {"module":"legal_tax","owner_repository":"jarvis-build","message_count":51,"user_requirement_candidates":12,"assistant_proposals":39,"state":"MAPPED_FOR_DELTA_REVIEW"},
+    {"module":"model_router","owner_repository":"jarvis-build","message_count":67,"user_requirement_candidates":17,"assistant_proposals":50,"state":"MAPPED_FOR_DELTA_REVIEW"},
+    {"module":"security_governance","owner_repository":"jarvis-build","message_count":58,"user_requirement_candidates":13,"assistant_proposals":45,"state":"MAPPED_FOR_DELTA_REVIEW"}
+  ],
+  "quarantine": {
+    "unique_messages": 29,
+    "risk_flag_occurrences": {"medical_execution_or_guarantee":14,"financial_guarantee":11,"access_control_bypass":4,"credential_exposure":1},
+    "raw_claims_preserved": true,
+    "automatic_activation": false
+  },
+  "assistant_output_rule": "Assistant responses are preserved as proposals and never silently promoted to approved requirements or executable protocols.",
+  "coverage_rule": "The V3 parser regenerates line-level message hashes, duplicate lineage, routes, risk flags and dispositions from the exact source hashes.",
+  "truth_boundary": "Routing proves accounted applicability, not factual accuracy, implementation or deployment."
+}
