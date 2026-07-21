@@ -1,0 +1,54 @@
+{
+  "id": "JARVIS-ALL-PROGRESS-TRACKER-RECONCILIATION-V10",
+  "version": "10.0.0",
+  "snapshot_date": "2026-07-21",
+  "program_state": "ACTIVE_PROGRAM_NOT_100_PERCENT",
+  "baseline_main": "b867b0205ade4569fcff2d85217fdd5399a8e5fd",
+  "chat_state": "CLOSED_FOR_CONTINUATION_IN_ANOTHER_CURRENT_JARVIS_CHAT",
+  "reconciled_inputs": [
+    "PROJECT_CONSTITUTION.md",
+    "JARVIS_RAF213G_PROJECT_CONSTITUTION.md",
+    "PROJECT_CONTINUITY.md",
+    "AGENTS.md",
+    "docs/full-completion-priority-plan.md",
+    "registry/full_completion_priority_plan_v1.json",
+    "registry/trackers/all_progress_tracker_reconciliation_v9.json",
+    "registry/source_intake/chat_closeout_uploaded_source_manifest_v1.json"
+  ],
+  "completed_this_pass": [
+    {"work_id":"CHAT-CLOSEOUT-SOURCE-REGISTRATION","state":"DONE_VERIFIED","scope":"Eighteen mounted user-provided files were assigned exact SHA-256 and byte counts without promoting their contents to approved requirements."},
+    {"work_id":"CROSS-REPOSITORY-OPEN-PR-RECONCILIATION","state":"DONE_VERIFIED","scope":"Connected GitHub searches found no open pull requests in jarvis-build, hub, videotranscribe, Jarvis-Health or property-agent-mcp at reconciliation time."},
+    {"work_id":"PROGRESS-TRACKER-CONSOLIDATION-V10","state":"DONE_VERIFIED","scope":"Current merged repository evidence, source-intake state and exact blockers are consolidated for continuation."},
+    {"work_id":"CHAT-HANDOFF-STATE","state":"DONE_VERIFIED","scope":"This chat is marked closed for project work; future work resumes from canonical repository truth rather than chat memory."}
+  ],
+  "bounded_repository_progress": {
+    "latest_verified_merged_tranches": [
+      "PR 83 local resilience and queue/federation exercises",
+      "PR 84 governed editable-object and rollback controls",
+      "PR 85 concrete model selector and bounded ChatHub V3 intake",
+      "PR 86 provider execution contracts, durable panel evidence and Command Centre v1.3",
+      "PR 87 live blocker reconciliation",
+      "PR 88 folder0 bounded source intake and latest-tracker endpoint",
+      "PR 89 governed n8n adapter and capability traceability",
+      "PR 90 bounded read-only SQLite inspector",
+      "PR 91 operational hardening, Knowledge Fabric benchmark and OJT",
+      "PR 92 APIVault discovery fabric"
+    ],
+    "truth_boundary": "Repository-local, deterministic, bounded-source and selected provider evidence only. It is not whole-program runtime completion."
+  },
+  "remaining_exact_gates": [
+    {"blocker_id":"P0-1-RECOVERY-CONSOLE","class":"OWNER_RECOVERY_CONSOLE_REQUIRED","owner":"USER_OR_DIGITALOCEAN_ADMIN","next_action":"Open DigitalOcean Recovery Console, diagnose boot/network/firewall, recover listeners and capture route, migration, worker and rollback proof."},
+    {"blocker_id":"P0-2-TOKEN-ROTATION","class":"OWNER_PROVIDER_ACTION_REQUIRED","owner":"USER_OR_VTI_PROVIDER_ADMIN","next_action":"Revoke and rotate the historical VTI provider token and preserve redacted evidence."},
+    {"blocker_id":"P0-3-RAILWAY-HEALTH","class":"RAILWAY_DOMAIN_AND_SECRET_REFERENCE_REQUIRED","owner":"USER_OR_RAILWAY_ADMIN","next_action":"Confirm authoritative Jarvis Health Railway domain and secret references; verify health, readiness, restart, restore and rollback."},
+    {"blocker_id":"P0-4-SHEETS-WEBHOOK","class":"GOOGLE_APPS_SCRIPT_AND_RAILWAY_CONFIGURATION_REQUIRED","owner":"USER_OR_GOOGLE_RAILWAY_ADMIN","next_action":"Deploy the Apps Script webhook, configure the secret by reference and prove one non-sensitive raw staging row."},
+    {"blocker_id":"P0-5-FRESH-WORKFLOW-DISPATCH","class":"GITHUB_WORKFLOW_DISPATCH_REQUIRED","owner":"USER_OR_AUTHORISED_GITHUB_OPERATOR","next_action":"Dispatch the current Hub deployment/Gmail proof workflow and classify the provider result."},
+    {"blocker_id":"P0-6-COBALT-HOST","class":"PROTECTED_HOST_CREDENTIAL_REQUIRED","owner":"USER_OR_HOST_ADMIN","next_action":"Configure the protected Cobalt host and run authorised canary, purge, negative and rollback tests."},
+    {"blocker_id":"P0-7-VTI-HUB-FEDERATION","class":"CONNECTED_STAGING_AND_SIGNING_SECRET_REQUIRED","owner":"USER_OR_STAGING_ADMIN","next_action":"Deploy staging ingress and prove signature, idempotency, retry, replay and rollback."},
+    {"blocker_id":"LIVE-PROVIDER-PANEL","class":"PROVIDER_INVENTORY_CREDENTIAL_COST_PRIVACY_AND_EXECUTION_APPROVAL_REQUIRED","owner":"USER","next_action":"Approve one bounded provider canary after inventory, privacy and cost preflight."},
+    {"blocker_id":"AUTHENTICATED-COMMAND-CENTRE-STAGING","class":"AUTHENTICATED_STAGING_DEPLOYMENT_REQUIRED","owner":"USER_OR_RUNTIME_ADMIN","next_action":"Deploy authenticated staging and run operator, accessibility and failure-state journeys."},
+    {"blocker_id":"MISSING-SOURCE-BYTES","class":"SOURCE_BYTES_OR_CONTROLLED_INGEST_REQUIRED","owner":"PROJECT_SOURCE_OWNER","next_action":"Process the registered visible source batch and obtain any still-missing original bytes without inventing coverage."},
+    {"blocker_id":"PRODUCTION-PROMOTION-AND-OWNER-ACCEPTANCE","class":"ALL_PRIOR_GATES_AND_OWNER_ACCEPTANCE_REQUIRED","owner":"USER","next_action":"After P0-P4 proof, approve bounded production promotions and final acceptance."}
+  ],
+  "continuation_instruction": "In the next current Jarvis chat, read the canonical startup files, then this v10 tracker and the uploaded-source manifest. Refresh current main SHAs and runtime evidence before executing the highest-priority safe task.",
+  "completion_assertion": "ALL_SAFE_ACTIONS_AVAILABLE_IN_THIS_CHAT_WERE_RECONCILED; EXTERNAL, SOURCE-INGEST, RUNTIME, PRODUCTION_AND_OWNER_GATES_REMAIN."
+}
