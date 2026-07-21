@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0.0",
+  "source_id": "SRC-CHATGPT-EXPORT-2026-06-25",
+  "state": "EXTRACTED_HASHED_DENOMINATOR_VERIFIED",
+  "archive_name": "chatgpt-export-2026-06-25T03-06-22 (2) (1).7z",
+  "extracted_member": {
+    "name": "chatgpt-export-2026-06-25T03-06-22 (2).jsonl",
+    "bytes": 2336598546,
+    "sha256": "1b5ff075a422bc57884588e908bba705a65a8473065ebe49f10e6757abb45a3b"
+  },
+  "counts": {
+    "lines_seen": 2610,
+    "conversations": 2610,
+    "mapping_nodes": 360445,
+    "messages": 357835
+  },
+  "role_counts": {
+    "system": 22709,
+    "user": 53473,
+    "assistant": 169369,
+    "tool": 112284
+  },
+  "parse_errors": 0,
+  "requested_project_denominator": {
+    "project_count": 10,
+    "conversation_count": 430,
+    "message_count": 123175,
+    "projects": [
+      {"project_id":"g-p-67ff22c1d23c819199900d68d0228556","project_name":"Cost + $1 Auto Parts","conversation_count":15,"message_count":14654,"state":"DENOMINATOR_VERIFIED_CONTENT_RECONCILIATION_PENDING"},
+      {"project_id":"g-p-6806f25e3a58819197f825182a7da557","project_name":"XRP Tracking New","conversation_count":83,"message_count":32239,"state":"DENOMINATOR_VERIFIED_CONTENT_RECONCILIATION_PENDING"},
+      {"project_id":"g-p-67c501fc0198819193554d54fd96e379","project_name":"Health Optimisation","conversation_count":106,"message_count":22051,"state":"DENOMINATOR_VERIFIED_CONTENT_RECONCILIATION_PENDING"},
+      {"project_id":"g-p-67c7c5b330f481919300b4ea6d87b062","project_name":"Spooky2","conversation_count":36,"message_count":2908,"state":"DENOMINATOR_VERIFIED_CONTENT_RECONCILIATION_PENDING"},
+      {"project_id":"g-p-6933c49f41508191b269f844c48a207e","project_name":"Longevity Plan","conversation_count":6,"message_count":2614,"state":"DENOMINATOR_VERIFIED_CONTENT_RECONCILIATION_PENDING"},
+      {"project_id":"g-p-6941bca371108191a4f7de8e9c492364","project_name":"Tax","conversation_count":8,"message_count":8672,"state":"DENOMINATOR_VERIFIED_CONTENT_RECONCILIATION_PENDING"},
+      {"project_id":"g-p-68e3814f62388191b915a26d235f5142","project_name":"Active Trust","conversation_count":17,"message_count":11478,"state":"DENOMINATOR_VERIFIED_CONTENT_RECONCILIATION_PENDING"},
+      {"project_id":"g-p-684fdaf88c388191917aefcd588d5337","project_name":"Psychologist","conversation_count":15,"message_count":2368,"state":"DENOMINATOR_VERIFIED_CONTENT_RECONCILIATION_PENDING"},
+      {"project_id":"g-p-67c93d46da8c8191b87c7168c5ba973e","project_name":"Finance Planning","conversation_count":132,"message_count":17356,"state":"DENOMINATOR_VERIFIED_CONTENT_RECONCILIATION_PENDING"},
+      {"project_id":"g-p-68dde9ed46608191a3dbd0bbc5ed082f","project_name":"Financial New","conversation_count":12,"message_count":8835,"state":"DENOMINATOR_VERIFIED_CONTENT_RECONCILIATION_PENDING"}
+    ]
+  },
+  "privacy_boundary": "Raw chat bodies, personal data and attachments are not committed. Counts, hashes, project identifiers and evidence boundaries only.",
+  "completion_boundary": "This proves extraction and denominator accounting for the accessible June 2026 export. It does not prove every message is classified into canonical requirements or implemented in runtime."
+}
