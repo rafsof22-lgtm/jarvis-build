@@ -1,0 +1,38 @@
+{
+  "id": "JARVIS-CHAT-CLOSEOUT-UPLOADED-SOURCE-MANIFEST-V1",
+  "version": "1.0.0",
+  "snapshot_date": "2026-07-21",
+  "scope": "Files mounted in the active Jarvis chat environment for closeout reconciliation. Registration proves byte visibility and hashing only; it does not prove semantic ingestion, requirement promotion, runtime implementation or production deployment.",
+  "source_authority": "USER_PROVIDED_PRIMARY_FILES",
+  "ingestion_state": "REGISTERED_PENDING_CONTROLLED_INGEST",
+  "files": [
+    {"name":"Apex Omni Mapping Request.txt","sha256":"7b995b816fc87467f7afb2fbb5115e974e9ee570447cbbf7b3d860ce83f1808f","size_bytes":3058,"state":"REGISTERED"},
+    {"name":"JARVIS_CODE_BUILD_AGENT_LOOPS_V35.zip","sha256":"48a363b3607af104f34773932be3a739e9f0fd50a334dc610b86d14896050911","size_bytes":49152,"state":"REGISTERED_PENDING_ARCHIVE_INGEST"},
+    {"name":"JARVIS_EXECUTABLE_BUILD_PACKAGE_V3.zip","sha256":"a4bd78bee41400ba02014a423321826246a5cbc2db5daf9297a73af78a942b34","size_bytes":9961472,"state":"REGISTERED_PENDING_ARCHIVE_INGEST"},
+    {"name":"JARVIS_REQUIREMENT_RESCAN_V34.zip","sha256":"9d8b723d366221051ad2543328d09a4a1f7601bcb17e82f168b6006687400bd7","size_bytes":23068672,"state":"REGISTERED_PENDING_ARCHIVE_INGEST"},
+    {"name":"Kimi_Agent_OmniUniversal Clone Framework.zip","sha256":"190e67f4230a8983c2248b692e5c3263b9f82d010a17329817b979add5d8adb6","size_bytes":555008,"state":"REGISTERED_PENDING_ARCHIVE_INGEST"},
+    {"name":"Kimi_Agent_物业销售自动化.zip","sha256":"0982de4ab63583533965c69a119f3e14808a1152699268b33df0acb334c31280","size_bytes":60416,"state":"REGISTERED_PENDING_ARCHIVE_INGEST"},
+    {"name":"MASTER_SPEC_20260419_192720.txt","sha256":"b89b0ea6d39b855a9559987d7a8aeca51a20b255c5bb850e00cc105058f647d9","size_bytes":16777216,"state":"REGISTERED_PENDING_CHUNKED_INGEST"},
+    {"name":"Omni Quantum Trading Framework (3).docx","sha256":"32be29f83bdf8d8689845154f4f6ec3f441546f763aa7757c023243a2a83c736","size_bytes":248832,"state":"REGISTERED_PENDING_DOCUMENT_INGEST"},
+    {"name":"apex-jarvis-unified-one-click-source (1).zip","sha256":"61ec20cb119e289b720a057685e1dae2145fc67f52d436c6b7de1af4c6e341c7","size_bytes":624640,"state":"REGISTERED_PENDING_ARCHIVE_INGEST"},
+    {"name":"chatgpt-export-2026-06-25T03-06-22 (2) (1).7z","sha256":"fa61e528ae1ffbe1b8f5c2addc76dab0129264fc5c918fdfc4dd78a23964ac82","size_bytes":165675008,"state":"REGISTERED_PENDING_CONTROLLED_7Z_INGEST"},
+    {"name":"jarvis-basic-stack-baseline.md","sha256":"9f86c61f15a4b7bfebc418566818089032682abf6cea2822c37af97c72b00cb1","size_bytes":4608,"state":"REGISTERED"},
+    {"name":"jarvis-reconstruction-rules.md","sha256":"0282109b0109cf217deeae3fc3086991074fd579d423c25f16e787cc7ec0f7ae","size_bytes":1741,"state":"REGISTERED"},
+    {"name":"jarvis-unified-agent-build-registers.md","sha256":"c238669b654a87f7e2d396361160ca2032714bc5d222d0fb7db3c629af951c4c","size_bytes":891,"state":"REGISTERED"},
+    {"name":"jarvis_plan_20260419_192152.csv","sha256":"2b15f25220d7a0f11d19e8ce554f2ff84aa4b8cbac28eb82ae99a46a7ca85d67","size_bytes":1153434,"state":"REGISTERED_PENDING_TABULAR_INGEST"},
+    {"name":"jarvis_source_universe_initial_evidence_pack(1).zip","sha256":"82850beb19b38553146405ea58e0fac926285b6b5f3e3325b2b4349ca0a9d6c8","size_bytes":388096,"state":"REGISTERED_PENDING_ARCHIVE_INGEST"},
+    {"name":"universal_intelligence_research_instruction_framework_source_pack(1).zip","sha256":"9da690e62880d7c80ebc4fa9f660f0305ddb0c39271e166c6d54bf865ddb9c7e","size_bytes":42991616,"state":"REGISTERED_PENDING_ARCHIVE_INGEST"},
+    {"name":"xrp tracking cont.txt","sha256":"7a4dad18ee8e34850fef337f34daf08614232fd8aa30ec99f5ed345832adfc63","size_bytes":994304,"state":"REGISTERED_PENDING_CHUNKED_INGEST"},
+    {"name":"xrp_hbar_apex_v4_execution_outputs (1).zip","sha256":"67a73e62e378d21f183ecce5188c53392419aa9f56338851524447ca94d817cc","size_bytes":86016,"state":"REGISTERED_PENDING_ARCHIVE_INGEST"}
+  ],
+  "controls": {
+    "raw_evidence_separate_from_summaries": true,
+    "no_automatic_requirement_promotion": true,
+    "archives_untrusted_until_scanned": true,
+    "trading_material_research_and_paper_first": true,
+    "secret_values_forbidden": true,
+    "duplicate_detection_required": true,
+    "lineage_and_parser_version_required_on_ingest": true
+  },
+  "completion_assertion": "VISIBLE_BYTES_HASHED_AND_REGISTERED_ONLY"
+}
