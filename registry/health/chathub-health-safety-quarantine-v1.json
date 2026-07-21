@@ -1,0 +1,33 @@
+{
+  "registry_id": "CHATHUB-HEALTH-SAFETY-QUARANTINE-V1",
+  "version": "1.0.0",
+  "snapshot_date": "2026-07-21",
+  "source": "Chathub Health.txt",
+  "source_sha256": "2c1513e3d846055eabe0df8fd025f36251b1586201cc3b3f639d159841a97405",
+  "status": "INTEGRATED_STAGING",
+  "safe_reusable_requirements": [
+    "Evidence grading must distinguish mainstream, emerging, mixed, theoretical and unsafe claims.",
+    "Every health output must include safety notes, contraindications, interactions, monitoring and professional-escalation triggers.",
+    "Alternative, frequency, biofield and Spooky2 material must be complementary or exploratory, never a replacement for diagnosis or treatment.",
+    "Emergency red flags and qualified clinical review take precedence.",
+    "User-provided history and assistant-generated medical proposals must remain separate source classes."
+  ],
+  "quarantined_claim_categories": [
+    "guaranteed or inevitable cure/remission",
+    "experimental gene editing, DBS, optogenetics or invasive procedures presented as actionable treatment",
+    "unverified psychedelic, ibogaine or ketamine dosing protocols",
+    "frequency or bioresonance claims presented as drug simulation or disease cure",
+    "unverified clinic, expert, legal-status or regulatory claims",
+    "medical outreach or booking instructions without current verification and owner approval"
+  ],
+  "execution_policy": {
+    "preserve_raw_claims": true,
+    "activate_as_protocol": false,
+    "current_web_and_primary_source_verification_required": true,
+    "licensed_clinician_review_required": true,
+    "medical_device_control": "BLOCKED",
+    "diagnosis_or_medication_change": "BLOCKED"
+  },
+  "evidence": "registry/source-accounting/chathub-source-universe-20260721-v3.json",
+  "truth_boundary": "Quarantine preserves evidence without endorsing or executing unsafe source claims."
+}
