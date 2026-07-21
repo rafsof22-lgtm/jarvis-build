@@ -1,0 +1,38 @@
+{
+  "id": "JARVIS-ALL-PROGRESS-TRACKER-RECONCILIATION-V7",
+  "version": "7.0.0",
+  "snapshot_date": "2026-07-21",
+  "program_state": "ACTIVE_PROGRAM_NOT_100_PERCENT",
+  "baseline_main": "51d99f25ad88724192feceed5154ccd22ed675fd",
+  "resolved_this_pass": [
+    {
+      "blocker_id": "GENERIC-DATABASE-INSPECTOR-LOCAL",
+      "state": "IMPLEMENTED_NOT_INTEGRATED",
+      "evidence_path": "registry/integrations/read_only_database_inspector_v1.json",
+      "scope": "Named-query local SQLite inspection with read-only/query-only connection, mutation denial, parameter allowlists, row/time bounds and redacted audit hashes."
+    }
+  ],
+  "open_repository_work": [
+    {"work_id":"N8N-CONNECTED-STAGING","state":"BLOCKED"},
+    {"work_id":"DATABASE-INSPECTOR-CONNECTED-STAGING","state":"BLOCKED"}
+  ],
+  "still_blocked": [
+    {"blocker_id":"P0-1-RECOVERY-CONSOLE","class":"OWNER_RECOVERY_CONSOLE_REQUIRED"},
+    {"blocker_id":"P0-2-TOKEN-ROTATION","class":"OWNER_PROVIDER_ACTION_REQUIRED"},
+    {"blocker_id":"P0-3-RAILWAY-HEALTH","class":"RAILWAY_DOMAIN_AND_SECRET_REFERENCE_REQUIRED"},
+    {"blocker_id":"P0-4-SHEETS-WEBHOOK","class":"GOOGLE_APPS_SCRIPT_AND_RAILWAY_CONFIGURATION_REQUIRED"},
+    {"blocker_id":"P0-5-FRESH-WORKFLOW-DISPATCH","class":"GITHUB_WORKFLOW_DISPATCH_REQUIRED"},
+    {"blocker_id":"P0-6-COBALT-HOST","class":"PROTECTED_HOST_CREDENTIAL_REQUIRED"},
+    {"blocker_id":"P0-7-VTI-HUB-FEDERATION","class":"CONNECTED_STAGING_AND_SIGNING_SECRET_REQUIRED"},
+    {"blocker_id":"LIVE-PROVIDER-PANEL","class":"PROVIDER_INVENTORY_CREDENTIAL_COST_PRIVACY_AND_EXECUTION_APPROVAL_REQUIRED"},
+    {"blocker_id":"AUTHENTICATED-COMMAND-CENTRE-STAGING","class":"AUTHENTICATED_STAGING_DEPLOYMENT_REQUIRED"},
+    {"blocker_id":"MISSING-SOURCE-BYTES","class":"SOURCE_BYTES_REQUIRED"},
+    {"blocker_id":"PRODUCTION-PROMOTION-AND-OWNER-ACCEPTANCE","class":"ALL_PRIOR_GATES_AND_OWNER_ACCEPTANCE_REQUIRED"}
+  ],
+  "next_executable_tasks": [
+    "Run exact-head CI for the local read-only database inspector.",
+    "Merge only after all affected workflows pass.",
+    "Continue repository-local hardening while external gates remain unchanged."
+  ],
+  "completion_assertion": "This pass proves only a bounded local SQLite inspector. It does not prove connected databases, tenant isolation, external blockers, full source coverage or production acceptance."
+}

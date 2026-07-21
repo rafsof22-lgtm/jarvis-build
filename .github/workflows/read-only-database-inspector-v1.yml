@@ -1,0 +1,37 @@
+name: Read-only Database Inspector V1
+
+on:
+  pull_request:
+    paths:
+      - 'src/jarvis_integrations/**'
+      - 'tests/test_read_only_db_inspector_v1.py'
+      - 'registry/integrations/read_only_database_inspector_v1.json'
+      - 'registry/requirements/folder0_capability_traceability_v1.json'
+      - 'registry/trackers/all_progress_tracker_reconciliation_v7.json'
+      - 'scripts/verify_read_only_database_inspector_v1.py'
+      - '.github/workflows/read-only-database-inspector-v1.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile inspector and verifier
+        run: python -m compileall -q src/jarvis_integrations tests/test_read_only_db_inspector_v1.py scripts/verify_read_only_database_inspector_v1.py
+      - name: Run deterministic inspector tests
+        run: python -m unittest -v tests.test_read_only_db_inspector_v1
+      - name: Validate registries
+        run: |
+          python -m json.tool registry/integrations/read_only_database_inspector_v1.json >/dev/null
+          python -m json.tool registry/requirements/folder0_capability_traceability_v1.json >/dev/null
+          python -m json.tool registry/trackers/all_progress_tracker_reconciliation_v7.json >/dev/null
+      - name: Verify read-only and truth gates
+        run: python scripts/verify_read_only_database_inspector_v1.py
