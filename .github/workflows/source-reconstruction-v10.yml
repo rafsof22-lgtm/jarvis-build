@@ -1,0 +1,22 @@
+name: Source Reconstruction V10
+
+on:
+  pull_request:
+    paths:
+      - "registry/sources/**"
+      - "registry/trackers/all_progress_tracker_reconciliation_v10.json"
+      - "docs/plans/JARVIS_FULL_COMPLETION_ATTACK_PLAN_2026_07_21.md"
+      - "scripts/verify_source_reconstruction_v10.py"
+      - "tests/test_source_reconstruction_v10.py"
+      - ".github/workflows/source-reconstruction-v10.yml"
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m unittest tests/test_source_reconstruction_v10.py -v
+      - run: python scripts/verify_source_reconstruction_v10.py
