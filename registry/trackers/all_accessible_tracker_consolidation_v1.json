@@ -1,0 +1,77 @@
+{
+  "tracker_id": "JARVIS-ALL-ACCESSIBLE-TRACKERS-V1",
+  "version": "1.0.0",
+  "snapshot_date": "2026-07-21",
+  "scope": "Connected GitHub repositories, current project files and explicitly surfaced tracker evidence. Hidden or unsynchronised chats are excluded.",
+  "canonical_execution_queue": "registry/full_completion_priority_plan_v1.json",
+  "completion_rule": "Requirement -> Module -> Artifact -> Test or waiver -> Evidence -> Runtime state -> Rollback -> Owner acceptance",
+  "denominator_policy": "Do not sum tracker percentages with different denominators. Preserve historical rows, assign one canonical task ID per real task and link duplicates or superseded states.",
+  "tracker_families": [
+    {"family_id":"TF-01","name":"Master Source Universe and reconstruction","canonical_owner":"jarvis-build","state":"PARTIAL","primary_tasks":["P2-1","P2-2","P2-3","P2-4"]},
+    {"family_id":"TF-02","name":"Cross-chat Jarvis XRP/HBAR VTI Hub and CFO","canonical_owner":"jarvis-build","state":"PARTIAL","primary_tasks":["P0-7","P2-3","P3-3","P4-1"]},
+    {"family_id":"TF-03","name":"VTI Hub runtime federation","canonical_owner":"videotranscribe+hub","state":"SOURCE_MERGED_RUNTIME_BLOCKED","primary_tasks":["P0-6","P0-7","P1-4","P4-1"]},
+    {"family_id":"TF-04","name":"GitHub repository capability scout Skill","canonical_owner":"jarvis-build","state":"PACKAGE_AND_REPO_SPEC_VERIFIED_RUNTIME_OPEN","primary_tasks":["P2-2","P2-5"]},
+    {"family_id":"TF-05","name":"Project Skill portfolio","canonical_owner":"jarvis-build","state":"PARTIAL_IMPORT_AND_ROUTING_PROOF","primary_tasks":["P2-2","P2-6"]},
+    {"family_id":"TF-06","name":"Project constitution and continuity","canonical_owner":"jarvis-build","state":"CANONICAL_CONSTITUTION_FOUND_AND_VERIFIED","primary_tasks":[]},
+    {"family_id":"TF-07","name":"GitHub and tool screenshot intake","canonical_owner":"jarvis-build","state":"REGISTERED_NOT_INSTALLED","primary_tasks":["P2-5","P2-6"]},
+    {"family_id":"TF-08","name":"Historical Jarvis module-build claims","canonical_owner":"jarvis-build","state":"CONFLICT_REVIEW","primary_tasks":["P2-1","P2-2","P6-1"]},
+    {"family_id":"TF-09","name":"Domain modules and specialist factories","canonical_owner":"federated","state":"PARTIAL_TO_SPECIFICATION_STAGE","primary_tasks":["P2-4","P3-1","P3-2","P3-4","P3-5","P3-6"]}
+  ],
+  "resolved_in_this_tranche": [
+    {
+      "resolution_id":"RES-001",
+      "item":"Canonical constitution unavailable",
+      "previous_state":"BLOCKED_AT_EXACT_STEP",
+      "current_state":"DONE_VERIFIED_SOURCE_SCOPE",
+      "artifact":"registry/decisions/constitution_recovery_resolution_v1.json",
+      "evidence":"JARVIS_RAF213G_PROJECT_CONSTITUTION.md at blob 509ab39e606808dfa4dffbc4f93ffec4eea81569"
+    },
+    {
+      "resolution_id":"RES-002",
+      "item":"Master Source Universe Controller module naming and instruction gap",
+      "previous_state":"CAPTURED_NOT_APPLIED",
+      "current_state":"IMPLEMENTED_REPOSITORY_SCOPE",
+      "artifact":"docs/module-instructions/master-source-universe-controller.md",
+      "evidence":"Branch and CI verification required before merge"
+    },
+    {
+      "resolution_id":"RES-003",
+      "item":"Six screenshot repository and tool candidates absent from governed intake",
+      "previous_state":"RESEARCHED_NOT_REGISTERED",
+      "current_state":"REGISTERED_NOT_INSTALLED",
+      "artifact":"registry/repository-intake/screenshot_repo_intake_2026_07_21.json",
+      "evidence":"Canonical repositories, reviewed commits, licences, dispositions and safety defaults recorded"
+    }
+  ],
+  "external_or_owner_gates": [
+    {"task_id":"P0-1","gate":"DigitalOcean Recovery Console"},
+    {"task_id":"P0-2","gate":"Provider token revocation and secure replacement"},
+    {"task_id":"P0-3","gate":"Authoritative Railway domain and provider verification"},
+    {"task_id":"P0-4","gate":"Google Apps Script and Railway configuration"},
+    {"task_id":"P0-5","gate":"Workflow dispatch and provider result"},
+    {"task_id":"P0-6","gate":"Protected host credentials"},
+    {"task_id":"P0-7","gate":"Staging endpoint and vault-held signing secret"},
+    {"task_id":"P5-1","gate":"Owner provider cost secret and production approval"}
+  ],
+  "safe_repository_work_remaining": [
+    {"task_id":"P1-3","next":"Implement governed Hub source discovery and API intake on a reviewed branch."},
+    {"task_id":"P1-5","next":"Continue Command Centre adapters and offline truthful status views without claiming runtime proof."},
+    {"task_id":"P1-6","next":"Implement repository-side topology, IAM policy templates, observability schemas, backup/restore and cost guards."},
+    {"task_id":"P2-1","next":"Process accessible archive items into counted source, lineage and QA records."},
+    {"task_id":"P2-2","next":"Extend provenance, model routing, agent/Skill and federation governance registries."},
+    {"task_id":"P2-3","next":"Build XRP/HBAR reconciliation batch 002 from dated sources."},
+    {"task_id":"P2-4","next":"Create Health/Spooky2 source denominator, hash manifest and safety/OJT records without live device control."},
+    {"task_id":"P2-5","next":"Build universal source, evidence, model and cost registry contracts."},
+    {"task_id":"P2-6","next":"Create shared-core workstream manifests and acceptance tests."}
+  ],
+  "prohibited_status_shortcuts": [
+    "No 100 percent or zero-gap claim from static reports.",
+    "No production claim from source code or CI alone.",
+    "No live financial execution.",
+    "No clinical or wellness device control.",
+    "No automatic installation of external repositories.",
+    "No inaccessible-source processing claim."
+  ],
+  "current_program_state": "ACTIVE_PROGRAM_NOT_100_PERCENT",
+  "reconstruction_status": "CANONICAL_QUEUE_LOCKED_CONSTITUTION_RESOLVED_CURRENT_TRANCHE_UNDER_REVIEW"
+}
