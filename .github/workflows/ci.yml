@@ -39,6 +39,12 @@ jobs:
       - name: Validate credential and setup automation policy
         run: python scripts/verify_credential_setup_automation_v1.py
 
+      - name: Validate runtime auto-resume safety policy
+        run: python scripts/verify_runtime_auto_resume_v1.py
+
+      - name: Generate runtime auto-resume dry-run evidence
+        run: python scripts/runtime_auto_resume.py
+
       - name: Run cost-governor smoke test
         run: python scripts/smoke_cost_governor.py
 
@@ -111,6 +117,8 @@ jobs:
             evidence/model-routing-modes-v2-verification.json
             evidence/voice-command-gateway-v1-verification.json
             evidence/credential-setup-automation-v1-verification.json
+            evidence/runtime-auto-resume-policy-verification-v1.json
+            evidence/runtime-auto-resume-v1.json
             evidence/config-readiness.json
             evidence/command-centre.snapshot.json
             evidence/module-federation-verification.json
