@@ -1,8 +1,11 @@
 {
   "id": "JARVIS-UNBLOCKED-COMPLETION-RUNTIME-V1",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "date": "2026-07-21",
   "baseline_sha": "333b81473068a491806d36d0e18a80944acebb8d",
+  "verified_head_sha": "0f79b94a68478ac1420965ee5764423399794811",
+  "merge_sha": "907f52805970a0f511f053657e57f9f80258d1e4",
+  "pull_request": 81,
   "scope": "Complete the currently unblocked local and deterministic staging boundary for phases A1, A2, B1, B2, B3, C1, C2, C3, D1, D2, D3, E1 and bounded F1-F5 slices.",
   "artifacts": [
     "src/jarvis_completion/runtime_v1.py",
@@ -38,7 +41,9 @@
       "free-first routing", "evidence scoring", "capability quarantine", "signed envelopes", "replay age",
       "CFO", "XRP/HBAR scenarios", "paper trading", "agency unit economics", "SaaS staging gate"
     ],
-    "result": "PENDING_CI_ON_EXACT_HEAD"
+    "result": "DONE_VERIFIED",
+    "workflow_count": 7,
+    "workflows": ["Jarvis Unblocked Completion Runtime V1","Free-first CI","Security History Scan","Package Jarvis Skill","Cross-Repository Readiness","Business Runtime V1","Business Source Continuity V1"]
   },
   "truth_boundary": {
     "completed_now": "Dependency-free implementation and deterministic local/staging contracts for the listed phases.",
@@ -52,8 +57,9 @@
       "live trading or money movement",
       "owner acceptance"
     ],
-    "external_blocks": ["A3", "E2", "E3", "G1", "G2", "G3", "H1", "H2", "H3", "I1", "I2", "I3", "J1", "J2", "J3"]
+    "external_blocks": ["A3", "E2", "E3", "G1", "G2", "G3", "H1", "H2", "H3", "I1", "I2", "I3", "J1", "J2", "J3", "J4"]
   },
-  "rollback": "Revert the squash merge for this tranche; the implementation adds a new isolated package, test suite, workflow and registry without altering existing runtime paths.",
-  "status": "IMPLEMENTED_NOT_INTEGRATED"
+  "rollback": "Revert merge 907f52805970a0f511f053657e57f9f80258d1e4; the implementation is isolated and adds no provider-side state.",
+  "status": "DONE_VERIFIED",
+  "completion_scope": "DEPENDENCY_FREE_LOCAL_AND_BOUNDED_DETERMINISTIC_STAGING_RUNTIME"
 }
