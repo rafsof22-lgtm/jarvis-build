@@ -4,8 +4,8 @@ import tempfile
 import unittest
 from pathlib import Path
 
+from src.jarvis_completion.durable_queue_v1 import DurableQueue
 from src.jarvis_completion.resilience_v1 import (
-    DurableQueue,
     FederationExerciseRunner,
     KnowledgeFabricResilience,
     OperatorPack,
