@@ -30,6 +30,9 @@ jobs:
       - name: Run model-router smoke test
         run: python scripts/smoke_model_router.py
 
+      - name: Validate model routing modes and self-hosted selector
+        run: python scripts/verify_model_routing_modes_v2.py
+
       - name: Run cost-governor smoke test
         run: python scripts/smoke_cost_governor.py
 
@@ -99,6 +102,7 @@ jobs:
           name: jarvis-cost-routing-pilot
           path: |
             evidence/tool-registry-pilot.json
+            evidence/model-routing-modes-v2-verification.json
             evidence/config-readiness.json
             evidence/command-centre.snapshot.json
             evidence/module-federation-verification.json
