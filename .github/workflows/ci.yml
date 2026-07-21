@@ -72,6 +72,9 @@ jobs:
       - name: Validate project constitution, continuity and GitHub capability scout
         run: python scripts/verify_project_constitution_and_continuity_v1.py
 
+      - name: Validate completion tranche and screenshot candidate controls
+        run: python scripts/verify_completion_tranche_2026_07_21.py
+
       - name: Generate redacted configuration-readiness report
         run: python scripts/config_readiness.py --root . --output evidence/config-readiness.json
 
@@ -98,3 +101,4 @@ jobs:
             evidence/knowledge-fabric-local-pilot.json
             evidence/knowledge-fabric-predeploy-v2-verification.json
             evidence/project-constitution-continuity-v1-verification.json
+            evidence/completion-tranche-2026-07-21-verification.json
