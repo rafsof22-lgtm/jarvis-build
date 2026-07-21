@@ -23,17 +23,23 @@ def main() -> None:
     require(len(tracker["resolved_this_pass"]) == 5, "expected five bounded work packages")
     require(len(tracker["still_blocked"]) == 11, "external blocker set drifted")
     for item in tracker["resolved_this_pass"]:
+        require(item["state"] in {"IMPLEMENTED_NOT_INTEGRATED", "DONE_VERIFIED"}, "invalid bounded state")
         for path in item["evidence"]:
             require((ROOT / path).exists(), f"missing evidence path: {path}")
+
+    require(competency["runtime_state"] == "IMPLEMENTED_NOT_INTEGRATED", "competency truth boundary weakened")
     require(competency["release_gate"]["production_permission_granted"] is False, "OJT cannot grant production permission")
     require(sum(len(role["competency_scenarios"]) for role in competency["roles"]) == 8, "expected eight competency scenarios")
-    require("authoritative_balances_inferred\": False" not in controls, "invalid static report representation")
-    require("authoritative_balances_inferred" in controls and "False" in controls, "no-inference control missing")
+
+    require('"authoritative_balances_inferred": False' in controls, "no-inference result flag missing")
+    require("balance_status" in controls and "last_verified_at" in controls, "authoritative evidence checks missing")
     require("PROPOSAL_ONLY" in controls, "proposal-only remediation missing")
     require("resolution evidence is required" in lifecycle, "evidence-backed alert resolution missing")
+    require("alert_suppressions" in lifecycle and "expires_at" in lifecycle, "suppression lifecycle missing")
     require("permission IN ('public',?)" in benchmark, "permission filter missing")
     require("duplicate_of IS NULL" in benchmark, "duplicate suppression missing")
     require("contradiction_pairs" in benchmark, "contradiction retrieval missing")
+    require("NOT_CONNECTED" in benchmark and "NOT_EXECUTED_DEPENDENCY_NOT_SELECTED" in benchmark, "unconnected backend truth boundary missing")
     require(tests.count("    def test_") == 16, "expected sixteen deterministic tests")
 
     combined = json.dumps(tracker) + json.dumps(competency) + controls + lifecycle + benchmark + tests
