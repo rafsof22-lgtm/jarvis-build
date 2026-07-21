@@ -1,0 +1,56 @@
+{
+  "id": "JARVIS-ALL-PROGRESS-TRACKER-RECONCILIATION-V11",
+  "version": "11.0.0",
+  "snapshot_date": "2026-07-21",
+  "program_state": "ACTIVE_PROGRAM_NOT_100_PERCENT",
+  "baseline_main": "8d72b2771a3277e7ee58a183e4b2e6fce3c50819",
+  "chat_state": "VISIBLE_CHAT_CONTENT_INGESTED_AND_READY_FOR_CONTINUATION",
+  "supersedes": {
+    "path": "registry/trackers/all_progress_tracker_reconciliation_v10.json",
+    "state": "SUPERSEDED_NOT_DELETED",
+    "relationship": "v11 extends v10 with current-chat source ingestion"
+  },
+  "completed_this_pass": [
+    {
+      "work_id": "CURRENT-CHAT-VISIBLE-TRANSCRIPT",
+      "state": "DONE_VERIFIED_BOUNDED",
+      "scope": "Three user-visible messages available in active context plus a separately labelled derived timeline were preserved."
+    },
+    {
+      "work_id": "CURRENT-CHAT-SOURCE-MANIFEST",
+      "state": "DONE_VERIFIED",
+      "scope": "Transcript identity, exclusions, controls and exact export blocker are registered."
+    },
+    {
+      "work_id": "CURRENT-CHAT-REQUIREMENT-EXTRACTION",
+      "state": "DONE_VERIFIED_BOUNDED",
+      "scope": "Five requirements were mapped to artifacts, evidence, states, rollback and reasons without automatic canonical promotion."
+    },
+    {
+      "work_id": "CURRENT-CHAT-ORGANISATION-AND-HANDOFF",
+      "state": "DONE_VERIFIED_BOUNDED",
+      "scope": "Raw source, derived summary, requirement candidates, tracker and continuation route are separated and linked."
+    }
+  ],
+  "inherited_exact_gates": [
+    "P0-1-RECOVERY-CONSOLE",
+    "P0-2-TOKEN-ROTATION",
+    "P0-3-RAILWAY-HEALTH",
+    "P0-4-SHEETS-WEBHOOK",
+    "P0-5-FRESH-WORKFLOW-DISPATCH",
+    "P0-6-COBALT-HOST",
+    "P0-7-VTI-HUB-FEDERATION",
+    "LIVE-PROVIDER-PANEL",
+    "AUTHENTICATED-COMMAND-CENTRE-STAGING",
+    "MISSING-SOURCE-BYTES",
+    "PRODUCTION-PROMOTION-AND-OWNER-ACCEPTANCE"
+  ],
+  "new_exact_gate": {
+    "blocker_id": "CURRENT_CHAT_FULL_UI_EXPORT_REQUIRED",
+    "class": "USER_CHATGPT_SHARE_LINK_OR_FRESH_DATA_EXPORT_REQUIRED",
+    "owner": "USER",
+    "next_action": "Create a ChatGPT shared-conversation link or provide a fresh ChatGPT data export containing this conversation; then run byte-exact message-tree reconciliation."
+  },
+  "continuation_instruction": "Read canonical startup files, then v11 tracker, current-chat manifest, requirement candidates and transcript. Resume safe work from repository truth. Reconcile an exact ChatGPT export additively when available.",
+  "completion_assertion": "ACCESSIBLE_CURRENT_CHAT_CONTENT_INTEGRATED_AND_ORGANISED; FULL_CHATGPT_UI_TRANSCRIPT_NOT_PROVEN; PROGRAM_REMAINS_ACTIVE"
+}
