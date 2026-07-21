@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0.0",
+  "source_id": "POST-2026-06-25-PROJECT-CHAT-DELTA-V17",
+  "snapshot_date": "2026-07-22",
+  "received_archive": {
+    "name": "chatgpt-export-2026-06-25T03-06-22 (2) (1).7z",
+    "sha256": "fa61e528ae1ffbe1b8f5c2addc76dab0129264fc5c918fdfc4dd78a23964ac82",
+    "bytes": 165633933
+  },
+  "canonical_prior_archive_sha256": "fa61e528ae1ffbe1b8f5c2addc76dab0129264fc5c918fdfc4dd78a23964ac82",
+  "comparison": "EXACT_ARCHIVE_DUPLICATE",
+  "novel_export_bytes": 0,
+  "post_cutoff_delta_generated": false,
+  "state": "PENDING_INGEST",
+  "reason": "The newly available archive is byte-identical to the already verified 25 June 2026 export, so it contains no newer chats or edits.",
+  "verified_existing_denominator": {
+    "conversations": 2610,
+    "messages": 357835,
+    "parse_errors": 0
+  },
+  "exact_next_source": "A ChatGPT export created after 2026-06-25 or an explicit project-chat source pack containing later conversations.",
+  "privacy_boundary": "No chat bodies or attachments are committed by this registry.",
+  "truth_boundary": "This proves there is no delta in the re-uploaded archive. It does not prove that no chats changed in the live ChatGPT project after 25 June."
+}
