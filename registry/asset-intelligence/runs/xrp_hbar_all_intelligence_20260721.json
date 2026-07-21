@@ -1,0 +1,48 @@
+{
+  "run_id": "XRP-HBAR-ALL-INTELLIGENCE-20260721-001",
+  "run_date": "2026-07-21",
+  "mode": "ALL_INTELLIGENCE",
+  "state": "DONE_VERIFIED",
+  "scope": "First bounded current-source pass after the multi-asset and historical-matrix merges. Twelve official/current sources were reviewed: six XRP/XRPL/Ripple and six HBAR/Hedera/Hiero sources.",
+  "source_denominator": {"inventoried":12,"processed":12,"pending":0,"inaccessible":0,"xrp":6,"hbar":6},
+  "sources": [
+    {"source_id":"CUR-XRP-001","asset":"XRP","authority":"official_protocol","date":"2026-06-15","title":"XRP Ledger version 3.2.0","url":"https://xrpl.org/blog/2026/xrpld-3.2.0","finding":"Maintenance release, rippled-to-xrpld rename and fixes affecting vaults, lending, permissioned DEX, MPT and permissioned domains."},
+    {"source_id":"CUR-XRP-002","asset":"XRP","authority":"official_company","date":"2026-06-29","title":"XRPL Lending Protocol","url":"https://ripple.com/insights/the-xrpl-lending-protocol-bringing-credit-infrastructure-onchain/","finding":"Single Asset Vault and Lending Protocol are intended for institutional onchain credit but remain subject to validator approval."},
+    {"source_id":"CUR-XRP-003","asset":"XRP","authority":"official_company","date":"2026-06-09","title":"XRPL AI Starter Kit","url":"https://ripple.com/insights/xrpl-ai-starter-kit/","finding":"Starter kit supports agentic payments using XRP and RLUSD, including X402-oriented payment workflows."},
+    {"source_id":"CUR-XRP-004","asset":"XRP","authority":"official_company","date":"2026-03-26","title":"XRPL AI security programme","url":"https://ripple.com/insights/strengthening-xrp-ledger-security-with-ai-for-next-phase-of-growth/","finding":"Ripple described AI-assisted security testing, red-team work and higher amendment/code-change standards."},
+    {"source_id":"CUR-XRP-005","asset":"XRP","authority":"official_company","date":"2026-02-26","title":"XRPL ecosystem support changes","url":"https://ripple.com/insights/supporting-innovation-on-the-xrp-ledger/","finding":"Ripple reported more than USD 550 million deployed across XRPL ecosystem support and expanding regional builder programmes."},
+    {"source_id":"CUR-XRP-006","asset":"XRP","authority":"official_protocol","date":"2026-07-21","title":"XRPL amendment process","url":"https://xrpl.org/docs/concepts/networks-and-servers/amendments","finding":"Transaction-processing amendments require validator consensus and more than 80 percent support for two weeks before activation."},
+    {"source_id":"CUR-HBAR-001","asset":"HBAR","authority":"official_network","date":"2026-04-30","title":"Accenture joins Hedera Council","url":"https://hedera.com/blog/hedera-council-welcomes-accenture-to-advance-trusted-infrastructure-for-enterprise-ai/","finding":"Accenture joined the Council, will operate a consensus node and hold equal voting rights."},
+    {"source_id":"CUR-HBAR-002","asset":"HBAR","authority":"official_network","date":"2026-03-25","title":"McLaren Racing joins Hedera Council","url":"https://hedera.com/blog/mclaren-racing-joins-hedera-council-to-accelerate-digital-innovation/","finding":"McLaren joined the Council and described Hedera-powered fan, digital-asset and data-integrity use cases."},
+    {"source_id":"CUR-HBAR-003","asset":"HBAR","authority":"official_network","date":"2026-02-13","title":"FedEx joins Hedera Council","url":"https://hedera.com/blog/fedex-joins-hedera-council-to-support-the-future-of-digital-global-supply-chains/","finding":"FedEx joined the Council with a stated focus on trusted digital infrastructure for supply chains."},
+    {"source_id":"CUR-HBAR-004","asset":"HBAR","authority":"official_network","date":"2026-06-11","title":"Archax streaming cash flows on Hedera","url":"https://hedera.com/blog/archax-and-hedera-advance-tokenized-securities-with-real-time-streaming-cash-flows/","finding":"Archax announced near-real-time USDC interest distributions for tokenized securities on Hedera."},
+    {"source_id":"CUR-HBAR-005","asset":"HBAR","authority":"official_network","date":"2026-05-18","title":"Hedera Agent Kit v4","url":"https://hedera.com/blog/hedera-agent-kit-v4-policies-modular-packages-and-plugin-updates/","finding":"Agent Kit v4 introduced modular packages plus policy and hook controls intended for deterministic agent guardrails, payments and audit trails."},
+    {"source_id":"CUR-HBAR-006","asset":"HBAR","authority":"official_network","date":"2026-06-05","title":"Block stream migration notice","url":"https://hedera.com/blog/","finding":"Hedera announced block streams will replace record streams by default from September 2026 and identified a required mirror-node compatibility upgrade."}
+  ],
+  "claims": [
+    {"claim_id":"RUN-XRP-001","asset":"XRP","claim":"XRPL has a materially expanding institutional and agentic-finance feature set.","classification":"SUPPORTED_ECOSYSTEM_AND_INFRASTRUCTURE_SIGNAL","direct_demand_rating":"UNPROVEN_TO_PARTIAL","reason":"Features and tools exist or are being developed, but lending remains approval-dependent and actual XRP-denominated usage, balances, liquidity and fee effects were not measured in this run.","source_refs":["CUR-XRP-001","CUR-XRP-002","CUR-XRP-003"]},
+    {"claim_id":"RUN-XRP-002","asset":"XRP","claim":"XRPL security and operational maturity are improving.","classification":"SUPPORTED_WITH_ACTIVE_MIGRATION_RISK","direct_demand_rating":"INDIRECT","reason":"Recent releases and security programmes are positive, while urgent upgrades, prior defects and the xrpld migration create operational execution risk.","source_refs":["CUR-XRP-001","CUR-XRP-004","CUR-XRP-006"]},
+    {"claim_id":"RUN-HBAR-001","asset":"HBAR","claim":"Hedera enterprise governance and institutional application coverage expanded in 2026.","classification":"SUPPORTED_ECOSYSTEM_SIGNAL","direct_demand_rating":"UNPROVEN","reason":"Council additions and applications are evidenced, but this run did not establish resulting HBAR holdings, fees, staking demand or liquidity absorption.","source_refs":["CUR-HBAR-001","CUR-HBAR-002","CUR-HBAR-003","CUR-HBAR-004"]},
+    {"claim_id":"RUN-HBAR-002","asset":"HBAR","claim":"Hedera is building practical agent and tokenization infrastructure.","classification":"SUPPORTED_INFRASTRUCTURE_SIGNAL","direct_demand_rating":"UNPROVEN_TO_PARTIAL","reason":"Agent Kit and tokenized cash-flow functions are concrete, but direct HBAR value capture requires usage, fee and balance evidence.","source_refs":["CUR-HBAR-004","CUR-HBAR-005"]}
+  ],
+  "recommendations": [
+    "Do not raise XRP or HBAR extreme-price probabilities solely from product releases, council membership or ecosystem funding.",
+    "Next XRP pass should measure amendment activation, XRP-versus-RLUSD payment usage, vault/lending liquidity, DEX depth, custody/fund flows, circulating float and verified institutional XRP requirements.",
+    "Next HBAR pass should measure network fees paid in HBAR, staking participation, treasury distributions, active contract/account growth, stablecoin and tokenized-asset settlement, liquidity and enterprise production volumes.",
+    "Add protocol release, amendment, regulatory, market, chain, GitHub and media adapters before claiming automated current coverage.",
+    "Calibrate milestone forecasts only after predictions are linked to dated outcomes and direct-demand evidence."
+  ],
+  "milestone_effect": {
+    "XRP_10000":"NO_VERIFIED_UPLIFT_FROM_THIS_BOUNDED_RUN",
+    "HBAR_100":"NO_VERIFIED_UPLIFT_FROM_THIS_BOUNDED_RUN",
+    "reason":"The run validates ecosystem progress, not the capital inflow, float absorption and direct-token-demand conditions required for extreme price targets."
+  },
+  "knowledge_fabric": {
+    "write_mode":"append_only_repository_evidence",
+    "live_backend_write":"NOT_CONNECTED",
+    "records_created":{"sources":12,"claims":4,"recommendations":5,"run_manifests":1},
+    "required_next_state":"Connect approved persistent backend and independently verify idempotent writes, permissions, retrieval and rollback."
+  },
+  "limitations": ["Bounded 12-source official/current pass, not the maximum 100-source apex budget.","No live paid data, exchange account, private provider, wallet, trade or money movement.","No current price forecast was accepted without calibrated evidence.","Source page statements are treated as issuer/network claims unless independently corroborated."],
+  "rollback":"Revert this run record only through a superseding evidence record; preserve the source denominator and URLs."
+}
