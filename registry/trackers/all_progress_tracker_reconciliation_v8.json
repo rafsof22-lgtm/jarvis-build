@@ -1,0 +1,60 @@
+{
+  "id": "JARVIS-ALL-PROGRESS-TRACKER-RECONCILIATION-V8",
+  "version": "8.0.0",
+  "snapshot_date": "2026-07-21",
+  "program_state": "ACTIVE_PROGRAM_NOT_100_PERCENT",
+  "baseline_main": "ab325ca6fa8a206313f1593abe085c749742f346",
+  "resolved_this_pass": [
+    {
+      "work_id": "COMMAND-CENTRE-PROVIDER-EVIDENCE-ASSESSMENT",
+      "state": "IMPLEMENTED_NOT_INTEGRATED",
+      "evidence": ["jarvis_command_centre/operational_controls_v1.py", "tests/test_operational_hardening_v8.py"],
+      "scope": "Authoritative-timestamp freshness checks, numeric allowance percentage, exhaustion risk and no inferred balances."
+    },
+    {
+      "work_id": "COMMAND-CENTRE-ALERT-LIFECYCLE",
+      "state": "IMPLEMENTED_NOT_INTEGRATED",
+      "evidence": ["jarvis_command_centre/alert_lifecycle_v1.py", "tests/test_operational_hardening_v8.py"],
+      "scope": "Reasoned suppression, expiry-aware filtering, evidence-backed resolution and disappeared-alert reconciliation."
+    },
+    {
+      "work_id": "COMMAND-CENTRE-PROPOSAL-ONLY-REMEDIATION",
+      "state": "IMPLEMENTED_NOT_INTEGRATED",
+      "evidence": ["jarvis_command_centre/operational_controls_v1.py", "registry/ojt/command_centre_knowledge_fabric_competency_v1.json"],
+      "scope": "Risk-classified remediation cards with approval, evidence and rollback requirements and no provider mutation."
+    },
+    {
+      "work_id": "KNOWLEDGE-FABRIC-BOUNDED-BENCHMARK-V2",
+      "state": "DONE_VERIFIED",
+      "evidence": ["src/jarvis_knowledge_fabric_benchmark_v2.py", "tests/test_operational_hardening_v8.py"],
+      "scope": "Explicit local fixture tests permission filtering, freshness order, duplicate suppression, contradiction retrieval, lexical precision and recall."
+    },
+    {
+      "work_id": "COMMAND-CENTRE-KNOWLEDGE-FABRIC-OJT",
+      "state": "IMPLEMENTED_NOT_INTEGRATED",
+      "evidence": ["registry/ojt/command_centre_knowledge_fabric_competency_v1.json"],
+      "scope": "Eight competency scenarios and automatic-failure conditions."
+    }
+  ],
+  "still_blocked": [
+    {"blocker_id":"P0-1-RECOVERY-CONSOLE","class":"OWNER_RECOVERY_CONSOLE_REQUIRED"},
+    {"blocker_id":"P0-2-TOKEN-ROTATION","class":"OWNER_PROVIDER_ACTION_REQUIRED"},
+    {"blocker_id":"P0-3-RAILWAY-HEALTH","class":"RAILWAY_DOMAIN_AND_SECRET_REFERENCE_REQUIRED"},
+    {"blocker_id":"P0-4-SHEETS-WEBHOOK","class":"GOOGLE_APPS_SCRIPT_AND_RAILWAY_CONFIGURATION_REQUIRED"},
+    {"blocker_id":"P0-5-FRESH-WORKFLOW-DISPATCH","class":"GITHUB_WORKFLOW_DISPATCH_REQUIRED"},
+    {"blocker_id":"P0-6-COBALT-HOST","class":"PROTECTED_HOST_CREDENTIAL_REQUIRED"},
+    {"blocker_id":"P0-7-VTI-HUB-FEDERATION","class":"CONNECTED_STAGING_AND_SIGNING_SECRET_REQUIRED"},
+    {"blocker_id":"LIVE-PROVIDER-PANEL","class":"PROVIDER_INVENTORY_CREDENTIAL_COST_PRIVACY_AND_EXECUTION_APPROVAL_REQUIRED"},
+    {"blocker_id":"AUTHENTICATED-COMMAND-CENTRE-STAGING","class":"AUTHENTICATED_STAGING_DEPLOYMENT_REQUIRED"},
+    {"blocker_id":"MISSING-SOURCE-BYTES","class":"SOURCE_BYTES_REQUIRED"},
+    {"blocker_id":"PRODUCTION-PROMOTION-AND-OWNER-ACCEPTANCE","class":"ALL_PRIOR_GATES_AND_OWNER_ACCEPTANCE_REQUIRED"}
+  ],
+  "connected_gaps": [
+    "Authoritative provider billing/usage adapters",
+    "Authenticated Command Centre staging",
+    "PostgreSQL/pgvector benchmark and permission proof",
+    "Vector adapter benchmark after dependency selection",
+    "Human operator competency certification"
+  ],
+  "completion_assertion": "Five repository-local work packages advanced. Provider balances, authenticated staging, connected vector/PostgreSQL infrastructure and production operation remain unproven."
+}

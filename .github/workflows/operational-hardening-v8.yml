@@ -1,0 +1,37 @@
+name: Operational Hardening and Knowledge Benchmark V8
+
+on:
+  pull_request:
+    paths:
+      - 'jarvis_command_centre/operational_controls_v1.py'
+      - 'jarvis_command_centre/alert_lifecycle_v1.py'
+      - 'src/jarvis_knowledge_fabric_benchmark_v2.py'
+      - 'tests/test_operational_hardening_v8.py'
+      - 'registry/ojt/command_centre_knowledge_fabric_competency_v1.json'
+      - 'registry/trackers/all_progress_tracker_reconciliation_v8.json'
+      - 'scripts/verify_operational_hardening_v8.py'
+      - '.github/workflows/operational-hardening-v8.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile modules and verifier
+        run: python -m compileall -q jarvis_command_centre/operational_controls_v1.py jarvis_command_centre/alert_lifecycle_v1.py src/jarvis_knowledge_fabric_benchmark_v2.py tests/test_operational_hardening_v8.py scripts/verify_operational_hardening_v8.py
+      - name: Run sixteen deterministic tests
+        run: python -m unittest -v tests.test_operational_hardening_v8
+      - name: Validate registries
+        run: |
+          python -m json.tool registry/ojt/command_centre_knowledge_fabric_competency_v1.json >/dev/null
+          python -m json.tool registry/trackers/all_progress_tracker_reconciliation_v8.json >/dev/null
+      - name: Verify truth and evidence gates
+        run: python scripts/verify_operational_hardening_v8.py

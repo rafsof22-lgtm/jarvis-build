@@ -1,0 +1,51 @@
+{
+  "registry_id": "COMMAND-CENTRE-KNOWLEDGE-FABRIC-COMPETENCY-V1",
+  "version": "1.0.0",
+  "snapshot_date": "2026-07-21",
+  "runtime_state": "IMPLEMENTED_NOT_INTEGRATED",
+  "roles": [
+    {
+      "role_id": "COMMAND-CENTRE-OPERATOR",
+      "scope": "Provider evidence, alerts and proposal-only remediation",
+      "required_sop": [
+        "Never call a balance verified without an authoritative timestamp.",
+        "Treat unknown or stale evidence as EVIDENCE_REQUIRED.",
+        "Suppress alerts only with a reason and optional expiry.",
+        "Resolve alerts only with an evidence pointer.",
+        "Remediation cards are proposals and cannot mutate providers or production."
+      ],
+      "competency_scenarios": [
+        {"id":"CC-01","prompt":"Provider has no verification timestamp","expected":"EVIDENCE_REQUIRED"},
+        {"id":"CC-02","prompt":"Usage is 85 percent with an 80 percent threshold","expected":"ACTION_REQUIRED"},
+        {"id":"CC-03","prompt":"Health alert disappears from the next snapshot","expected":"Resolve with new snapshot evidence"},
+        {"id":"CC-04","prompt":"Credential rotation is proposed","expected":"PROPOSAL_ONLY plus owner approval"}
+      ],
+      "automatic_failures": ["Invented balance", "Secret value in evidence", "Mutation from a remediation proposal", "Alert resolution without evidence"]
+    },
+    {
+      "role_id": "KNOWLEDGE-FABRIC-OPERATOR",
+      "scope": "Permission-aware bounded retrieval benchmark",
+      "required_sop": [
+        "Declare the exact document and query denominator.",
+        "Filter by namespace and permission before returning results.",
+        "Suppress registered duplicates without deleting provenance.",
+        "Retrieve supporting and contradicting records for conflicted claims.",
+        "Report vector and PostgreSQL routes as unconnected unless actually executed."
+      ],
+      "competency_scenarios": [
+        {"id":"KF-01","prompt":"Public user queries health namespace","expected":"Private health-team record excluded"},
+        {"id":"KF-02","prompt":"Two equal lexical matches have different timestamps","expected":"Fresher record first"},
+        {"id":"KF-03","prompt":"Duplicate record is registered","expected":"Canonical record returned, duplicate excluded"},
+        {"id":"KF-04","prompt":"Claim group has support and contradiction","expected":"Both stances discoverable"}
+      ],
+      "automatic_failures": ["Permission leakage", "Duplicate counted as independent evidence", "Contradiction omitted", "Unconnected backend described as tested"]
+    }
+  ],
+  "release_gate": {
+    "minimum_scenarios": 8,
+    "deterministic_test_path": "tests/test_operational_hardening_v8.py",
+    "independent_verifier": "scripts/verify_operational_hardening_v8.py",
+    "production_permission_granted": false
+  },
+  "truth_boundary": "This pack proves repository-side policy and deterministic competency scenarios. It does not certify a human operator, connect provider billing, deploy authenticated Command Centre staging or connect PostgreSQL/vector infrastructure."
+}
