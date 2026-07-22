@@ -1,0 +1,124 @@
+{
+  "schema_version": "1.0.0",
+  "registry_id": "JARVIS-CHATGPT-ATTACHMENT-INTAKE-20260722",
+  "snapshot_date_melbourne": "2026-07-22",
+  "source": {
+    "provider": "Google Drive",
+    "folder_title": "chatgpt_exports",
+    "archive_title": "chatgpt-attachments.zip",
+    "archive_sha256": "9544b9cefe7651f95f59abcb47093f028b09670830c32c0e7080dccd12761445",
+    "archive_size_bytes": 284044802
+  },
+  "archive_integrity": {
+    "state": "SAFE_METADATA_AND_HASH_PASS_COMPLETE",
+    "zip_crc_pass": true,
+    "unsafe_paths": 0,
+    "symlinks": 0,
+    "executable_payloads": 0,
+    "read_errors": 0
+  },
+  "denominator": {
+    "members": 240,
+    "directories": 17,
+    "files": 223,
+    "attachment_chat_folders": 16,
+    "uncompressed_bytes": 941083665,
+    "unique_content_hashes": 182
+  },
+  "content_classes": {
+    "TEXT_OR_CODE": 95,
+    "IMAGE": 108,
+    "RAW_BINARY": 5,
+    "DOCUMENT": 9,
+    "OTHER": 1,
+    "NESTED_ARCHIVE": 5
+  },
+  "duplicates": {
+    "exact_duplicate_groups": 30,
+    "files_in_duplicate_groups": 71,
+    "redundant_copies": 41,
+    "estimated_redundant_uncompressed_bytes": 340494190,
+    "deletion_performed": false
+  },
+  "machine_readable_evidence": {
+    "three_pass_reconciliation_matrix": {
+      "records": 3014,
+      "invalid_lines": 0,
+      "implementation_state": "SPEC_ONLY_ALL",
+      "test_state": "NOT_RUN_ALL",
+      "independent_verification": "ABSENT_ALL"
+    },
+    "historical_requirement_promotion_candidates": {
+      "records": 2719,
+      "invalid_lines": 0,
+      "state": "PROPOSED_FOR_CANONICAL_PROMOTION"
+    },
+    "expanded_new_requirement_review_register": {
+      "records": 671,
+      "invalid_lines": 0,
+      "states": {
+        "SUPERSEDED_NOT_DELETED": 394,
+        "SPEC_ONLY": 156,
+        "BLOCKED": 121
+      }
+    },
+    "manual_conflict_resolution_register": {
+      "records": 174,
+      "invalid_lines": 0,
+      "state": "RESOLVED_FOR_CANONICAL_REVIEW"
+    }
+  },
+  "historical_workspace_evidence": {
+    "source_archive_name": "KIMI_WORKSPACE_RAW.7z",
+    "recorded_archive_entries": 4070,
+    "recorded_stream_files": 3314,
+    "recorded_directories": 667,
+    "recorded_archive_bytes": 417631661,
+    "partial_raw_copy_count": 5,
+    "partial_raw_each_bytes": 75000000,
+    "partial_raw_exact_duplicate": true,
+    "partial_raw_line_count": 1505531,
+    "partial_raw_state": "TRUNCATED_MIXED_CONTENT_RECOVERY_STREAM_NOT_COMPLETE_EXTRACTION"
+  },
+  "nested_archives": {
+    "count": 5,
+    "all_crc_pass": true,
+    "states": [
+      "historical_skill_bundle",
+      "redacted_security_scan",
+      "cross_repository_readiness",
+      "xrp_hbar_test_output_before",
+      "xrp_hbar_test_output_after"
+    ],
+    "xrp_hbar_test_progression": {
+      "earlier": "19 pass / 3 fail",
+      "later": "22 pass / 0 fail",
+      "runtime_production_proof": false
+    }
+  },
+  "claim_reconciliation": {
+    "historical_100_percent_claim_found": true,
+    "current_treatment": "NEEDS_PROOF",
+    "reason": "Current machine registers show specification-only implementation, tests not run and no independent verification for 3014 groups."
+  },
+  "privacy_boundary": {
+    "content_bodies_semantically_processed": [
+      "selected Jarvis governance/build reports",
+      "selected Jarvis JSONL registers",
+      "nested non-secret evidence files"
+    ],
+    "content_bodies_not_semantically_processed": [
+      "Apollo/contact CSV bodies",
+      "tax/SMSF PDFs",
+      "legal/health/personal documents",
+      "property PDFs and images"
+    ],
+    "raw_source_modified": false
+  },
+  "blocked_step": {
+    "state": "BLOCKED_AT_EXACT_STEP",
+    "step": "ATTACHMENT_TO_CONVERSATION_AND_MESSAGE_LINKAGE",
+    "reason": "The new ChatGPT JSONL remains zero bytes in Google Drive.",
+    "resume_action": "When JSONL size becomes non-zero, download, hash, parse and map each attachment folder suffix and file reference to conversation/message IDs before delta reconciliation."
+  }
+}
