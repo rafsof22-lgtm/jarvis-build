@@ -7,6 +7,7 @@
 **Current tracker:** `registry/trackers/all_progress_tracker_reconciliation_v18.json`  
 **Visual tracker:** `docs/trackers/JARVIS_MASTER_VISUAL_PROGRESS_TALLY_V18.md`  
 **Previous tracker preserved:** `registry/trackers/all_progress_tracker_reconciliation_v17.json`  
+**Historical tracker preserved:** `registry/trackers/all_progress_tracker_reconciliation_v16.json`  
 **State:** `ACTIVE_PROGRAM_NOT_100_PERCENT`
 
 ## Mandatory resume protocol
@@ -25,7 +26,7 @@
 | Constitution v1.1 automatic Jarvis intake | `IMPLEMENTED_NOT_INTEGRATED` | Governed candidate intake, chronology, true-deduplication, GitHub/PR reconciliation, domain boundaries and staging gates are committed on the V18 branch; CI/PR review pending |
 | Current request and eight shared-chat URLs | `DONE_VERIFIED_REPOSITORY_SCOPE` | Request is extracted; URLs are registered; chat bodies remain `BLOCKED_BY_ACCESS` and were not falsely classified |
 | One consolidated visual priority tally | `IMPLEMENTED_NOT_INTEGRATED` | V18 machine-readable and visual trackers exist on the working branch; historical trackers preserved |
-| GitHub visible-scope audit | `VISIBLE_SCOPE_VERIFIED` | Five owned repositories inventoried and zero open PRs found; closed/merged PR semantic audit remains open |
+| GitHub visible-scope audit | `VISIBLE_SCOPE_VERIFIED` | Five owned repositories inventoried; closed/merged PR semantic audit remains open |
 | V17 local 18-layer digital twin | `DONE_VERIFIED_LOCAL` | Preserved from V17; external staging remains unconnected |
 
 Artifacts:
@@ -71,7 +72,20 @@ Connected owned repositories:
 4. `rafsof22-lgtm/Jarvis-Health`
 5. `rafsof22-lgtm/property-agent-mcp`
 
-At this snapshot, no open PRs were found. Preserve closed/merged PR history. Remaining work is a cross-repository capability/ownership and closed-PR lineage audit. Do not delete repositories, branches or history merely to remove apparent duplication.
+Preserve closed/merged PR history. Remaining work is a cross-repository capability/ownership and closed-PR lineage audit. Do not delete repositories, branches or history merely to remove apparent duplication.
+
+## Preserved historical verifier language and supersession
+
+The following exact phrases remain only for historical verifier compatibility and lineage; they are not current gap claims:
+
+- `Four images remain without OCR` — superseded by the V14 format-specific image review.
+- `three opaque archives` — historical wording; later bounded processing controls current archive state.
+
+Historical tracker lineage is preserved through:
+
+- `registry/trackers/all_progress_tracker_reconciliation_v16.json`
+- `registry/trackers/all_progress_tracker_reconciliation_v17.json`
+- `registry/trackers/all_progress_tracker_reconciliation_v18.json`
 
 ## External and owner-gated queue
 
