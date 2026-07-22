@@ -1,0 +1,207 @@
+{
+  "id": "JARVIS-ALL-PROGRESS-TRACKER-RECONCILIATION-V19",
+  "version": "19.0.0",
+  "snapshot_date": "2026-07-22",
+  "baseline_main": "5d37cdbafbb334ac664db305301336409e86c535",
+  "working_branch": "jarvis/v19-master-kb-export-unblock-20260722",
+  "supersedes_tracker": "registry/trackers/all_progress_tracker_reconciliation_v18.json",
+  "program_state": "ACTIVE_PROGRAM_NOT_100_PERCENT",
+  "calculation_rule": "Percentages are bounded workstream estimates, not universal completion claims. Repository intake readiness can be high while source ingestion remains blocked by missing archive bytes.",
+  "completed_this_pass": [
+    {
+      "work_id": "MASTER-KB-EXPORT-DISCOVERY-V19",
+      "state": "DONE_VERIFIED_REPOSITORY_SCOPE",
+      "scope": "File Library and connected GitHub were searched for the referenced ChatGPT archive and reconstruction manifests. References were found; archive bytes were not.",
+      "evidence": ["registry/source-accounting/chatgpt_kb_export_unblock_v19.json"]
+    },
+    {
+      "work_id": "MASTER-KB-SECURE-INTAKE-V19",
+      "state": "IMPLEMENTED_NOT_INTEGRATED",
+      "scope": "Secure JSON/ZIP/optional-7z intake, hashing, safe archive inspection, role-separated extraction, reconciliation, classification candidates and deterministic delta outputs implemented.",
+      "evidence": ["scripts/chatgpt_kb_intake_v1.py", "tests/test_chatgpt_kb_intake_v1.py"]
+    },
+    {
+      "work_id": "MASTER-KB-INTEGRITY-LEDGERS-V19",
+      "state": "IMPLEMENTED_NOT_INTEGRATED",
+      "scope": "Nine Master ChatGPT KB integrity, lineage, privacy, rollback, reconciliation and next-action ledger templates implemented.",
+      "evidence": ["scripts/create_kb_integrity_ledgers.py"]
+    }
+  ],
+  "priority_tally": [
+    {
+      "priority": "P0",
+      "workstream": "Master ChatGPT KB export intake and delta pipeline",
+      "progress_percent": 92,
+      "state": "BLOCKED_BY_ACCESS",
+      "proven": "Secure deterministic intake, delta comparison, integrity ledgers, synthetic tests, verifier and runbook are repository-implemented.",
+      "gap": "No newest export ZIP/conversations.json is accessible, and the prior raw archive/index is not available through connected sources.",
+      "next_action": "Upload the newest original ChatGPT export ZIP generated after 2026-06-25; also upload the prior archive or preserved conversation index if available for strongest delta proof."
+    },
+    {
+      "priority": "P0",
+      "workstream": "Source denominator and post-25-June delta",
+      "progress_percent": 88,
+      "state": "PENDING_INGEST",
+      "proven": "Historical denominator is 2,610 conversations and 357,835 messages; the ingestion and delta machinery is ready.",
+      "gap": "Archive bytes required to calculate a new source denominator and content delta are absent.",
+      "next_action": "Run V19 intake immediately after source upload, reconcile counts, then compare conversation IDs and message hashes."
+    },
+    {
+      "priority": "P0",
+      "workstream": "Eight shared ChatGPT conversations",
+      "progress_percent": 35,
+      "state": "BLOCKED_BY_ACCESS",
+      "proven": "Eight URLs, access failures and required extraction fields are registered.",
+      "gap": "Bodies, chronology and attachments are inaccessible.",
+      "next_action": "Recover through the newest export or explicit transcript/source pack; do not infer content from URLs."
+    },
+    {
+      "priority": "P0",
+      "workstream": "83 XRP Tracking New direct-chat classification",
+      "progress_percent": 30,
+      "state": "BLOCKED_BY_ACCESS",
+      "proven": "83 conversations and 32,239 messages are denominator-mapped; full-content classification routing is now executable.",
+      "gap": "Direct bodies remain unavailable.",
+      "next_action": "After intake, reconcile all 83 chats and extract requests, responses, claims, catalysts, probabilities, conflicts and implementation deltas."
+    },
+    {
+      "priority": "P0",
+      "workstream": "Tax direct reconstruction",
+      "progress_percent": 23,
+      "state": "PENDING_INGEST",
+      "proven": "8 conversations and 8,672 messages are mapped; separate legal/tax review controls exist.",
+      "gap": "Direct bodies and referenced documents are unavailable.",
+      "next_action": "Extract as a distinct batch and verify current assertions against official Australian sources and professional-review gates."
+    },
+    {
+      "priority": "P0",
+      "workstream": "Active Trust direct reconstruction",
+      "progress_percent": 21,
+      "state": "PENDING_INGEST",
+      "proven": "17 conversations and 11,478 messages are mapped.",
+      "gap": "Direct bodies, deed dependencies and adviser-review evidence are unavailable.",
+      "next_action": "Extract separately, preserve document dependencies and cross-link without merging legal domains."
+    },
+    {
+      "priority": "P0",
+      "workstream": "Finance Planning to AI CFO registry",
+      "progress_percent": 19,
+      "state": "PENDING_INGEST",
+      "proven": "132 conversations and 17,356 messages are mapped; AI CFO and Bill CFO boundaries exist.",
+      "gap": "Direct chat-level requirements are not extracted.",
+      "next_action": "Create entity, account, cash-flow, portfolio, tax, risk, workflow, approval and evidence registries after intake."
+    },
+    {
+      "priority": "P0",
+      "workstream": "Financial New to AI CFO registry",
+      "progress_percent": 21,
+      "state": "PENDING_INGEST",
+      "proven": "12 conversations and 8,835 messages are mapped.",
+      "gap": "Direct overlap and supersession against Finance Planning are unclassified.",
+      "next_action": "Extract independently, then deduplicate semantically with lineage and cross-links."
+    },
+    {
+      "priority": "P0",
+      "workstream": "Six Longevity conversations",
+      "progress_percent": 25,
+      "state": "PENDING_INGEST",
+      "proven": "6 conversations and 2,614 messages are mapped; restricted-health controls exist.",
+      "gap": "Direct bodies and attachments are unavailable.",
+      "next_action": "Extract under privacy, consent, evidence-tier, non-diagnostic and clinical/device approval controls."
+    },
+    {
+      "priority": "P0",
+      "workstream": "Attachment and historical binary recovery",
+      "progress_percent": 62,
+      "state": "IN_PROGRESS",
+      "proven": "Referenced filenames and required attachment pointers are registered; V19 intake detects attachment references.",
+      "gap": "The raw export and some referenced binaries remain absent.",
+      "next_action": "Build the attachment-reference graph from the supplied export, hash recoverable binaries and record irrecoverable items with reasons."
+    },
+    {
+      "priority": "P1",
+      "workstream": "XRP/HBAR continuous intelligence update engine",
+      "progress_percent": 67,
+      "state": "INTEGRATED_STAGING",
+      "proven": "Dedicated service contracts, source-budget acceptance logic and historical tracking requirements exist.",
+      "gap": "No current full 50-100-source connected staging run or live probability refresh has been proven.",
+      "next_action": "Retain paper-first research mode; run only after approved source providers and staging credentials are available."
+    },
+    {
+      "priority": "P1",
+      "workstream": "Canonical constitution, Mammoth framework and tracker consolidation",
+      "progress_percent": 99,
+      "state": "DONE_VERIFIED",
+      "proven": "V18 constitution, Mammoth framework, execution plan and blocker register are merged; V19 adds the source-intake implementation and updated tracker.",
+      "gap": "Source-complete specification lock still depends on the missing export.",
+      "next_action": "Merge V19 only after CI passes, then refresh the framework from the ingested delta."
+    },
+    {
+      "priority": "P1",
+      "workstream": "GitHub repository and PR reconciliation",
+      "progress_percent": 82,
+      "state": "IN_PROGRESS",
+      "proven": "Five repositories are inventoried and V18/V19 changes use tested PR workflows.",
+      "gap": "Full closed-PR semantic lineage and archival recommendations remain.",
+      "next_action": "Continue non-destructive capability and closed-PR lineage audit after source-lock work."
+    },
+    {
+      "priority": "P1",
+      "workstream": "Bill CFO and Jarvis Health module integration",
+      "progress_percent": 72,
+      "state": "INTEGRATED_STAGING",
+      "proven": "Service isolation, locators, health controls and synthetic journeys are repository-defined.",
+      "gap": "Authenticated provider routes and end-to-end external proof are absent.",
+      "next_action": "Keep roots and data boundaries isolated until credentials, privacy authority and staging endpoints are approved."
+    },
+    {
+      "priority": "P1",
+      "workstream": "Command Centre and 18-layer local digital twin",
+      "progress_percent": 88,
+      "state": "INTEGRATED_STAGING",
+      "proven": "All 18 layers are exercised locally with rollback and zero-spend controls.",
+      "gap": "Authenticated external staging is not connected.",
+      "next_action": "Approve endpoints, IAM, credentials, budgets, observability and rollback ownership before connection."
+    },
+    {
+      "priority": "P2",
+      "workstream": "External staging federation",
+      "progress_percent": 61,
+      "state": "BLOCKED_AT_EXACT_STEP",
+      "proven": "Repository contracts and local tests exist.",
+      "gap": "Provider configuration, secret references, domains, databases and canary authority are missing.",
+      "next_action": "Execute each provider-specific blocker only after the named owner supplies the required access and approval."
+    },
+    {
+      "priority": "P5",
+      "workstream": "Controlled production promotion",
+      "progress_percent": 10,
+      "state": "NOT_AUTHORISED",
+      "proven": "Production gates are constitutionally defined.",
+      "gap": "Source lock, staging, security/privacy, budget, rollback and owner acceptance are incomplete.",
+      "next_action": "Do not promote until all prior gates pass or are explicitly waived with residual risk."
+    }
+  ],
+  "global_controls": {
+    "raw_archive_preserved": true,
+    "source_hash_required": true,
+    "safe_archive_extraction": true,
+    "conversation_id_primary_dedupe": true,
+    "message_hash_change_detection": true,
+    "missing_conversation_is_review_not_deletion": true,
+    "full_content_classification": true,
+    "ambiguous_review_required": true,
+    "secret_flagging_required": true,
+    "no_raw_sensitive_content_in_public_repo": true,
+    "no_false_zero_gap_claim": true,
+    "external_staging_owner_gated": true,
+    "production_owner_gated": true
+  },
+  "exact_unblock_inputs": [
+    "Newest original ChatGPT data-export ZIP generated after 2026-06-25 or conversations.json.",
+    "Prior raw archive or preserved conversation_index.jsonl for strongest delta proof, if available.",
+    "Explicit transcript/source packs for the eight inaccessible shared conversations if they are absent from the export.",
+    "Provider-approved staging endpoints, IAM/service identities, secret references, databases, budgets and rollback owners."
+  ],
+  "truth_boundary": "V19 implements and tests the Master ChatGPT KB source-intake and delta controls. It does not process archive bytes that are not accessible, reconstruct hidden chats, connect external staging or authorise production."
+}
