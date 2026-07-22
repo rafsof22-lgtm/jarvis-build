@@ -50,7 +50,8 @@ def main() -> None:
         for row in tracker.get("priority_tally", [])
     )
     checks["percent_ranges"] = all(0 <= row.get("progress_percent", -1) <= 100 for row in tracker.get("priority_tally", []))
-    checks["xrp_source_target_truth"] = "50-100-source production run" in tracker.get("truth_boundary", "")
+    truth_boundary = tracker.get("truth_boundary", "")
+    checks["xrp_source_target_truth"] = "50-100-source" in truth_boundary and "live XRP/HBAR run" in truth_boundary
     checks["production_not_authorised"] = any(
         row.get("state") == "NOT_AUTHORISED" for row in tracker.get("priority_tally", [])
     )
@@ -63,7 +64,16 @@ def main() -> None:
     checks["visual_has_xrp_contract"] = "## XRP/HBAR update-engine acceptance contract" in visual
     checks["visual_has_exact_blockers"] = "## Exact blocker queue" in visual
     checks["continuity_points_to_v18"] = "all_progress_tracker_reconciliation_v18.json" in continuity
+    checks["continuity_preserves_v16_v17_lineage"] = all(
+        name in continuity for name in [
+            "all_progress_tracker_reconciliation_v16.json",
+            "all_progress_tracker_reconciliation_v17.json",
+        ]
+    )
     checks["continuity_access_boundary"] = "BLOCKED_BY_ACCESS" in continuity
+    checks["legacy_verifier_language_preserved"] = all(
+        phrase in continuity for phrase in ["Four images remain without OCR", "three opaque archives"]
+    )
 
     report = {
         "status": "PASS" if all(checks.values()) else "FAIL",
