@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0.0",
+  "batch_id": "JARVIS-V18-VISIBLE-INTAKE-20260722",
+  "snapshot_date": "2026-07-22",
+  "source_scope": "Current user request, eight supplied ChatGPT share URLs, available File Library evidence, five connected GitHub repositories and current repository state.",
+  "truth_boundary": "The eight share URLs were registered but their chat bodies were not accessible through the available fetch route. They are not classified, extracted or integrated until their content is supplied through an accessible export or explicit chat pack.",
+  "current_request": {
+    "source_id": "REQ-JARVIS-V18-20260722-001",
+    "source_type": "user_request",
+    "state": "EXTRACTED",
+    "requirements": [
+      "Continue the Jarvis reconstruction and complete the highest-priority safe remaining work.",
+      "Consolidate Jarvis-related chats chronologically into correct framework placements without true duplicates.",
+      "Maintain one visual, prioritised progress tally for all remaining work.",
+      "Audit and organise all accessible GitHub repositories and pull requests without false zero-gap claims.",
+      "Update the Jarvis constitution so accessible Jarvis-build content is automatically considered for governed integration.",
+      "Directly classify the 83 XRP Tracking New conversations when their bodies are available.",
+      "Preserve XRP/HBAR update-trigger logic, broad intelligence gathering, evidence ranking, tracking tables and probability outputs.",
+      "Keep Bill CFO and Jarvis Health integrations isolated and mapped to appropriate modules.",
+      "Reconstruct Tax and Active Trust as separate legal/tax batches.",
+      "Reconstruct Finance Planning and Financial New into isolated AI CFO registries.",
+      "Reconstruct six Longevity conversations under restricted-health controls.",
+      "Recover referenced attachments and historical binaries.",
+      "Ingest a genuinely newer ChatGPT export.",
+      "Connect Command Centre and the 18-layer digital twin only after staging endpoints, IAM, credentials, budgets and rollback ownership are approved."
+    ]
+  },
+  "share_links": [
+    "https://chatgpt.com/share/e/6a5ffe55-395c-8001-9da6-a165c0cb9e9d",
+    "https://chatgpt.com/share/e/6a5ffe91-5bc8-8001-92d1-f2d91bc4122d",
+    "https://chatgpt.com/share/e/6a5ffec9-92fc-8001-9526-51fe53e55c59",
+    "https://chatgpt.com/share/e/6a5fff39-1024-8001-9112-de996db2be4e",
+    "https://chatgpt.com/share/e/6a5fff57-d9b8-8001-b3b3-41739822d8e3",
+    "https://chatgpt.com/share/e/6a5fff7a-6e7c-8001-b91b-c752d056932c",
+    "https://chatgpt.com/share/e/6a5fff94-e558-8001-bd2d-d70aed26e082",
+    "https://chatgpt.com/share/e/6a5fffb7-8814-8001-ae06-c64cfe6f58a4"
+  ],
+  "share_link_state": {
+    "count": 8,
+    "state": "BLOCKED_BY_ACCESS",
+    "fetch_result": "Access/cache failure through available web route.",
+    "minimum_unblock": "Supply a genuinely newer ChatGPT export containing the conversations or upload an explicit chat/source pack with full bodies and attachments.",
+    "next_pipeline": "NEW -> QUEUED -> EXTRACT -> INDEX -> LINK -> READY -> VERIFIED"
+  },
+  "connected_github_repositories": [
+    {"repository":"rafsof22-lgtm/jarvis-build","role":"canonical governance, source reconstruction, registries and Command Centre"},
+    {"repository":"rafsof22-lgtm/hub","role":"XRP/HBAR intelligence and federation event consumer"},
+    {"repository":"rafsof22-lgtm/videotranscribe","role":"VTI evidence and video/social intelligence producer"},
+    {"repository":"rafsof22-lgtm/Jarvis-Health","role":"privacy-safe health service"},
+    {"repository":"rafsof22-lgtm/property-agent-mcp","role":"property capture and staged enrichment service"}
+  ],
+  "github_pr_snapshot": {
+    "open_pull_requests_across_connected_repositories": 0,
+    "state": "VISIBLE_SCOPE_VERIFIED",
+    "note": "Closed and merged pull-request history remains preserved. No destructive cleanup or history rewrite was performed."
+  },
+  "direct_project_denominators": {
+    "XRP Tracking New":{"conversations":83,"messages":32239,"state":"IMPLEMENTED_NOT_INTEGRATED"},
+    "Longevity Plan":{"conversations":6,"messages":2614,"state":"PENDING_INGEST"},
+    "Tax":{"conversations":8,"messages":8672,"state":"PENDING_INGEST"},
+    "Active Trust":{"conversations":17,"messages":11478,"state":"PENDING_INGEST"},
+    "Finance Planning":{"conversations":132,"messages":17356,"state":"PENDING_INGEST"},
+    "Financial New":{"conversations":12,"messages":8835,"state":"PENDING_INGEST"}
+  },
+  "decisions": [
+    "Do not treat registered URLs or project counts as extracted chat content.",
+    "Do not delete or merge repositories solely because capabilities overlap.",
+    "Use cross-links and canonical ownership rather than duplicate requirement text.",
+    "Preserve legal/tax, CFO, health, market-intelligence and provider-runtime boundaries.",
+    "Keep external staging and production owner-gated."
+  ]
+}
