@@ -1,0 +1,58 @@
+name: ChatGPT KB Export Intake V19
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/chatgpt_kb_intake_v1.py'
+      - 'scripts/create_kb_integrity_ledgers.py'
+      - 'scripts/verify_chatgpt_kb_export_unblock_v19.py'
+      - 'tests/test_chatgpt_kb_intake_v1.py'
+      - 'registry/source-accounting/chatgpt_kb_export_unblock_v19.json'
+      - 'registry/trackers/all_progress_tracker_reconciliation_v19.json'
+      - 'docs/kb/CHATGPT_EXPORT_UNBLOCK_AND_DELTA_RUNBOOK_V19.md'
+      - 'docs/trackers/JARVIS_MASTER_VISUAL_PROGRESS_TALLY_V19.md'
+      - 'PROJECT_CONTINUITY.md'
+      - '.github/workflows/chatgpt-kb-export-intake-v19.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-chatgpt-kb-v19:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Compile intake and verifier
+        run: |
+          python -m py_compile scripts/chatgpt_kb_intake_v1.py
+          python -m py_compile scripts/create_kb_integrity_ledgers.py
+          python -m py_compile scripts/verify_chatgpt_kb_export_unblock_v19.py
+
+      - name: Run deterministic intake tests
+        run: python -m unittest tests/test_chatgpt_kb_intake_v1.py -v
+
+      - name: Generate and reconcile integrity ledger templates
+        run: |
+          rm -rf evidence/kb-v19-ledgers
+          python scripts/create_kb_integrity_ledgers.py evidence/kb-v19-ledgers
+          test "$(find evidence/kb-v19-ledgers -maxdepth 1 -name '*.csv' | wc -l)" -eq 9
+          for file in evidence/kb-v19-ledgers/*.csv; do
+            test "$(wc -l < "$file")" -eq 1
+          done
+
+      - name: Verify V19 source truth, tracker and continuity
+        run: python scripts/verify_chatgpt_kb_export_unblock_v19.py
+
+      - name: Upload V19 evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: chatgpt-kb-export-intake-v19-evidence
+          path: |
+            evidence/chatgpt-kb-export-unblock-v19-verification.json
+            evidence/kb-v19-ledgers/*.csv

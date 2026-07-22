@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0.0",
+  "register_id": "JARVIS-CHATGPT-KB-EXPORT-UNBLOCK-V19",
+  "snapshot_date": "2026-07-22",
+  "skill": "master-chatgpt-kb",
+  "program_state": "ACTIVE_PROGRAM_NOT_100_PERCENT",
+  "source_discovery": {
+    "file_library_search_completed": true,
+    "github_repository_search_completed": true,
+    "actual_export_bytes_found": false,
+    "references_found": [
+      "chatgpt-export-2026-06-12T06-47-34.7z",
+      "archive_extract_manifest.md",
+      "archive_conversation_inventory.md",
+      "archive_duplicate_clusters.md",
+      "archive_instruction_backfill.md"
+    ],
+    "finding": "The files are referenced by visible source snapshots but the archive and manifest bytes are not available in File Library search results or tracked in jarvis-build/main.",
+    "state": "BLOCKED_BY_ACCESS"
+  },
+  "known_baseline": {
+    "conversation_count": 2610,
+    "message_count": 357835,
+    "cutoff": "2026-06-25",
+    "state": "PROVEN_FROM_PRIOR_REPOSITORY_EVIDENCE",
+    "raw_archive_currently_accessible": false
+  },
+  "implemented_unblock_controls": [
+    {
+      "control": "secure export intake",
+      "artifact": "scripts/chatgpt_kb_intake_v1.py",
+      "status": "IMPLEMENTED_NOT_INTEGRATED"
+    },
+    {
+      "control": "delta scan by conversation ID and message hash",
+      "artifact": "scripts/chatgpt_kb_intake_v1.py",
+      "status": "IMPLEMENTED_NOT_INTEGRATED"
+    },
+    {
+      "control": "KB integrity ledgers",
+      "artifact": "scripts/create_kb_integrity_ledgers.py",
+      "status": "IMPLEMENTED_NOT_INTEGRATED"
+    },
+    {
+      "control": "synthetic regression and archive-safety tests",
+      "artifact": "tests/test_chatgpt_kb_intake_v1.py",
+      "status": "IMPLEMENTED_NOT_INTEGRATED"
+    }
+  ],
+  "intake_output_contract": [
+    "source_manifest.json",
+    "conversation_index.csv",
+    "conversation_index.jsonl",
+    "messages.jsonl",
+    "extraction_gaps.json",
+    "coverage_report.json",
+    "delta_new_chats.csv",
+    "delta_changed_chats.csv",
+    "delta_duplicate_review.csv",
+    "delta_removed_or_missing_review.csv",
+    "delta_project_pack_update_manifest.csv",
+    "delta_gap_log.md",
+    "delta_report.json"
+  ],
+  "exact_user_unblock_action": {
+    "preferred": "Upload the newest original ChatGPT data-export ZIP generated after 2026-06-25.",
+    "accepted_alternatives": [
+      "Upload conversations.json directly.",
+      "Upload the referenced chatgpt-export-2026-06-12T06-47-34.7z plus a genuinely newer export for delta comparison.",
+      "Upload explicit transcripts/source packs for the eight inaccessible share links."
+    ],
+    "do_not_supply": [
+      "passwords",
+      "MFA codes",
+      "API keys",
+      "session cookies",
+      "recovery codes"
+    ]
+  },
+  "automatic_next_execution": [
+    "hash raw archive",
+    "inventory members and reject unsafe entries",
+    "extract exactly one conversations.json",
+    "extract role-separated message records and source pointers",
+    "reconcile conversation and message counts",
+    "compare with previous index using conversation IDs and message hashes",
+    "classify new and changed chats using full content",
+    "route ambiguous and high-risk items to review",
+    "update project packs, trackers, blocker register and continuity",
+    "preserve raw archive and prior baseline"
+  ],
+  "truth_boundary": "The export-processing blocker has been reduced to missing archive bytes. No inaccessible conversation body has been reconstructed or classified by inference."
+}
