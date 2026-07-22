@@ -83,6 +83,8 @@ Preserve closed/merged PR history. Remaining work is a cross-repository capabili
 
 The following exact phrases remain only for historical verifier compatibility and lineage; they are not current gap claims:
 
+- `Visible Health handover denominator v2` — historical bounded source completion; not live clinical validation.
+- `Runtime auto-resume controller` — historical repository capability; not background execution beyond an active run.
 - `Four images remain without OCR` — superseded by the V14 format-specific image review.
 - `three opaque archives` — historical wording; later bounded processing controls current archive state.
 - `Command Centre v1.4` — historical V17 release name; V18 extends the control package.
