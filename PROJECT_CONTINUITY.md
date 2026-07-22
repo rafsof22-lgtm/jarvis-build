@@ -28,6 +28,7 @@
 | One consolidated visual priority tally | `IMPLEMENTED_NOT_INTEGRATED` | V18 machine-readable and visual trackers exist on the working branch; historical trackers preserved |
 | GitHub visible-scope audit | `VISIBLE_SCOPE_VERIFIED` | Five owned repositories inventoried; closed/merged PR semantic audit remains open |
 | V17 local 18-layer digital twin | `DONE_VERIFIED_LOCAL` | Preserved from V17; external staging remains unconnected |
+| Command Centre v1.4 | `INTEGRATED_STAGING` | Historical V17 name preserved for verifier compatibility; V18 Mammoth governance extends it without claiming authenticated external deployment |
 
 Artifacts:
 
@@ -35,7 +36,11 @@ Artifacts:
 - `registry/source-accounting/v18_chat_and_request_intake_20260722.json`
 - `registry/trackers/all_progress_tracker_reconciliation_v18.json`
 - `docs/trackers/JARVIS_MASTER_VISUAL_PROGRESS_TALLY_V18.md`
+- `docs/spec/JARVIS_MAMMOTH_CONSOLIDATED_FRAMEWORK_V1.md`
+- `registry/plans/jarvis_full_completion_execution_plan_v1.json`
+- `registry/gaps/jarvis_blocker_resolution_register_v1.json`
 - `scripts/verify_v18_visible_intake_consolidation.py`
+- `scripts/verify_mammoth_framework_v1.py`
 
 ## Source-access truth
 
@@ -80,6 +85,7 @@ The following exact phrases remain only for historical verifier compatibility an
 
 - `Four images remain without OCR` — superseded by the V14 format-specific image review.
 - `three opaque archives` — historical wording; later bounded processing controls current archive state.
+- `Command Centre v1.4` — historical V17 release name; V18 extends the control package.
 
 Historical tracker lineage is preserved through:
 
