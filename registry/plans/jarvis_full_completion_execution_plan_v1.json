@@ -1,0 +1,399 @@
+{
+  "schema_version": "1.0.0",
+  "plan_id": "JARVIS-FULL-COMPLETION-EXECUTION-PLAN-V1",
+  "snapshot_date": "2026-07-22",
+  "canonical_repository": "rafsof22-lgtm/jarvis-build",
+  "governing_constitution": "JARVIS_RAF213G_PROJECT_CONSTITUTION.md",
+  "mammoth_framework": "docs/spec/JARVIS_MAMMOTH_CONSOLIDATED_FRAMEWORK_V1.md",
+  "program_state": "ACTIVE_PROGRAM_NOT_100_PERCENT",
+  "completion_rule": "Source -> Request -> Requirement -> Module -> Artifact -> Test or Waiver -> Evidence -> Runtime State -> Rollback -> Owner Acceptance",
+  "status_vocabulary": [
+    "PENDING_INGEST",
+    "SPEC_ONLY",
+    "BACKLOGGED",
+    "SCAFFOLDED",
+    "IMPLEMENTED_NOT_INTEGRATED",
+    "INTEGRATED_STAGING",
+    "DEPLOYED_UNVERIFIED",
+    "DONE_VERIFIED",
+    "WAIVED",
+    "BLOCKED"
+  ],
+  "phase_order": [
+    "P0_CI_AND_GOVERNANCE_REPAIR",
+    "P1_SOURCE_DENOMINATOR_LOCK",
+    "P2_DIRECT_PROJECT_RECONSTRUCTION",
+    "P3_CANONICAL_SPEC_LOCK",
+    "P4_BUILD_REALITY_RECONCILIATION",
+    "P5_AUTHENTICATED_STAGING",
+    "P6_CANARY_AND_PRODUCTION",
+    "P7_FINAL_ACCEPTANCE_AND_HANDOVER"
+  ],
+  "phases": [
+    {
+      "phase_id": "P0_CI_AND_GOVERNANCE_REPAIR",
+      "priority": "P0",
+      "state": "IMPLEMENTED_NOT_INTEGRATED",
+      "objective": "Restore all required V16, V17, V18, free-first and security-history checks without weakening truth or rewriting history.",
+      "dependencies": [],
+      "tasks": [
+        {
+          "task_id": "P0-T01",
+          "title": "Fix V18 verifier assertion",
+          "state": "IMPLEMENTED_NOT_INTEGRATED",
+          "owner_role": "Builder Council",
+          "artifact": "scripts/verify_v18_visible_intake_consolidation.py",
+          "test": "V18 Visible Intake Consolidation workflow",
+          "evidence": "evidence/v18-visible-intake-consolidation-verification.json",
+          "rollback": "Revert V18 verifier commit",
+          "next_action": "Confirm GitHub Actions pass on current PR head."
+        },
+        {
+          "task_id": "P0-T02",
+          "title": "Preserve V16 and V17 verifier lineage",
+          "state": "IMPLEMENTED_NOT_INTEGRATED",
+          "owner_role": "Continuity Archivist",
+          "artifact": "PROJECT_CONTINUITY.md",
+          "test": "Full Stack Architecture V16 and Completion Tranche V17 workflows",
+          "evidence": "GitHub Actions run records",
+          "rollback": "Revert continuity compatibility section",
+          "next_action": "Confirm both inherited workflows pass."
+        },
+        {
+          "task_id": "P0-T03",
+          "title": "Resolve full-history security scan false positives",
+          "state": "IMPLEMENTED_NOT_INTEGRATED",
+          "owner_role": "Security Reviewer",
+          "artifact": ".gitleaksignore",
+          "test": "Security History Scan workflow",
+          "evidence": "security-history-scan-redacted artifact and passing run",
+          "rollback": "Remove only the added commit-specific fingerprints",
+          "next_action": "Confirm clean full-history scan on current PR head."
+        },
+        {
+          "task_id": "P0-T04",
+          "title": "Repair free-first continuity verification",
+          "state": "IMPLEMENTED_NOT_INTEGRATED",
+          "owner_role": "Builder Council",
+          "artifact": "PROJECT_CONTINUITY.md",
+          "test": "Free-first CI workflow",
+          "evidence": "GitHub Actions run record",
+          "rollback": "Revert compatibility wording if it causes regression",
+          "next_action": "Inspect and patch any remaining failing assertion."
+        },
+        {
+          "task_id": "P0-T05",
+          "title": "Independently verify and merge V18",
+          "state": "BACKLOGGED",
+          "owner_role": "Release Gatekeeper",
+          "artifact": "PR #102",
+          "test": "All required checks green and no unresolved review findings",
+          "evidence": "PR check suite, review record and merge commit",
+          "rollback": "Revert merge commit or close draft PR",
+          "next_action": "Mark ready and merge only after all required checks pass."
+        }
+      ],
+      "exit_criteria": [
+        "V18 workflow passes",
+        "V16 and V17 inherited workflows pass",
+        "Free-first CI passes",
+        "Security History Scan passes",
+        "PR is independently reviewed and mergeable"
+      ]
+    },
+    {
+      "phase_id": "P1_SOURCE_DENOMINATOR_LOCK",
+      "priority": "P0",
+      "state": "BLOCKED",
+      "objective": "Account for every known current and historical source, attachment and post-25-June change.",
+      "dependencies": ["P0_CI_AND_GOVERNANCE_REPAIR"],
+      "tasks": [
+        {
+          "task_id": "P1-T01",
+          "title": "Ingest genuinely newer ChatGPT export",
+          "state": "BLOCKED",
+          "owner_role": "Source Intake Agent",
+          "blocker_id": "BLK-SOURCE-001",
+          "next_action": "Receive a newer export or explicit later-chat source pack, hash it, inventory members and calculate the delta."
+        },
+        {
+          "task_id": "P1-T02",
+          "title": "Ingest eight supplied shared-chat bodies",
+          "state": "BLOCKED",
+          "owner_role": "Source Intake Agent",
+          "blocker_id": "BLK-SOURCE-002",
+          "next_action": "Receive accessible exports or files containing the eight conversation bodies and attachments."
+        },
+        {
+          "task_id": "P1-T03",
+          "title": "Recover referenced attachments and historical binaries",
+          "state": "BACKLOGGED",
+          "owner_role": "Continuity Archivist",
+          "artifact": "registry/source-accounting/attachment_reference_graph_v1.json",
+          "test": "Every reference is recovered, duplicate-with-lineage, failed-with-reason or blocked-by-access",
+          "evidence": "hash manifest and recovery report",
+          "next_action": "Build attachment-reference graph from accessible export, repositories and File Library records."
+        },
+        {
+          "task_id": "P1-T04",
+          "title": "Complete source, thread and chunk coverage ledgers",
+          "state": "BACKLOGGED",
+          "owner_role": "Requirement Analyst",
+          "artifact": "registry/coverage/source_denominator_and_chunk_coverage_v1.json",
+          "test": "Coverage verifier passes with disclosed failures and exclusions",
+          "evidence": "source manifest, thread ledger, chunk ledger and pending-ingest report",
+          "next_action": "Generate after all accessible source extraction is complete."
+        }
+      ],
+      "exit_criteria": [
+        "Every known source has an explicit state",
+        "Every extractable source is extracted or failed with reason",
+        "Every attachment reference is resolved or blocked with evidence",
+        "Post-25-June delta is calculated"
+      ]
+    },
+    {
+      "phase_id": "P2_DIRECT_PROJECT_RECONSTRUCTION",
+      "priority": "P0",
+      "state": "BLOCKED",
+      "objective": "Reconstruct direct project chats into separate canonical requirement and evidence registries.",
+      "dependencies": ["P1_SOURCE_DENOMINATOR_LOCK"],
+      "tasks": [
+        {
+          "task_id": "P2-T01",
+          "title": "Classify 83 XRP Tracking New conversations",
+          "state": "BLOCKED",
+          "owner_role": "XRP/HBAR Domain Chief",
+          "blocker_id": "BLK-SOURCE-003",
+          "denominator": {"conversations": 83, "messages": 32239},
+          "outputs": [
+            "registry/xrp-hbar/direct_chat_requirements_v1.json",
+            "registry/xrp-hbar/claims_catalysts_conflicts_v1.json",
+            "registry/xrp-hbar/probability_model_lineage_v1.json"
+          ],
+          "next_action": "Extract each user request and assistant response after direct bodies are available."
+        },
+        {
+          "task_id": "P2-T02",
+          "title": "Reconstruct Tax as an isolated legal/tax batch",
+          "state": "BLOCKED",
+          "owner_role": "AI CFO Domain Chief",
+          "blocker_id": "BLK-SOURCE-004",
+          "denominator": {"conversations": 8, "messages": 8672},
+          "outputs": ["registry/cfo/tax_requirements_v1.json", "registry/cfo/tax_current_law_assertions_v1.json"],
+          "next_action": "Extract direct chats, then verify current assertions against official Australian sources."
+        },
+        {
+          "task_id": "P2-T03",
+          "title": "Reconstruct Active Trust as an isolated trust/legal batch",
+          "state": "BLOCKED",
+          "owner_role": "AI CFO Domain Chief",
+          "blocker_id": "BLK-SOURCE-005",
+          "denominator": {"conversations": 17, "messages": 11478},
+          "outputs": ["registry/cfo/active_trust_requirements_v1.json", "registry/cfo/trust_document_dependencies_v1.json"],
+          "next_action": "Extract direct chats and preserve adviser-review gates."
+        },
+        {
+          "task_id": "P2-T04",
+          "title": "Reconstruct Finance Planning into AI CFO registries",
+          "state": "BLOCKED",
+          "owner_role": "AI CFO Domain Chief",
+          "blocker_id": "BLK-SOURCE-006",
+          "denominator": {"conversations": 132, "messages": 17356},
+          "outputs": ["registry/cfo/finance_planning_requirements_v1.json", "registry/cfo/entity_account_cashflow_portfolio_registry_v1.json"],
+          "next_action": "Extract direct project bodies and map to CFO modules."
+        },
+        {
+          "task_id": "P2-T05",
+          "title": "Reconstruct Financial New and reconcile overlap",
+          "state": "BLOCKED",
+          "owner_role": "AI CFO Domain Chief",
+          "blocker_id": "BLK-SOURCE-007",
+          "denominator": {"conversations": 12, "messages": 8835},
+          "outputs": ["registry/cfo/financial_new_requirements_v1.json", "registry/cfo/finance_overlap_and_supersession_v1.json"],
+          "next_action": "Extract independently, then semantic-dedupe and cross-link against Finance Planning and Bill CFO."
+        },
+        {
+          "task_id": "P2-T06",
+          "title": "Reconstruct six Longevity conversations",
+          "state": "BLOCKED",
+          "owner_role": "Health Domain Chief",
+          "blocker_id": "BLK-SOURCE-008",
+          "denominator": {"conversations": 6, "messages": 2614},
+          "outputs": ["registry/health/longevity_requirements_v1.json", "registry/health/longevity_claim_evidence_queue_v1.json"],
+          "next_action": "Extract under privacy, evidence-tier, non-diagnostic and clinical/device approval controls."
+        }
+      ],
+      "exit_criteria": [
+        "Every direct conversation is classified",
+        "User requests and assistant responses are separately traceable",
+        "True duplicates are consolidated with lineage",
+        "Conflicts and supersession are recorded",
+        "Each applicable requirement maps to a module and test path"
+      ]
+    },
+    {
+      "phase_id": "P3_CANONICAL_SPEC_LOCK",
+      "priority": "P1",
+      "state": "IMPLEMENTED_NOT_INTEGRATED",
+      "objective": "Lock the complete accessible Jarvis specification and its registries without losing source lineage.",
+      "dependencies": ["P2_DIRECT_PROJECT_RECONSTRUCTION"],
+      "tasks": [
+        {
+          "task_id": "P3-T01",
+          "title": "Maintain Mammoth Consolidated Framework",
+          "state": "IMPLEMENTED_NOT_INTEGRATED",
+          "artifact": "docs/spec/JARVIS_MAMMOTH_CONSOLIDATED_FRAMEWORK_V1.md",
+          "test": "Mammoth framework verifier",
+          "evidence": "evidence/jarvis-mammoth-framework-v1-verification.json",
+          "next_action": "Update with deltas as direct source batches become available."
+        },
+        {
+          "task_id": "P3-T02",
+          "title": "Complete requirement, module, agent, skill, tool, model and integration registries",
+          "state": "BACKLOGGED",
+          "owner_role": "Requirement Analyst",
+          "next_action": "Generate canonical registries from reconstructed requirements."
+        },
+        {
+          "task_id": "P3-T03",
+          "title": "Complete evidence and coverage matrix",
+          "state": "BACKLOGGED",
+          "owner_role": "Verifier Council",
+          "artifact": "registry/coverage/mammoth_traceability_matrix_v1.json",
+          "next_action": "Link every requirement to source, module, artifact, test, evidence, runtime state and rollback."
+        },
+        {
+          "task_id": "P3-T04",
+          "title": "Run discrepancy, conflict and no-gaps verification",
+          "state": "BACKLOGGED",
+          "owner_role": "Independent Verifier",
+          "next_action": "Run only after source denominator and direct project reconciliation are complete."
+        }
+      ],
+      "exit_criteria": [
+        "All applicable framework sections accounted for",
+        "All requirements canonicalized and traceable",
+        "All conflicts have DecisionRecords",
+        "No-gaps verifier passes or explicit blockers remain"
+      ]
+    },
+    {
+      "phase_id": "P4_BUILD_REALITY_RECONCILIATION",
+      "priority": "P1",
+      "state": "BACKLOGGED",
+      "objective": "Compare canonical intent against all five repositories, PR lineage, deployment artifacts and live evidence.",
+      "dependencies": ["P3_CANONICAL_SPEC_LOCK"],
+      "tasks": [
+        {
+          "task_id": "P4-T01",
+          "title": "Create cross-repository capability and ownership matrix",
+          "state": "BACKLOGGED",
+          "artifact": "registry/github/cross_repository_capability_ownership_v1.json",
+          "next_action": "Inventory service roots, capabilities, overlaps, owners, contracts and runtime boundaries."
+        },
+        {
+          "task_id": "P4-T02",
+          "title": "Create closed-PR lineage and duplicate map",
+          "state": "BACKLOGGED",
+          "artifact": "registry/github/closed_pr_lineage_and_supersession_v1.json",
+          "next_action": "Classify merged/closed PRs without deleting history."
+        },
+        {
+          "task_id": "P4-T03",
+          "title": "Generate specification-to-runtime discrepancy report",
+          "state": "BACKLOGGED",
+          "artifact": "registry/discrepancies/spec_to_runtime_v1.json",
+          "next_action": "Compare module contracts to repository and deployment truth."
+        },
+        {
+          "task_id": "P4-T04",
+          "title": "Implement remaining repository-safe P0 controls",
+          "state": "BACKLOGGED",
+          "next_action": "Build missing tests, schemas, adapters, observability, rollback and Command Centre surfaces."
+        }
+      ],
+      "exit_criteria": [
+        "All five repositories have explicit ownership and capability boundaries",
+        "Every closed PR is classified by lineage",
+        "All repository-safe P0 discrepancies are fixed or waived",
+        "No accidental duplicate runtime remains"
+      ]
+    },
+    {
+      "phase_id": "P5_AUTHENTICATED_STAGING",
+      "priority": "P2",
+      "state": "BLOCKED",
+      "objective": "Prove all required external services and the 18-layer system in authenticated staging.",
+      "dependencies": ["P4_BUILD_REALITY_RECONCILIATION"],
+      "tasks": [
+        {"task_id": "P5-T01", "title": "Recover Hub DigitalOcean runtime", "state": "BLOCKED", "blocker_id": "BLK-EXT-001"},
+        {"task_id": "P5-T02", "title": "Rotate historical VTI token", "state": "BLOCKED", "blocker_id": "BLK-EXT-002"},
+        {"task_id": "P5-T03", "title": "Prove Jarvis Health Railway runtime", "state": "BLOCKED", "blocker_id": "BLK-EXT-003"},
+        {"task_id": "P5-T04", "title": "Prove Property Sheets webhook", "state": "BLOCKED", "blocker_id": "BLK-EXT-004"},
+        {"task_id": "P5-T05", "title": "Dispatch and verify Hub deployment/Gmail workflow", "state": "BLOCKED", "blocker_id": "BLK-EXT-005"},
+        {"task_id": "P5-T06", "title": "Prove protected VTI Cobalt canary", "state": "BLOCKED", "blocker_id": "BLK-EXT-006"},
+        {"task_id": "P5-T07", "title": "Prove VTI-to-Hub federation", "state": "BLOCKED", "blocker_id": "BLK-EXT-007"},
+        {"task_id": "P5-T08", "title": "Deploy authenticated Command Centre staging", "state": "BLOCKED", "blocker_id": "BLK-EXT-008"},
+        {"task_id": "P5-T09", "title": "Connect 18-layer digital twin externally", "state": "BLOCKED", "blocker_id": "BLK-EXT-009"}
+      ],
+      "exit_criteria": [
+        "IAM and secret scopes approved",
+        "Smallest real route passes for every service",
+        "Persistence, retry, idempotency and reconciliation pass",
+        "Backup, restore, rollback and cost ceilings pass",
+        "Privacy and security review passes"
+      ]
+    },
+    {
+      "phase_id": "P6_CANARY_AND_PRODUCTION",
+      "priority": "P5",
+      "state": "BLOCKED",
+      "objective": "Promote verified staging through canary into controlled production.",
+      "dependencies": ["P5_AUTHENTICATED_STAGING"],
+      "tasks": [
+        {"task_id": "P6-T01", "title": "Approve release candidate", "state": "BLOCKED", "owner_role": "Release Gatekeeper"},
+        {"task_id": "P6-T02", "title": "Run canary", "state": "BLOCKED", "owner_role": "Operations Council"},
+        {"task_id": "P6-T03", "title": "Monitor, reconcile and decide promote/rollback", "state": "BLOCKED", "owner_role": "Risk Authority"},
+        {"task_id": "P6-T04", "title": "Owner production acceptance", "state": "BLOCKED", "owner_role": "Owner"}
+      ],
+      "exit_criteria": [
+        "Canary passes",
+        "No unresolved critical security/privacy/cost findings",
+        "Rollback is proven",
+        "Owner accepts production release"
+      ]
+    },
+    {
+      "phase_id": "P7_FINAL_ACCEPTANCE_AND_HANDOVER",
+      "priority": "P6",
+      "state": "BACKLOGGED",
+      "objective": "Produce final evidence-backed acceptance, archive and continuity package.",
+      "dependencies": ["P6_CANARY_AND_PRODUCTION"],
+      "tasks": [
+        {"task_id": "P7-T01", "title": "Run final source and requirement accounting", "state": "BACKLOGGED"},
+        {"task_id": "P7-T02", "title": "Run final discrepancy and no-gaps verification", "state": "BACKLOGGED"},
+        {"task_id": "P7-T03", "title": "Generate evidence manifest, checksums and release notes", "state": "BACKLOGGED"},
+        {"task_id": "P7-T04", "title": "Generate rollback, archive, handover and resume pack", "state": "BACKLOGGED"},
+        {"task_id": "P7-T05", "title": "Record owner acceptance or explicit waivers", "state": "BACKLOGGED"}
+      ],
+      "exit_criteria": [
+        "Every source is accounted for",
+        "Every requirement has a complete evidence chain or waiver",
+        "All residual risks have owners and review dates",
+        "Handover pack is verified and restorable"
+      ]
+    }
+  ],
+  "global_gates": {
+    "no_false_completion": true,
+    "no_unapproved_production": true,
+    "no_unapproved_paid_resources": true,
+    "no_unapproved_destructive_history_changes": true,
+    "no_live_trading_or_money_movement": true,
+    "health_and_legal_professional_review_required": true,
+    "rollback_required": true,
+    "independent_verification_required": true
+  },
+  "truth_boundary": "This plan executes all repository-safe work and routes every blocked action to an exact gate. It does not claim inaccessible source ingestion, authenticated staging or production completion until evidence exists."
+}
