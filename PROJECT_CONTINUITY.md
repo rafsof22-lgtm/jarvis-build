@@ -2,128 +2,100 @@
 
 **Snapshot:** 2026-07-22  
 **Canonical repository:** `rafsof22-lgtm/jarvis-build`  
-**Baseline main commit:** `f9d02bbaf03d676f42342b7970607ec803f86b25`  
-**Current tracker:** `registry/trackers/all_progress_tracker_reconciliation_v17.json`  
-**Previous tracker preserved:** `registry/trackers/all_progress_tracker_reconciliation_v16.json`  
+**Baseline main commit:** `eba209dca817829caca688a14430d1d36de2a6af`  
+**Working branch:** `jarvis/v18-visible-intake-consolidation-20260722`  
+**Current tracker:** `registry/trackers/all_progress_tracker_reconciliation_v18.json`  
+**Visual tracker:** `docs/trackers/JARVIS_MASTER_VISUAL_PROGRESS_TALLY_V18.md`  
+**Previous tracker preserved:** `registry/trackers/all_progress_tracker_reconciliation_v17.json`  
 **State:** `ACTIVE_PROGRAM_NOT_100_PERCENT`
 
 ## Mandatory resume protocol
 
 1. Read `PROJECT_CONSTITUTION.md`, `JARVIS_RAF213G_PROJECT_CONSTITUTION.md` and `AGENTS.md`.
-2. Refresh current main SHA, open pull requests, issues and runtime/provider evidence.
-3. Resume each task from its last verified evidence-backed state.
-4. Execute the highest-priority safe repository task.
-5. Stop only at an exact owner, provider, credential, cost, legal, destructive, clinical/device or production gate.
-6. Update this continuity file, the machine-readable tracker, evidence and rollback records.
+2. Refresh main/branch SHAs, pull requests, issues and runtime/provider evidence.
+3. Read the latest V18 tracker and source-intake ledger.
+4. Resume the highest-priority safe task from its evidence-backed state.
+5. Stop only at an exact source-access, owner, provider, credential, cost, legal, destructive, clinical/device or production gate.
+6. Update continuity, the machine tracker, visual tracker, evidence and rollback records.
 
-## Latest reconciliation — V17
+## Latest reconciliation — V18
 
 | Item | State | Evidence boundary |
 |---|---|---|
-| Command Centre 18-layer tree and traffic lights | `DONE_VERIFIED` | Repository/local UI and API scope; authenticated external staging remains open |
-| Post-25-June project-chat delta check | `DONE_VERIFIED` | Re-uploaded archive exactly matches the 25 June archive; zero novel bytes; actual later-chat delta remains `PENDING_INGEST` |
-| Health hash-only claim-review manifest | `DONE_VERIFIED_BOUNDED` | 194-conversation older handover, hash/Merkle summary and local detailed evidence; not clinical validation |
-| Synthetic Health care journeys | `DONE_VERIFIED_LOCAL` | Synthetic references only; consent withdrawal and blocked-device controls verified |
-| Cost + $1 profile schemas | `DONE_VERIFIED_LOCAL` | Customer, workshop, vehicle, supplier and order local schemas; pointers/hashes only |
-| Synthetic Cost order-to-billing route | `DONE_VERIFIED_LOCAL` | Supplier split, locker allocation and approved-policy event route; no provider calls |
-| Remaining requested-project source batch | `DONE_VERIFIED_BOUNDED` | Six projects mapped to exact export denominators and historical source buckets; direct chat classification continues |
-| 18-layer staging digital twin | `DONE_VERIFIED_LOCAL` | Privacy, security, persistence, retry, backup, restore, A$0 cost ceiling and rollback; no external staging |
+| Constitution v1.1 automatic Jarvis intake | `IMPLEMENTED_NOT_INTEGRATED` | Governed candidate intake, chronology, true-deduplication, GitHub/PR reconciliation, domain boundaries and staging gates are committed on the V18 branch; CI/PR review pending |
+| Current request and eight shared-chat URLs | `DONE_VERIFIED_REPOSITORY_SCOPE` | Request is extracted; URLs are registered; chat bodies remain `BLOCKED_BY_ACCESS` and were not falsely classified |
+| One consolidated visual priority tally | `IMPLEMENTED_NOT_INTEGRATED` | V18 machine-readable and visual trackers exist on the working branch; historical trackers preserved |
+| GitHub visible-scope audit | `VISIBLE_SCOPE_VERIFIED` | Five owned repositories inventoried and zero open PRs found; closed/merged PR semantic audit remains open |
+| V17 local 18-layer digital twin | `DONE_VERIFIED_LOCAL` | Preserved from V17; external staging remains unconnected |
 
 Artifacts:
 
-- `jarvis_command_centre/full_stack_v17.py`
-- `registry/ux/command_centre_full_stack_surface_v17.json`
-- `registry/source-accounting/post_2026_06_25_project_chat_delta_v17.json`
-- `registry/health/health_claim_review_manifest_v17.json`
-- `src/jarvis_health/synthetic_care_journeys_v17.py`
-- `src/jarvis_business/cost_plus_profiles_v3.py`
-- `registry/projects/remaining_requested_projects_reconstruction_v17.json`
-- `src/jarvis_staging/full_stack_digital_twin_v17.py`
-- `registry/staging/full_stack_local_staging_v17.json`
-- `registry/trackers/all_progress_tracker_reconciliation_v17.json`
+- `JARVIS_RAF213G_PROJECT_CONSTITUTION.md`
+- `registry/source-accounting/v18_chat_and_request_intake_20260722.json`
+- `registry/trackers/all_progress_tracker_reconciliation_v18.json`
+- `docs/trackers/JARVIS_MASTER_VISUAL_PROGRESS_TALLY_V18.md`
+- `scripts/verify_v18_visible_intake_consolidation.py`
 
-## Project-chat access and delta boundary
+## Source-access truth
 
-Jarvis can consolidate every chat actually visible in the active context, supplied as a file/source pack, or present in an authorised export. It cannot directly enumerate every live sibling chat in the ChatGPT Project UI from this runtime.
+The eight supplied ChatGPT share URLs could not be read through the available fetch route. Their URLs are preserved in the intake ledger, but their messages, attachments and chronology are not captured. They remain `BLOCKED_BY_ACCESS`.
 
-The accessible June 2026 export proves 2,610 conversations and 357,835 messages. The archive uploaded in V17 has the same SHA-256 as the already registered archive and therefore provides no post-25-June delta. Chats created or changed after 25 June 2026 remain `PENDING_INGEST` until a newer export or explicit later-chat pack is supplied.
+The latest accessible ChatGPT archive remains the June 2026 denominator of 2,610 conversations and 357,835 messages. The V17 re-upload was an exact duplicate of the 25 June archive and contained no novel post-25-June bytes. A genuinely newer export or explicit later-chat pack remains required.
 
-Never claim all project chats are current unless the live project denominator and post-export delta reconcile.
+Never claim all project chats are current or integrated unless every source body is available, extracted, indexed, linked and independently verified.
 
-## Canonical 18-layer full-stack architecture
+## Direct project reconstruction queue
 
-1. Experience and Omnichannel Interface
-2. Gateway, API and Edge
-3. Identity, Consent and Tenant Boundary
-4. Sovereign Governance and Approval Control Plane
-5. Agent Orchestration and Role Council
-6. Skill, Tool and Connector Fabric
-7. Model Routing and Inference
-8. Workflow, Event, Queue and Scheduler
-9. Domain Application Services
-10. Transactional Data and State
-11. Memory and Knowledge Fabric
-12. Evidence, Provenance and Audit
-13. Security, Privacy and Supply Chain
-14. Observability, Cost and Operations
-15. Verification, Simulation and Release Gates
-16. Infrastructure, Deployment and Resilience
-17. Continuity, Versioning and Rollback
-18. Source Reconstruction and Continuous Learning
+| Priority | Project | Denominator | State | Exact next action |
+|---:|---|---:|---|---|
+| P0 | XRP Tracking New | 83 conversations / 32,239 messages | `BLOCKED_BY_ACCESS` | Obtain direct bodies; classify requests, responses, claims, catalysts, probabilities, conflicts and implementation deltas |
+| P0 | Tax | 8 / 8,672 | `PENDING_INGEST` | Separate direct legal/tax extraction and official Australian source verification |
+| P0 | Active Trust | 17 / 11,478 | `PENDING_INGEST` | Separate trust/legal extraction, document dependencies and adviser-review gates |
+| P0 | Finance Planning | 132 / 17,356 | `PENDING_INGEST` | Map direct requirements/evidence into isolated AI CFO registries |
+| P0 | Financial New | 12 / 8,835 | `PENDING_INGEST` | Extract independently, dedupe/cross-link against Finance Planning and Bill CFO |
+| P0 | Longevity Plan | 6 / 2,614 | `PENDING_INGEST` | Restricted-health extraction with privacy, evidence-tier and clinical/device controls |
 
-Command Centre now exposes this tree and its gaps. The local digital twin exercises all 18 layer contracts, but connected external staging is not verified.
+## XRP/HBAR update-engine boundary
 
-## Verified bounded completions
+The update engine must preserve prior logic and support a configurable 50–100-source target using official, regulatory, institutional, market/on-chain, reputable news, technical and social/video source classes. It must deduplicate copied coverage, separate publication date from event date, route unverified claims to review, update all catalyst/risk/probability tables and log every probability change.
 
-| Area | State | Evidence boundary |
-|---|---|---|
-| Framework trigger and intelligence governance | `DONE_VERIFIED` | Repository/CI scope |
-| Local Knowledge Fabric pilot and predeployment controls | `DONE_VERIFIED` | Local/repository scope; connected backend open |
-| Canonical Jarvis/RAF213G constitution and startup verifier | `DONE_VERIFIED` | Repository scope |
-| Full June 2026 ChatGPT export denominator | `DONE_VERIFIED_BOUNDED` | 2,610 conversations and 357,835 messages; direct requirement reconciliation continues |
-| Cost + $1 source reconciliation, contracts and profiles | `DONE_VERIFIED_BOUNDED` | Local contracts, profiles and synthetic route only |
-| Health/Spooky2/Psychology reconstruction and care coordination | `DONE_VERIFIED_BOUNDED` | Source, safety, pseudonymous and synthetic scope; not clinical validity |
-| Universal model selector and provider execution contracts | `INTEGRATED_STAGING` | Local/fake transport and SQLite evidence only |
-| Command Centre v1.4 full-stack surface | `INTEGRATED_STAGING` | Local package UI/API; authenticated deployment remains open |
-| Local resilience, queue, backup/restore and continuity contracts | `DONE_VERIFIED` | Repository/local deterministic scope |
-| Jarvis 18-layer architecture and digital twin | `DONE_VERIFIED_LOCAL` | Architecture and local simulation; connected E2E remains open |
+V18 records this acceptance contract. It does **not** claim a current live 50–100-source refresh or production provider run.
 
-## Critical external queue
+## GitHub reconciliation
+
+Connected owned repositories:
+
+1. `rafsof22-lgtm/jarvis-build`
+2. `rafsof22-lgtm/hub`
+3. `rafsof22-lgtm/videotranscribe`
+4. `rafsof22-lgtm/Jarvis-Health`
+5. `rafsof22-lgtm/property-agent-mcp`
+
+At this snapshot, no open PRs were found. Preserve closed/merged PR history. Remaining work is a cross-repository capability/ownership and closed-PR lineage audit. Do not delete repositories, branches or history merely to remove apparent duplication.
+
+## External and owner-gated queue
 
 | Priority | Task | State | Exact next action |
 |---:|---|---|---|
-| P0-1 | Recover Hub DigitalOcean runtime | `BLOCKED` | Owner/provider Recovery Console diagnosis, then health/migration/worker/rollback proof |
-| P0-2 | Revoke/rotate historical VTI provider token | `BLOCKED` | Owner/provider token revocation and redacted proof |
-| P0-3 | Prove Jarvis Health Railway runtime | `BLOCKED` | Authoritative domain and secret references, then live route/restart/restore/rollback proof |
-| P0-4 | Prove Property Sheets webhook fallback | `BLOCKED` | Apps Script/Railway configuration and one non-sensitive staging-row proof |
-| P0-5 | Run Hub deployment/Gmail proof workflow | `BLOCKED` | Workflow dispatch and read-only provider result classification |
-| P0-6 | Prove protected VTI Cobalt canary | `BLOCKED` | Host credentials, authorised canary, purge, negative and rollback proof |
-| P0-7 | Prove VTI-to-Hub staging federation | `BLOCKED` | Staging endpoint and signing secret, then signature/idempotency/retry/replay/rollback tests |
-| P1-8 | Deploy authenticated Command Centre v1.4 staging | `BLOCKED` | Approved environment, identity, secrets and rollback owner |
-| P1-9 | Connect the 18-layer digital twin to external staging | `BLOCKED` | Approved endpoints, IAM, databases, provider credentials and cost ceilings |
-
-## Highest-priority safe repository queue
-
-1. Directly classify the 83 XRP Tracking New conversations when extractable project bodies are available.
-2. Process Tax and Active Trust as separate bounded batches and verify every current legal/tax assertion against official Australian sources.
-3. Process Finance Planning and Financial New into isolated AI CFO requirement and evidence registries.
-4. Process the six Longevity Plan conversations under restricted-health controls.
-5. Continue attachment and referenced-binary recovery.
-6. Generate a real post-25-June project delta when a newer export arrives.
-
-## Preserved historical verifier language and supersession
-
-The following earlier continuity statements remain preserved for lineage and legacy verifier compatibility; they are not current gap claims:
-
-- **Visible Health handover denominator v2** remains a historical bounded completion.
-- **Runtime auto-resume controller** remains a verified repository capability.
-- The earlier statement **“Four images remain without OCR”** is superseded by the V14 format-specific image review.
-- The earlier reference to **“three opaque archives”** is preserved as historical lineage; later bounded processing controls the current state.
+| P0-1 | Recover Hub DigitalOcean runtime | `BLOCKED_AT_EXACT_STEP` | Recovery Console diagnosis, then health/migration/worker/rollback proof |
+| P0-2 | Revoke/rotate historical VTI provider token | `BLOCKED_AT_EXACT_STEP` | Provider token revocation and redacted proof |
+| P0-3 | Prove Jarvis Health Railway runtime | `BLOCKED_AT_EXACT_STEP` | Domain and secret references, then privacy-safe routes/restart/restore/rollback proof |
+| P0-4 | Prove Property Sheets webhook fallback | `BLOCKED_AT_EXACT_STEP` | Apps Script/Railway configuration and one non-sensitive staging-row proof |
+| P0-5 | Run Hub deployment/Gmail proof workflow | `BLOCKED_AT_EXACT_STEP` | Workflow dispatch and read-only provider result classification |
+| P0-6 | Prove protected VTI Cobalt canary | `BLOCKED_AT_EXACT_STEP` | Host credentials, authorised canary, purge, negative and rollback proof |
+| P0-7 | Prove VTI-to-Hub staging federation | `BLOCKED_AT_EXACT_STEP` | Staging endpoint and signing-secret reference, then signature/idempotency/retry/replay/rollback tests |
+| P1-8 | Deploy authenticated Command Centre staging | `BLOCKED_AT_EXACT_STEP` | Approved environment, identity, secrets, observability and rollback owner |
+| P1-9 | Connect the 18-layer twin externally | `BLOCKED_AT_EXACT_STEP` | Approved endpoints, IAM, databases, credentials, budgets/cost ceilings and rollback ownership |
+| P5 | Production promotion | `NOT_AUTHORISED` | Separate owner acceptance after all earlier gates pass |
 
 ## Automation boundary
 
-Repository changes, tests, reports, staging plans and safe read-only checks may continue autonomously. Provider consoles, credentials, billing/legal acceptance, recovery-console actions, destructive operations, production promotion, money movement, live trading, external publication and clinical/device control remain owner-gated.
+Repository changes, tests, reports, source ledgers, staging plans and safe read-only checks may continue autonomously. Provider consoles, login/MFA, credentials, billing/legal acceptance, recovery-console actions, destructive operations, production promotion, money movement, live trading, external publication and clinical/device control remain owner-gated.
 
 ## Completion declaration gate
 
-Do not change `ACTIVE_PROGRAM_NOT_100_PERCENT` to `END_TO_END_VERIFIED` until every task is either `DONE_VERIFIED` with the complete requirement-to-owner-acceptance chain or explicitly `WAIVED` with residual risk and review date.
+Do not change `ACTIVE_PROGRAM_NOT_100_PERCENT` to `END_TO_END_VERIFIED` until every task is either `DONE_VERIFIED` with:
+
+`Requirement -> Module -> Artifact -> Test or waiver -> Evidence -> Runtime state -> Rollback -> Owner acceptance`
+
+or explicitly `WAIVED` with residual risk, owner and review date.
