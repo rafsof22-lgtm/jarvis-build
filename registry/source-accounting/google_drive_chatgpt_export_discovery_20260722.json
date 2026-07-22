@@ -1,11 +1,12 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "registry_id": "JARVIS-GDRIVE-CHATGPT-EXPORT-DISCOVERY-20260722",
   "snapshot_date_melbourne": "2026-07-22",
   "source_location": {
     "provider": "Google Drive",
     "folder_id": "1sm6F4CqVIhF1E-cxYJfL4tfyCWONC6Nq",
     "folder_title": "chatgpt_exports",
+    "direct_child_count": 3,
     "state": "VISIBLE_SCOPE_VERIFIED"
   },
   "export_generations": {
@@ -18,14 +19,34 @@
   "new_export_generation": {
     "timestamp_label": "2026-07-22T01-35-30",
     "state": "BLOCKED_AT_EXACT_STEP",
-    "conversation_ledger": {
+    "final_conversation_ledger_placeholder": {
       "title": "chatgpt-export-2026-07-22T01-35-30.jsonl",
       "drive_file_id": "1-yDcWfqs_aiWct_RH-MAN4DgOvLXuf8Y",
       "mime_type": "application/octet-stream",
       "size_bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "state": "EMPTY_FILE_UNPROCESSABLE",
-      "blocker": "The downloaded JSONL is zero bytes and contains no conversation records."
+      "state": "EMPTY_FILE_UNPROCESSABLE"
+    },
+    "temporary_upload_object": {
+      "title": "chatgpt-export-2026-07-22T01-35-30.jsonl.2.crswap",
+      "drive_file_id": "1dJ2L6xH-uv4MUweKXCHYyeIJLUq-M09a",
+      "mime_type": "application/octet-stream",
+      "size_bytes": 2555131675,
+      "created_time": "2026-07-22T04:32:33.794Z",
+      "modified_time": "2026-07-22T03:57:12.000Z",
+      "state": "TEMPORARY_UPLOAD_OBJECT_NOT_INGESTIBLE",
+      "download_attempts": [
+        {
+          "route": "Google_Drive.fetch download_raw_file",
+          "result": "HTTP_413"
+        },
+        {
+          "route": "Google_Drive.download_file",
+          "result": "BLOCKED_FILE_TOO_LARGE",
+          "connector_limit_bytes": 104857600
+        }
+      ],
+      "proof_boundary": "The non-zero size proves a large Drive object exists. The temporary suffix, zero-byte final placeholder, and failed authorised download routes prevent parseability, hashing, completeness, or conversation-count claims."
     },
     "attachments": {
       "title": "chatgpt-attachments.zip",
@@ -38,7 +59,7 @@
       "directory_member_count": 17,
       "top_level_chat_attachment_directories": 16,
       "uncompressed_bytes": 941083665,
-      "state": "SOURCE_PRESENT_CONTENT_UNREVIEWED"
+      "state": "SOURCE_INVENTORIED_LINKAGE_PENDING_JSONL"
     }
   },
   "historical_baseline": {
@@ -47,7 +68,15 @@
     "conversations": 2610,
     "messages": 357835
   },
-  "counting_rule": "The JSONL and attachment ZIP are two files forming one export generation. A generation is processable only when the conversation ledger contains non-zero parseable records. Exact duplicates and attachment-only packages do not create additional conversation denominators.",
-  "exact_next_action": "Replace or re-upload the non-empty 2026-07-22 JSONL/conversations file into the same Drive folder. Preserve the verified attachment ZIP unchanged, then run conversation-ID and message-hash delta reconciliation against the 2026-06-25 baseline.",
-  "truth_boundary": "The new attachment archive is verified as a valid ZIP, but no new conversation count or Project-sidebar total can be calculated from the empty JSONL."
+  "prepared_processing_capability": {
+    "jsonl_preprocessor": "scripts/chatgpt_jsonl_attachment_preprocessor_v1.py",
+    "secure_intake": "scripts/chatgpt_kb_intake_v1.py",
+    "preprocessor_tests": 4,
+    "preprocessor_tests_state": "PASS",
+    "branch_workflows": 6,
+    "branch_workflows_state": "PASS"
+  },
+  "counting_rule": "The final JSONL and attachment ZIP form one export generation. A temporary .crswap object is not counted as a second export and does not establish a conversation denominator until its bytes are accessible, hashable, parseable, and reconciled.",
+  "exact_next_action": "Allow Google Drive to finalise the upload so the .crswap object is replaced by a non-zero final JSONL. Because the available Drive download route has a 100 MB limit and the object is 2.56 GB, provide a compressed multipart copy with each part below 100 MB if the final file remains inaccessible through the connector.",
+  "truth_boundary": "The Drive folder is fully enumerated within its three direct children. Attachments are verified; the new conversation ledger remains unprocessed because only a zero-byte final placeholder and an inaccessible temporary upload object are available."
 }
