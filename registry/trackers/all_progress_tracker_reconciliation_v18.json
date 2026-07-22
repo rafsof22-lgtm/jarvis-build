@@ -1,0 +1,185 @@
+{
+  "id": "JARVIS-ALL-PROGRESS-TRACKER-RECONCILIATION-V18",
+  "version": "18.0.0",
+  "snapshot_date": "2026-07-22",
+  "baseline_main": "eba209dca817829caca688a14430d1d36de2a6af",
+  "working_branch": "jarvis/v18-visible-intake-consolidation-20260722",
+  "supersedes_tracker": "registry/trackers/all_progress_tracker_reconciliation_v17.json",
+  "program_state": "ACTIVE_PROGRAM_NOT_100_PERCENT",
+  "calculation_rule": "Percentages are bounded estimates for the defined workstream denominator, not universal completion claims. Blocked work can remain high-progress where only external proof is missing.",
+  "completed_this_pass": [
+    {
+      "work_id": "CONSTITUTION-AUTO-JARVIS-INTAKE-V18",
+      "state": "IMPLEMENTED_NOT_INTEGRATED",
+      "scope": "Constitution v1.1 adds governed automatic intake, chronology, dedupe, repository/PR reconciliation, domain separation and external-staging gates.",
+      "evidence": ["JARVIS_RAF213G_PROJECT_CONSTITUTION.md"]
+    },
+    {
+      "work_id": "V18-CHAT-AND-REQUEST-INTAKE",
+      "state": "DONE_VERIFIED_REPOSITORY_SCOPE",
+      "scope": "Current request, eight inaccessible ChatGPT share links, five connected repositories, visible PR state and project denominators registered with truthful access boundaries.",
+      "evidence": ["registry/source-accounting/v18_chat_and_request_intake_20260722.json"]
+    },
+    {
+      "work_id": "V18-ONE-VISUAL-PRIORITY-TALLY",
+      "state": "IMPLEMENTED_NOT_INTEGRATED",
+      "scope": "One canonical priority tally supersedes V17 while preserving all earlier trackers as lineage.",
+      "evidence": ["registry/trackers/all_progress_tracker_reconciliation_v18.json", "docs/trackers/JARVIS_MASTER_VISUAL_PROGRESS_TALLY_V18.md"]
+    }
+  ],
+  "priority_tally": [
+    {
+      "priority": "P0",
+      "workstream": "Source denominator and post-25-June delta",
+      "progress_percent": 82,
+      "state": "PENDING_INGEST",
+      "proven": "June export denominator and duplicate archive hash are verified.",
+      "gap": "No genuinely newer export; eight share-link bodies inaccessible.",
+      "next_action": "Ingest a newer ChatGPT export or explicit later-chat source pack, hash it, calculate delta and update chronology."
+    },
+    {
+      "priority": "P0",
+      "workstream": "83 XRP Tracking New direct-chat classification",
+      "progress_percent": 28,
+      "state": "BLOCKED_BY_ACCESS",
+      "proven": "83 conversations and 32,239 messages are denominator-mapped; shared XRP/HBAR source bucket and prior tracker logic exist.",
+      "gap": "Direct conversation bodies are not available in the current source set.",
+      "next_action": "Extract each direct chat into request, response, claim, catalyst, probability, conflict, module and implementation-delta records after source access."
+    },
+    {
+      "priority": "P0",
+      "workstream": "XRP/HBAR continuous intelligence update engine",
+      "progress_percent": 67,
+      "state": "INTEGRATED_STAGING",
+      "proven": "Dedicated service contracts, Hub event consumer, update logic and historical tracking requirements exist.",
+      "gap": "No current full 50-100-source production run, connected provider proof or live probability refresh was executed in this tranche.",
+      "next_action": "Implement source-budget policy, official/news/social source classes, freshness/dedupe scoring, probability-change evidence and trigger-button orchestration; run in staging when credentials are approved."
+    },
+    {
+      "priority": "P0",
+      "workstream": "Tax direct reconstruction",
+      "progress_percent": 22,
+      "state": "PENDING_INGEST",
+      "proven": "8 conversations and 8,672 messages mapped to a shared finance/tax/trust bucket.",
+      "gap": "Direct Tax chat bodies and current-law assertion register are not separately reconciled.",
+      "next_action": "Extract as an isolated legal/tax batch and verify current assertions against official Australian sources."
+    },
+    {
+      "priority": "P0",
+      "workstream": "Active Trust direct reconstruction",
+      "progress_percent": 20,
+      "state": "PENDING_INGEST",
+      "proven": "17 conversations and 11,478 messages mapped to the shared finance/tax/trust bucket.",
+      "gap": "Direct Active Trust bodies, deed/document dependencies and adviser-review gates are not separately reconciled.",
+      "next_action": "Extract into a distinct trust/legal registry; preserve tax, asset-protection, SMSF and estate cross-links without merging domains."
+    },
+    {
+      "priority": "P0",
+      "workstream": "Finance Planning to AI CFO registry",
+      "progress_percent": 18,
+      "state": "PENDING_INGEST",
+      "proven": "132 conversations and 17,356 messages mapped to the shared finance bucket; AI CFO architecture and Bill CFO service locator exist.",
+      "gap": "Direct chat-level requirements and evidence are not mapped to isolated AI CFO modules.",
+      "next_action": "Create entity, account, cash-flow, portfolio, tax, risk, workflow, approval and evidence registries from direct chat bodies."
+    },
+    {
+      "priority": "P0",
+      "workstream": "Financial New to AI CFO registry",
+      "progress_percent": 20,
+      "state": "PENDING_INGEST",
+      "proven": "12 conversations and 8,835 messages mapped to the shared finance bucket.",
+      "gap": "Direct requirements, overlap and supersession against Finance Planning are unclassified.",
+      "next_action": "Extract independently, then semantic-dedupe and cross-link against Finance Planning and Bill CFO."
+    },
+    {
+      "priority": "P0",
+      "workstream": "Six Longevity conversations",
+      "progress_percent": 24,
+      "state": "PENDING_INGEST",
+      "proven": "6 conversations and 2,614 messages mapped; restricted Health controls and claim-review infrastructure exist.",
+      "gap": "Direct Longevity chat bodies and attachments are not separately reconstructed.",
+      "next_action": "Extract under restricted-health, privacy, evidence-tier, non-diagnostic and clinical/device approval controls."
+    },
+    {
+      "priority": "P0",
+      "workstream": "Attachment and historical binary recovery",
+      "progress_percent": 58,
+      "state": "IN_PROGRESS",
+      "proven": "Multiple source packs, hashes, historical archives and bounded manifests are registered.",
+      "gap": "Some referenced binaries and inaccessible share-link attachments lack a complete denominator and immutable pointers.",
+      "next_action": "Build attachment-reference graph, locate available Library/export/repository copies, hash recovered binaries and log irrecoverable items with reasons."
+    },
+    {
+      "priority": "P1",
+      "workstream": "Canonical constitution, chronology and tracker consolidation",
+      "progress_percent": 96,
+      "state": "IMPLEMENTED_NOT_INTEGRATED",
+      "proven": "V18 branch contains constitution v1.1, source-intake ledger and consolidated machine-readable/visual trackers.",
+      "gap": "Branch CI and independent PR review are pending.",
+      "next_action": "Run V18 verifier and CI, open draft PR, resolve review findings and merge only after passing checks."
+    },
+    {
+      "priority": "P1",
+      "workstream": "GitHub repository and PR reconciliation",
+      "progress_percent": 78,
+      "state": "IN_PROGRESS",
+      "proven": "Five owned repositories inventoried; zero open PRs in visible scope; current heads and issue programme inspected.",
+      "gap": "Full closed-PR semantic duplicate audit, repository capability overlap matrix and archival decisions remain.",
+      "next_action": "Generate cross-repository ownership/capability matrix, closed-PR lineage map and non-destructive archive/supersession recommendations."
+    },
+    {
+      "priority": "P1",
+      "workstream": "Bill CFO and Jarvis Health module integration",
+      "progress_percent": 72,
+      "state": "INTEGRATED_STAGING",
+      "proven": "Service isolation, locators, health controls, synthetic journeys and CFO boundaries are repository-defined.",
+      "gap": "Full authenticated provider routes, production data and end-to-end cross-module proof are absent.",
+      "next_action": "Keep service roots isolated; add only contract-level federation and evidence pointers until credentials and privacy approvals are supplied."
+    },
+    {
+      "priority": "P1",
+      "workstream": "Command Centre and 18-layer local digital twin",
+      "progress_percent": 88,
+      "state": "INTEGRATED_STAGING",
+      "proven": "All 18 layers are exposed and exercised locally with privacy, security, persistence, retry, backup, restore, cost and rollback tests.",
+      "gap": "Authenticated external staging and connected end-to-end proof are not complete.",
+      "next_action": "Approve endpoints, IAM, credentials, budgets, observability and rollback ownership before connection."
+    },
+    {
+      "priority": "P2",
+      "workstream": "External staging federation",
+      "progress_percent": 61,
+      "state": "BLOCKED_AT_EXACT_STEP",
+      "proven": "Repository contracts, runbooks and local tests exist for VTI, Hub, Health, Property and Command Centre routes.",
+      "gap": "Provider-admin configuration, secret references, domains, databases and authorised canaries are missing.",
+      "next_action": "Complete each provider-specific action from the critical external queue and retain redacted proof."
+    },
+    {
+      "priority": "P5",
+      "workstream": "Controlled production promotion",
+      "progress_percent": 10,
+      "state": "NOT_AUTHORISED",
+      "proven": "Production approval and completion gates are constitutionally defined.",
+      "gap": "Connected staging, security/privacy review, budget approval, rollback evidence and owner acceptance are incomplete.",
+      "next_action": "Do not promote until every P0-P4 gate is passed or explicitly waived with residual risk."
+    }
+  ],
+  "global_controls": {
+    "no_silent_deletion": true,
+    "no_force_push_without_approval": true,
+    "no_false_zero_gap_claim": true,
+    "raw_source_separate_from_normalised_requirements": true,
+    "true_duplicate_dedupe_with_lineage": true,
+    "external_staging_owner_gated": true,
+    "production_owner_gated": true,
+    "health_restricted": true,
+    "legal_tax_official_source_and_professional_review": true,
+    "market_research_only_or_paper_first": true
+  },
+  "exact_unblock_inputs": [
+    "A genuinely newer ChatGPT export or explicit later-chat source pack containing the direct project bodies and attachments.",
+    "Provider-approved staging endpoints, IAM/service identities, secret references, databases, budgets/cost ceilings and rollback owners.",
+    "Owner/provider actions for DigitalOcean recovery, VTI token rotation, Health domain, Property webhook, Hub workflow and Cobalt canary."
+  ],
+  "truth_boundary": "V18 consolidates all currently accessible evidence and advances repository governance. It does not directly classify inaccessible chats, prove a 50-100-source live XRP/HBAR run, connect external staging or authorise production."
+}
