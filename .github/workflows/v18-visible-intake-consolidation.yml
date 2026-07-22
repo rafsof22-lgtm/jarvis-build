@@ -5,10 +5,15 @@ on:
     paths:
       - 'JARVIS_RAF213G_PROJECT_CONSTITUTION.md'
       - 'PROJECT_CONTINUITY.md'
+      - '.gitleaksignore'
       - 'registry/source-accounting/v18_chat_and_request_intake_20260722.json'
       - 'registry/trackers/all_progress_tracker_reconciliation_v18.json'
+      - 'registry/plans/jarvis_full_completion_execution_plan_v1.json'
+      - 'registry/gaps/jarvis_blocker_resolution_register_v1.json'
       - 'docs/trackers/JARVIS_MASTER_VISUAL_PROGRESS_TALLY_V18.md'
+      - 'docs/spec/JARVIS_MAMMOTH_CONSOLIDATED_FRAMEWORK_V1.md'
       - 'scripts/verify_v18_visible_intake_consolidation.py'
+      - 'scripts/verify_mammoth_framework_v1.py'
       - '.github/workflows/v18-visible-intake-consolidation.yml'
   workflow_dispatch:
 
@@ -23,12 +28,18 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Compile verifier
-        run: python -m py_compile scripts/verify_v18_visible_intake_consolidation.py
+      - name: Compile verifiers
+        run: |
+          python -m py_compile scripts/verify_v18_visible_intake_consolidation.py
+          python -m py_compile scripts/verify_mammoth_framework_v1.py
       - name: Verify V18 source truth and tracker consistency
         run: python scripts/verify_v18_visible_intake_consolidation.py
-      - name: Upload V18 evidence
+      - name: Verify Mammoth Framework, execution plan and blockers
+        run: python scripts/verify_mammoth_framework_v1.py
+      - name: Upload V18 and Mammoth evidence
         uses: actions/upload-artifact@v4
         with:
-          name: v18-visible-intake-evidence
-          path: evidence/v18-visible-intake-consolidation-verification.json
+          name: v18-mammoth-framework-evidence
+          path: |
+            evidence/v18-visible-intake-consolidation-verification.json
+            evidence/jarvis-mammoth-framework-v1-verification.json
