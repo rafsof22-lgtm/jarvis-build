@@ -2,10 +2,13 @@
 
 **Snapshot:** 2026-07-22  
 **Canonical repository:** `rafsof22-lgtm/jarvis-build`  
-**Baseline main commit:** `eba209dca817829caca688a14430d1d36de2a6af`  
-**Working branch:** `jarvis/v18-visible-intake-consolidation-20260722`  
+**Baseline main commit:** `52f3246b0563af9f95cc35db5abf19a1067fbdf0`  
 **Current tracker:** `registry/trackers/all_progress_tracker_reconciliation_v18.json`  
 **Visual tracker:** `docs/trackers/JARVIS_MASTER_VISUAL_PROGRESS_TALLY_V18.md`  
+**Mammoth framework:** `docs/spec/JARVIS_MAMMOTH_CONSOLIDATED_FRAMEWORK_V1.md`  
+**Execution plan:** `registry/plans/jarvis_full_completion_execution_plan_v1.json`  
+**Blocker register:** `registry/gaps/jarvis_blocker_resolution_register_v1.json`  
+**Merge evidence:** `registry/releases/jarvis_v18_merge_evidence.json`  
 **Previous tracker preserved:** `registry/trackers/all_progress_tracker_reconciliation_v17.json`  
 **Historical tracker preserved:** `registry/trackers/all_progress_tracker_reconciliation_v16.json`  
 **State:** `ACTIVE_PROGRAM_NOT_100_PERCENT`
@@ -13,24 +16,41 @@
 ## Mandatory resume protocol
 
 1. Read `PROJECT_CONSTITUTION.md`, `JARVIS_RAF213G_PROJECT_CONSTITUTION.md` and `AGENTS.md`.
-2. Refresh main/branch SHAs, pull requests, issues and runtime/provider evidence.
-3. Read the latest V18 tracker and source-intake ledger.
+2. Refresh main SHA, pull requests, issues and runtime/provider evidence.
+3. Read the V18 tracker, Mammoth Framework, execution plan, blocker register and source-intake ledger.
 4. Resume the highest-priority safe task from its evidence-backed state.
 5. Stop only at an exact source-access, owner, provider, credential, cost, legal, destructive, clinical/device or production gate.
-6. Update continuity, the machine tracker, visual tracker, evidence and rollback records.
+6. Update continuity, machine/visual trackers, evidence and rollback records.
 
-## Latest reconciliation — V18
+## Latest reconciliation — V18 merged
 
 | Item | State | Evidence boundary |
 |---|---|---|
-| Constitution v1.1 automatic Jarvis intake | `IMPLEMENTED_NOT_INTEGRATED` | Governed candidate intake, chronology, true-deduplication, GitHub/PR reconciliation, domain boundaries and staging gates are committed on the V18 branch; CI/PR review pending |
-| Current request and eight shared-chat URLs | `DONE_VERIFIED_REPOSITORY_SCOPE` | Request is extracted; URLs are registered; chat bodies remain `BLOCKED_BY_ACCESS` and were not falsely classified |
-| One consolidated visual priority tally | `IMPLEMENTED_NOT_INTEGRATED` | V18 machine-readable and visual trackers exist on the working branch; historical trackers preserved |
-| GitHub visible-scope audit | `VISIBLE_SCOPE_VERIFIED` | Five owned repositories inventoried; closed/merged PR semantic audit remains open |
-| V17 local 18-layer digital twin | `DONE_VERIFIED_LOCAL` | Preserved from V17; external staging remains unconnected |
-| Command Centre v1.4 | `INTEGRATED_STAGING` | Historical V17 name preserved for verifier compatibility; V18 Mammoth governance extends it without claiming authenticated external deployment |
+| Constitution v1.1 automatic Jarvis intake | `DONE_VERIFIED` | Merged through PR #102 after all required workflows passed; repository-governance scope only |
+| Mammoth Consolidated Framework V1 | `DONE_VERIFIED` | Thirty-section framework, eight-phase plan and blocker register passed deterministic CI; implementation and external runtime remain separately tracked |
+| Current request and eight shared-chat URLs | `DONE_VERIFIED` | Request and URLs are registered; bodies remain `BLOCKED_BY_ACCESS` and were not falsely classified |
+| One consolidated visual priority tally | `DONE_VERIFIED` | V18 machine-readable and visual trackers are merged; historical trackers preserved |
+| GitHub visible-scope audit | `DONE_VERIFIED` | Five owned repositories inventoried and cross-repository readiness passed; full closed-PR semantic lineage remains an open planned task |
+| V17 local 18-layer digital twin | `DONE_VERIFIED` | Preserved and regression-tested; external staging remains unconnected |
+| Command Centre v1.4 | `INTEGRATED_STAGING` | Historical V17 name preserved; local/repository staging only, not authenticated external deployment |
 
-Artifacts:
+## V18 merge verification
+
+PR #102 merged as commit `52f3246b0563af9f95cc35db5abf19a1067fbdf0` after successful completion of:
+
+- V18 Visible Intake Consolidation;
+- Full Stack Architecture V16;
+- Completion Tranche V17;
+- Free-first CI, including all 35 verification steps;
+- Security History Scan;
+- Cross-Repository Readiness;
+- Package Jarvis Skill;
+- Business Source Continuity V1;
+- Business Runtime V1.
+
+The merged package is evidence-backed for repository governance, specification, trackers, blocker routing, compatibility and security-history scope. It is not proof of inaccessible source ingestion, connected external staging or production.
+
+## Canonical artifacts
 
 - `JARVIS_RAF213G_PROJECT_CONSTITUTION.md`
 - `registry/source-accounting/v18_chat_and_request_intake_20260722.json`
@@ -39,6 +59,7 @@ Artifacts:
 - `docs/spec/JARVIS_MAMMOTH_CONSOLIDATED_FRAMEWORK_V1.md`
 - `registry/plans/jarvis_full_completion_execution_plan_v1.json`
 - `registry/gaps/jarvis_blocker_resolution_register_v1.json`
+- `registry/releases/jarvis_v18_merge_evidence.json`
 - `scripts/verify_v18_visible_intake_consolidation.py`
 - `scripts/verify_mammoth_framework_v1.py`
 
