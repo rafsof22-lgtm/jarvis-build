@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0.0",
+  "release_id": "JARVIS-V18-MAMMOTH-CONTROL-PACKAGE",
+  "release_date": "2026-07-22",
+  "repository": "rafsof22-lgtm/jarvis-build",
+  "pull_request": 102,
+  "merged_commit": "52f3246b0563af9f95cc35db5abf19a1067fbdf0",
+  "merge_method": "squash",
+  "program_state": "ACTIVE_PROGRAM_NOT_100_PERCENT",
+  "verified_workflows": [
+    "V18 Visible Intake Consolidation",
+    "Full Stack Architecture V16",
+    "Completion Tranche V17",
+    "Free-first CI",
+    "Security History Scan",
+    "Cross-Repository Readiness",
+    "Package Jarvis Skill",
+    "Business Source Continuity V1",
+    "Business Runtime V1"
+  ],
+  "canonical_artifacts": [
+    "JARVIS_RAF213G_PROJECT_CONSTITUTION.md",
+    "PROJECT_CONTINUITY.md",
+    "docs/spec/JARVIS_MAMMOTH_CONSOLIDATED_FRAMEWORK_V1.md",
+    "registry/plans/jarvis_full_completion_execution_plan_v1.json",
+    "registry/gaps/jarvis_blocker_resolution_register_v1.json",
+    "registry/trackers/all_progress_tracker_reconciliation_v18.json",
+    "docs/trackers/JARVIS_MASTER_VISUAL_PROGRESS_TALLY_V18.md"
+  ],
+  "verified_scope": "Repository governance, specification, trackers, blocker routing, compatibility, CI and security-history scope.",
+  "unverified_scope": [
+    "inaccessible shared-chat bodies and attachments",
+    "genuinely newer ChatGPT export",
+    "direct project-chat reconstruction",
+    "authenticated external staging",
+    "production deployment and owner acceptance"
+  ],
+  "rollback": "Revert merged commit 52f3246b0563af9f95cc35db5abf19a1067fbdf0 after impact review; preserve source and historical tracker lineage.",
+  "truth_boundary": "The V18 control package is merged and CI-verified. The wider Jarvis programme remains active and incomplete at documented source and external gates."
+}
