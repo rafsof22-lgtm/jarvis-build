@@ -1,0 +1,34 @@
+name: V18 Visible Intake Consolidation
+
+on:
+  pull_request:
+    paths:
+      - 'JARVIS_RAF213G_PROJECT_CONSTITUTION.md'
+      - 'PROJECT_CONTINUITY.md'
+      - 'registry/source-accounting/v18_chat_and_request_intake_20260722.json'
+      - 'registry/trackers/all_progress_tracker_reconciliation_v18.json'
+      - 'docs/trackers/JARVIS_MASTER_VISUAL_PROGRESS_TALLY_V18.md'
+      - 'scripts/verify_v18_visible_intake_consolidation.py'
+      - '.github/workflows/v18-visible-intake-consolidation.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-v18:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile verifier
+        run: python -m py_compile scripts/verify_v18_visible_intake_consolidation.py
+      - name: Verify V18 source truth and tracker consistency
+        run: python scripts/verify_v18_visible_intake_consolidation.py
+      - name: Upload V18 evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: v18-visible-intake-evidence
+          path: evidence/v18-visible-intake-consolidation-verification.json
