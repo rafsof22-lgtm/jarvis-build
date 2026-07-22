@@ -1,0 +1,187 @@
+{
+  "schema_version": "1.0.0",
+  "register_id": "JARVIS-BLOCKER-RESOLUTION-REGISTER-V1",
+  "snapshot_date": "2026-07-22",
+  "policy": "A blocker is closed only by evidence at the exact blocked step. Do not infer completion from repository files or adjacent successes.",
+  "blockers": [
+    {
+      "blocker_id": "BLK-SOURCE-001",
+      "class": "SOURCE_ACCESS",
+      "title": "No genuinely newer ChatGPT export",
+      "state": "BLOCKED",
+      "blocks": ["post-2026-06-25 delta", "current project chronology", "complete source denominator"],
+      "exact_unblock_input": "A ChatGPT export generated after 2026-06-25 or an explicit later-chat source pack.",
+      "safe_actions_now": ["preserve known denominator", "maintain pending-ingest ledger", "prepare deterministic delta pipeline"],
+      "proof_required": ["archive SHA-256", "member inventory", "conversation/message counts", "delta report", "duplicate and failure ledger"],
+      "owner": "User/source owner",
+      "rollback": "Remove only derived delta artifacts; preserve raw archive and prior manifests."
+    },
+    {
+      "blocker_id": "BLK-SOURCE-002",
+      "class": "SOURCE_ACCESS",
+      "title": "Eight shared ChatGPT links are inaccessible",
+      "state": "BLOCKED",
+      "blocks": ["chat-body extraction", "attachment recovery", "chronological placement", "requirement mapping"],
+      "exact_unblock_input": "Accessible conversation exports, copied transcripts or files containing the eight chat bodies and attachments.",
+      "safe_actions_now": ["preserve URLs", "record access failures", "prepare chat ingestion schema"],
+      "proof_required": ["conversation IDs/titles", "message chronology", "user and assistant message ledger", "attachment references", "source hashes where available"],
+      "owner": "User/source owner",
+      "rollback": "Mark derived records superseded if later canonical exports conflict."
+    },
+    {
+      "blocker_id": "BLK-SOURCE-003",
+      "class": "SOURCE_ACCESS",
+      "title": "83 XRP Tracking New direct bodies unavailable",
+      "state": "BLOCKED",
+      "blocks": ["direct XRP request classification", "claim and probability lineage", "implementation delta"],
+      "exact_unblock_input": "The 83 direct conversation bodies from the project export or equivalent source pack.",
+      "proof_required": ["83-conversation ledger", "32239-message reconciliation", "request-response mappings", "claims/catalysts/conflicts registry", "probability model lineage"],
+      "owner": "User/source owner"
+    },
+    {
+      "blocker_id": "BLK-SOURCE-004",
+      "class": "SOURCE_ACCESS_AND_LEGAL_VERIFICATION",
+      "title": "Tax direct batch unavailable",
+      "state": "BLOCKED",
+      "exact_unblock_input": "Eight Tax chat bodies and any referenced documents.",
+      "proof_required": ["8672-message reconciliation", "assertion register", "official Australian source verification", "professional-review gate"],
+      "owner": "User/source owner and qualified adviser"
+    },
+    {
+      "blocker_id": "BLK-SOURCE-005",
+      "class": "SOURCE_ACCESS_AND_LEGAL_VERIFICATION",
+      "title": "Active Trust direct batch unavailable",
+      "state": "BLOCKED",
+      "exact_unblock_input": "Seventeen Active Trust chat bodies and referenced trust/deed documents.",
+      "proof_required": ["11478-message reconciliation", "document dependency register", "conflict and supersession map", "adviser-review gate"],
+      "owner": "User/source owner and qualified adviser"
+    },
+    {
+      "blocker_id": "BLK-SOURCE-006",
+      "class": "SOURCE_ACCESS",
+      "title": "Finance Planning direct batch unavailable",
+      "state": "BLOCKED",
+      "exact_unblock_input": "132 Finance Planning chat bodies and referenced finance files.",
+      "proof_required": ["17356-message reconciliation", "AI CFO requirement registry", "entity/account/cash-flow/portfolio mappings"],
+      "owner": "User/source owner"
+    },
+    {
+      "blocker_id": "BLK-SOURCE-007",
+      "class": "SOURCE_ACCESS",
+      "title": "Financial New direct batch unavailable",
+      "state": "BLOCKED",
+      "exact_unblock_input": "Twelve Financial New chat bodies and referenced files.",
+      "proof_required": ["8835-message reconciliation", "independent extraction", "overlap and supersession map against Finance Planning and Bill CFO"],
+      "owner": "User/source owner"
+    },
+    {
+      "blocker_id": "BLK-SOURCE-008",
+      "class": "SOURCE_ACCESS_AND_RESTRICTED_HEALTH",
+      "title": "Longevity direct batch unavailable",
+      "state": "BLOCKED",
+      "exact_unblock_input": "Six Longevity Plan chat bodies and referenced health files.",
+      "proof_required": ["2614-message reconciliation", "restricted-health requirement registry", "claim evidence tiers", "consent/privacy controls", "clinical/device approval gates"],
+      "owner": "User/source owner and appropriate health professional where required"
+    },
+    {
+      "blocker_id": "BLK-EXT-001",
+      "class": "PROVIDER_ADMIN",
+      "title": "Hub DigitalOcean runtime recovery",
+      "state": "BLOCKED",
+      "exact_unblock_input": "Authorised DigitalOcean Recovery Console access and runtime ownership confirmation.",
+      "required_steps": ["diagnose boot/network/firewall", "run bounded recovery", "prove health/readiness", "prove migrations/workers", "prove rollback"],
+      "proof_required": ["redacted console evidence", "public route checks", "deployment SHA", "rollback result"],
+      "owner": "DigitalOcean account owner"
+    },
+    {
+      "blocker_id": "BLK-EXT-002",
+      "class": "CREDENTIAL_ROTATION",
+      "title": "Historical VTI token rotation",
+      "state": "BLOCKED",
+      "exact_unblock_input": "Provider-owner revocation and replacement through the provider secret manager.",
+      "required_steps": ["revoke old credential", "create least-privilege replacement if needed", "store by secret reference", "run smallest smoke route"],
+      "proof_required": ["redacted revocation evidence", "secret reference", "successful smoke test", "no secret value in logs"],
+      "owner": "Provider account owner"
+    },
+    {
+      "blocker_id": "BLK-EXT-003",
+      "class": "PROVIDER_CONFIGURATION",
+      "title": "Jarvis Health Railway runtime proof",
+      "state": "BLOCKED",
+      "exact_unblock_input": "Authoritative Railway service/domain, scoped secret references and privacy approval.",
+      "required_steps": ["verify service root", "verify deployment SHA", "run health/readiness", "run privacy-safe smallest route", "restart", "backup/restore", "rollback"],
+      "proof_required": ["redacted environment map", "route evidence", "restore and rollback evidence"],
+      "owner": "Railway project owner and Health data authority"
+    },
+    {
+      "blocker_id": "BLK-EXT-004",
+      "class": "PROVIDER_CONFIGURATION",
+      "title": "Property Sheets webhook fallback proof",
+      "state": "BLOCKED",
+      "exact_unblock_input": "Approved Apps Script/Railway configuration and non-sensitive test sheet.",
+      "required_steps": ["configure least-privilege service identity", "set webhook/secret references", "write one synthetic row", "verify dedupe and rollback"],
+      "proof_required": ["redacted config map", "synthetic row evidence", "audit event", "rollback result"],
+      "owner": "Google/Railway account owner"
+    },
+    {
+      "blocker_id": "BLK-EXT-005",
+      "class": "WORKFLOW_DISPATCH",
+      "title": "Hub deployment/Gmail proof workflow",
+      "state": "BLOCKED",
+      "exact_unblock_input": "Authorised dispatch of the current workflow with read-only provider scopes.",
+      "required_steps": ["dispatch exact main SHA", "classify provider response", "store redacted evidence", "do not send external mail without explicit approval"],
+      "proof_required": ["workflow run", "job logs", "provider classification", "no external side effect"],
+      "owner": "GitHub/provider owner"
+    },
+    {
+      "blocker_id": "BLK-EXT-006",
+      "class": "HOST_CREDENTIAL_AND_CANARY",
+      "title": "Protected VTI Cobalt canary",
+      "state": "BLOCKED",
+      "exact_unblock_input": "Approved protected-host credentials and authorised synthetic canary source.",
+      "required_steps": ["deploy isolated worker", "run positive canary", "run negative rights test", "verify purge", "verify rollback"],
+      "proof_required": ["deployment SHA", "canary evidence", "purge evidence", "negative test", "rollback"],
+      "owner": "Protected host owner"
+    },
+    {
+      "blocker_id": "BLK-EXT-007",
+      "class": "STAGING_FEDERATION",
+      "title": "VTI-to-Hub staging federation",
+      "state": "BLOCKED",
+      "exact_unblock_input": "Approved HTTPS staging endpoint and shared signing-secret reference in both secret stores.",
+      "required_steps": ["configure endpoint", "configure signing reference", "test signature", "test idempotency", "test retry/replay rejection", "test rollback"],
+      "proof_required": ["redacted configuration", "signed event evidence", "duplicate and replay results", "rollback evidence"],
+      "owner": "VTI and Hub staging owners"
+    },
+    {
+      "blocker_id": "BLK-EXT-008",
+      "class": "AUTHENTICATED_STAGING",
+      "title": "Command Centre authenticated staging",
+      "state": "BLOCKED",
+      "exact_unblock_input": "Approved staging environment, identity provider, secret references, observability and rollback owner.",
+      "required_steps": ["deploy exact SHA", "enforce RBAC", "prove read-only surfaces", "prove approval gates", "prove logs/alerts", "prove rollback"],
+      "proof_required": ["deployment and identity evidence", "access-control tests", "audit timeline", "rollback"],
+      "owner": "Infrastructure and release owners"
+    },
+    {
+      "blocker_id": "BLK-EXT-009",
+      "class": "FULL_STACK_STAGING",
+      "title": "External 18-layer digital twin connection",
+      "state": "BLOCKED",
+      "exact_unblock_input": "Approved endpoints, IAM/service identities, databases, provider credentials, budgets/cost ceilings and rollback ownership.",
+      "required_steps": ["connect one layer at a time", "run privacy/security tests", "run persistence/retry/idempotency", "run backup/restore", "run cost ceiling", "run full rollback"],
+      "proof_required": ["18-layer evidence matrix", "staging E2E run", "cost report", "DR and rollback evidence"],
+      "owner": "Infrastructure, security, cost and release authorities"
+    },
+    {
+      "blocker_id": "BLK-PROD-001",
+      "class": "OWNER_ACCEPTANCE",
+      "title": "Production promotion not authorised",
+      "state": "BLOCKED",
+      "exact_unblock_input": "Passing P0-P5 evidence, residual-risk acceptance, approved budget and explicit owner production approval.",
+      "proof_required": ["release candidate", "security/privacy review", "canary results", "rollback proof", "owner acceptance record"],
+      "owner": "User/system owner"
+    }
+  ],
+  "truth_boundary": "This register makes every known blocker actionable and auditable. It does not itself supply inaccessible sources, credentials, provider access or owner acceptance."
+}
