@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0.0",
+  "registry_id": "JARVIS-GDRIVE-CHATGPT-EXPORT-DISCOVERY-20260722",
+  "snapshot_date_melbourne": "2026-07-22",
+  "source_location": {
+    "provider": "Google Drive",
+    "folder_id": "1sm6F4CqVIhF1E-cxYJfL4tfyCWONC6Nq",
+    "folder_title": "chatgpt_exports",
+    "state": "VISIBLE_SCOPE_VERIFIED"
+  },
+  "export_generations": {
+    "historical_verified": 1,
+    "newly_discovered": 1,
+    "total_known_generations": 2,
+    "fully_processable_generations": 1,
+    "incomplete_generations": 1
+  },
+  "new_export_generation": {
+    "timestamp_label": "2026-07-22T01-35-30",
+    "state": "BLOCKED_AT_EXACT_STEP",
+    "conversation_ledger": {
+      "title": "chatgpt-export-2026-07-22T01-35-30.jsonl",
+      "drive_file_id": "1-yDcWfqs_aiWct_RH-MAN4DgOvLXuf8Y",
+      "mime_type": "application/octet-stream",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "state": "EMPTY_FILE_UNPROCESSABLE",
+      "blocker": "The downloaded JSONL is zero bytes and contains no conversation records."
+    },
+    "attachments": {
+      "title": "chatgpt-attachments.zip",
+      "drive_file_id": "16Bl9PsuYrlZ0Y9Z2gwj_2pv4f505TbUJ",
+      "size_bytes": 284044802,
+      "sha256": "9544b9cefe7651f95f59abcb47093f028b09670830c32c0e7080dccd12761445",
+      "zip_integrity": "PASS",
+      "zip_member_count": 240,
+      "file_member_count": 223,
+      "directory_member_count": 17,
+      "top_level_chat_attachment_directories": 16,
+      "uncompressed_bytes": 941083665,
+      "state": "SOURCE_PRESENT_CONTENT_UNREVIEWED"
+    }
+  },
+  "historical_baseline": {
+    "title": "chatgpt-export-2026-06-25T03-06-22 (2) (1).7z",
+    "state": "EXTRACTED_DENOMINATOR_VERIFIED",
+    "conversations": 2610,
+    "messages": 357835
+  },
+  "counting_rule": "The JSONL and attachment ZIP are two files forming one export generation. A generation is processable only when the conversation ledger contains non-zero parseable records. Exact duplicates and attachment-only packages do not create additional conversation denominators.",
+  "exact_next_action": "Replace or re-upload the non-empty 2026-07-22 JSONL/conversations file into the same Drive folder. Preserve the verified attachment ZIP unchanged, then run conversation-ID and message-hash delta reconciliation against the 2026-06-25 baseline.",
+  "truth_boundary": "The new attachment archive is verified as a valid ZIP, but no new conversation count or Project-sidebar total can be calculated from the empty JSONL."
+}
