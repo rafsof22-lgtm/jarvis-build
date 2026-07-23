@@ -1,0 +1,57 @@
+# JARVIS Module Registry — V21 Evidence Sync
+
+**State:** `CANDIDATE_PENDING_CI_REVIEW`. Existing root registry history remains authoritative until merge.
+
+| module_id | module_name | layer | baseline_status | user_request_message_count | assistant_response_message_count | runtime_state | next_action |
+|---|---|---|---|---|---|---|---|
+| MOD-AGENT-EXECUTOR | Agent Executor | ORIGINAL_JARVIS_TARGET_OR_SHARED_SERVICE | baseline-active | 0 | 0 | BASELINE_MANIFEST_PRESENT_NEEDS_CURRENT_REPO_PROOF | map canonical requirements and current repository artifacts |
+| MOD-AGENT-ORCHESTRATOR | Agent Orchestrator | ORIGINAL_JARVIS_TARGET_OR_SHARED_SERVICE | baseline-active | 2460 | 5864 | BASELINE_MANIFEST_PRESENT_NEEDS_CURRENT_REPO_PROOF | map canonical requirements and current repository artifacts |
+| MOD-AGENT-PLANNER | Agent Planner | ORIGINAL_JARVIS_TARGET_OR_SHARED_SERVICE | baseline-active | 0 | 0 | BASELINE_MANIFEST_PRESENT_NEEDS_CURRENT_REPO_PROOF | map canonical requirements and current repository artifacts |
+| MOD-AGENT-VERIFIER | Agent Verifier | ORIGINAL_JARVIS_TARGET_OR_SHARED_SERVICE | baseline-active | 0 | 0 | BASELINE_MANIFEST_PRESENT_NEEDS_CURRENT_REPO_PROOF | map canonical requirements and current repository artifacts |
+| MOD-AUDIT-LEDGER | Audit Ledger | ORIGINAL_JARVIS_TARGET_OR_SHARED_SERVICE | baseline-active | 5604 | 23753 | BASELINE_MANIFEST_PRESENT_NEEDS_CURRENT_REPO_PROOF | map canonical requirements and current repository artifacts |
+| MOD-AUTONOMY-GOVERNOR | Autonomy Governor | ORIGINAL_JARVIS_TARGET_OR_SHARED_SERVICE | baseline-active | 2242 | 12886 | BASELINE_MANIFEST_PRESENT_NEEDS_CURRENT_REPO_PROOF | map canonical requirements and current repository artifacts |
+| MOD-BACKUP-RECOVERY | Backup Recovery | ORIGINAL_JARVIS_TARGET_OR_SHARED_SERVICE | baseline-active | 641 | 5103 | BASELINE_MANIFEST_PRESENT_NEEDS_CURRENT_REPO_PROOF | map canonical requirements and current repository artifacts |
+| MOD-BUSINESS-DIGITAL | Business Digital | ORIGINAL_JARVIS_TARGET_OR_SHARED_SERVICE | baseline-active | 0 | 0 | BASELINE_MANIFEST_PRESENT_NEEDS_CURRENT_REPO_PROOF | map canonical requirements and current repository artifacts |
+| MOD-BUSINESS-FINANCIAL | Business Financial | ORIGINAL_JARVIS_TARGET_OR_SHARED_SERVICE | baseline-active | 0 | 0 | BASELINE_MANIFEST_PRESENT_NEEDS_CURRENT_REPO_PROOF | map canonical requirements and current repository artifacts |
+| MOD-CONSOLE-JARVIS-POP | Jarvis Pop Console | ORIGINAL_JARVIS_TARGET_OR_SHARED_SERVICE | baseline-active | 1645 | 10392 | BASELINE_MANIFEST_PRESENT_NEEDS_CURRENT_REPO_PROOF | map canonical requirements and current repository artifacts |
+| MOD-CORE-PLATFORM | Core Platform | ORIGINAL_JARVIS_TARGET_OR_SHARED_SERVICE | baseline-active | 1962 | 7334 | BASELINE_MANIFEST_PRESENT_NEEDS_CURRENT_REPO_PROOF | map canonical requirements and current repository artifacts |
+| MOD-COST-ENGINE | Cost Engine | ORIGINAL_JARVIS_TARGET_OR_SHARED_SERVICE | baseline-active | 5939 | 23049 | BASELINE_MANIFEST_PRESENT_NEEDS_CURRENT_REPO_PROOF | map canonical requirements and current repository artifacts |
+| MOD-DASHBOARD | Dashboard | ORIGINAL_JARVIS_TARGET_OR_SHARED_SERVICE | baseline-active | 1891 | 14979 | BASELINE_MANIFEST_PRESENT_NEEDS_CURRENT_REPO_PROOF | map canonical requirements and current repository artifacts |
+| MOD-DEPLOYMENT | Deployment | ORIGINAL_JARVIS_TARGET_OR_SHARED_SERVICE | baseline-active | 2483 | 12704 | BASELINE_MANIFEST_PRESENT_NEEDS_CURRENT_REPO_PROOF | map canonical requirements and current repository artifacts |
+| MOD-DEVICE-CONTROL | Device Control | ORIGINAL_JARVIS_TARGET_OR_SHARED_SERVICE | baseline-active | 0 | 0 | BASELINE_MANIFEST_PRESENT_NEEDS_CURRENT_REPO_PROOF | map canonical requirements and current repository artifacts |
+| MOD-DOC-OCR | Document OCR | ORIGINAL_JARVIS_TARGET_OR_SHARED_SERVICE | baseline-active | 0 | 0 | BASELINE_MANIFEST_PRESENT_NEEDS_CURRENT_REPO_PROOF | map canonical requirements and current repository artifacts |
+| MOD-HEARTBEAT | Heartbeat Supervisor | ORIGINAL_JARVIS_TARGET_OR_SHARED_SERVICE | baseline-active | 0 | 0 | BASELINE_MANIFEST_PRESENT_NEEDS_CURRENT_REPO_PROOF | map canonical requirements and current repository artifacts |
+| MOD-IDENTITY-RBAC | Identity RBAC | ORIGINAL_JARVIS_TARGET_OR_SHARED_SERVICE | baseline-active | 0 | 0 | BASELINE_MANIFEST_PRESENT_NEEDS_CURRENT_REPO_PROOF | map canonical requirements and current repository artifacts |
+| MOD-INTEGRATIONS-FABRIC | Integrations Fabric | ORIGINAL_JARVIS_TARGET_OR_SHARED_SERVICE | baseline-active | 3157 | 13906 | BASELINE_MANIFEST_PRESENT_NEEDS_CURRENT_REPO_PROOF | map canonical requirements and current repository artifacts |
+| MOD-INTELLIGENCE-JOBS | Intelligence Jobs | ORIGINAL_JARVIS_TARGET_OR_SHARED_SERVICE | baseline-active | 3542 | 12834 | BASELINE_MANIFEST_PRESENT_NEEDS_CURRENT_REPO_PROOF | map canonical requirements and current repository artifacts |
+| MOD-LLM-ROUTER | LLM Router | ORIGINAL_JARVIS_TARGET_OR_SHARED_SERVICE | baseline-active | 1993 | 11578 | BASELINE_MANIFEST_PRESENT_NEEDS_CURRENT_REPO_PROOF | map canonical requirements and current repository artifacts |
+| MOD-MEMORY-CONTINUITY | Memory Continuity | ORIGINAL_JARVIS_TARGET_OR_SHARED_SERVICE | baseline-active | 1855 | 9545 | BASELINE_MANIFEST_PRESENT_NEEDS_CURRENT_REPO_PROOF | map canonical requirements and current repository artifacts |
+| MOD-MODEL-REGISTRY | Model Registry | ORIGINAL_JARVIS_TARGET_OR_SHARED_SERVICE | baseline-active | 0 | 0 | BASELINE_MANIFEST_PRESENT_NEEDS_CURRENT_REPO_PROOF | map canonical requirements and current repository artifacts |
+| MOD-MODULE-RUNTIME | Module Runtime | ORIGINAL_JARVIS_TARGET_OR_SHARED_SERVICE | baseline-active | 985 | 6583 | BASELINE_MANIFEST_PRESENT_NEEDS_CURRENT_REPO_PROOF | map canonical requirements and current repository artifacts |
+| MOD-NETWORK-CONTROL | Network Control | ORIGINAL_JARVIS_TARGET_OR_SHARED_SERVICE | baseline-active | 0 | 0 | BASELINE_MANIFEST_PRESENT_NEEDS_CURRENT_REPO_PROOF | map canonical requirements and current repository artifacts |
+| MOD-OPERATOR-SUMMARIES | Operator Summaries | ORIGINAL_JARVIS_TARGET_OR_SHARED_SERVICE | baseline-active | 267 | 2340 | BASELINE_MANIFEST_PRESENT_NEEDS_CURRENT_REPO_PROOF | map canonical requirements and current repository artifacts |
+| MOD-POLICY-GUARDRAILS | Policy Guardrails | ORIGINAL_JARVIS_TARGET_OR_SHARED_SERVICE | baseline-active | 0 | 0 | BASELINE_MANIFEST_PRESENT_NEEDS_CURRENT_REPO_PROOF | map canonical requirements and current repository artifacts |
+| MOD-PROCUREMENT | Procurement | ORIGINAL_JARVIS_TARGET_OR_SHARED_SERVICE | baseline-active | 0 | 0 | BASELINE_MANIFEST_PRESENT_NEEDS_CURRENT_REPO_PROOF | map canonical requirements and current repository artifacts |
+| MOD-PROJECTS-KB | Projects Knowledge Base | ORIGINAL_JARVIS_TARGET_OR_SHARED_SERVICE | baseline-active | 10969 | 29945 | BASELINE_MANIFEST_PRESENT_NEEDS_CURRENT_REPO_PROOF | map canonical requirements and current repository artifacts |
+| MOD-PROOF-REGISTRY | Proof Registry | ORIGINAL_JARVIS_TARGET_OR_SHARED_SERVICE | baseline-active | 0 | 0 | BASELINE_MANIFEST_PRESENT_NEEDS_CURRENT_REPO_PROOF | map canonical requirements and current repository artifacts |
+| MOD-SECURITY-VAULT | Security Vault | ORIGINAL_JARVIS_TARGET_OR_SHARED_SERVICE | baseline-active | 2945 | 16985 | BASELINE_MANIFEST_PRESENT_NEEDS_CURRENT_REPO_PROOF | map canonical requirements and current repository artifacts |
+| MOD-SELF-BUILD | Self Build | ORIGINAL_JARVIS_TARGET_OR_SHARED_SERVICE | baseline-active | 114 | 680 | BASELINE_MANIFEST_PRESENT_NEEDS_CURRENT_REPO_PROOF | map canonical requirements and current repository artifacts |
+| MOD-SELF-REPAIR | Self Repair | ORIGINAL_JARVIS_TARGET_OR_SHARED_SERVICE | baseline-active | 0 | 0 | BASELINE_MANIFEST_PRESENT_NEEDS_CURRENT_REPO_PROOF | map canonical requirements and current repository artifacts |
+| MOD-SOFTWARE-RUNTIME | Software Runtime | ORIGINAL_JARVIS_TARGET_OR_SHARED_SERVICE | baseline-active | 2714 | 15399 | BASELINE_MANIFEST_PRESENT_NEEDS_CURRENT_REPO_PROOF | map canonical requirements and current repository artifacts |
+| MOD-STRATEGY-REGISTRY | Strategy Registry | ORIGINAL_JARVIS_TARGET_OR_SHARED_SERVICE | baseline-active | 0 | 0 | BASELINE_MANIFEST_PRESENT_NEEDS_CURRENT_REPO_PROOF | map canonical requirements and current repository artifacts |
+| MOD-VIDEO-INTEL | Video Intelligence | ORIGINAL_JARVIS_TARGET_OR_SHARED_SERVICE | baseline-active | 2106 | 5854 | BASELINE_MANIFEST_PRESENT_NEEDS_CURRENT_REPO_PROOF | map canonical requirements and current repository artifacts |
+| MOD-WEBHOOK-INGEST | Webhook Ingest | ORIGINAL_JARVIS_TARGET_OR_SHARED_SERVICE | baseline-active | 0 | 0 | BASELINE_MANIFEST_PRESENT_NEEDS_CURRENT_REPO_PROOF | map canonical requirements and current repository artifacts |
+| MOD-WORKFLOW-RUNTIME | Workflow Runtime | ORIGINAL_JARVIS_TARGET_OR_SHARED_SERVICE | baseline-active | 2264 | 13467 | BASELINE_MANIFEST_PRESENT_NEEDS_CURRENT_REPO_PROOF | map canonical requirements and current repository artifacts |
+| MOD-MASTER-KB | Master ChatGPT Knowledge Base | JARVIS_BUILD_BUILDER | REGISTERED_CANDIDATE | 2879 | 12447 | VARIES_NEEDS_EVIDENCE | reconcile module contracts and deployment state |
+| MOD-XRP-HBAR-APEX | XRP/HBAR Apex Intelligence | DOMAIN_MODULE | REGISTERED_CANDIDATE | 12251 | 17925 | VARIES_NEEDS_EVIDENCE | reconcile module contracts and deployment state |
+| MOD-TRADING-RESEARCH | Trading Research and Paper Execution | DOMAIN_MODULE | REGISTERED_CANDIDATE | 1621 | 8416 | VARIES_NEEDS_EVIDENCE | reconcile module contracts and deployment state |
+| MOD-AI-CFO | AI CFO and Finance Evidence | DOMAIN_MODULE | REGISTERED_CANDIDATE | 6757 | 13264 | VARIES_NEEDS_EVIDENCE | reconcile module contracts and deployment state |
+| MOD-HEALTH | Health and Care Coordination | DOMAIN_MODULE | REGISTERED_CANDIDATE | 3612 | 8447 | VARIES_NEEDS_EVIDENCE | reconcile module contracts and deployment state |
+| MOD-PROPERTY | Property and Buyer Intelligence | DOMAIN_MODULE | REGISTERED_CANDIDATE | 3281 | 6951 | VARIES_NEEDS_EVIDENCE | reconcile module contracts and deployment state |
+| MOD-AUTOMOTIVE-JENOK | Automotive and Jenok Operations | DOMAIN_MODULE | REGISTERED_CANDIDATE | 3241 | 7281 | VARIES_NEEDS_EVIDENCE | reconcile module contracts and deployment state |
+| MOD-PASSIVE-INCOME | Passive Income and Autonomous Business | DOMAIN_MODULE | REGISTERED_CANDIDATE | 1769 | 4129 | VARIES_NEEDS_EVIDENCE | reconcile module contracts and deployment state |
+| MOD-SURVIVAL | Survival and Resilience | DOMAIN_MODULE | REGISTERED_CANDIDATE | 585 | 1718 | VARIES_NEEDS_EVIDENCE | reconcile module contracts and deployment state |
+| MOD-SPOOKY2 | Spooky2 and Frequency Evidence | DOMAIN_MODULE | REGISTERED_CANDIDATE | 1472 | 2935 | VARIES_NEEDS_EVIDENCE | reconcile module contracts and deployment state |
+| MOD-DREAM-HOME | Dream Home and Estate Planning | DOMAIN_MODULE | REGISTERED_CANDIDATE | 909 | 6072 | VARIES_NEEDS_EVIDENCE | reconcile module contracts and deployment state |
+| MOD-GROW | Grow and Hydroponics | DOMAIN_MODULE | REGISTERED_CANDIDATE | 595 | 1113 | VARIES_NEEDS_EVIDENCE | reconcile module contracts and deployment state |
+| MOD-LEGAL-ADMIN | Personal Admin and Legal Coordination | DOMAIN_MODULE | REGISTERED_CANDIDATE | 1994 | 12193 | VARIES_NEEDS_EVIDENCE | reconcile module contracts and deployment state |

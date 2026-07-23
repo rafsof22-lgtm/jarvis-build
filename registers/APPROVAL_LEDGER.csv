@@ -1,0 +1,6 @@
+gate_id,action,status,owner,evidence,scope,not_authorised
+APP-001,Create V21 branch and PR,AUTHORISED_BY_CURRENT_REQUEST,human owner,current user message,branch/commit/PR only,merge/deploy
+APP-002,Merge V21 PR,PENDING_EXPLICIT_APPROVAL,human owner,none yet,repository merge,automatic merge
+APP-003,Staging deployment,BLOCKED_PENDING_ENV_AND_APPROVAL,human/provider owner,none current,staging only,credentials/billing without approval
+APP-004,Canary/production,NOT_AUTHORISED,human owner,none,production,all production effects
+APP-005,Secrets/OAuth/billing/legal,OWNER_GATED,human owner,constitution,exact action only,secret disclosure/scope expansion

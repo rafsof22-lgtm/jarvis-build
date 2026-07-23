@@ -1,0 +1,8 @@
+api_id,api,owner_module,auth,state,smallest_test,rollback
+API-GITHUB,GitHub REST/GraphQL,MOD-DEPLOYMENT,connected app/token reference,CONNECTED,read repo/file/PR; branch/PR write,close PR/delete unmerged branch only with approval
+API-OPENAI,OpenAI-compatible model API,MOD-LLM-ROUTER,secret reference,OPTIONAL_NOT_REQUIRED_FOR_V21,model metadata or bounded completion,revoke/disable route
+API-GOOGLE,Google APIs,MOD-INTEGRATIONS-FABRIC,OAuth/service identity,PARTIAL_CONNECTED,read-only metadata,revoke scopes
+API-RAILWAY,Railway provider/runtime API,MOD-DEPLOYMENT,provider token reference,UNVERIFIED_CURRENT,service metadata/health,rollback deployment/disable service
+API-VERCEL,Vercel deployment API,MOD-DEPLOYMENT,provider token reference,HISTORICAL_SECURITY_GAP,deployment metadata,revoke token/rollback deployment
+API-N8N,n8n webhook/API,MOD-WORKFLOW-RUNTIME,signed webhook/credential ref,LOCAL_ADAPTER_TESTED_HISTORICALLY,fake transport then staging signed event,disable allowlist/webhook
+API-MCP,MCP JSON-RPC/tool contracts,MOD-INTEGRATIONS-FABRIC,service-specific,MULTIPLE_REPO_IMPLEMENTATIONS,tools list/read-only call,disable service/tool

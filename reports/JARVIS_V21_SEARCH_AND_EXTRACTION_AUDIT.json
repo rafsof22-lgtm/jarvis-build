@@ -1,0 +1,9 @@
+{
+  "generated_at_melbourne": "2026-07-23T19:00:00+10:00",
+  "method": "deterministic Python/sqlite3/regex classification; no paid model or API calls",
+  "source_database": {"sha256":"dcf640212e38e5d0fc3c5b229734a735ee9c174bca836633b1b1a098da4f164d","integrity":"ok"},
+  "source_counts": {"conversations":2669,"messages":97589,"user_messages":47560,"assistant_messages":50029,"candidate_conversations":1508,"candidate_user_messages":42994,"candidate_assistant_messages":45352},
+  "mapping": {"candidate_user_messages_scanned":42994,"candidate_user_messages_mapped":42994,"unmapped_user_messages":0,"candidate_assistant_messages_scanned":45352,"assistant_commitment_records":33322,"blocker_open_loop_records":14194,"secret_like_reference_flags":4115,"canonical_requirement_count":38,"mapping_root_sha256":"7d0cd7a21558fc39dadca23e4acf88b9181c8853090386559270e2dcccf4b698"},
+  "privacy_boundary":"No raw message text is included in the public repo package. Local detailed ledgers contain hashes/pointers/categories only.",
+  "limitations":["Flattened export lacks native ChatGPT mapping/system/tool metadata.","Rule-based mapping is deterministic and exhaustive over candidate messages, but semantic edge cases remain reviewable rather than falsely closed."]
+}

@@ -1,0 +1,7 @@
+workflow_id,workflow,states,approval,evidence,rollback
+WF-001,Source intake and reconstruction,NEW>QUEUED>PROC>EXTRACT>INDEX>LINK>READY>VERIFIED,none for safe local; access gates only,hashes/counts/parser logs,preserve raw source and regenerate
+WF-002,Request capture and compilation,CAPTURE>CLASSIFY>MAP>DEDUPE>TRACE>REVIEW,owner for conflict resolution/material policy,request ledger and links,"remove candidate mappings, preserve source"
+WF-003,Build and PR,INSPECT>BRANCH>IMPLEMENT>TEST>COMMIT>PR>REVIEW,PR creation authorised; merge owner-gated,commit/PR/checks,close/revert
+WF-004,Staging deployment,PREFLIGHT>DEPLOY>HEALTH>SMOKE>MONITOR>ACCEPT_OR_ROLLBACK,credentials/budget/staging owner gate,deployment IDs/health/logs,provider/module runbook
+WF-005,Canary and production,STAGING_PASS>CANARY>MONITOR>PROMOTE_OR_ROLLBACK,separate owner approval,canary/production proof,named owner/runbook
+WF-006,Controlled learning,OBSERVE>DETECT>DIAGNOSE>PROPOSE>SIMULATE>TEST>REVIEW>CANARY>PROMOTE,material change/release gate,evaluation and change record,version rollback

@@ -1,0 +1,12 @@
+model_id,model,route_order,privacy,cost,state
+MODEL-DETERMINISTIC,Deterministic local software,1,local,A$0 marginal,PREFERRED
+MODEL-CACHE,Verified cached artifact/result,0,artifact dependent,A$0 marginal,PREFERRED
+MODEL-OLLAMA,Ollama/local open models,4,local,hardware/electricity only,PLANNED_OR_OPTIONAL
+MODEL-LLAMACPP,llama.cpp,4,local,hardware/electricity only,PLANNED_OR_OPTIONAL
+MODEL-VLLM,vLLM,4,local/private host,infrastructure dependent,PLANNED_OR_OPTIONAL
+MODEL-OPENAI-COMPAT,OpenAI-compatible provider route,6,provider dependent,paid only when justified,DISABLED_BY_DEFAULT
+MODEL-ANTHROPIC,Anthropic route,7,provider dependent,paid only when justified,OPTIONAL
+MODEL-GOOGLE,Google/Gemini route,6,provider dependent,free allowance then paid,OPTIONAL
+MODEL-QWEN,Qwen route,4,local/provider dependent,local/free-first,OPTIONAL
+MODEL-DEEPSEEK,DeepSeek route,6,provider dependent,lowest-cost suitable only,OPTIONAL
+MODEL-KIMI,Kimi route,6,provider dependent,free/paid route dependent,OPTIONAL
