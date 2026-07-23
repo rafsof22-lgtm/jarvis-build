@@ -1,0 +1,10 @@
+gap_id,gap,state,owner,exact_next_action,proof_required
+GAP-001,"Native ChatGPT IDs, branch trees, system/tool nodes absent from 23 July flattened export",BLOCKED_BY_SOURCE_FORMAT,source owner,provide native conversations.json/mapping-bearing export if available,ID/tree/system/tool reconciliation
+GAP-002,383 low-confidence project placements,REVIEW_REQUIRED,Taxonomy Specialist + human review,review/correct/exclude each queue record,decision ledger
+GAP-003,"1,069 Jarvis applicability links require acceptance/exclusion/defer decisions",REVIEW_REQUIRED,Architecture council,map to canonical modules or exclude with reason,applicability decision register
+GAP-004,Assistant commitments not fully reconciled to actual artifacts/runtime,IN_PROGRESS,Build reality reconciler,map each commitment hash/pointer to artifact/test/evidence or gap,commitment reconciliation ledger
+GAP-005,Open V20 PR #105 not canonical,SUPERSEDE_BY_V21_DEPENDENT_BRANCH,human owner/release gatekeeper,keep open during V21 review; close as superseded only after V21 approval/merge,V21 PR and owner decision
+GAP-006,V21 branch/PR/CI absent before this run,READY_TO_EXECUTE,Jarvis Build,create branch from V20 head and open PR,branch/commit/PR/checks
+GAP-007,Authenticated staging incomplete,BLOCKED_AT_EXACT_STEP,human/provider owners,"approve endpoints, IAM, secret references, DBs, budgets, observability, backups, rollback owners",smallest real route per service
+GAP-008,Production/canary not authorised,NOT_AUTHORISED,human owner,separate approval after staging and security gates,canary/production acceptance
+GAP-009,Full source/requirement/module/runtime no-gaps chain not closed,ACTIVE_PROGRAM_NOT_100_PERCENT,Jarvis programme,"finish review, build reality, CI, staging, canary, final acceptance",complete traceability denominator

@@ -1,0 +1,9 @@
+evidence_id,artifact,sha256,state,proof,privacy
+EVID-001,23 July reconstruction SQLite,dcf640212e38e5d0fc3c5b229734a735ee9c174bca836633b1b1a098da4f164d,DONE_VERIFIED_LOCAL,PRAGMA integrity_check=ok; counts reconciled,raw exact text remains local only
+EVID-002,ChatGPT full reconstruction ZIP,a80693e8b0d3b02c92c310279b667f026e5702970d6c6aac7991ad1b99aca363,SOURCE_VERIFIED,member database recovered,local only
+EVID-003,V34 requirement rescan,9d8b723d366221051ad2543328d09a4a1f7601bcb17e82f168b6006687400bd7,DONE_VERIFIED_BOUNDED,"31 files; 121,911,922 chars; module signals",derived text local
+EVID-004,V35 code-build baseline,48a363b3607af104f34773932be3a739e9f0fd50a334dc610b86d14896050911,BASELINE_MANIFESTS_VERIFIED,38 module manifests inventoried,no secret values accepted
+EVID-005,V3 executable build package,a4bd78bee41400ba02014a423321826246a5cbc2db5daf9297a73af78a942b34,HISTORICAL_RUNTIME_PACKAGE_PRESENT,runtime/config/proof files inventoried,runtime claims need current reconciliation
+EVID-006,GitHub main V19,3d5e7344706cae2909ebad2aa540078464285db2,DONE_VERIFIED_CONNECTED_REPO,merged PR #104 and canonical files,public repo
+EVID-007,Open V20 PR #105,334f4d39a51fbcb536d8db83d7bf5b7c739d85ed,OPEN_MERGEABLE_NOT_CANONICAL,GitHub connector,public repo
+EVID-008,V21 request mapping root,7d0cd7a21558fc39dadca23e4acf88b9181c8853090386559270e2dcccf4b698,DONE_VERIFIED_LOCAL_PRIVACY_SAFE,42994 user requests mapped; 33322 assistant commitments; 14194 blocker records,hash/pointer only

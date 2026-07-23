@@ -1,0 +1,8 @@
+deployment_id,module,environment,state,proof,gap,next_action
+DEP-CTRL,Original Jarvis Control Plane/Command Centre,local,INTEGRATED_STAGING_HISTORICAL,V17/V19 repository evidence,external authenticated staging,approve IAM/endpoints/secrets/budget/rollback
+DEP-HUB,XRP/HBAR Hub,DigitalOcean,HISTORICAL_RUNTIME_NEEDS_CURRENT_PROOF,repository/continuity evidence,recovery and health proof,owner-gated provider verification
+DEP-VTI,Video Intelligence,Vercel/Supabase,HISTORICAL_RUNTIME_SECURITY_REVIEW,repository evidence,token remediation/canary,provider revocation and protected canary
+DEP-HEALTH,Jarvis Health,Railway/private service,UNVERIFIED_CURRENT,repo locator only,service/domain/secrets/privacy approval,prove smallest health-safe route
+DEP-PROPERTY,Property Buyer Intelligence,Railway/n8n/Sheets,PARTIAL_IMPLEMENTATION,repo contracts,staging webhook/row proof,approved non-sensitive staging test
+DEP-BILL-CFO,Bill CFO OCR MCP,Railway,CONNECTED_SHELL_ONLY,historical health shell,real OCR/workbook/queue proof,smallest real read/write evidence flow after approval
+DEP-V21,V21 governance/search/registry package,GitHub PR,READY_FOR_BRANCH_PR,local verifier/search tests,branch/PR/CI/review,create branch and PR; do not merge

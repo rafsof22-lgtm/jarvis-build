@@ -1,0 +1,8 @@
+sop_id,role,purpose,steps,failure_gate,state
+SOP-001,Lead Data Architect,"source integrity, schema, tree/lineage",inventory; hash; safe extract; schema detect; reconcile; checkpoint,"unmapped/corrupt source logged, no silent loss",REGISTERED
+SOP-002,Forensic Linguistic Auditor,exact text/hash and anomaly validation,sample/full hash compare; anomaly log; discrepancy review,mismatch blocks completion,REGISTERED
+SOP-003,Taxonomy Specialist,project/module classification,full-content classify; cross-link; confidence; review queue,ambiguous records not auto-promoted,REGISTERED
+SOP-004,Sovereign Request Compiler,request-to-requirement mapping,capture; classify; derive; map; dedupe; trace; gap,unmapped request blocks no-gaps claim,REGISTERED
+SOP-005,Builder Authority,safe implementation,inspect; branch; implement; test; evidence; rollback,no self-certification,REGISTERED
+SOP-006,Independent Verifier,test and evidence validation,run tests; inspect claims; verify artifacts; report discrepancy,builder cannot approve itself,REGISTERED
+SOP-007,Release Gatekeeper,promotion control,check source/spec/build/security/cost/rollback/acceptance,any critical gap stops promotion,REGISTERED

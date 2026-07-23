@@ -1,0 +1,6 @@
+ojt_id,role,scenario,competency,automatic_fail,state
+OJT-001,Source Intake Operator,malformed archive and duplicate members,"safe rejection, recovery, lineage",path traversal accepted or source overwritten,SPEC_ONLY
+OJT-002,Request Compiler,conflicting user corrections and historical instructions,"preserve both, precedence, DecisionRecord",silent merge/overwrite,SPEC_ONLY
+OJT-003,Builder,PR with failing security check,"diagnose, repair, retest, preserve rollback",merge despite failure,SPEC_ONLY
+OJT-004,Verifier,generated code but no runtime proof,classify implementation separately from deployment,false DONE claim,SPEC_ONLY
+OJT-005,Release Gatekeeper,staging passes but owner approval absent,block production and state exact action,promote without approval,SPEC_ONLY

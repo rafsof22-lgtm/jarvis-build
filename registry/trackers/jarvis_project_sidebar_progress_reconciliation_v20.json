@@ -1,0 +1,82 @@
+{
+  "id": "JARVIS-PROJECT-SIDEBAR-PROGRESS-RECONCILIATION-V20",
+  "version": "20.0.0",
+  "snapshot_date": "2026-07-22",
+  "timezone": "Australia/Melbourne",
+  "program_state": "ACTIVE_PROGRAM_NOT_100_PERCENT",
+  "sidebar_definition": "Conversations visibly listed under the current Jarvis ChatGPT Project in the Project sidebar.",
+  "denominators": {
+    "authoritative_live_project_sidebar_total": {
+      "count": null,
+      "state": "BLOCKED_BY_ACCESS",
+      "reason": "No available connector or runtime surface enumerates the complete Project sidebar or hidden sibling/branched chats."
+    },
+    "fully_captured_sidebar_chats": {
+      "count": 0,
+      "state": "PROVEN_ZERO",
+      "definition": "Full message-role preservation, attachments recovered or gap-logged, branches reconciled, requirements mapped through artifact/test/evidence/runtime/rollback."
+    },
+    "current_active_chat_visible": {
+      "count": 1,
+      "state": "AVAILABLE_BOUNDED"
+    },
+    "historical_account_export": {
+      "conversations": 2610,
+      "messages": 357835,
+      "state": "EXTRACTED_DENOMINATOR_VERIFIED",
+      "not_equal_to": "live Jarvis Project sidebar total"
+    },
+    "jarvis_core_inferred_candidates": {
+      "count": 602,
+      "state": "BOUNDED_INFERENCE",
+      "not_equal_to": "confirmed Project membership"
+    },
+    "named_direct_project_chats": {
+      "count": 258,
+      "state": "DENOMINATOR_MAPPED",
+      "fully_reconstructed": 0,
+      "composition": {
+        "XRP Tracking New": 83,
+        "Tax": 8,
+        "Active Trust": 17,
+        "Finance Planning": 132,
+        "Financial New": 12,
+        "Longevity Plan": 6
+      }
+    },
+    "supplied_shared_chat_links": {
+      "count": 8,
+      "fully_extracted": 0,
+      "state": "BLOCKED_BY_ACCESS"
+    }
+  },
+  "bounded_dashboard": {
+    "workstream_indicator_percent": 52.6,
+    "traffic": "RED",
+    "rule": "Unweighted mean of 17 V19 bounded indicators; not universal completion."
+  },
+  "deployment_path": [
+    {"phase":"P0","name":"CI and governance repair","progress_percent":100,"state":"DONE_VERIFIED","traffic":"GREEN"},
+    {"phase":"P1","name":"Source denominator lock","progress_percent":69,"state":"BLOCKED_PENDING_INGEST","traffic":"RED"},
+    {"phase":"P2","name":"Direct project reconstruction","progress_percent":23,"state":"BLOCKED_BY_ACCESS","traffic":"RED"},
+    {"phase":"P3","name":"Canonical specification lock","progress_percent":99,"state":"DONE_VERIFIED_REPOSITORY_SCOPE","traffic":"AMBER"},
+    {"phase":"P4","name":"Build reality reconciliation","progress_percent":81,"state":"IN_PROGRESS","traffic":"ORANGE"},
+    {"phase":"P5","name":"Authenticated staging","progress_percent":61,"state":"BLOCKED_AT_EXACT_STEP","traffic":"RED"},
+    {"phase":"P6","name":"Canary and production","progress_percent":10,"state":"NOT_AUTHORISED","traffic":"RED"},
+    {"phase":"P7","name":"Final acceptance and handover","progress_percent":0,"state":"BACKLOGGED","traffic":"RED"}
+  ],
+  "priority_queue": [
+    "SOURCE_LOCK",
+    "SHARED_LINK_RECOVERY",
+    "PROJECT_DENOMINATOR",
+    "DIRECT_RECONSTRUCTION",
+    "TRACEABILITY_LOCK",
+    "BUILD_REALITY",
+    "AUTHENTICATED_STAGING",
+    "CANARY",
+    "PRODUCTION",
+    "FINAL_HANDOVER"
+  ],
+  "completion_chain": "Source -> Chat -> Message -> Request -> Requirement -> Module -> Artifact -> Test/Waiver -> Evidence -> Runtime State -> Rollback -> Owner Acceptance",
+  "truth_boundary": "Historical 100% claims remain unverified until reconciled against current repository, source denominators, runtime evidence and owner acceptance."
+}

@@ -1,0 +1,11 @@
+tool_id,tool,module,route,cost_route,state,approval
+TOOL-GITHUB,GitHub native connector/API,MOD-DEPLOYMENT,branch/commit/PR/CI evidence,native/included,CONNECTED_READ_WRITE,merge/production owner-gated
+TOOL-SQLITE,Python sqlite3,MOD-PROJECTS-KB,deterministic local search/audit,free local,VERIFIED_LOCAL,none for read-only
+TOOL-PYTHON,Python standard library,MOD-SOFTWARE-RUNTIME,"extraction, hashing, registries, tests",free local,VERIFIED_LOCAL,none for safe local
+TOOL-DOCKER,Docker/Compose,MOD-DEPLOYMENT,local/staging runtime,free local,REPO_EVIDENCE_PRESENT,external deploy owner-gated
+TOOL-N8N,n8n,MOD-WORKFLOW-RUNTIME,workflow cockpit/webhooks,self-hosted first,ADAPTER_EVIDENCE_PRESENT,credentials/external writes gated
+TOOL-RAILWAY,Railway,MOD-DEPLOYMENT,module-isolated services,existing account/budget gate,PARTIAL_MODULE_EVIDENCE,billing/secrets/deploy gated
+TOOL-VERCEL,Vercel,MOD-DEPLOYMENT,VTI preview/runtime,existing/free tier where valid,HISTORICAL_EVIDENCE,token rotation/deploy gated
+TOOL-DIGITALOCEAN,DigitalOcean,MOD-DEPLOYMENT,Hub runtime,existing infrastructure,HISTORICAL_RUNTIME_EVIDENCE,recovery/production gated
+TOOL-GOOGLE,Google Drive/Sheets/Gmail/Calendar APIs,MOD-INTEGRATIONS-FABRIC,"source, evidence, finance/property/workflows",native/free quotas first,MIXED_CONNECTOR_EVIDENCE,OAuth/scopes/external writes gated
+TOOL-MCP,Model Context Protocol,MOD-INTEGRATIONS-FABRIC,versioned tool contracts,free/open protocol,MULTIPLE_SERVICE_SCAFFOLDS,provider credentials gated

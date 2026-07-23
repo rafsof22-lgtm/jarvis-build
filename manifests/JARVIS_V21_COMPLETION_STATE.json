@@ -1,0 +1,59 @@
+{
+  "id": "JARVIS-V21-COMPLETION-STATE",
+  "snapshot_date": "2026-07-23",
+  "timezone": "Australia/Melbourne",
+  "program_state": "ACTIVE_PROGRAM_NOT_100_PERCENT",
+  "branch": "jarvis/v21-builder-evidence-sync-20260723",
+  "pr_title": "Jarvis V21: sync Builder evidence, search audit, and deployment gates",
+  "base_strategy": "branch from V20 PR #105 head; base PR to main",
+  "free_native_execution": {
+    "deterministic_python_sqlite": true,
+    "github_native_connector": true,
+    "paid_model_calls": 0,
+    "paid_api_calls_required": 0
+  },
+  "source_counts": {
+    "conversations": 2669,
+    "messages": 97589,
+    "user_messages": 47560,
+    "assistant_messages": 50029,
+    "candidate_conversations": 1508,
+    "candidate_user_messages": 42994,
+    "candidate_assistant_messages": 45352
+  },
+  "extraction": {
+    "requests_mapped": 42994,
+    "assistant_commitments": 33322,
+    "blocker_records": 14194,
+    "mapping_root_sha256": "7d0cd7a21558fc39dadca23e4acf88b9181c8853090386559270e2dcccf4b698"
+  },
+  "registry_counts": {
+    "requirements": 38,
+    "features": 38,
+    "functions": 38,
+    "modules": 51,
+    "skills": 38,
+    "tools": 10,
+    "apis": 7,
+    "models": 11,
+    "workflows": 6,
+    "sops": 7,
+    "ojt": 5,
+    "gaps": 9
+  },
+  "phases": [
+    {"phase":1,"name":"Verify current state","state":"DONE_VERIFIED"},
+    {"phase":2,"name":"Fill large frameworks","state":"DONE_VERIFIED_BOUNDED"},
+    {"phase":3,"name":"Complete Mammoth spec","state":"IMPLEMENTED_REPOSITORY_CANDIDATE"},
+    {"phase":4,"name":"Update control files","state":"IMPLEMENTED_REPOSITORY_CANDIDATE"},
+    {"phase":5,"name":"Build registries","state":"IMPLEMENTED_REPOSITORY_CANDIDATE"},
+    {"phase":6,"name":"V21 repo package","state":"DONE_VERIFIED_LOCAL"},
+    {"phase":7,"name":"Create V21 PR","state":"IN_PROGRESS_BRANCH_CREATED"},
+    {"phase":8,"name":"CI and review","state":"PENDING_PR"},
+    {"phase":9,"name":"Merge gate","state":"OWNER_GATED"},
+    {"phase":10,"name":"Staging","state":"BLOCKED_AT_EXACT_STEP"},
+    {"phase":11,"name":"Canary/production","state":"NOT_AUTHORISED"},
+    {"phase":12,"name":"Final verification","state":"BLOCKED_BY_PRIOR_PHASES"}
+  ],
+  "truth_boundary": "Repository artifacts and privacy-safe mapping are complete for the accessible V21 source scope. Native metadata, review queues, runtime/staging/production and owner acceptance remain open."
+}
