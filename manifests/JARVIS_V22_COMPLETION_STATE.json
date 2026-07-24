@@ -1,0 +1,31 @@
+{
+  "version": "V22",
+  "date_melbourne": "2026-07-24",
+  "source_main_commit": "a648d73ce8b7278b4b67327c668c74575b848c3c",
+  "instruction_records": 42994,
+  "canonical_instructions": 38,
+  "modules_reconciled": 51,
+  "requirements": 38,
+  "features": 38,
+  "functions": 38,
+  "skills": 38,
+  "v35_tests_passed": 10,
+  "v22_tests_expected": 5,
+  "public_raw_private_text": false,
+  "status": "LOCAL_CANDIDATE_READY_FOR_GITHUB_PR",
+  "local_staging": "INTEGRATED_STAGING",
+  "local_canary": "DONE_VERIFIED_BOUNDED",
+  "production_candidate_local": "DONE_VERIFIED_BOUNDED",
+  "external_staging": "BLOCKED",
+  "external_canary": "BLOCKED",
+  "production": "BLOCKED",
+  "final_100_percent_acceptance": "BLOCKED",
+  "blockers": [
+    "No connected whole-Jarvis external runtime service/provider control",
+    "Required secrets/IAM/domain/budget unavailable",
+    "383 low-confidence placements unresolved",
+    "1,069 applicability decisions unresolved",
+    "Native ChatGPT tree/system/tool metadata absent",
+    "Multiple modules remain specification-only or not integrated"
+  ]
+}
